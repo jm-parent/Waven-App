@@ -8,9 +8,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'NavigationDrawer Demo',
       theme: new ThemeData(
-        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        primarySwatch: Colors.purple,
+        accentColor: Colors.green
       ),
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{

@@ -1,113 +1,109 @@
 import 'package:flutter/material.dart';
-
-//définition de l'enum
-
-enum TabsDemoStyle { iconsAndText, iconsOnly, textOnly }
-
-//Une sous page
-class _Page {
-  const _Page({this.icon, this.text});
-
-  final IconData icon;
-  final String text;
-}
-
-//Liste des Tabs
-const List<_Page> _allPages = const <_Page>[
-  const _Page(icon: Icons.grade, text: 'TRIUMPH'),
-  const _Page(icon: Icons.playlist_add, text: 'NOTE'),
-  const _Page(icon: Icons.check_circle, text: 'SUCCESS'),
-  const _Page(icon: Icons.question_answer, text: 'OVERSTATE'),
-  const _Page(icon: Icons.sentiment_very_satisfied, text: 'SATISFACTION'),
-  const _Page(icon: Icons.camera, text: 'APERTURE'),
-  const _Page(icon: Icons.assignment_late, text: 'WE MUST'),
-  const _Page(icon: Icons.assignment_turned_in, text: 'WE CAN'),
-  const _Page(icon: Icons.group, text: 'ALL'),
-  const _Page(icon: Icons.block, text: 'EXCEPT'),
-  const _Page(icon: Icons.sentiment_very_dissatisfied, text: 'CRYING'),
-  const _Page(icon: Icons.error, text: 'MISTAKE'),
-  const _Page(icon: Icons.loop, text: 'TRYING'),
-  const _Page(icon: Icons.cake, text: 'CAKE'),
-];
+import 'package:waven_app/models/NewsArticleModel.dart';
+import 'package:waven_app/util/NewsHelper.dart';
 
 class NewsPage extends StatefulWidget {
-  static const String routeName = '/material/scrollable-tabs';
-
   @override
   NewsPageState createState() => new NewsPageState();
 }
 
-class NewsPageState extends State<NewsPage>
-    with SingleTickerProviderStateMixin {
-  TabController _controller;
-  TabsDemoStyle _demoStyle = TabsDemoStyle.iconsOnly;
-
+class NewsPageState extends State<NewsPage> {
   @override
   void initState() {
     super.initState();
-    _controller = new TabController(vsync: this, length: _allPages.length);
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
-  void changeDemoStyle(TabsDemoStyle style) {
-    setState(() {
-      _demoStyle = style;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
-    final Color iconColor = Theme.of(context).accentColor;
-    return new DefaultTabController(
-      length: 3,
-      child: new Scaffold(
-        appBar: new AppBar(
-          actions: <Widget>[],
-          title:  new TabBar(
-            controller: _controller,
-            isScrollable: true,
-            indicatorColor: Colors.blue,
-            labelColor: Colors.red,
-            tabs: _allPages.map((_Page page) {
-              switch (_demoStyle) {
-                case TabsDemoStyle.iconsAndText:
-                  return new Tab(text: page.text, icon: new Icon(page.icon));
-                case TabsDemoStyle.iconsOnly:
-                  return new Tab(icon: new Icon(page.icon));
-                case TabsDemoStyle.textOnly:
-                  return new Tab(text: page.text);
-              }
-            }).toList(),
-          ),
-        ),
-        body: new TabBarView(
-            controller: _controller,
-            children: _allPages.map((_Page page) {
-              return new SafeArea(
-                top: false,
-                bottom: false,
-                child: new Container(
-                  key: new ObjectKey(page.icon),
-                  padding: const EdgeInsets.all(12.0),
-                  child: new Card(
-                    child: new Center(
-                      child: new Icon(
-                        page.icon,
-                        color: iconColor,
-                        size: 128.0,
-                      ),
-                    ),
-                  ),
-                ),
-              );
-            }).toList()),
-      ),
+    return ListView.builder(
+      itemBuilder: (context, position) {
+        NewsArticle article = NewsHelper.getArticle(position);
 
+        return Padding(
+          padding: const EdgeInsets.fromLTRB(0.0, 0.5, 0.0, 0.5),
+          child: Card(
+            child: Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Text(
+                    article.categoryTitle,
+                    style: TextStyle(
+                        color: Colors.white70,
+                        fontWeight: FontWeight.w500,
+                        fontSize: 10.0),
+                  ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(0.0,1.0,0.0,0.0),
+                child: Row (
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+        Expanded(
+        child:  Column(
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Flexible(
+                  child: Text(
+                    article.title,
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold, fontSize: 22.0),
+                  ),
+                  flex: 3,
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text(
+                      article.author,
+                      style: TextStyle(fontSize: 18.0),
+                    ),
+                    Text(
+                      article.date + " . " + article.readTime,
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500),
+                    )
+                  ],
+                ),
+              ],
+            )
+          ],
+                    ),
+        ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+
+                            height: 95.0,
+                            width: 80.0,
+                            child: Image.asset(
+                              "images/" + article.imageAssetName,
+                              fit: BoxFit.cover,
+
+                            )),
+                      ],
+                    ),
+                    ],
+                  )
+              )
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+      itemCount: NewsHelper.articleCount,
     );
-}
+  }
 }

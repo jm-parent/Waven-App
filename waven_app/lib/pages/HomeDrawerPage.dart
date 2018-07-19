@@ -2,15 +2,17 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/DrawerItem.dart';
 import 'package:waven_app/pages/NewsPage.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:waven_app/pages/TestPage.dart';
 
 //Définition de la page
 class HomeDrawerPage extends StatefulWidget {
   final drawerItems = [
-    new DrawerItem("News", Icons.rss_feed),
-    new DrawerItem("Les Héros", Icons.face),
-    new DrawerItem("Les ", Icons.info),
-    new DrawerItem("Press", Icons.developer_board),
-    new DrawerItem("Contact", Icons.phone),
+    new DrawerItem("News", new Icon(Icons.rss_feed)),
+    new DrawerItem("Null", new Icon(Icons.ac_unit)),
+    new DrawerItem("Null", new Icon(Icons.info)),
+    new DrawerItem("Null", new Icon(FontAwesomeIcons.ebay)),
+    new DrawerItem("Test", new Icon(FontAwesomeIcons.discord)),
   ];
 
   @override
@@ -33,9 +35,9 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
       case 2:
         return new RecruitementWidget();
       case 3:
-        return new PressWidget();
+        return new PressWidget();*/
       case 4:
-        return new ContactWidget();*/
+        return new TestPage();
       default:
         return new Text("Error");
     }
@@ -74,7 +76,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
     for (var i = 0; i < widget.drawerItems.length; i++) {
       var d = widget.drawerItems[i];
       drawerOptions.add(new ListTile(
-        leading: new Icon(d.icon),
+        leading: d.icon,
         title: new Text(d.title),
         selected: i == _selectedDrawerIndex,
         onTap: () => _onSelectItem(i),
@@ -85,6 +87,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
         onWillPop: _onWillPop,
         child: new Scaffold(
           appBar: new AppBar(
+
             title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
           ),
           drawer: new Drawer(
