@@ -10,12 +10,10 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       theme: new ThemeData(
         brightness: Brightness.dark,
-        primarySwatch: Colors.purple,
-        accentColor: Colors.green
       ),
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{
-        '/HomeScreen': (BuildContext context) => new HomeDrawerPage()
+        '/DrawerHome': (BuildContext context) => new HomeDrawerPage()
       },
     );
   }

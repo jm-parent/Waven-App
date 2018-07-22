@@ -1,17 +1,20 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/DrawerItem.dart';
+import 'package:waven_app/pages/HeroesListPage.dart';
+import 'package:waven_app/pages/MyScrollTabListAppPage.dart';
 import 'package:waven_app/pages/NewsPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:waven_app/pages/TestPage.dart';
+import 'package:waven_app/pages/YoutubePage.dart';
 
 //Définition de la page
 class HomeDrawerPage extends StatefulWidget {
   final drawerItems = [
     new DrawerItem("News", new Icon(Icons.rss_feed)),
     new DrawerItem("Null", new Icon(Icons.ac_unit)),
-    new DrawerItem("Null", new Icon(Icons.info)),
-    new DrawerItem("Null", new Icon(FontAwesomeIcons.ebay)),
+    new DrawerItem("HeroesList", new Icon(Icons.wifi_tethering)),
+    new DrawerItem("Youtube", new Icon(FontAwesomeIcons.youtube)),
     new DrawerItem("Test", new Icon(FontAwesomeIcons.discord)),
   ];
 
@@ -31,11 +34,11 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
       case 0:
         return new NewsPage();
   /*    case 1:
-        return new TeamsWidget();
+        return new TeamsWidget();*/
       case 2:
-        return new RecruitementWidget();
+        return new HeroesListPage();
       case 3:
-        return new PressWidget();*/
+        return new YoutubePage();
       case 4:
         return new TestPage();
       default:

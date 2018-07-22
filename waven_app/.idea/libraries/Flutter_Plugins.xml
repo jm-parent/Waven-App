@@ -1,6 +1,8 @@
 <component name="libraryTable">
   <library name="Flutter Plugins" type="FlutterPluginsLibraryType">
-    <CLASSES />
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/../../SetupFlutter/flutter/.pub-cache/hosted/pub.dartlang.org/youtube_api-0.2.1" />
+    </CLASSES>
     <JAVADOC />
     <SOURCES />
   </library>

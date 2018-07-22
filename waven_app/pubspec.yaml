@@ -6,6 +6,11 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^0.1.2
+  feedparser: "^0.0.2"
+  webfeed: "^0.2.1"
+  youtube_api: "^0.2.1"
+  transparent_image: ^0.1.0
+
 
 dev_dependencies:
   flutter_test:
@@ -16,8 +21,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - images/xel.trotteuseagite.jpg
-    - images/xel.tenebreuxspectral.png
-    - images/xel.synchronisateur.jpg
     - images/splashscreen.jpg
-    - images/iop.flamboyant.jpg
+    - assets/HeroesDatas.json
+    - assets/SpellsDatas.json

@@ -1,4 +1,5 @@
 
+import 'package:feedparser/feedparser.dart';
 import 'package:waven_app/models/NewsArticleModel.dart';
 
 class NewsHelper {
@@ -15,5 +16,7 @@ class NewsHelper {
   static getArticle(int position) {
     return NewsArticle(categoryTitles[position], titles[position], authorNames[position],date[position],readTimes[position], imageAssetName[position]);
   }
-
+  static getNews(int position,Feed newsData) {
+    return NewsArticle(newsData.items[position].category, newsData.items[position].title, newsData.items[position].author,newsData.items[position].pubDate,"", "");
+  }
 }
