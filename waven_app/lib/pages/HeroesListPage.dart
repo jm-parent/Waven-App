@@ -6,6 +6,8 @@ import 'dart:async';
 import 'package:transparent_image/transparent_image.dart';
 import 'dart:ui' as ui;
 
+import 'package:waven_app/widgets/FixedAppBar.dart';
+
 class HeroesListPage extends StatefulWidget {
   @override
   HeroesListPageState createState() => new HeroesListPageState();
@@ -37,7 +39,9 @@ class HeroesListPageState extends State<HeroesListPage> {
         .of(context)
         .orientation;
     if (data == null) return _loadingView;
-    return new GridView.builder
+    return
+      NestedScrollView(
+          body:  new GridView.builder
       (
         itemCount: heroDatasItemsCount,
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
@@ -72,6 +76,14 @@ class HeroesListPageState extends State<HeroesListPage> {
             ),
           );
         }
+          ),
+          headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
+            return <Widget>[
+              new FixedAppBar("titre", context),
+
+            ];
+
+          }
     );
   }
 

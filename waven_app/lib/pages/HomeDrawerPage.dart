@@ -2,10 +2,11 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/DrawerItem.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
-import 'package:waven_app/pages/MyScrollTabListAppPage.dart';
+
 import 'package:waven_app/pages/NewsPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:waven_app/pages/TestPage.dart';
+
+import 'package:waven_app/pages/TheGamePage.dart';
 import 'package:waven_app/pages/YoutubePage.dart';
 
 //Définition de la page
@@ -33,14 +34,14 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
     switch (pos) {
       case 0:
         return new NewsPage();
-  /*    case 1:
-        return new TeamsWidget();*/
+      case 1:
+        return new TheGamePage();
       case 2:
         return new HeroesListPage();
       case 3:
         return new YoutubePage();
       case 4:
-        return new TestPage();
+        return new Text("Error");
       default:
         return new Text("Error");
     }
@@ -89,10 +90,6 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
     return new WillPopScope(
         onWillPop: _onWillPop,
         child: new Scaffold(
-          appBar: new AppBar(
-
-            title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-          ),
           drawer: new Drawer(
             child: new Column(
               children: <Widget>[
