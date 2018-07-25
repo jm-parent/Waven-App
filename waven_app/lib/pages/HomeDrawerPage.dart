@@ -33,7 +33,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return new NewsPage();
+        return  new NewsPage();
       case 1:
         return new TheGamePage();
       case 2:
@@ -46,6 +46,31 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
         return new Text("Error");
     }
   }
+
+  //Permet la récupération de la page en fonction de la position
+  _getAppBarIfNeeded(int pos) {
+    switch (pos) {
+      case 0:
+        return new AppBar(
+          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
+        );
+      case 1:
+        return null;
+      case 2:
+        return new AppBar(
+          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
+        );   case 3:
+      return new AppBar(
+        title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
+      ); case 4:
+      return new AppBar(
+        title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
+      );  default:
+      return new AppBar(
+        title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
+      ); }
+  }
+
 
 //Permet l'affichage d'une popup de confirmation de quitter
   Future<bool> _onWillPop() {
@@ -90,6 +115,8 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
     return new WillPopScope(
         onWillPop: _onWillPop,
         child: new Scaffold(
+
+          appBar: _getAppBarIfNeeded(_selectedDrawerIndex),
           drawer: new Drawer(
             child: new Column(
               children: <Widget>[

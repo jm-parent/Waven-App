@@ -19,76 +19,7 @@ class TheGamePageState extends State<TheGamePage> {
 
   @override
   Widget build(BuildContext context) {
-    return new CustomScrollView(
-      slivers: <Widget>[
-
-    /* new FlexibleAppBar("Waven le jeu","images/background_the_game.jpg",true),*/
-
-      /*  new SliverAppBar(
-          pinned: true,
-          title: new Text("Waven le jeu"),
-          expandedHeight: 200.0,
-          backgroundColor: Colors.blueGrey,
-          flexibleSpace: new FlexibleSpaceBar(
-            background: new Image.asset("images/background_the_game.jpg"),
-
-          ),
-        ),*/
-        new FixedAppBar("Waven Le Jeu",context),
-
-        new SliverPadding(
-          padding: new EdgeInsets.all(8.0),
-
-          sliver: new SliverList(
-            delegate: new SliverChildListDelegate([
-              new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"),
-              new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"), new Text("teset"),
-              new Text("gseg"),
-              new Text("dfrhsrh"),
-              new Text("sdrhsrhr"),
-            ]),
-          ),
-        ),
-      ],
-    );
-
-    /*  NestedScrollView(
+    return NestedScrollView(
       controller: _scrollViewController,
       headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
         return <Widget>[
@@ -162,7 +93,7 @@ class TheGamePageState extends State<TheGamePage> {
           ],
         ),
       ),
-      );*/
+      );
 
 
 

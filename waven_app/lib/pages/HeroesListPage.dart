@@ -35,13 +35,30 @@ class HeroesListPageState extends State<HeroesListPage> {
 
   @override
   Widget build(BuildContext context) {
-    final Orientation orientation = MediaQuery
-        .of(context)
-        .orientation;
     if (data == null) return _loadingView;
     return
       NestedScrollView(
-          body:  new GridView.builder
+          body: _heroesListWidget,
+          headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
+            return <Widget>[
+
+            ];
+
+          }
+    );
+  }
+
+  Widget get _loadingView {
+    return new Center(
+      child: new CircularProgressIndicator(),
+    );
+  }
+
+  Widget get _heroesListWidget {
+    final Orientation orientation = MediaQuery
+        .of(context)
+        .orientation;
+    return  new GridView.builder
       (
         itemCount: heroDatasItemsCount,
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
@@ -49,18 +66,18 @@ class HeroesListPageState extends State<HeroesListPage> {
         itemBuilder: (context, index) {
           return Material(
             child: new RaisedButton(
-              color: Colors.transparent,
+                color: Colors.transparent,
 
-                  child: new GridTile(
-                    footer: new Center(
-                        child: new Text(data.heroes[index].heroName)),
-                    child: new Hero(tag: data.heroes[index].tag,
-                        child: new FadeInImage.memoryNetwork(
-                      placeholder: kTransparentImage,
-                      image: data.heroes[index].heroImgUrl,
-                    )
-                    ),
+                child: new GridTile(
+                  footer: new Center(
+                      child: new Text(data.heroes[index].heroName)),
+                  child: new Hero(tag: data.heroes[index].tag,
+                      child: new FadeInImage.memoryNetwork(
+                        placeholder: kTransparentImage,
+                        image: data.heroes[index].heroImgUrl,
+                      )
                   ),
+                ),
 
                 padding: const EdgeInsets.all(2.0),
                 onPressed: () {
@@ -72,24 +89,9 @@ class HeroesListPageState extends State<HeroesListPage> {
                   )
                   );
                 }
-
             ),
           );
         }
-          ),
-          headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
-            return <Widget>[
-              new FixedAppBar("titre", context),
-
-            ];
-
-          }
-    );
-  }
-
-  Widget get _loadingView {
-    return new Center(
-      child: new CircularProgressIndicator(),
     );
   }
 

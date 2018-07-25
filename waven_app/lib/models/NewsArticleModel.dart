@@ -7,6 +7,7 @@ class NewsArticle {
   String readTime;
   String imageAssetName;
 
-  NewsArticle(this.categoryTitle, this.title, this.author, this.date,this.readTime, this.imageAssetName);
+   NewsArticle(this.categoryTitle, this.title, this.author, this.date,this.readTime, this.imageAssetName);
 
+  bool get isValid => title != null && date != null;
 }
