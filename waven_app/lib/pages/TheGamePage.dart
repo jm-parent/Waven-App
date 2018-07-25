@@ -31,7 +31,7 @@ class TheGamePageState extends State<TheGamePage> {
                   fontSize: 20.0,
                 )),
             forceElevated: boxIsScrolled,
-            floating: true,
+
             pinned: true,
             flexibleSpace: new FlexibleSpaceBar(
               centerTitle: true,

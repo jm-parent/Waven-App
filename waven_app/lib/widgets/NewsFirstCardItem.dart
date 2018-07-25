@@ -4,12 +4,12 @@ import 'package:feedparser/feedparser.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/NewsArticleModel.dart';
 
-class NewsCardItem extends StatelessWidget {
-  NewsCardItem({ Key key, @required this.news, this.shape })
+class NewsFirstCardItem extends StatelessWidget {
+  NewsFirstCardItem({ Key key, @required this.news, this.shape })
       : assert(news != null),
         super(key: key);
 
-  static const double height = 220.0;
+  static const double height = 150.0;
   final FeedItem news;
   final ShapeBorder shape;
 
@@ -32,7 +32,7 @@ class NewsCardItem extends StatelessWidget {
             children: <Widget>[
               // photo and title
               new SizedBox(
-                height: 120.0,
+                height: 160.0,
                 child: new Stack(
                   children: <Widget>[
                     new Positioned.fill(
@@ -72,7 +72,7 @@ class NewsCardItem extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 0.0),
                           child: new Text(
                             news.pubDate,
-                            style: descriptionStyle.copyWith(color: Colors.white70),
+                            style: descriptionStyle.copyWith(color: Colors.black54),
                           ),
                         ),
 
@@ -84,7 +84,7 @@ class NewsCardItem extends StatelessWidget {
                 ),
               ),
               // share, explore buttons
-            /*  new ButtonTheme.bar(
+              /*  new ButtonTheme.bar(
                 child: new ButtonBar(
                   alignment: MainAxisAlignment.start,
                   children: <Widget>[

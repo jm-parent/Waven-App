@@ -66,9 +66,9 @@ class HeroesListPageState extends State<HeroesListPage> {
         itemBuilder: (context, index) {
           return Material(
             child: new RaisedButton(
-                color: Colors.transparent,
-
+                color: Colors.transparent,animationDuration: Duration(seconds: 4),
                 child: new GridTile(
+
                   footer: new Center(
                       child: new Text(data.heroes[index].heroName)),
                   child: new Hero(tag: data.heroes[index].tag,

@@ -1,12 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'dart:ui' as ui;
 import 'package:waven_app/models/HeroModel.dart';
 
 import 'dart:math' as math;
-
+import 'package:percent_indicator/percent_indicator.dart';
 import 'package:waven_app/models/HeroSpellModel.dart';
 import 'package:waven_app/util/HeroSpellsHelper.dart';
 
@@ -149,7 +150,11 @@ var r = 0;
 
   Widget get _heroDetailStatRow {
     final ThemeData theme = Theme.of(context);
+
+    int animationTimeInMs = 1500;
+
     return new Container(
+
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
@@ -157,69 +162,83 @@ var r = 0;
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: new Container(
-          child: new LinearProgressIndicator(
-          backgroundColor: Colors.black,
-            value: hero.attack / attackMax,
-            valueColor: new AlwaysStoppedAnimation<Color>(Colors.red),
-          ),
+          child: null,
       decoration: new BoxDecoration (
             borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
             color: Colors.black
       ),
     ),
         ),
-            new Slider(
-              value: hero.attack.toDouble(),
-              activeColor: Colors.green,
-              min: 1.0,
-              max: 12.0,
-              divisions: 12,
-              label: 'Attaque',
-              onChanged: (double newValue) {
-                setState(() {
-                  r = newValue.round();
-                });
-              },
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new LinearPercentIndicator(
+            leading: Padding(
+              padding: const EdgeInsets.fromLTRB(0.0,0.0,30.0,0.0),
+              child:
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: new Icon(FontAwesomeIcons.heart),
+                  ),
+                  new Text("Point de vie : " + hero.hp.toString() ),
+                ],
+              ),
             ),
-            new Slider(
-              value: hero.pm.toDouble(),
-              activeColor: Colors.blue,
-              min: 1.0,
-              max: 6.0,
-              divisions: 6,
-              label: 'Hp',
-              onChanged: (double newValue) {
-                setState(() {
-                  r = newValue.round();
-                });
-              },
+            animation: true,
+            animationDuration: animationTimeInMs,
+            width: 200.0,
+            lineHeight: 10.0,
+            percent: hero.hp/100,
+            progressColor: Colors.red,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new LinearPercentIndicator(
+            leading: Padding(
+              padding: const EdgeInsets.fromLTRB(0.0,0.0,30.0,0.0),
+              child:   Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: new Icon(FontAwesomeIcons.dumbbell),
+                  ),
+                  new Text("Attaque : "+ hero.attack.toString() ),
+                ],
+              ),
             ),
-            new Slider(
-              value: hero.pa.toDouble(),
-              activeColor: Colors.cyan,
-              min: 4.0,
-              max: 8.0,
-              divisions: 4,
-              label: 'Hp',
-              onChanged: (double newValue) {
-                setState(() {
-                  r = newValue.round();
-                });
-              },
+            animation: true,
+            animationDuration: animationTimeInMs,
+            width: 200.0,
+            lineHeight: 10.0,
+            percent: hero.attack/10,
+            progressColor: Colors.orange,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: new LinearPercentIndicator(
+            leading: Padding(
+              padding: const EdgeInsets.fromLTRB(0.0,0.0,30.0,0.0),
+              child:   Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: new Icon(FontAwesomeIcons.binoculars),
+                  ),
+                  new Text("Portée : "+ hero.range.toString()),
+                ],
+              ),
             ),
-            new Slider(
-              value: hero.range.toDouble(),
-              activeColor: Colors.orange,
-              min: 0.0,
-              max: 10.0,
-              divisions: 10,
-              label: 'Range',
-              onChanged: (double newValue) {
-                setState(() {
-                  r = newValue.round();
-                });
-              },
-            ),
+            animation: true,
+            animationDuration: animationTimeInMs,
+            width: 200.0,
+            lineHeight: 10.0,
+            percent: hero.range/10,
+            progressColor: Colors.green,
+          ),
+        ),
           ],
         )
     );

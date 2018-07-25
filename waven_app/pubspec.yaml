@@ -2,15 +2,17 @@ name: waven_app
 description: Waven App
 
 dependencies:
-  font_awesome_flutter: ^7.1.0
+  font_awesome_flutter: "^7.1.0"
   flutter:
     sdk: flutter
-  cupertino_icons: ^0.1.2
+  cupertino_icons: "^0.1.2"
   feedparser: "^0.0.2"
   webfeed: "^0.2.1"
   youtube_api: "^0.2.1"
-  transparent_image: ^0.1.0
-  flutter_html_view: "^0.3.1"
+  transparent_image: "^0.1.0"
+  flutter_html_textview: "^0.2.6"
+  flutter_staggered_grid_view: ^0.2.2
+  percent_indicator: ^1.0.5
 
 dev_dependencies:
   flutter_test:
@@ -25,3 +27,5 @@ flutter:
     - assets/HeroesDatas.json
     - assets/SpellsDatas.json
     - images/background_the_game.jpg
+    - images/splashscreen.png
+    - images/fondwaven.png

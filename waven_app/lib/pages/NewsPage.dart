@@ -7,6 +7,10 @@ import 'package:feedparser/feedparser.dart';
 import 'package:http/http.dart' as http;
 import 'package:waven_app/widgets/FixedAppBar.dart';
 import 'package:waven_app/widgets/NewsCardItem.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
+
+
 
 class NewsPage extends StatefulWidget {
   //Constructeur avec paramètre
@@ -33,6 +37,7 @@ class NewsPageState extends State<NewsPage> {
   NewsPageState({this.scaffoldKey});
 
   Feed newsDatas;
+  FeedItem newsLast;
   int newsDatasItemsCount;
 
   Future<Feed> _getNewsData() async {
@@ -43,6 +48,8 @@ class NewsPageState extends State<NewsPage> {
         newsDatas = parse(response.body);
         newsDatasItemsCount = newsDatas.items.length;
       });
+      newsLast = newsDatas.items[0];
+      newsDatas.items.removeAt(0);
 
       return newsDatas;
     } else {
@@ -50,50 +57,107 @@ class NewsPageState extends State<NewsPage> {
     }
   }
 
-  ScrollController _scrollViewController;
-
   @override
   void initState() {
     this._getNewsData();
     super.initState();
-    _scrollViewController = ScrollController(initialScrollOffset: 0.0);
   }
 
   @override
   Widget build(BuildContext context) {
-    final Orientation orientation = MediaQuery
-        .of(context)
-        .orientation;
+    final Orientation orientation = MediaQuery.of(context).orientation;
+    const rad = 5.0;
     if (newsDatas == null) return _loadingView;
-    return new Container(
+
+    //Plan des news
+    List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
+      const StaggeredTile.count(4, 2),
+    ];
+
+    for (var news in newsDatas.items) {
+      _staggeredTiles.add(const StaggeredTile.count(2, 2));
+    };
+
+
+    //Cards des news
+    List<Widget> _tiles = <Widget>[
+
+    ];
+
+    _tiles.add(NewsCardItem(
+        news: newsLast,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(rad),
+            topRight: Radius.circular(rad),
+            bottomLeft: Radius.circular(rad),
+            bottomRight: Radius.circular(rad),
+          ),
+        )));
+
+    for (var news in newsDatas.items) {
+      _tiles.add( NewsCardItem(
+          news: news,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(rad),
+              topRight: Radius.circular(rad),
+              bottomLeft: Radius.circular(rad),
+              bottomRight: Radius.circular(rad),
+            ),
+          )));
+}
+    return new Padding(
+        padding: const EdgeInsets.only(top: 12.0),
+        child: new StaggeredGridView.count(
+          crossAxisCount: 4,
+          staggeredTiles: _staggeredTiles,
+          children: _tiles,
+          mainAxisSpacing: 4.0,
+          crossAxisSpacing: 4.0,
+          padding: const EdgeInsets.all(4.0),
+        ));
+
+
+      /*new Container(
       color: Colors.transparent,
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Padding(
+          *//*Padding(
             padding: const EdgeInsets.all(8.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Text("Nouvelles"),
+
+
               ],
+            ),
+          ),*//*
+
+          SingleChildScrollView(
+            child: SizedBox(
+              child: NewsCardItem(
+                  news: newsLast,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(rad),
+                      topRight: Radius.circular(rad),
+                      bottomLeft: Radius.circular(rad),
+                      bottomRight: Radius.circular(rad),
+                    ),
+                  )),
             ),
           ),
           Expanded(
-            child: GridView.builder(gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+            child: GridView.builder(
+              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount:
+                      (orientation == Orientation.portrait) ? 2 : 3),
               itemBuilder: (context, position) {
                 return Padding(
-                      padding: const EdgeInsets.all(3.0),
-                      child: NewsCardItem(news: newsDatas.items[position],shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20.0),
-                topRight: Radius.circular(20.0),
-                bottomLeft: Radius.circular(20.0),
-                bottomRight: Radius.circular(20.0),
-                ),)
-                    ),
-
-
+                  padding: const EdgeInsets.all(0.0),
+                  child:
                 );
               },
               itemCount: newsDatasItemsCount,
@@ -101,7 +165,8 @@ class NewsPageState extends State<NewsPage> {
           ),
         ],
       ),
-    );
+    )*/
+      ;
   }
 
   Widget get _loadingView {
@@ -111,34 +176,30 @@ class NewsPageState extends State<NewsPage> {
   }
 
   Widget get _newsListWidget {
-    final Orientation orientation = MediaQuery
-        .of(context)
-        .orientation;
-    return  new GridView.builder
-      (
+    final Orientation orientation = MediaQuery.of(context).orientation;
+    return new GridView.builder(
         itemCount: newsDatasItemsCount,
-        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
+        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
         itemBuilder: (context, index) {
           return Material(
-           child: RaisedButton(
+            child: RaisedButton(
               onPressed: () {
-            final snackBar = SnackBar(
-              content: Text('Yay! A SnackBar!'),
-              action: SnackBarAction(
-                label: 'Undo',
-                onPressed: () {
-                  // Some code to undo the change!
-                },
-              ),
-            );
-
-            // Find the Scaffold in the Widget tree and use it to show a SnackBar!
-            Scaffold.of(context).showSnackBar(snackBar);
-          },
-           ),
-                  );
-                }
-
+                final snackBar = SnackBar(
+                  content: Text('Yay! A SnackBar!'),
+                  action: SnackBarAction(
+                    label: 'Undo',
+                    onPressed: () {
+                      // Some code to undo the change!
+                    },
+                  ),
+                );
+                // Find the Scaffold in the Widget tree and use it to show a SnackBar!
+                Scaffold.of(context).showSnackBar(snackBar);
+              },
+            ),
           );
-        }
+        });
   }
+}
+

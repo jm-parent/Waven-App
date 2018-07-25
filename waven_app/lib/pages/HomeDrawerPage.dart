@@ -52,6 +52,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
     switch (pos) {
       case 0:
         return new AppBar(
+          brightness: Brightness.dark,
           title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
         );
       case 1:
@@ -112,10 +113,12 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
       ));
     }
 
+    Color gradientStart = Color(0xFF0277bd); //Change start gradient color here
+    Color gradientEnd = Color(0xFF4fc3f7); //Change end gradient color here
+    
     return new WillPopScope(
         onWillPop: _onWillPop,
         child: new Scaffold(
-
           appBar: _getAppBarIfNeeded(_selectedDrawerIndex),
           drawer: new Drawer(
             child: new Column(
@@ -129,6 +132,21 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
             ),
           ),
           body: _getDrawerItemWidget(_selectedDrawerIndex),
-        ));
+            /*new Stack(
+            children: <Widget>[
+              new Container(
+                decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                    image: new AssetImage("images/fondwaven.png"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                child: null *//* add child content content here *//*,
+              ),*/
+
+
+          ),
+
+        );
   }
 }
