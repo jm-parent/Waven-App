@@ -12,10 +12,10 @@ import 'package:waven_app/pages/YoutubePage.dart';
 //Définition de la page
 class HomeDrawerPage extends StatefulWidget {
   final drawerItems = [
-    new DrawerItem("News", new Icon(Icons.rss_feed)),
-    new DrawerItem("Null", new Icon(Icons.ac_unit)),
-    new DrawerItem("HeroesList", new Icon(Icons.wifi_tethering)),
-    new DrawerItem("Youtube", new Icon(FontAwesomeIcons.youtube)),
+    new DrawerItem("A la une", new Icon(Icons.rss_feed)),
+    new DrawerItem("Le Jeu", new Icon(Icons.ac_unit)),
+    new DrawerItem("Les Héros", new Icon(Icons.wifi_tethering)),
+    new DrawerItem("Les Vidéos", new Icon(FontAwesomeIcons.youtube)),
     new DrawerItem("Test", new Icon(FontAwesomeIcons.discord)),
   ];
 

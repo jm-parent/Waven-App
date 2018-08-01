@@ -5,8 +5,10 @@ class FlexibleAppBar extends SliverAppBar {
   static bool isAssetValue = false;
   FlexibleAppBar(String title, String imageUrl,bool isAsset) : super(
     pinned: true,
+
     backgroundColor: Colors.blueGrey,
       flexibleSpace: new FlexibleSpaceBar(
+
           title: new Text(title),
           background: _buildBackground(imageUrl),
 

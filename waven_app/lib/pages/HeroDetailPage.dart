@@ -3,17 +3,23 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:waven_app/animations/FrostTransition.dart';
 import 'dart:ui' as ui;
 import 'package:waven_app/models/HeroModel.dart';
-
 import 'dart:math' as math;
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:waven_app/models/HeroModelV2.dart';
 import 'package:waven_app/models/HeroSpellModel.dart';
+import 'package:waven_app/models/HeroSpellModelV2.dart';
+import 'package:waven_app/pages/HeroDetailStatDescBlock.dart';
 import 'package:waven_app/util/HeroSpellsHelper.dart';
-
+import 'package:waven_app/widgets/GridHeroRoleStatsItem.dart';
+import 'package:waven_app/widgets/GridLoreItem.dart';
+import 'package:waven_app/widgets/HeroDetailStatRoleTile.dart';
+import 'package:waven_app/widgets/HeroDetailStatStatsBlock.dart';
 
 class HeroDetailPage extends StatefulWidget {
-  final HeroClass hero;
+  final HeroClassV2 hero;
 
   HeroDetailPage(this.hero);
 
@@ -25,7 +31,7 @@ class HeroDetailPage extends StatefulWidget {
 
 class HeroDetailPageState extends State<HeroDetailPage>
     with SingleTickerProviderStateMixin {
-  final HeroClass hero;
+  final HeroClassV2 hero;
 
   HeroDetailPageState(this.hero);
 
@@ -33,11 +39,11 @@ class HeroDetailPageState extends State<HeroDetailPage>
 
   ScrollController _scrollViewController;
 
-  HeroSpellList spellsData;
+  HeroSpellV2List spellsData;
   int spellDatasItemsCount;
 
-  Future<HeroSpellList> _getHeroSpellData() async {
-    spellsData = await HeroSpellsHelper.loadSpellsByGodId(hero.godId);
+  Future<HeroSpellV2List> _getHeroSpellData() async {
+    spellsData = await HeroSpellsV2Helper.loadSpellsByGodId(hero.godid);
     this.setState(() {
       spellDatasItemsCount = spellsData.spells.length;
     });
@@ -65,7 +71,6 @@ class HeroDetailPageState extends State<HeroDetailPage>
                   color: Colors.white,
                   fontSize: 20.0,
                 )),
-            forceElevated: boxIsScrolled,
             floating: true,
             pinned: true,
             flexibleSpace: new FlexibleSpaceBar(
@@ -84,29 +89,27 @@ class HeroDetailPageState extends State<HeroDetailPage>
               ),
             ),
             bottom: TabBar(
-                  isScrollable: true,
-                  tabs: <Widget>[
-                    Tab(
-                      text :"Généralités"
-                      ),
-                    Tab(
-                      text: "Builds",
-                    ),
-                    Tab(
-                      text: "Arme Shushu",
-                    ),
-                    Tab(
-                      text: "Sorts",
-                    ),
-                    Tab(
-                      text: "Histoire",
-                    ),
-                    Tab(
-                      text: "Skins",
-                    ),
-                  ],
-                  controller: _tabController,
+              isScrollable: true,
+              tabs: <Widget>[
+                Tab(text: "Généralités"),
+                Tab(
+                  text: "Builds",
                 ),
+                Tab(
+                  text: "Arme Shushu",
+                ),
+                Tab(
+                  text: "Sorts",
+                ),
+                Tab(
+                  text: "Histoire",
+                ),
+                Tab(
+                  text: "Skins",
+                ),
+              ],
+              controller: _tabController,
+            ),
           ),
         ];
       },
@@ -121,7 +124,6 @@ class HeroDetailPageState extends State<HeroDetailPage>
                     fontSize: 15.0,
                   )),
             ),
-
             Center(
               child: new Text("Page 3",
                   style: TextStyle(
@@ -144,144 +146,58 @@ class HeroDetailPageState extends State<HeroDetailPage>
       ),
     );
   }
-var r = 0;
+
+  var r = 0;
+
   // Ligne de Stat
   var attackMax = 12;
 
   Widget get _heroDetailStatRow {
-    final ThemeData theme = Theme.of(context);
-
-    int animationTimeInMs = 1500;
-
-    return new Container(
-
-        child: new Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new Container(
-          child: null,
-      decoration: new BoxDecoration (
-            borderRadius: new BorderRadius.all(new Radius.circular(10.0)),
-            color: Colors.black
-      ),
-    ),
+    var godId = hero.godid;
+    if (hero == null) return _loadingView;
+    return Stack(children: <Widget>[
+      Container(
+          decoration: new BoxDecoration(
+        image: new DecorationImage(
+          image:
+              new Image.asset("images/background_logo/logo_$godId.png").image,
+          fit: BoxFit.contain,
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new LinearPercentIndicator(
-            leading: Padding(
-              padding: const EdgeInsets.fromLTRB(0.0,0.0,30.0,0.0),
-              child:
-              Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: new Icon(FontAwesomeIcons.heart),
-                  ),
-                  new Text("Point de vie : " + hero.hp.toString() ),
-                ],
-              ),
-            ),
-            animation: true,
-            animationDuration: animationTimeInMs,
-            width: 200.0,
-            lineHeight: 10.0,
-            percent: hero.hp/100,
-            progressColor: Colors.red,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new LinearPercentIndicator(
-            leading: Padding(
-              padding: const EdgeInsets.fromLTRB(0.0,0.0,30.0,0.0),
-              child:   Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: new Icon(FontAwesomeIcons.dumbbell),
-                  ),
-                  new Text("Attaque : "+ hero.attack.toString() ),
-                ],
-              ),
-            ),
-            animation: true,
-            animationDuration: animationTimeInMs,
-            width: 200.0,
-            lineHeight: 10.0,
-            percent: hero.attack/10,
-            progressColor: Colors.orange,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: new LinearPercentIndicator(
-            leading: Padding(
-              padding: const EdgeInsets.fromLTRB(0.0,0.0,30.0,0.0),
-              child:   Row(
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: new Icon(FontAwesomeIcons.binoculars),
-                  ),
-                  new Text("Portée : "+ hero.range.toString()),
-                ],
-              ),
-            ),
-            animation: true,
-            animationDuration: animationTimeInMs,
-            width: 200.0,
-            lineHeight: 10.0,
-            percent: hero.range/10,
-            progressColor: Colors.green,
-          ),
-        ),
-          ],
-        )
-    );
+      )),
+      new ListView(
+        children: <Widget>[
+          Divider(),
+          HeroDetailStatDescBlock(heroData: hero),
+          Divider(),
+          HeroDetailStatRoleBlock(heroData: hero),
+          Divider(),
+          HeroDetailStatStatsBlock(heroData: hero),
+          Divider(),
+        ],
+      )
+    ]);
   }
 
+  //Grid d'histoire "infini" TODO CREER GRID ITEM
   Widget get _heroDetailLoreRow {
-    return Material(
-      child: Center(
-        child: new Container(
-            child: new Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: new Text("Histoire",
-                    style: new TextStyle(
-                      color: Colors.orange,
-                      fontSize: 18.0,
-                      fontFamily:"Rock Salt"
-                    )
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: new RichText(
-                    text: new TextSpan(
-                      text: hero.lores == null ? "Histoire Vide" : hero.lores,
-                    ),
-                  ),
-                ),
-              ],
-            )
-        ),
-      ),
-    );
+    final Orientation orientation = MediaQuery.of(context).orientation;
+    return new GridView.builder(
+        itemCount: 4,
+        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: (orientation == Orientation.portrait) ? 1 : 1),
+        itemBuilder: (context, index) {
+          return GridLoreItem(
+              heroData: hero,
+              loreStr: " lore act " + index.toString(),
+              loreTitle: "Title ${index.toString()}",
+              imgUrl: hero.background);
+        });
   }
 
-  Widget get _heroDetailSpellsRow{
-    final Orientation orientation = MediaQuery
-        .of(context)
-        .orientation;
+  Widget get _heroDetailSpellsRow {
+    final Orientation orientation = MediaQuery.of(context).orientation;
     if (spellsData == null) return _loadingView;
-    return new GridView.builder
-      (
+    return new GridView.builder(
         itemCount: spellDatasItemsCount,
         gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: (orientation == Orientation.portrait) ? 4 : 3),
@@ -290,17 +206,19 @@ var r = 0;
             child: Card(
               child: new GridTile(
                   footer: new Center(
-                      child: new Text(spellsData.spells[index].name)),
-
-                  child: new FadeInImage.memoryNetwork(
-                    placeholder: kTransparentImage,
-                    image: spellsData.spells[index].img,
-                  )
-              ),
+                      child: new Text(spellsData.spells[index].spellname)),
+                  child: spellsData.spells[index].spellicon == "NULL"
+                      ? new FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image: hero.img,
+                        )
+                      : new FadeInImage.memoryNetwork(
+                          placeholder: kTransparentImage,
+                          image: spellsData.spells[index].spellicon,
+                        )),
             ),
           );
-        }
-    );
+        });
   }
 }
 
@@ -308,6 +226,4 @@ Widget get _loadingView {
   return new Center(
     child: new CircularProgressIndicator(),
   );
-
 }
-

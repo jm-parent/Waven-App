@@ -13,7 +13,7 @@
     "hp": 50,
     "armor": 0,
     "shield": 0,
-    "lore": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque interdum ligula, in maximus quam luctus nec. Curabitur maximus nisi finibus, vestibulum risus et, ornare elit. Nullam erat elit, ultrices imperdiet volutpat nec, tincidunt ut ante. Praesent non enim non nisl semper interdum. Sed rhoncus elementum metus sit amet ornare. Quisque malesuada sem diam, eu laoreet odio mattis eu. Phasellus non posuere leo. Sed euismod metus neque, ac viverra mauris vestibulum ut.",
+    "lore": "ornare elit. Nullam erat elit, ultrices imperdiet volutpat nec, tincidunt ut ante. Praesent non enim non nisl semper interdum. Sed rhoncus elementum metus sit amet ornare. Quisque malesuada sem diam, eu laoreet odio mattis eu. Phasellus non posuere leo. Sed euismod metus neque, ac viverra mauris vestibulum ut.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent scelerisque interdum ligula, in maximus quam luctus nec. Curabitur maximus nisi finibus, vestibulum risus et, ornare elit. Nullam erat elit, ultrices imperdiet volutpat nec, tincidunt ut ante. Praesent non enim non nisl semper interdum. Sed rhoncus elementum metus sit amet ornare. Quisque malesuada sem diam, eu laoreet odio mattis eu. Phasellus non posuere leo. Sed euismod metus neque, ac viverra mauris vestibulum ut.",
     "spellIds":[1,2,3,4,5,6,7,8,9,10,11,12],
     "ShushuId": 34,
     "tag": "hero-chevalier-tag"

@@ -150,7 +150,7 @@ class NewsPageState extends State<NewsPage> {
             ),
           ),
           Expanded(
-            child: GridView.builder(
+           child: GridView.builder(
               gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount:
                       (orientation == Orientation.portrait) ? 2 : 3),
