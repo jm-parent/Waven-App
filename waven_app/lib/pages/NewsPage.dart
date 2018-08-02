@@ -43,6 +43,9 @@ class NewsPageState extends State<NewsPage> {
   Future<Feed> _getNewsData() async {
     var response = await client.get("https://waven-game.com/feed/");
 
+
+
+
     if (response.statusCode == 200) {
       this.setState(() {
         newsDatas = parse(response.body);
@@ -119,54 +122,6 @@ class NewsPageState extends State<NewsPage> {
         ));
 
 
-      /*new Container(
-      color: Colors.transparent,
-      child: new Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          *//*Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-
-
-              ],
-            ),
-          ),*//*
-
-          SingleChildScrollView(
-            child: SizedBox(
-              child: NewsCardItem(
-                  news: newsLast,
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(rad),
-                      topRight: Radius.circular(rad),
-                      bottomLeft: Radius.circular(rad),
-                      bottomRight: Radius.circular(rad),
-                    ),
-                  )),
-            ),
-          ),
-          Expanded(
-           child: GridView.builder(
-              gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount:
-                      (orientation == Orientation.portrait) ? 2 : 3),
-              itemBuilder: (context, position) {
-                return Padding(
-                  padding: const EdgeInsets.all(0.0),
-                  child:
-                );
-              },
-              itemCount: newsDatasItemsCount,
-            ),
-          ),
-        ],
-      ),
-    )*/
-      ;
   }
 
   Widget get _loadingView {

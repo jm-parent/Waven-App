@@ -1,8 +1,12 @@
 
 
+import 'dart:convert';
+import 'dart:ui' as ui;
 import 'package:feedparser/feedparser.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/NewsArticleModel.dart';
+import 'package:html/parser.dart' as htmlParser;
+
 
 class NewsCardItem extends StatelessWidget {
   NewsCardItem({ Key key, @required this.news, this.shape })
@@ -16,8 +20,12 @@ class NewsCardItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final TextStyle titleStyle = theme.textTheme.headline.copyWith(color: Colors.white);
+    final TextStyle titleStyle = theme.textTheme.headline.copyWith(color: Colors.white70);
     final TextStyle descriptionStyle = theme.textTheme.subhead;
+
+    String imgUrl = getEnteteUrl(news.description);
+    print(imgUrl);
+
 
     return new SafeArea(
       top: false,
@@ -36,20 +44,30 @@ class NewsCardItem extends StatelessWidget {
                 child: new Stack(
                   children: <Widget>[
                     new Positioned.fill(
-                      child: new Image.asset(
-                        'images/background_the_game.jpg',
+                      child: new Image.network(
+                        imgUrl,
                         fit: BoxFit.cover,
                       ),
                     ),
                     new Positioned(
                       bottom: 16.0,
-                      left: 16.0,
-                      right: 16.0,
-                      child: new FittedBox(
-                        fit: BoxFit.scaleDown,
-                        alignment: Alignment.centerLeft,
-                        child: new Text(news.title,
-                          style: titleStyle,
+                      left: 8.0,
+                      right: 8.0,
+                      child:
+                      new FittedBox(
+                            fit: BoxFit.scaleDown,
+                            alignment: Alignment.centerLeft,
+                            child: Container(
+                              color: Colors.black54,
+                              child: new BackdropFilter(
+                              filter: new ui.ImageFilter.blur(
+                                sigmaX: 10.0,
+                                sigmaY: 10.0,
+                              ),
+                              child: new Text(news.title,
+                              style: titleStyle,
+                            ),
+                          ),
                         ),
                       ),
                     ),
@@ -72,12 +90,11 @@ class NewsCardItem extends StatelessWidget {
                           padding: const EdgeInsets.only(bottom: 0.0),
                           child: new Text(
                             news.pubDate,
-                            style: descriptionStyle.copyWith(color: Colors.white70),
+                            style: descriptionStyle.copyWith(color: Colors.white70,fontSize: 10.0),
                           ),
                         ),
-
-                        new Text.rich(new TextSpan(text: news.description),
-                          overflow: TextOverflow.ellipsis,maxLines: 3,style: new TextStyle(fontSize: 10.0),),
+                        new Text.rich(new TextSpan(text: _parseHtmlString(news.description)),
+                          overflow: TextOverflow.ellipsis,maxLines: 3,style: new TextStyle(fontSize: 11.0),),
                       ],
                     ),
                   ),
@@ -107,5 +124,23 @@ class NewsCardItem extends StatelessWidget {
       ),
     );
   }
+
+
 }
 
+String getEnteteUrl(String description) {
+    var indexOfHttp = description.indexOf("https");
+    var indexOfjpg = description.indexOf(".jpg");
+    var indexOfpng = description.indexOf(".png");
+    indexOfjpg = indexOfjpg == -1 ? 9999: indexOfjpg;
+    indexOfpng = indexOfpng == -1 ? 9999: indexOfpng;
+    var endindex = indexOfjpg > indexOfpng ? indexOfpng : indexOfjpg;
+    var url = description.substring(indexOfHttp,endindex+4);
+    return url;
+  }
+
+String _parseHtmlString(String htmlString) {
+  var document = htmlParser.parse(htmlString);
+  String parsedString = htmlParser.parse(document.body.text).documentElement.text;
+  return parsedString;
+}
