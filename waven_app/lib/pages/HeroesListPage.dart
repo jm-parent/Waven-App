@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/HeroModel.dart';
 import 'package:waven_app/models/HeroModelV2.dart';
@@ -75,11 +76,14 @@ class HeroesListPageState extends State<HeroesListPage> {
             onTap: () => _onTileClicked(index),
             child: new Hero(
                 tag: data.heroes[index].tag,
-                child: new FadeInImage.memoryNetwork(
-                  placeholder: kTransparentImage,
-                  image: data.heroes[index].img,
-                 // fit: BoxFit.cover,
-                )),
+                child:  new CachedNetworkImage(
+                  imageUrl: data.heroes[index].img,
+
+                  placeholder: new CircularProgressIndicator(),
+                  errorWidget: new Icon(Icons.error),
+
+                ),
+            ),
           ),
         ),
       );

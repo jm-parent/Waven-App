@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:waven_app/models/DrawerItem.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
 
@@ -56,11 +57,14 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
           title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
         );
       case 1:
-        return null;
+        return new AppBar(
+          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
+        );
       case 2:
         return new AppBar(
           title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-        );   case 3:
+        );
+        case 3:
       return new AppBar(
         title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
       ); case 4:
@@ -74,24 +78,11 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
 
 
 //Permet l'affichage d'une popup de confirmation de quitter
-  Future<bool> _onWillPop() {
-    return showDialog(
-      context: context,
-      builder: (context) => new AlertDialog(
-        title: new Text('Are you sure?'),
-        content: new Text('Do you want to exit an App'),
-        actions: <Widget>[
-          new FlatButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: new Text('No'),
-          ),
-          new FlatButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: new Text('Yes'),
-          ),
-        ],
-      ),
-    ) ?? false;
+  Future<bool> _onWillPop() async{
+    final flutterWebviewPlugin = new FlutterWebviewPlugin();
+    flutterWebviewPlugin.close();
+    flutterWebviewPlugin.dispose();
+    return false;
   }
 
   //Fermeture du drawer => Changement de state index
