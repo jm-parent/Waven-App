@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:waven_app/pages/DeckBuilderPage.dart';
 import 'package:waven_app/pages/HomeDrawerPage.dart';
 import 'package:waven_app/pages/SplashscreenPage.dart';
 void main() {
@@ -18,8 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{
-        '/DrawerHome': (BuildContext context) => new HomeDrawerPage()
-
+        '/DrawerHome': (BuildContext context) => new HomeDrawerPage(),
       },
     );
   }

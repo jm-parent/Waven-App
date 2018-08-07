@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:waven_app/models/DrawerItem.dart';
+import 'package:waven_app/pages/DeckBuilderPage.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
 
 import 'package:waven_app/pages/NewsPage.dart';
@@ -17,7 +18,8 @@ class HomeDrawerPage extends StatefulWidget {
     new DrawerItem("Le Jeu", new Icon(Icons.ac_unit)),
     new DrawerItem("Les Héros", new Icon(Icons.wifi_tethering)),
     new DrawerItem("Les Vidéos", new Icon(FontAwesomeIcons.youtube)),
-    new DrawerItem("Test", new Icon(FontAwesomeIcons.discord)),
+    new DrawerItem("Deck Builder", new Icon(FontAwesomeIcons.calendar)),
+    new DrawerItem("Test", new Icon(FontAwesomeIcons.oldRepublic)),
   ];
 
   @override
@@ -42,6 +44,8 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
       case 3:
         return new YoutubePage();
       case 4:
+        return new DeckBuilderPage();
+      case 5:
         return new Text("Error");
       default:
         return new Text("Error");
@@ -53,7 +57,6 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
     switch (pos) {
       case 0:
         return new AppBar(
-          brightness: Brightness.dark,
           title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
         );
       case 1:
@@ -67,10 +70,12 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
         case 3:
       return new AppBar(
         title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-      ); case 4:
-      return new AppBar(
-        title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-      );  default:
+      );
+      case 4:
+        return new AppBar(
+          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
+        );
+      default:
       return new AppBar(
         title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
       ); }
@@ -87,8 +92,10 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
 
   //Fermeture du drawer => Changement de state index
   _onSelectItem(int index) {
-    setState(() => _selectedDrawerIndex = index);
-    Navigator.of(context).pop(); // close the drawer
+
+      setState(() => _selectedDrawerIndex = index);
+      Navigator.of(context).pop();
+    // close the drawer
   }
 
   @override
