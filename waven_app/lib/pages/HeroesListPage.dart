@@ -79,7 +79,9 @@ class HeroesListPageState extends State<HeroesListPage> {
                 child:  new CachedNetworkImage(
                   imageUrl: data.heroes[index].img,
 
-                  placeholder: new CircularProgressIndicator(),
+                  placeholder: new Center(
+                    child: new CircularProgressIndicator(),
+                  ),
                   errorWidget: new Icon(Icons.error),
 
                 ),

@@ -41,7 +41,7 @@ class NewsPageState extends State<NewsPage> {
   int newsDatasItemsCount;
 
   Future<Feed> _getNewsData() async {
-    var response = await client.get("https://waven-game.com/feed/");
+    var response = await client.get("https://waven-game.com/fr/feed/");
 
 
 

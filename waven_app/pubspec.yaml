@@ -17,6 +17,7 @@ dependencies:
   zoomable_image: ^1.2.0
   flutter_webview_plugin: 0.2.0
   cached_network_image: "^0.4.1"
+  residemenu: ^1.2.5
 
 dev_dependencies:
   flutter_test:

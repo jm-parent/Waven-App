@@ -1,26 +1,34 @@
 import 'dart:async';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:waven_app/models/DrawerItem.dart';
-import 'package:waven_app/pages/DeckBuilderPage.dart';
+import 'package:waven_app/pages/AnimatedTabBarPage.dart';
+import 'package:waven_app/pages/CustomShushuPage.dart';
+import 'package:waven_app/pages/CustomSpellPage.dart';
+import 'package:waven_app/pages/DecksHomePage.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
 
 import 'package:waven_app/pages/NewsPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:waven_app/pages/PickClassPage.dart';
 
 import 'package:waven_app/pages/TheGamePage.dart';
 import 'package:waven_app/pages/YoutubePage.dart';
+import 'package:waven_app/widgets/ResideCustomMenu.dart';
 
 //Définition de la page
 class HomeDrawerPage extends StatefulWidget {
-  final drawerItems = [
-    new DrawerItem("A la une", new Icon(Icons.rss_feed)),
-    new DrawerItem("Le Jeu", new Icon(Icons.ac_unit)),
-    new DrawerItem("Les Héros", new Icon(Icons.wifi_tethering)),
-    new DrawerItem("Les Vidéos", new Icon(FontAwesomeIcons.youtube)),
-    new DrawerItem("Deck Builder", new Icon(FontAwesomeIcons.calendar)),
-    new DrawerItem("Test", new Icon(FontAwesomeIcons.oldRepublic)),
-  ];
+//  final drawerItems = [
+//    new DrawerItem("A la une", new Icon(Icons.rss_feed)),
+//    new DrawerItem("Le Jeu", new Icon(Icons.ac_unit)),
+//    new DrawerItem("Les Héros", new Icon(Icons.wifi_tethering)),
+//    new DrawerItem("Les Vidéos", new Icon(FontAwesomeIcons.youtube)),
+//    new DrawerItem("Deck Builder", new Icon(FontAwesomeIcons.calendar)),
+//    new DrawerItem("Waven Spell Maker", new Icon(FontAwesomeIcons.bookOpen)),
+//    new DrawerItem("Waven Shushu Maker", new Icon(FontAwesomeIcons.spaceShuttle)),
+//    new DrawerItem("Test", new Icon(FontAwesomeIcons.oldRepublic)),
+//  ];
 
   @override
   State<StatefulWidget> createState() {
@@ -28,7 +36,9 @@ class HomeDrawerPage extends StatefulWidget {
   }
 }
 
-class HomeDrawerPageState extends State<HomeDrawerPage> {
+class HomeDrawerPageState extends State<HomeDrawerPage>
+    with TickerProviderStateMixin {
+
   //Page par défaut = Première page
   int _selectedDrawerIndex = 0;
 
@@ -44,46 +54,20 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
       case 3:
         return new YoutubePage();
       case 4:
-        return new DeckBuilderPage();
+        return new PickClassPage();
       case 5:
-        return new Text("Error");
+        return new CustomSpellPage(initialSpellCost: 0,);
+      case 6:
+        return new CustomShushuPage();
       default:
         return new Text("Error");
     }
   }
 
-  //Permet la récupération de la page en fonction de la position
-  _getAppBarIfNeeded(int pos) {
-    switch (pos) {
-      case 0:
-        return new AppBar(
-          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-        );
-      case 1:
-        return new AppBar(
-          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-        );
-      case 2:
-        return new AppBar(
-          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-        );
-        case 3:
-      return new AppBar(
-        title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-      );
-      case 4:
-        return new AppBar(
-          title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-        );
-      default:
-      return new AppBar(
-        title: new Text(widget.drawerItems[_selectedDrawerIndex].title),
-      ); }
-  }
-
+  MenuController _menuController;
 
 //Permet l'affichage d'une popup de confirmation de quitter
-  Future<bool> _onWillPop() async{
+  Future<bool> _onWillPop() async {
     final flutterWebviewPlugin = new FlutterWebviewPlugin();
     flutterWebviewPlugin.close();
     flutterWebviewPlugin.dispose();
@@ -91,60 +75,100 @@ class HomeDrawerPageState extends State<HomeDrawerPage> {
   }
 
   //Fermeture du drawer => Changement de state index
-  _onSelectItem(int index) {
+//  _onSelectItem(int index) {
+//      setState(() => _selectedDrawerIndex = index);
+//      Navigator.of(context).pop();
+//    // close the drawer
+//  }
 
-      setState(() => _selectedDrawerIndex = index);
-      Navigator.of(context).pop();
-    // close the drawer
+  @override
+  void initState() {
+    super.initState();
+    _menuController = new MenuController(vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> drawerOptions = [];
-    for (var i = 0; i < widget.drawerItems.length; i++) {
-      var d = widget.drawerItems[i];
-      drawerOptions.add(new ListTile(
-        leading: d.icon,
-        title: new Text(d.title),
-        selected: i == _selectedDrawerIndex,
-        onTap: () => _onSelectItem(i),
-      ));
-    }
 
-    Color gradientStart = Color(0xFF0277bd); //Change start gradient color here
-    Color gradientEnd = Color(0xFF4fc3f7); //Change end gradient color here
-    
     return new WillPopScope(
-        onWillPop: _onWillPop,
-        child: new Scaffold(
-          appBar: _getAppBarIfNeeded(_selectedDrawerIndex),
-          drawer: new Drawer(
-            child: new Column(
-              children: <Widget>[
-                new UserAccountsDrawerHeader(
-                  accountName: const Text('MyAccountName'),
-                  accountEmail: const Text('mymail@example.com'),
-                ),
-                new Column(children: drawerOptions)
-              ],
+      onWillPop: _onWillPop,
+      child: new Scaffold(
+        body: buildScaffoldBody(),
+      ),
+    );
+  }
+
+
+  Widget buildScaffoldBody() {
+    return ResideCustomMenu.scafford(
+        direction: ScrollDirection.LEFT,
+        decoration: new BoxDecoration(
+            image: new DecorationImage(
+                image: new CachedNetworkImageProvider(
+                    'https://i1.wp.com/waven-game.com/wp-content/uploads/2018/06/Waven_Carte.png?resize=800%2C445&ssl=1'),
+                fit: BoxFit.cover)),
+        controller: _menuController,
+        leftScaffold: new MenuScaffold(
+          header: new ConstrainedBox(
+            constraints: new BoxConstraints(maxHeight: 80.0, maxWidth: 80.0),
+            child: new CircleAvatar(
+              backgroundImage: new AssetImage('images/logo_waven.png'),
+              radius: 40.0,
             ),
           ),
+          children: <Widget>[
+            buildResideItem("A la une", Icons.rss_feed,context,0),
+            buildResideItem("Le Jeu", Icons.ac_unit,context,1),
+            buildResideItem("Les Héros",Icons.wifi_tethering,context,2),
+           // buildResideItem("Les Vidéos", FontAwesomeIcons.youtube,context,3),
+            buildResideItem("Deck Builder", FontAwesomeIcons.calendar,context,4),
+            buildResideItem("W***n S***l M***r", FontAwesomeIcons.bookOpen,context,5),
+            buildResideItem("W***n S****u M***r", FontAwesomeIcons.spaceShuttle,context,6),
+            buildResideItem("Test", FontAwesomeIcons.oldRepublic,context,7),
+          ],
+        ),
+        child: new Scaffold(
           body: _getDrawerItemWidget(_selectedDrawerIndex),
-            /*new Stack(
-            children: <Widget>[
-              new Container(
-                decoration: new BoxDecoration(
-                  image: new DecorationImage(
-                    image: new AssetImage("images/fondwaven.png"),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: null *//* add child content content here *//*,
-              ),*/
 
+          appBar: new AppBar(
+            leading: new GestureDetector(
+              child: const Icon(Icons.menu),
+              onTap: () {
+               _menuController.openMenu(true);
+              },
+            ),
 
+            // Here we take the value from the MyHomePage object that was created by
+            // the App.build method, and use it to set our appbar title.
+            title: new Text('Waven Companion'),
           ),
+        ),
+      onClose: () {
+//        print("closed");
+      },
+      onOpen: (left) {
+      },
+      onOffsetChange: (offset) {
+      },
+    );
 
-        );
   }
+
+  Widget buildResideItem(var menuName, var icon, var context,var index) {
+    return new Material(
+      color: Colors.transparent,
+      child: new InkWell(
+        child: ResideMenuItem(
+          title: menuName,
+          icon: Icon(icon, color: Color(0xffdddddd)),
+        ),
+        onTap: () {
+          setState(() => _selectedDrawerIndex = index);
+          _menuController.closeMenu();
+         // Navigator.of(context).pop();
+        },
+      ),
+    );
+  }
+
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:waven_app/pages/DeckBuilderPage.dart';
+import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/HomeDrawerPage.dart';
 import 'package:waven_app/pages/SplashscreenPage.dart';
 void main() {

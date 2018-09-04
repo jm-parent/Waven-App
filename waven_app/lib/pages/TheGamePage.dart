@@ -12,12 +12,10 @@ class TheGamePage extends StatefulWidget {
 }
 
 class TheGamePageState extends State<TheGamePage> {
-  ScrollController _scrollViewController;
 
   @override
   void initState() {
     super.initState();
-    _scrollViewController = ScrollController(initialScrollOffset: 0.0);
   }
 
 
@@ -25,55 +23,13 @@ class TheGamePageState extends State<TheGamePage> {
   Widget build(BuildContext context) {
 
 
-    //https://cdn.discordapp.com/attachments/470519553101791243/471018659981164556/DhVNRoYWAAALjiH.jpg
     //Theme/style
     final ThemeData theme = Theme.of(context);
     final TextStyle titleStyle =
     theme.textTheme.headline.copyWith(color: Colors.white,fontSize: 14.0);
     final TextStyle descriptionStyle = theme.textTheme.subhead.copyWith(color: Colors.white70,fontSize: 11.0);
     const Key expandedKey = const PageStorageKey<String>('expanded');
-    final Key tileKey = new UniqueKey();
-  /*  return Column(children: <Widget>[
-      new Expanded(child: 
-      new ZoomableImage(new NetworkImage('https://cdn.discordapp.com/attachments/470519553101791243/471018659981164556/DhVNRoYWAAALjiH.jpg'),
-    placeholder: const Center(child: const CircularProgressIndicator()),
-    )
-      )
-      
-    ],);*/
 
-//    return NestedScrollView(
-//        controller: _scrollViewController,
-//        headerSliverBuilder: (BuildContext context, bool boxIsScrolled) {
-//          return <Widget>[
-//            new SliverAppBar(
-//              expandedHeight: 200.0,
-//              title: Text("Le Jeu",
-//                  style: TextStyle(
-//                    color: Colors.white,
-//                    fontSize: 20.0,
-//                  )),
-//              forceElevated: boxIsScrolled,
-//              pinned: true,
-//              flexibleSpace: new FlexibleSpaceBar(
-//                centerTitle: true,
-//                background:
-//                Padding(
-//                  padding: const EdgeInsets.only(top:8.0),
-//                  child: new Image.network('https://waven-game.com/wp-content/uploads/2018/06/logo_wip_waven.png',fit: BoxFit.scaleDown,),
-//                ),
-//              ),
-//            ),
-//          ];
-//        },
-//        body: Stack(children: <Widget>[
-//          Container(
-//              decoration: new BoxDecoration(
-//            image: new DecorationImage(
-//              image: new Image.asset("images/logo_waven.png").image,
-//              fit: BoxFit.fitWidth,
-//            ),
-//          )),
        return   new ListView(
             children: <Widget>[
               //Row Caractéristique
