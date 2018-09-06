@@ -18,6 +18,8 @@ dependencies:
   flutter_webview_plugin: 0.2.0
   cached_network_image: "^0.4.1"
   residemenu: ^1.2.5
+  image_picker: ^0.4.10
+  image: ^2.0.4
 
 dev_dependencies:
   flutter_test:
@@ -67,3 +69,12 @@ flutter:
     - images/thegame_medias/thegame_pv.png
     - images/thegame_medias/thegame_sliverbg.gif
     - images/thegame_medias/thegame_trailer.gif
+    - images/spell_cadre/spell_air.png
+    - images/spell_cadre/spell_earth.png
+    - images/spell_cadre/spell_fire.png
+    - images/spell_cadre/spell_pa_icon.png
+    - images/spell_cadre/spell_water.png
+    - images/spell_cadre/symbol_earth.png
+    - images/spell_cadre/symbol_fire.png
+    - images/spell_cadre/symbol_water.png
+    - images/spell_cadre/symbol_air.png

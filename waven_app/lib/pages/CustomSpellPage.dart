@@ -1,10 +1,17 @@
+import 'dart:async';
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:waven_app/SpellBuilderWidgets/SpellCostCard.dart';
 import 'package:waven_app/SpellBuilderWidgets/SpellCostSlider.dart';
 import 'package:waven_app/SpellBuilderWidgets/SpellNameCard.dart';
 import 'package:waven_app/util/EnsureVisibleWhenFocused.dart';
+import 'package:waven_app/util/EnumHelper.dart';
 import 'package:waven_app/util/widget_utils.dart' show screenAwareSize;
 import 'package:waven_app/widgets/NumberPicker.dart';
+import 'package:waven_app/models/SpellMakerModel.dart';
+
+import 'package:image_picker/image_picker.dart';
 
 class CustomSpellPage extends StatefulWidget {
   final int initialSpellCost;
@@ -16,144 +23,233 @@ class CustomSpellPage extends StatefulWidget {
 }
 
 class _CustomSpellPageState extends State<CustomSpellPage> {
-  FocusNode _focusNodeSpellName = new FocusNode();
-
+  //FocusNode _focusNodeSpellName = new FocusNode();
+  final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
+  Future<File> _imageFile;
+  bool isVideo = false;
   int spellCostValue;
+  SpellMakerModel customSpellModel = new SpellMakerModel();
 
+  void _onImageButtonPressed(ImageSource source) {
+    setState(() {
+      _imageFile = ImagePicker.pickImage(source: source);
+    });
+  }
+
+  void showMessage(String message, [MaterialColor color = Colors.red]) {
+    showInSnackBar(message);
+  }
+  FocusNode _focusNodeSpellName = new FocusNode();
+  FocusNode _focusNodeLastName = new FocusNode();
+  FocusNode _focusNodeDescription = new FocusNode();
   @override
   void initState() {
     super.initState();
     spellCostValue = widget.initialSpellCost ?? 0;
   }
 
+  void showInSnackBar(String value) {
+    Scaffold.of(context).showSnackBar(new SnackBar(content: new Text(value)));
+  }
+  final _scaffoldKey = new GlobalKey<ScaffoldState>();
+  bool _autovalidate = false;
+  var _formWasEdited = true;
+  Future<bool> _warnUserAboutInvalidData() async {
+    final FormState form = _formKey.currentState;
+    if (form == null || !_formWasEdited || form.validate())
+      return true;
+
+    return await showDialog<bool>(
+      context: context,
+      builder: (BuildContext context) {
+        return new AlertDialog(
+          title: const Text('This form has errors'),
+          content: const Text('Really leave this form?'),
+          actions: <Widget> [
+            new FlatButton(
+              child: const Text('YES'),
+              onPressed: () { Navigator.of(context).pop(true); },
+            ),
+            new FlatButton(
+              child: const Text('NO'),
+              onPressed: () { Navigator.of(context).pop(false); },
+            ),
+          ],
+        );
+      },
+    ) ?? false;
+  }
+
+
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(16.0),
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[buildSpellNameField(), buildSpellCostField()],
+    return  new Scaffold(
+      key: _scaffoldKey,
+      appBar: new AppBar(
+        title: const Text('Text fields'),
+      ),
+      body: new SafeArea(
+        top: false,
+        bottom: false,
+        child: new Form(
+          key: _formKey,
+          autovalidate: _autovalidate,
+          onWillPop: _warnUserAboutInvalidData,
+          child: new SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: new Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                const SizedBox(height: 24.0),
+                buildNameField(),
+                const SizedBox(height: 24.0),
+                buildElementalDropdown(),
+                const SizedBox(height: 24.0),
+                buildImagePicker(),
+                const SizedBox(height: 24.0),
+                buildSubmitButton(customSpellModel.name),
+              ],
+          ),
+          ),
         ),
       ),
     );
   }
 
-  Widget buildSpellCostField() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16.0,bottom: 16.0),
-      child: Row(
-        children: <Widget>[
-          Text("Spell Cost : "),
-          Expanded(
+  void _submitForm() {
+    final FormState form = _formKey.currentState;
 
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SpellCostBackground(
-                child: LayoutBuilder(
-                  builder: (context, constraints) => SpellCostSlider(
-                        minValue: 0,
-                        maxValue: 12,
-                        value: spellCostValue,
-                        onChanged: (val) => setState(() => spellCostValue = val),
-                        width: constraints.maxWidth,
-                      ),
+    if (!form.validate()) {
+      showMessage('Form is not valid!  Please review and correct.');
+    } else {
+      form.save(); //This invokes each onSaved event
+
+    }
+  }
+
+  buildElementalDropdown() {
+    return new InputDecorator(
+      decoration: const InputDecoration(
+        labelText: 'Elemental type',
+      ),
+      child: new DropdownButtonHideUnderline(
+    child: new DropdownButton<WavenElementalType>(
+
+      value: customSpellModel.elementalType,
+      isDense: false,
+      onChanged: (WavenElementalType newValue) {
+        setState(() {
+          customSpellModel.elementalType = newValue;
+        });
+      },
+      items: WavenElementalType.values.map((WavenElementalType value) {
+        var cutValue = value.toString().split('.')[1];
+        return new DropdownMenuItem<WavenElementalType>(
+          value: value,
+          child: new Image.asset('images/spell_cadre/symbol_$cutValue.png',),
+        );
+      }).toList(),
+    ),
+      )
+    );
+  }
+
+  buildSubmitButton(var spellName) {
+    return new Container(
+        padding: const EdgeInsets.only(top: 20.0),
+        child: new RaisedButton(
+          child: ListTile(
+            title:Text('Generate $spellName'),leading:const Icon(Icons.check),
+          ),
+          onPressed: _submitForm,
+        ));
+  }
+
+  buildImagePicker() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Expanded(
+            flex: 2,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8.0),
+                  child: Text('Spell Image'),
                 ),
-              ),
+                new RaisedButton(
+                onPressed: () {
+                isVideo = false;
+                _onImageButtonPressed(ImageSource.gallery);
+                },
+                child:ListTile(
+                  title: Text('Pick Image'),leading:const Icon(Icons.photo_library),
+                )
+                ),
+              ],
             ),
           ),
+          Expanded(
+            child:  Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _previewImage(),
+            ),
+          )
         ],
       ),
     );
   }
 
-  EnsureVisibleWhenFocused buildSpellNameField() {
-    return new EnsureVisibleWhenFocused(
+  buildNameField() {
+    return EnsureVisibleWhenFocused(
       focusNode: _focusNodeSpellName,
-      child: new TextField(
-        decoration: const InputDecoration(
-          border: const UnderlineInputBorder(),
-          filled: true,
-          icon: const Icon(Icons.chat),
-          hintText: 'Enter Spell Name',
-          labelText: 'Nom du sort',
-        ),
-        onChanged: (String value) {
-          print(value);
-        },
+      child: new TextFormField(
         focusNode: _focusNodeSpellName,
+        decoration: const InputDecoration(
+          hintText: 'Enter the spell name',
+          labelText: 'Spell Name',
+        ),
+        onFieldSubmitted: (val) => customSpellModel.name = val,
+        inputFormatters: [new LengthLimitingTextInputFormatter(30)],
+        validator: (val) => val.isEmpty ? 'Spell Name is required' : null,
       ),
     );
   }
 
-  Widget _buildCards(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 14.0,
-        right: 14.0,
-        top: screenAwareSize(32.0, context),
-      ),
-      child: Column(
-        children: <Widget>[
-          SpellNameField,
-          Expanded(child: SpellCostCard()),
-        ],
-      ),
-    );
+  Widget _previewImage() {
+    return FutureBuilder<File>(
+        future: _imageFile,
+        builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.data != null) {
+            return new Center(
+              child: new AspectRatio(
+                aspectRatio: 1/1,
+                child: new Container(
+                  decoration: new BoxDecoration(
+                      image: new DecorationImage(
+                        fit: BoxFit.fitWidth,
+                        alignment: FractionalOffset.topCenter,
+                        image:  Image.file(snapshot.data).image,
+                      )
+                  ),
+                ),
+              ),
+            );
+          } else if (snapshot.error != null) {
+            return const Text(
+              'Error picking image.',
+              textAlign: TextAlign.center,
+            );
+          } else {
+            return const Text(
+              'You have not yet picked an image.',
+              textAlign: TextAlign.center,
+            );
+          }
+        });
   }
-
-  final TitlePage = Padding(
-    padding: EdgeInsets.only(
-      left: 24.0,
-      top: 20.0,
-    ),
-    child: Text(
-      "Spell Builder 0.1",
-      style: new TextStyle(fontSize: 28.0, fontWeight: FontWeight.bold),
-    ),
-  );
-
-  final SpellNameField = TextFormField(
-    keyboardType: TextInputType.emailAddress,
-    autofocus: false,
-    initialValue: 'alucard@gmail.com',
-    decoration: InputDecoration(
-      hintText: 'Email',
-      contentPadding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(32.0)),
-    ),
-  );
-
-  Widget _tempCard(String label) {
-    return Card(
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        child: Text(label),
-      ),
-    );
-  }
-
-  Widget _buildBottom(BuildContext context) {
-    return new InkWell(
-      onTap: _onTapNext(),
-      child: new Container(
-          height: screenAwareSize(40.0, context),
-          width: screenAwareSize(120.0, context),
-          alignment: FractionalOffset.center,
-          decoration: new BoxDecoration(
-              color: Colors.grey,
-              borderRadius: const BorderRadius.all(const Radius.circular(30.0)),
-              border: new Border.all(
-                color: const Color.fromRGBO(221, 221, 221, 1.0),
-                width: 1.0,
-              )),
-          child: Text(
-            "Suivant",
-            style: TextStyle(fontSize: 22.0),
-          )),
-    );
-  }
-
-  _onTapNext() {}
 }

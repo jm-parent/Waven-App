@@ -6,6 +6,7 @@ import 'package:waven_app/models/DrawerItem.dart';
 import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/CustomShushuPage.dart';
 import 'package:waven_app/pages/CustomSpellPage.dart';
+import 'package:waven_app/pages/CustomSpellPreSetupPage.dart';
 import 'package:waven_app/pages/DecksHomePage.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
 
@@ -19,16 +20,6 @@ import 'package:waven_app/widgets/ResideCustomMenu.dart';
 
 //Définition de la page
 class HomeDrawerPage extends StatefulWidget {
-//  final drawerItems = [
-//    new DrawerItem("A la une", new Icon(Icons.rss_feed)),
-//    new DrawerItem("Le Jeu", new Icon(Icons.ac_unit)),
-//    new DrawerItem("Les Héros", new Icon(Icons.wifi_tethering)),
-//    new DrawerItem("Les Vidéos", new Icon(FontAwesomeIcons.youtube)),
-//    new DrawerItem("Deck Builder", new Icon(FontAwesomeIcons.calendar)),
-//    new DrawerItem("Waven Spell Maker", new Icon(FontAwesomeIcons.bookOpen)),
-//    new DrawerItem("Waven Shushu Maker", new Icon(FontAwesomeIcons.spaceShuttle)),
-//    new DrawerItem("Test", new Icon(FontAwesomeIcons.oldRepublic)),
-//  ];
 
   @override
   State<StatefulWidget> createState() {
@@ -56,7 +47,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
       case 4:
         return new PickClassPage();
       case 5:
-        return new CustomSpellPage(initialSpellCost: 0,);
+        return new CustomSpellPreSetupPage();
       case 6:
         return new CustomShushuPage();
       default:
