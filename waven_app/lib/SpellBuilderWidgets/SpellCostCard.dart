@@ -1,6 +1,6 @@
 import 'package:waven_app/SpellBuilderWidgets/CardTitle.dart';
 import 'package:waven_app/SpellBuilderWidgets/SpellCostSlider.dart';
-import 'package:waven_app/util/widget_utils.dart' show screenAwareSize;
+import 'package:waven_app/util/widget_utils.dart';
 import 'package:flutter/material.dart';
 
 class SpellCostCard extends StatefulWidget {
@@ -27,7 +27,7 @@ class _SpellCostCardState extends State<SpellCostCard> {
   Widget build(BuildContext context) {
     return Card(
       child: Padding(
-        padding: EdgeInsets.only(top: screenAwareSize(20.0, context)),
+        padding: EdgeInsets.only(top: ScreenAwareHelper.screenAwareSize(20.0, context)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
@@ -75,17 +75,17 @@ class SpellCostBackground extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: <Widget>[
         Container(
-          height: screenAwareSize(50.0, context),
+          height: ScreenAwareHelper.screenAwareSize(50.0, context),
           decoration: BoxDecoration(
             color: Color.fromRGBO(244, 244, 244, 0.3),
             borderRadius:
-            new BorderRadius.circular(screenAwareSize(3.0, context)),
+            new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(3.0, context)),
           ),
           child: child,
         ),
         new Icon(
           Icons.arrow_upward,
-          size: screenAwareSize(15.0, context),
+          size: ScreenAwareHelper.screenAwareSize(15.0, context),
           color: Color.fromRGBO(49, 84, 129, 1.0),
         )
       ],

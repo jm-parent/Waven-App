@@ -1,16 +1,11 @@
 import 'dart:async';
-
+import 'package:webfeed/webfeed.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/NewsArticleModel.dart';
 import 'package:waven_app/util/NewsHelper.dart';
-import 'package:feedparser/feedparser.dart';
 import 'package:http/http.dart' as http;
-import 'package:waven_app/widgets/FixedAppBar.dart';
 import 'package:waven_app/widgets/NewsCardItem.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-
-
-
 
 class NewsPage extends StatefulWidget {
   //Constructeur avec paramètre
@@ -36,23 +31,52 @@ class NewsPageState extends State<NewsPage> {
 
   NewsPageState({this.scaffoldKey});
 
-  Feed newsDatas;
-  FeedItem newsLast;
+  RssFeed newsDatas;
+  RssItem newsLast;
   int newsDatasItemsCount;
+  //Plan des news
+  List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
+    const StaggeredTile.count(4, 2),
+  ];
 
-  Future<Feed> _getNewsData() async {
+  //Cards des news
+  List<Widget> _tiles = <Widget>[];
+
+
+
+  Future<RssFeed> _getNewsData() async {
     var response = await client.get("https://waven-game.com/fr/feed/");
-
-
-
 
     if (response.statusCode == 200) {
       this.setState(() {
-        newsDatas = parse(response.body);
+        newsDatas = new RssFeed.parse(response.body);
         newsDatasItemsCount = newsDatas.items.length;
       });
       newsLast = newsDatas.items[0];
       newsDatas.items.removeAt(0);
+
+      for (var test in newsDatas.items) {
+        _staggeredTiles.add(const StaggeredTile.count(2, 2));
+      }
+      const rad = 5.0;
+      _tiles.add(NewsCardItem(
+          news: newsLast,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(
+             Radius.circular(rad)
+            ),
+          )));
+
+      for (var news in newsDatas.items) {
+        _tiles.add(NewsCardItem(
+            news: news,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                  Radius.circular(rad)
+              ),
+            )));
+      }
+
 
       return newsDatas;
     } else {
@@ -66,50 +90,11 @@ class NewsPageState extends State<NewsPage> {
     super.initState();
   }
 
+
   @override
   Widget build(BuildContext context) {
-    final Orientation orientation = MediaQuery.of(context).orientation;
-    const rad = 5.0;
     if (newsDatas == null) return _loadingView;
 
-    //Plan des news
-    List<StaggeredTile> _staggeredTiles = <StaggeredTile>[
-      const StaggeredTile.count(4, 2),
-    ];
-
-    for (var news in newsDatas.items) {
-      _staggeredTiles.add(const StaggeredTile.count(2, 2));
-    };
-
-
-    //Cards des news
-    List<Widget> _tiles = <Widget>[
-
-    ];
-
-    _tiles.add(NewsCardItem(
-        news: newsLast,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(rad),
-            topRight: Radius.circular(rad),
-            bottomLeft: Radius.circular(rad),
-            bottomRight: Radius.circular(rad),
-          ),
-        )));
-
-    for (var news in newsDatas.items) {
-      _tiles.add( NewsCardItem(
-          news: news,
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(rad),
-              topRight: Radius.circular(rad),
-              bottomLeft: Radius.circular(rad),
-              bottomRight: Radius.circular(rad),
-            ),
-          )));
-}
     return new Padding(
         padding: const EdgeInsets.only(top: 12.0),
         child: new StaggeredGridView.count(
@@ -120,8 +105,6 @@ class NewsPageState extends State<NewsPage> {
           crossAxisSpacing: 4.0,
           padding: const EdgeInsets.all(4.0),
         ));
-
-
   }
 
   Widget get _loadingView {
@@ -129,32 +112,4 @@ class NewsPageState extends State<NewsPage> {
       child: new CircularProgressIndicator(),
     );
   }
-
-  Widget get _newsListWidget {
-    final Orientation orientation = MediaQuery.of(context).orientation;
-    return new GridView.builder(
-        itemCount: newsDatasItemsCount,
-        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: (orientation == Orientation.portrait) ? 2 : 3),
-        itemBuilder: (context, index) {
-          return Material(
-            child: RaisedButton(
-              onPressed: () {
-                final snackBar = SnackBar(
-                  content: Text('Yay! A SnackBar!'),
-                  action: SnackBarAction(
-                    label: 'Undo',
-                    onPressed: () {
-                      // Some code to undo the change!
-                    },
-                  ),
-                );
-                // Find the Scaffold in the Widget tree and use it to show a SnackBar!
-                Scaffold.of(context).showSnackBar(snackBar);
-              },
-            ),
-          );
-        });
-  }
 }
-

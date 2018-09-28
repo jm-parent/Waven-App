@@ -103,6 +103,8 @@ class SpellCostSlider extends StatelessWidget {
     return middleValue;
   }
 
+
+
   bool _onNotification(Notification notification) {
     if (notification is ScrollNotification) {
       int middleValue = _offsetToMiddleValue(notification.metrics.pixels);
@@ -115,6 +117,7 @@ class SpellCostSlider extends StatelessWidget {
         onChanged(middleValue); //update selection
       }
     }
+
     return true;
   }
 }

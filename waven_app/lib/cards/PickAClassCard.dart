@@ -2,7 +2,7 @@ import 'package:waven_app/cards/CardTitle.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/util/EnumHelper.dart';
 
-import 'package:waven_app/util/widget_utils.dart' show screenAwareSize;
+import 'package:waven_app/util/widget_utils.dart';
 
 class PickAClassCard extends StatefulWidget {
   final WavenPrimaryClass initialPrimaryClass;
@@ -19,7 +19,7 @@ class _PickAClassCardState extends State<PickAClassCard> {
       child: SizedBox(
         width: double.infinity,
         child: Padding(
-          padding: EdgeInsets.only(top: screenAwareSize(8.0, context)),
+          padding: EdgeInsets.only(top: ScreenAwareHelper.screenAwareSize(8.0, context)),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[

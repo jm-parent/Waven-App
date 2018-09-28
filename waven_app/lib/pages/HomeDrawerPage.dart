@@ -2,20 +2,14 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:waven_app/models/DrawerItem.dart';
-import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/CustomShushuPage.dart';
-import 'package:waven_app/pages/CustomSpellPage.dart';
 import 'package:waven_app/pages/CustomSpellPreSetupPage.dart';
-import 'package:waven_app/pages/DecksHomePage.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
-
 import 'package:waven_app/pages/NewsPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:waven_app/pages/PickClassPage.dart';
-
 import 'package:waven_app/pages/TheGamePage.dart';
-import 'package:waven_app/pages/YoutubePage.dart';
+import 'package:waven_app/pages/CustomTeamPreBuilderPage.dart';
 import 'package:waven_app/widgets/ResideCustomMenu.dart';
 
 //Définition de la page
@@ -43,13 +37,13 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
       case 2:
         return new HeroesListPage();
       case 3:
-        return new YoutubePage();
-      case 4:
         return new PickClassPage();
       case 5:
         return new CustomSpellPreSetupPage();
       case 6:
         return new CustomShushuPage();
+      case 7:
+        return new CustomTeamPreBuilderPage();
       default:
         return new Text("Error");
     }
@@ -111,10 +105,10 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
             buildResideItem("A la une", Icons.rss_feed,context,0),
             buildResideItem("Le Jeu", Icons.ac_unit,context,1),
             buildResideItem("Les Héros",Icons.wifi_tethering,context,2),
-           // buildResideItem("Les Vidéos", FontAwesomeIcons.youtube,context,3),
-            buildResideItem("Deck Builder", FontAwesomeIcons.calendar,context,4),
-            buildResideItem("W***n S***l M***r", FontAwesomeIcons.bookOpen,context,5),
-            buildResideItem("W***n S****u M***r", FontAwesomeIcons.spaceShuttle,context,6),
+            buildResideItem("Deck Builder", FontAwesomeIcons.calendar,context,3),
+            buildResideItem("Waven Spell Maker", FontAwesomeIcons.bookOpen,context,4),
+            buildResideItem("W***n S****u M***r", FontAwesomeIcons.spaceShuttle,context,5),
+            buildResideItem("Team Builder", FontAwesomeIcons.wrench,context,6),
             buildResideItem("Test", FontAwesomeIcons.oldRepublic,context,7),
           ],
         ),
@@ -163,3 +157,4 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
   }
 
 }
+

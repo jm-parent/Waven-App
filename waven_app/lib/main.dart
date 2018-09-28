@@ -4,8 +4,6 @@ import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/HomeDrawerPage.dart';
 import 'package:waven_app/pages/SplashscreenPage.dart';
 void main() {
-  MaterialPageRoute.debugEnableFadingRoutes =
-  true; // ignore: deprecated_member_use
   runApp(MyApp());
 }
 

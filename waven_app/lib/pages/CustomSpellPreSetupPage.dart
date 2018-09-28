@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
 import 'package:waven_app/pages/CustomSpellPage.dart';
+import 'package:waven_app/pages/SpellMakerPage.dart';
 
 class CustomSpellPreSetupPage extends StatelessWidget {
 
@@ -14,29 +16,32 @@ class CustomSpellPreSetupPage extends StatelessWidget {
 
   buildSubmitButton() {
     const double rad = 40.0;
-    return Center(
-      child: Card(
-        margin: EdgeInsets.all(8.0),
-        child: new GridTile(
-          header: Center(
-            child: Text("Bienvenue dans le Waven Spell Maker",style:  Theme.of(contextClass).textTheme.headline.copyWith(
-                color: Colors.white70),),
-          ),
-          child: Center(
-            child: new InkResponse(
-              onTap: () => _onTileClicked(),
-              child:  new Text('I\'m Ready'),
-                ),
-          ),
+    return Column(
+      children: <Widget>[
+        Text("Bienvenue dans le Waven Spell Maker",style:  Theme.of(contextClass).textTheme.headline.copyWith(
+            color: Colors.white70),),
+        Card(
+          margin: EdgeInsets.all(40.0),
+          child: FlatButton(onPressed: _onTileClicked, child: Text('to spellmaker'))
             ),
-          ),
-        );
+        Card(
+            margin: EdgeInsets.all(40.0),
+            child: FlatButton(onPressed: _onTileDirectClicked, child: Text('to AnimatedMaker'))
+        ),
+      ],
+    );
   }
 
 
   _onTileClicked() {
     Navigator.push(contextClass, new MaterialPageRoute(builder: (context) {
-      return new CustomSpellPage(initialSpellCost: 0,);
+      return new SpellMakerPage();
+    }));
+  }
+
+  _onTileDirectClicked() {
+    Navigator.push(contextClass, new MaterialPageRoute(builder: (context) {
+      return new AnimatedSpellMakerPage();
     }));
   }
 }
