@@ -21,8 +21,8 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
     super.initState();
     _navigationViews = <NavigationIconView>[
       new NavigationIconView(
-        icon: const Icon(Icons.access_alarm),
-        title: 'Shushu',
+        icon: const Icon(Icons.new_releases),
+        title: 'News',
         color: Colors.deepPurple,
         vsync: this,
       ),

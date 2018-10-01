@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:waven_app/models/SpellMakerModel.dart';
+import 'package:waven_app/util/EnumHelper.dart';
+import 'package:waven_app/util/VisibilityTool.dart';
 import 'package:waven_app/util/widget_utils.dart';
 
 class AnimatedSpellMakerPage extends StatefulWidget {
@@ -11,11 +16,11 @@ class AnimatedSpellMakerPage extends StatefulWidget {
 }
 
 class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
-    with SingleTickerProviderStateMixin {
-
-  AnimationController _controller;
-  Animation _animation;
-
+    with TickerProviderStateMixin {
+  AnimationController _controllerPaAnim;
+  Animation _animationPa;
+  AnimationController _controllerBorderShiver;
+  Animation _animationBorderShiver;
 
   bool isDesignMode = false;
   final _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -34,33 +39,30 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
 
   //Translate PA
   var translateX = Tween<double>(begin: 0.0, end: -100.0);
+  Future<File> _imageFile; // Image chargée
+  bool stepImageLoaded = false;
 
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
 
     super.initState();
-    _controller = new AnimationController(
-        duration: new Duration(seconds: 2),
-        vsync: this
-    )
+    _controllerPaAnim = new AnimationController(
+        duration: new Duration(milliseconds: 400), vsync: this)
       ..addListener(() {
         this.setState(() {});
       });
-
-    Tween _tween = new Tween<double>(
+    Tween _twTranslateX = new Tween<double>(
       begin: 0.0,
       end: 100.0,
     );
-
-    _animation = _tween.animate(_controller);
-
-    _controller.forward();
+    _animationPa = _twTranslateX.animate(_controllerPaAnim);
+    _controllerPaAnim.forward();
   }
 
 // ...Boilerplate...
 
-   _afterLayout(_) {
+  _afterLayout(_) {
     _updateBorderElementPositions();
   }
 
@@ -101,28 +103,32 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
                             50, context) -
                         (borderElementWidth == null
                             ? 0
-                            : borderElementWidth / 2) - _animation.value,
+                            : borderElementWidth / 2) -
+                        _animationPa.value,
                   ),
                   Positioned(
                     child: BuildFakeBorderElement(),
                     top: ScreenAwareHelper.screenAwareSizePercentHeight(
                         borderElementYPercentPosition + 10, context),
                     left: ScreenAwareHelper.screenAwareSizePercentWidth(
-                        5, context),
+                            5, context) -
+                        _animationPa.value * 2,
                   ),
                   Positioned(
                     child: BuildPaElement(),
                     top: ScreenAwareHelper.screenAwareSizePercentHeight(
                         borderElementYPercentPosition + 10, context),
                     left: ScreenAwareHelper.screenAwareSizePercentWidth(
-                        5, context),
+                            5, context) -
+                        _animationPa.value * 2,
                   ),
                   Positioned(
                     child: BuildFakeBorderElement(),
                     top: ScreenAwareHelper.screenAwareSizePercentHeight(
                         borderElementYPercentPosition + 10, context),
                     left: ScreenAwareHelper.screenAwareSizePercentWidth(
-                        -25, context),
+                            -25, context) -
+                        _animationPa.value,
                   ),
                 ],
               ),
@@ -177,10 +183,25 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
   BuildRealBorderElement() {
     var element = customSpellModel.elementalType.toString().split('.')[1];
     return Container(
-      child: new Image.asset(
-        'images/spell_cadre/spell_$element.png',
-        key: _keyBorderElement,
-        width: ScreenAwareHelper.screenAwareSizePercentWidth(30, context),
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Container(
+            color: Colors.transparent,
+            height: 100.0,
+            child: linkWidgetVisibilityToBool(
+                _imageFile != null, _previewImage()),
+          ),
+          new Image.asset(
+            'images/spell_cadre/spell_$element.png',
+            key: _keyBorderElement,
+            width: ScreenAwareHelper.screenAwareSizePercentWidth(30, context),
+          ),
+
+          Container(
+              child: linkWidgetVisibilityToBool(
+                  _imageFile == null, BuildPickImageButton())),
+        ],
       ),
     );
   }
@@ -231,7 +252,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
             child: Icon(FontAwesomeIcons.eye, color: Colors.black87),
             backgroundColor: Colors.lightGreenAccent,
             onTap: () => setState(() {
-                  _controller.forward();
+                  _controllerPaAnim.forward();
                   isDesignMode = false;
                   showInSnackBar('Edit mode ON');
                 }),
@@ -243,7 +264,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
             child: Icon(FontAwesomeIcons.pencilAlt, color: Colors.black87),
             backgroundColor: Colors.yellow,
             onTap: () => setState(() {
-              _controller.reverse();
+                  _controllerPaAnim.reverse();
                   isDesignMode = true;
                   showInSnackBar('Design mode ON');
                 }),
@@ -267,4 +288,66 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
         ? new Text('We are in design mode')
         : new Text('We are in edit mode');
   }
+
+  _previewImage() {
+    var colorFilter = ElementToColor[customSpellModel.elementalType];
+
+    return FutureBuilder<File>(
+        future: _imageFile,
+        builder: (BuildContext context, AsyncSnapshot<File> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done &&
+              snapshot.data != null) {
+            stepImageLoaded = true;
+            return new Container(
+              width: 100.0,
+              decoration: new BoxDecoration(
+                  image: new DecorationImage(
+                colorFilter: new ColorFilter.mode(
+                    colorFilter.withOpacity(0.6), BlendMode.color),
+                fit: BoxFit.fitWidth,
+                alignment: FractionalOffset.topCenter,
+                image: Image.file(
+                  snapshot.data,
+                ).image,
+              )),
+            );
+          } else if (snapshot.error != null) {
+            return const Text(
+              'Error picking image.',
+              textAlign: TextAlign.center,
+            );
+          } else {
+            return Icon(
+              FontAwesomeIcons.images,
+              size: 40.0,
+            );
+          }
+        });
+  }
+
+  //Permet de charger une image depuis le mobile
+  void _onImageButtonPressed(ImageSource source) {
+    setState(() {
+      _imageFile = ImagePicker.pickImage(source: source);
+    });
+  }
+
+  Widget BuildPickImageButton() {
+    return RaisedButton(
+      padding: EdgeInsets.only(left: 8.0, right: 8.0),
+      onPressed: () {
+        _onImageButtonPressed(ImageSource.gallery);
+      },
+      child: Icon(
+        Icons.photo_library,
+      ),
+    );
+  }
 }
+
+Map<WavenElementalType, Color> ElementToColor = new Map.from({
+  WavenElementalType.fire: Colors.orange,
+  WavenElementalType.air: Colors.purple,
+  WavenElementalType.earth: Colors.green,
+  WavenElementalType.water: Colors.lightBlueAccent,
+});

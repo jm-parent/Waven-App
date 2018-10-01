@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/CustomShushuPage.dart';
 import 'package:waven_app/pages/CustomSpellPreSetupPage.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
@@ -31,7 +32,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return  new NewsPage();
+        return  new AnimatedTabBarPage();
       case 1:
         return new TheGamePage();
       case 2:
