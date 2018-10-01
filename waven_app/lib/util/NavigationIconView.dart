@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
-class NavigationIconView {
-  NavigationIconView({
+class NavigationView {
+  NavigationView({
+    Widget page,
     Widget icon,
     Widget activeIcon,
     String title,
     Color color,
     TickerProvider vsync,
-  }) : _icon = icon,
+  }) : page = page,
+        icon = icon,
         _color = color,
         _title = title,
         item = new BottomNavigationBarItem(
@@ -25,7 +27,8 @@ class NavigationIconView {
     );
   }
 
-  final Widget _icon;
+  final Widget page;
+  final Widget icon;
   final Color _color;
   final String _title;
   final BottomNavigationBarItem item;
@@ -50,16 +53,8 @@ class NavigationIconView {
           begin: const Offset(0.0, 0.02), // Slightly down.
           end: Offset.zero,
         ).animate(_animation),
-        child: new IconTheme(
-          data: new IconThemeData(
-            color: iconColor,
-            size: 120.0,
-          ),
-          child: new Semantics(
-            label: 'Placeholder for $_title tab',
-            child: _icon,
-          ),
-        ),
+            child: page,
+
       ),
     );
   }

@@ -72,7 +72,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
         ScreenAwareHelper.screenAwareSizePercentHeight(100, context);
     screenWidthMax =
         ScreenAwareHelper.screenAwareSizePercentWidth(100, context);
-    var borderElementYPercentPosition = 65;
+    var borderElementYPercentPosition = 55;
 
     return new Scaffold(
       key: _scaffoldKey,

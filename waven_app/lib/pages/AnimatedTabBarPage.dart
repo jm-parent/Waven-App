@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:transparent_image/transparent_image.dart';
+import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
+import 'package:waven_app/pages/HeroesListPage.dart';
+import 'package:waven_app/pages/NewsPage.dart';
 import 'package:waven_app/util/NavigationIconView.dart';
 
 class AnimatedTabBarPage extends StatefulWidget {
@@ -14,55 +18,52 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
 
   int _currentIndex = 0;
   BottomNavigationBarType _type = BottomNavigationBarType.shifting;
-  List<NavigationIconView> _navigationViews;
+  List<NavigationView> _navigationViews;
 
   @override
   void initState() {
     super.initState();
-    _navigationViews = <NavigationIconView>[
-      new NavigationIconView(
-        icon: const Icon(Icons.new_releases),
+    _navigationViews = <NavigationView>[
+      new NavigationView(
+        page: NewsPage(),
+        icon: Image.asset("images/menu_icons/News.png",width: 32.0,),
+
         title: 'News',
-        color: Colors.deepPurple,
+        color: Colors.blueGrey[700],
         vsync: this,
       ),
-      new NavigationIconView(
-        activeIcon: new CustomIcon(),
-        icon: new CustomInactiveIcon(),
-        title: 'Sorts',
-        color: Colors.deepOrange,
-        vsync: this,
-      ),
-      new NavigationIconView(
-        activeIcon: const Icon(Icons.cloud),
-        icon: const Icon(Icons.cloud_queue),
+
+      new NavigationView(
+        page: HeroesListPage(),
+        icon: Image.asset("images/menu_icons/Heros.png",width: 32.0,),
         title: 'Compagnons',
-        color: Colors.teal,
+        color: Colors.blueGrey[700],
         vsync: this,
       ),
-      new NavigationIconView(
-        activeIcon: const Icon(Icons.favorite),
-        icon: const Icon(Icons.favorite_border),
-        title: 'Equipements',
-        color: Colors.indigo,
+      new NavigationView(
+        page: AnimatedSpellMakerPage(),
+        icon: Image.asset("images/menu_icons/Spellmaker1.png",width: 32.0,),
+        title: 'Arsenal',
+        color: Colors.blueGrey[700],
         vsync: this,
       ),
-      new NavigationIconView(
-        icon: const Icon(Icons.event_available),
+      new NavigationView(
+        page: Image.asset("images/menu_icons/Test.png",width: 32.0,),
+        icon: Image.asset("images/menu_icons/Test.png",width: 32.0,),
         title: '???',
-        color: Colors.pink,
+        color: Colors.blueGrey[700],
         vsync: this,
       )
     ];
 
-    for (NavigationIconView view in _navigationViews)
+    for (NavigationView view in _navigationViews)
       view.controller.addListener(_rebuild);
 
     _navigationViews[_currentIndex].controller.value = 1.0;
   }
   @override
   void dispose() {
-    for (NavigationIconView view in _navigationViews)
+    for (NavigationView view in _navigationViews)
       view.controller.dispose();
     super.dispose();
   }
@@ -77,7 +78,7 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
   Widget _buildTransitionsStack() {
     final List<FadeTransition> transitions = <FadeTransition>[];
 
-    for (NavigationIconView view in _navigationViews)
+    for (NavigationView view in _navigationViews)
       transitions.add(view.transition(_type, context));
 
     // We want to have the newly animating (fading in) views on top.
@@ -98,7 +99,7 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
 
     final BottomNavigationBar botNavBar = new BottomNavigationBar(
       items: _navigationViews
-          .map((NavigationIconView navigationView) => navigationView.item)
+          .map((NavigationView navigationView) => navigationView.item)
           .toList(),
       currentIndex: _currentIndex,
       type: _type,
