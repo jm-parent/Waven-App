@@ -16,6 +16,7 @@ import 'package:waven_app/util/widget_utils.dart';
 import 'package:waven_app/widgets/PlaceholderWidget.dart';
 import 'package:waven_app/widgets/ShadowText.dart';
 import 'package:waven_app/widgets/SpellEffectBackground.dart';
+import 'package:waven_app/widgets/UpDownImageWidget.dart';
 
 class AnimatedSpellMakerPage extends StatefulWidget {
   @override
@@ -209,10 +210,13 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
                   Positioned(
                     child: buildSkillDesc(),
                     top: ScreenAwareHelper.screenAwareSizePercentHeight(
-                        30, context),
+                        15 - 5 * _animationPa.value ~/ 100.0, context),
+                    bottom:ScreenAwareHelper.screenAwareSizePercentHeight(
+                        45 - 5 * _animationPa.value ~/ 100.0, context),
                     left: ScreenAwareHelper.screenAwareSizePercentWidth(
                             50, context) -
-                        _skillDescDesign.width / 2,
+                        ScreenAwareHelper.screenAwareSizePercentWidth(
+                            75, context) / 2,
                   )
                 ],
               ),
@@ -597,42 +601,133 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
     });
   }
 
+  callbackGen(responseUpDownModel responseGen) {
+    setState(() {
+      switch ( responseGen.elementalType){
+        case WavenElementalType.fire:
+            customSpellModel.fireGen = responseGen.newValue;
+          break;
+
+        case WavenElementalType.air:
+            customSpellModel.airGen = responseGen.newValue;
+          break;
+        case WavenElementalType.earth:
+            customSpellModel.earthGen = responseGen.newValue;
+          break;
+        case WavenElementalType.water:
+            customSpellModel.waterGen = responseGen.newValue;
+          break;
+        default:
+            customSpellModel.shushuGen = responseGen.newValue;
+          break;
+
+    }});
+  }
   buildSkillDesc() {
     return Container(
-        height: ScreenAwareHelper.screenAwareSizePercentHeight(30, context),
+        width: ScreenAwareHelper.screenAwareSizePercentWidth(75,context),
         key: _keySkillDescDesign,
         color: Colors.black.withOpacity(0.8),
-        child: IntrinsicWidth(
-          child: Column(
-            children: <Widget>[
-              SpellEffectWidget('FLAMME HUILEE'),
-              new Row(
+        child: Column(
+          children: <Widget>[
+            Expanded(
+                flex: 10,
+                child: AnimatedCrossFade(firstChild: SpellEffectWidget(customSpellModel.name),
+                secondChild: Stack(
+                  children: <Widget>[
+                    SpellEffectWidget(''),
+                    ListTile(leading: MaterialButton (onPressed: _showDialog,child: Icon(Icons.edit,size: 28.0,),),title: Text(customSpellModel.name,style: TextStyle(fontSize: 22.0,fontStyle: FontStyle.italic)),),
+                  ],
+                ) ,
+                crossFadeState:  isDesignMode ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                duration: Duration(milliseconds: 400))
+            ),
+            Expanded(
+              flex: isDesignMode ? 10: 20,
+              child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  SizedBox(width: 40.0,),
-                  Image.asset('images/spell_cadre/Reserve_Iop_Mini.png'),
-                  Image.asset('images/spell_cadre/symbol_water.png'),
-                  Image.asset('images/spell_cadre/symbol_earth.png'),
-                  Image.asset('images/spell_cadre/symbol_air.png'),
-                  Image.asset('images/spell_cadre/symbol_fire.png'),
-                  SizedBox(width: 40.0,),
+                  SizedBox(width: 10.0,),
+                  UpDownImageWidget(imageUrl: 'images/spell_cadre/Reserve_Iop_Mini.png',callbackUpDownImage: callbackGen,enterValue: customSpellModel.shushuGen,isDesignMode: isDesignMode,spellElement: null,),
+                  UpDownImageWidget(imageUrl: 'images/spell_cadre/symbol_water.png',callbackUpDownImage: callbackGen,enterValue: customSpellModel.waterGen,isDesignMode: isDesignMode,spellElement: WavenElementalType.water,colorIcon: ElementToColor[WavenElementalType.water],),
+                  UpDownImageWidget(imageUrl: 'images/spell_cadre/symbol_earth.png',callbackUpDownImage: callbackGen,enterValue: customSpellModel.earthGen,isDesignMode: isDesignMode,spellElement: WavenElementalType.earth,colorIcon: ElementToColor[WavenElementalType.earth]),
+                  UpDownImageWidget(imageUrl: 'images/spell_cadre/symbol_air.png',callbackUpDownImage: callbackGen,enterValue: customSpellModel.airGen,isDesignMode: isDesignMode,spellElement: WavenElementalType.air,colorIcon: ElementToColor[WavenElementalType.air],),
+                  UpDownImageWidget(imageUrl: 'images/spell_cadre/symbol_fire.png',callbackUpDownImage: callbackGen,enterValue: customSpellModel.fireGen,isDesignMode: isDesignMode,spellElement: WavenElementalType.fire,colorIcon: ElementToColor[WavenElementalType.fire],),
+                  SizedBox(width: 10.0,),
                 ],
               ),
-              Expanded(
-                child: Container(
-                  color: Colors.grey,
-                  child: Text(
-                    'Inflige 6 dégâts \net applique l\'état huilé',
-                    maxLines: 2,
-                    style: TextStyle(fontSize: 18.0),
-                  ),
+            ),
+            Expanded(
+              flex: isDesignMode ? 18: 12,
+              child: AnimatedCrossFade(firstChild: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  customSpellModel.desc,
+                  style: TextStyle(fontSize: 18.0),
                 ),
               ),
-            ],
-          ),
+                  secondChild: ListTile(leading: MaterialButton (onPressed: _showDialogDesc,child: Icon(Icons.edit,size: 28.0,),),title: Text(customSpellModel.desc,style: TextStyle(fontSize: 20.0,fontStyle: FontStyle.italic)),) ,
+                  crossFadeState:  isDesignMode ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                  duration: Duration(milliseconds: 400))
+            ),
+          ],
         ));
   }
+
+  TextEditingController controllerTextName = new TextEditingController();
+  TextEditingController controllerTextDesc = new TextEditingController();
+
+  _showDialog() async {
+    await showDialog<String>(
+      context: context,
+      builder: (_) =>
+       new AlertDialog(
+        content: new TextField(
+          controller: controllerTextName,
+          autofocus: true,
+          decoration: new InputDecoration(
+              labelText: 'Spell Name', hintText: 'Kamehamehaaaaa'),
+        ),
+        actions: <Widget>[
+          new FlatButton(
+              child: const Text('SAVE'),
+              onPressed: () {
+                setState(() {
+                  customSpellModel.name =controllerTextName.text;
+                });
+                    Navigator.pop(context);
+              })
+        ],
+      ),
+    );
+  }
+  _showDialogDesc() async {
+    await showDialog<String>(
+      context: context,
+      builder: (_) =>
+      new AlertDialog(
+        content: new TextField(
+          maxLines: 3,
+          controller: controllerTextDesc,
+          autofocus: true,
+          decoration: new InputDecoration(
+              labelText: 'Desc Name', hintText: 'Kamehamehaaaaa'),
+        ),
+        actions: <Widget>[
+          new FlatButton(
+              child: const Text('SAVE'),
+              onPressed: () {
+                setState(() {
+                  customSpellModel.desc =controllerTextDesc.text;
+                });
+                Navigator.pop(context);
+              })
+        ],
+      ),
+    );
+  }
 }
+
 
 Map<WavenElementalType, Color> ElementToColor = new Map.from({
   WavenElementalType.fire: Colors.orange,
@@ -665,3 +760,18 @@ Map<WavenEffectType, Color> EffectToColor = new Map.from({
   WavenEffectType.fire: Colors.orange,
   WavenEffectType.water: Colors.lightBlueAccent,
 });
+
+class _SystemPadding extends StatelessWidget {
+  final Widget child;
+
+  _SystemPadding({Key key, this.child}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    return new AnimatedContainer(
+        padding: mediaQuery.viewInsets,
+        duration: const Duration(milliseconds: 300),
+        child: child);
+  }
+}
