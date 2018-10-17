@@ -9,3 +9,17 @@ enum WavenShushuClass { Ecaflip, Eniripsa , Iop , Cra , Feca , Sacrieur , Sadida
 // Les éléments
 
 enum WavenElementalType { fire , earth, air, water }
+enum WavenEffectType { noeffect, fire , earth, air, water }
+
+enum RadialMenuChaState {
+  closed,
+  closing,
+  opening,
+  open,
+  expanding,
+  collapsing,
+  expanded,
+  activating,
+  dissipating,
+}
+

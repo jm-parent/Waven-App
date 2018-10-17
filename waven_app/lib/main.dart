@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/HomeDrawerPage.dart';
+import 'package:waven_app/pages/IntroSlidePage.dart';
 import 'package:waven_app/pages/SplashscreenPage.dart';
 void main() {
   runApp(MyApp());
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{
         '/Mainhome': (BuildContext context) => new Scaffold(body: new AnimatedTabBarPage()),
+        '/IntroSlide': (BuildContext context) => new IntroSliderPage(),
       },
     );
   }

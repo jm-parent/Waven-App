@@ -10,10 +10,11 @@ class SpellMakerModel {
   int shushuId = 0;
   WavenElementalType elementalType = WavenElementalType.fire;
   String effects = '';
+  WavenEffectType effectType = WavenEffectType.noeffect;
 
   @override
   String toString() {
-    return 'SpellMakerModel{name: $name, pa: $pa, designFile: $backgroundFile, urlImage: $urlImage, elementalType: $elementalType}';
+    return 'SpellMakerModel{name: $name, pa: $pa, designFile: $backgroundFile, urlImage: $urlImage, elementalType: $elementalType, effectType: $effectType}';
   }
 
   bool isNew() {
@@ -23,7 +24,8 @@ class SpellMakerModel {
         this.urlImage == '' &&
         this.shushuId == 0 &&
         this.elementalType == WavenElementalType.fire &&
-        this.effects == '')
+        this.effects == ''&&
+        this.effectType == WavenEffectType.noeffect)
       return true;
     else
       return false;
@@ -37,5 +39,6 @@ class SpellMakerModel {
     this.shushuId = 0;
     this.elementalType = WavenElementalType.fire;
     this.effects = '';
+    this.effectType = WavenEffectType.noeffect;
   }
 }

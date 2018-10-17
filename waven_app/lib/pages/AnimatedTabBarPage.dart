@@ -25,11 +25,11 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
     super.initState();
     _navigationViews = <NavigationView>[
       new NavigationView(
-        page: NewsPage(),
+        page: Container(child: Text("Test Page")), //NewsPage(),
         icon: Image.asset("images/menu_icons/News.png",width: 32.0,),
 
         title: 'News',
-        color: Colors.blueGrey[700],
+        color: Colors.transparent,
         vsync: this,
       ),
 
@@ -37,23 +37,23 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
         page: HeroesListPage(),
         icon: Image.asset("images/menu_icons/Heros.png",width: 32.0,),
         title: 'Compagnons',
-        color: Colors.blueGrey[700],
+        color: Colors.transparent,
         vsync: this,
       ),
       new NavigationView(
         page: AnimatedSpellMakerPage(),
         icon: Image.asset("images/menu_icons/Spellmaker1.png",width: 32.0,),
         title: 'Arsenal',
-        color: Colors.blueGrey[700],
+        color: Colors.transparent,
         vsync: this,
       ),
       new NavigationView(
-        page: Image.asset("images/menu_icons/Test.png",width: 32.0,),
-        icon: Image.asset("images/menu_icons/Test.png",width: 32.0,),
-        title: '???',
-        color: Colors.blueGrey[700],
+        page: Container(),
+        icon: Image.asset("images/menu_icons/Spellmaker1.png",width: 32.0,),
+        title: 'Spell Maker',
+        color: Colors.transparent,
         vsync: this,
-      )
+      ),
     ];
 
     for (NavigationView view in _navigationViews)
@@ -103,6 +103,7 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
           .toList(),
       currentIndex: _currentIndex,
       type: _type,
+
       onTap: (int index) {
         setState(() {
           _navigationViews[_currentIndex].controller.reverse();
@@ -114,10 +115,25 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>  with TickerPro
 
     return
       new Scaffold(
+        backgroundColor: Colors.transparent,
         body: new Center(
             child: _buildTransitionsStack()
         ),
-        bottomNavigationBar: botNavBar,
+        bottomNavigationBar: Container(
+          child: botNavBar,
+          decoration: new BoxDecoration(
+        gradient: new LinearGradient(
+        begin: Alignment.bottomCenter,
+          end: Alignment.topCenter,
+          stops: [0.1, 0.5, 0.7, 0.9],
+          colors: [
+            Colors.blueGrey[800],
+            Colors.blueGrey[700],
+            Colors.blueGrey[600],
+            Colors.blueGrey[400],
+          ],
+        ),
+      ),),
       );
   }
 

@@ -23,8 +23,7 @@ dependencies:
   flutter_swiper: ^1.1.2
   auto_size_text: ^0.2.0
   intl: ^0.15.7
-
-
+  intro_slider: ^1.0.7
 
 dev_dependencies:
   flutter_test:
@@ -34,54 +33,11 @@ flutter:
   uses-material-design: true
 
   assets:
-    - images/splashscreen.jpg
+
     - assets/HeroesDatas.json
     - assets/HeroesDatav2.json
     - assets/SpellsDatas.json
     - assets/SpellsDatasV2.json
-    - images/background_the_game.jpg
-    - images/splashscreen.png
-    - images/fondwaven.png
-    - images/role_1.png
-    - images/normalbg.png
-    - images/role_2.png
-    - images/role_3.png
-    - images/role_4.png
-    - images/role_5.png
-    - images/role_6.png
-    - images/role_7.png
-    - images/role_8.png
-    - images/background_logo/logo_cra.png
-    - images/background_logo/logo_eca.png
-    - images/background_logo/logo_elio.png
-    - images/background_logo/logo_eni.png
-    - images/background_logo/logo_enu.png
-    - images/background_logo/logo_feca.png
-    - images/background_logo/logo_hupper.png
-    - images/background_logo/logo_1.png
-    - images/background_logo/logo_osa.png
-    - images/background_logo/logo_ougi.png
-    - images/background_logo/logo_panda.png
-    - images/background_logo/logo_roub.png
-    - images/background_logo/logo_sacri.png
-    - images/background_logo/logo_sadi.png
-    - images/background_logo/logo_sram.png
-    - images/background_logo/logo_steam.png
-    - images/background_logo/logo_2.png
-    - images/background_logo/logo_zob.png
-    - images/logo_waven.png
-    - images/thegame_medias/thegame_atq.png
-    - images/thegame_medias/thegame_pm.png
-    - images/thegame_medias/thegame_pv.png
-    - images/thegame_medias/thegame_sliverbg.gif
-    - images/thegame_medias/thegame_trailer.gif
-    - images/spell_cadre/spell_air.png
-    - images/spell_cadre/spell_earth.png
-    - images/spell_cadre/spell_fire.png
-    - images/spell_cadre/spell_pa_icon.png
-    - images/spell_cadre/spell_water.png
-    - images/spell_cadre/symbol_earth.png
-    - images/spell_cadre/symbol_fire.png
-    - images/spell_cadre/symbol_water.png
-    - images/spell_cadre/symbol_air.png
+    - images/
     - images/menu_icons/
+    - images/spellmaker_res/

@@ -9,7 +9,7 @@ class SpellEffectWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipPath(
       child: Container(
-        color: Colors.grey.withOpacity(0.2),
+        color: Colors.grey.withOpacity(0.6),
        child: Center(child: Padding(
          padding: const EdgeInsets.only(top:10.0,bottom: 15.0),
          child: Text(titleText, style: TextStyle(fontSize: 22.0,fontStyle: FontStyle.italic)),

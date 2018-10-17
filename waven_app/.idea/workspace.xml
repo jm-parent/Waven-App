@@ -26,103 +26,28 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file leaf-file-name="SpellMakerPage.dart" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/lib/pages/SpellMakerPage.dart">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-108">
-                    <caret line="295" column="28" selection-start-line="295" selection-start-column="28" selection-end-line="295" selection-end-column="28" />
-                    <folding>
-                      <element signature="e#0#20#0" expanded="true" />
-                      <element signature="e#11313#12101#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="waven_app" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AnimatedSpellMakerPage.dart" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AnimatedSpellMakerPage.dart" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AnimatedTabBarPage.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/pages/AnimatedTabBarPage.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+            <state relative-caret-position="374">
+              <caret line="621" column="24" lean-forward="true" selection-start-line="621" selection-start-column="24" selection-end-line="621" selection-end-column="24" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#1780#1893#0" />
-                <element signature="e#1913#1988#0" />
-                <element signature="e#2025#2629#0" />
+                <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewsPage.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/pages/NewsPage.dart">
+      <file leaf-file-name="SpellEffectBackground.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/widgets/SpellEffectBackground.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-943">
-              <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pubspec.yaml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="809">
-              <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NavigationIconView.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/util/NavigationIconView.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-              <folding>
-                <element signature="e#1813#2105#0" />
-                <element signature="e#2156#2543#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="18" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SplashscreenPage.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/pages/SplashscreenPage.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="289">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -138,36 +63,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>backgroundColor</find>
+      <find>selectedEffectType</find>
+      <find>ElementToColor</find>
+      <find>selectedEffectImage</find>
+      <find>radi</find>
+      <find>screenawa</find>
+      <find>scaffoldKey</find>
+      <find>, this.</find>
+      <find>height</find>
       <find>screenAwareSize</find>
-      <find>scree</find>
-      <find>image.asset</find>
-      <find>asset</find>
-      <find>isDesignMode</find>
-      <find>context</find>
-      <find>BuildBorderElement</find>
-      <find>dy</find>
-      <find>screenHeightMax</find>
-      <find>todoub</find>
-      <find>borderElementWidth</find>
-      <find>opacity</find>
-      <find>_imageFile</find>
-      <find>imageLoaded</find>
-      <find>stepImageLoaded</find>
-      <find>imageloa</find>
-      <find>buildImagePreview</find>
-      <find>_previewImage</find>
-      <find>link</find>
-      <find>buildImagePicker</find>
-      <find>homedraw</find>
-      <find>homed</find>
-      <find>HomeDrawerPage</find>
-      <find>DrawerHome</find>
-      <find>Drawerhom</find>
-      <find>fade</find>
-      <find>CustomIcon</find>
-      <find>Image.asset</find>
-      <find>NavigationIconView</find>
-      <find>page</find>
+      <find>_animationController</find>
+      <find>_animationPa</find>
+      <find>_keyRadialEffect</find>
+      <find>_radialEffectEdit</find>
+      <find>bar</find>
+      <find>_radialEffectDesign</find>
+      <find>news</find>
+      <find>photo_school.png</find>
+      <find>indigo</find>
+      <find>pink</find>
+      <find>purple</find>
+      <find>brown</find>
+      <find>bluegrey</find>
+      <find>SpellEffectWidget</find>
+      <find>bluegr</find>
+      <find>grad</find>
+      <find>_keyBorderElement</find>
+      <find>_borderElement</find>
+      <find>radius</find>
+      <find>_skillDescDesign</find>
     </findStrings>
     <replaceStrings>
       <replace>NewsCard</replace>
@@ -177,42 +102,22 @@
       <replace>HeroSpellV2</replace>
       <replace>RssFeed</replace>
       <replace>RssItem</replace>
+      <replace>SpellPlaceholder</replace>
+      <replace>PaCounterWidget</replace>
+      <replace>globalKey</replace>
+      <replace>pink</replace>
+      <replace>purple</replace>
+      <replace>brown</replace>
+      <replace>bluegrey</replace>
+      <replace>blueGrey</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>E:\Devs\Waven-App\waven_app\lib\SpellBuilderWidgets\RadialMenuChallenge</dir>
+    </dirStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/widgets/ResideCustomMenu.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/HeroesListPage.dart" />
-        <option value="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/lib/util/ImageCropper.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/PagePusherTest.dart" />
-        <option value="$PROJECT_DIR$/lib/widgets/ShadowText.dart" />
-        <option value="$PROJECT_DIR$/lib/widgets/CustomStepper.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/CustomSpellEffectsPage.dart" />
-        <option value="$PROJECT_DIR$/lib/widgets/SpellEffectBackground.dart" />
-        <option value="$PROJECT_DIR$/lib/FeedParser/feed.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorCupertino/text_selection.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorMaterial/dropdown.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorServices/rich_text_parser.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorMaterial/rich_text_field.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorMaterial/text_selection.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorRendering/rich_editable.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorServices/text_input.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorWidgets/text_selection.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorWidgets/rich_editable_text.dart" />
-        <option value="$PROJECT_DIR$/lib/RichEditorWidgets/format_toolbar.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/CustomSpellPage.dart" />
-        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/SpellCostSlider.dart" />
-        <option value="$PROJECT_DIR$/lib/util/EnumHelper.dart" />
-        <option value="$PROJECT_DIR$/lib/util/VisibilityTool.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/SpellMakerPage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/WavenTeamBuilder.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/WavenTeamBuilderPage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/CustomTeamPreBuilderPage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/HeroDetailPage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/CustomTeamBuilderPage.dart" />
-        <option value="$PROJECT_DIR$/lib/util/EnsureVisibleWhenFocused.dart" />
         <option value="$PROJECT_DIR$/lib/util/NewsHelper.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/NewsFirstCardItem.dart" />
         <option value="$PROJECT_DIR$/lib/pages/ArticleWebViewPage.dart" />
@@ -223,23 +128,54 @@
         <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/SpellCostCard.dart" />
         <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/SpellNameCard.dart" />
         <option value="$PROJECT_DIR$/lib/cards/PickAClassCard.dart" />
-        <option value="$PROJECT_DIR$/lib/models/SpellMakerModel.dart" />
         <option value="$PROJECT_DIR$/lib/util/widget_utils.dart" />
         <option value="$PROJECT_DIR$/lib/pages/HomeDrawerPage.dart" />
         <option value="$PROJECT_DIR$/android/app/build.gradle" />
+        <option value="$PROJECT_DIR$/lib/util/NavigationIconView.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/SpellPlaceholder.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/PaCounterWidget.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/SpellMakerPage.dart" />
+        <option value="$PROJECT_DIR$/lib/models/SpellMakerModel.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/arc_progress_indicator.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu_button.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu_item.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu_center_button.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/geometry.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenuItem.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/CenterAbout.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/Radial_drag_gesture_detector.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/AnimationPlayer.dart" />
+        <option value="$PROJECT_DIR$/lib/util/RandomColor.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenuCollisions.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/IconBubble.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/PolarPosition.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/ActivationPainter.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/LayoutOverlay.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/CollidingRadialMenu.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/AnchoredRadialMenu.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenuController.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenu.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/pages/SplashscreenPage.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
-        <option value="$PROJECT_DIR$/lib/util/NavigationIconView.dart" />
+        <option value="$PROJECT_DIR$/lib/util/BlurredImageBackground.dart" />
+        <option value="$PROJECT_DIR$/lib/util/EnumHelper.dart" />
+        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/AnimatedRadialFab.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/IntroSlidePage.dart" />
+        <option value="$PROJECT_DIR$/lib/util/WidgetPositionData.dart" />
         <option value="$PROJECT_DIR$/lib/pages/AnimatedTabBarPage.dart" />
+        <option value="$PROJECT_DIR$/lib/widgets/PlaceholderWidget.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/widgets/SpellEffectBackground.dart" />
         <option value="$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-89" />
-    <option name="y" value="-14" />
-    <option name="width" value="1873" />
+    <option name="x" value="140" />
+    <option name="y" value="-21" />
+    <option name="width" value="1813" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
@@ -248,31 +184,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -313,12 +224,48 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
               <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+              <item name="spell_cadre" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
@@ -330,6 +277,12 @@
               <item name="waven_app" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="widgets" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -350,18 +303,19 @@
     <property name="SearchEverywhereHistoryKey" value=" &#9;FILE&#9;file://E:/Devs/Waven App/waven_app/pubspec.yaml" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Devs\Waven-App\waven_app\images\icone_menu" />
-      <recent name="E:\Devs\Waven App\waven_app\lib\RichTextEditor" />
-      <recent name="E:\Devs\Waven App\waven_app\lib" />
-      <recent name="E:\Devs\Waven App\waven_app\lib\RichEditorWidgets" />
-      <recent name="E:\Devs\Waven App\waven_app\lib\RichEditorServices" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Devs\Waven-App\waven_app\images\spellmaker_res" />
       <recent name="E:\Devs\Waven App\waven_app\images" />
       <recent name="E:\Devs\Waven App\waven_app\lib\pages" />
       <recent name="E:\Devs\Waven App\waven_app\images\thegame_medias" />
       <recent name="E:\Devs\Waven App\waven_app\assets" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Devs\Waven-App\waven_app\images\spell_cadre" />
+      <recent name="E:\Devs\Waven-App\waven_app\images\spellmaker_res" />
+      <recent name="E:\Devs\Waven-App\waven_app\images\icone_menu" />
+      <recent name="E:\Devs\Waven App\waven_app\lib\RichTextEditor" />
+      <recent name="E:\Devs\Waven App\waven_app\lib" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -470,20 +424,20 @@
       <window_info anchor="bottom" id="Logcat" order="9" weight="0.32934782" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Designer" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Device File Explorer" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4968017" weight="0.39978212" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32934782" />
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.4978678" weight="0.32570806" />
+      <window_info active="true" anchor="bottom" id="Messages" order="13" sideWeight="0.4978678" visible="true" weight="0.32570806" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="9" side_tool="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49520257" weight="0.3148148" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.32717392" />
       <window_info id="Captures" order="5" weight="0.32995737" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7520259" visible="true" weight="0.16471216" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7520259" visible="true" weight="0.17590618" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" sideWeight="0.24797407" side_tool="true" weight="0.16471216" />
@@ -493,7 +447,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="9" side_tool="true" weight="0.32995737" />
     </layout>
     <layout-to-restore>
       <window_info id="Designer" order="3" />
@@ -626,13 +580,43 @@
           <line>221</line>
           <option name="timeStamp" value="220" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart</url>
+          <line>93</line>
+          <option name="timeStamp" value="231" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart</url>
+          <line>100</line>
+          <option name="timeStamp" value="232" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart</url>
+          <line>95</line>
+          <option name="timeStamp" value="233" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart</url>
+          <line>103</line>
+          <option name="timeStamp" value="234" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart</url>
+          <line>105</line>
+          <option name="timeStamp" value="236" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart</url>
+          <line>107</line>
+          <option name="timeStamp" value="237" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="dart-exception">
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="224" />
+      <option name="time" value="239" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -645,52 +629,182 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/util/EnumHelper.dart">
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/CollidingRadialMenu.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu_button.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu_center_button.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/arc_progress_indicator.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu_item.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenu/radial_menu.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenu.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/PolarPosition.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/LayoutOverlay.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/IconBubble.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/AnchoredRadialMenu.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/ActivationPainter.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenuList.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenuItem.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenuController.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/AnimationPlayer.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/geometry.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/pages/SplashscreenPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="15" column="59" selection-start-line="15" selection-start-column="59" selection-end-line="15" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/CenterAbout.dart" />
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="21" column="20" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/NewsCardItem.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/ResideCustomMenu.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3434">
+          <caret line="209" column="16" selection-start-line="203" selection-start-column="21" selection-end-line="209" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/BlurredImageBackground.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="39" column="79" selection-start-line="39" selection-start-column="79" selection-end-line="39" selection-end-column="79" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/TheGamePage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2550">
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/TestWebViewPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/spellmaker_res/character_ui_elementary_state_air.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../SetupFlutter/flutter/packages/flutter/lib/src/animation/animation_controller.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="320" column="13" selection-start-line="320" selection-start-column="13" selection-end-line="320" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/widget_utils.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="31" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../SetupFlutter/flutter/bin/cache/pkg/sky_engine/lib/core/bool.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/SpellMakerModel.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/ShadowText.dart">
+    <entry file="file://$PROJECT_DIR$/lib/models/DrawerItem.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
+        <state>
+          <caret selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../SetupFlutter/flutter/packages/flutter/lib/src/widgets/implicit_animations.dart">
+    <entry file="file://$PROJECT_DIR$/lib/models/HeroModel.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="354" column="2" selection-start-line="354" selection-start-column="2" selection-end-line="354" selection-end-column="2" />
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/SpellPlaceholder.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/HeroesListPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-731">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/EnumHelper.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/spell_cadre/spell_air.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/IntroSlidePage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="48" column="37" selection-start-line="48" selection-start-column="37" selection-end-line="48" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/AnimatedRadialFab.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/HeroSpellsPage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-397" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/fondwaven.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/CustomTeamPreBuilderPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="298">
+          <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/CustomSpellPage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="85" column="3" selection-start-line="85" selection-start-column="3" selection-end-line="85" selection-end-column="3" />
+        <state relative-caret-position="-765">
+          <caret line="261" lean-forward="true" selection-start-line="261" selection-end-line="261" />
           <folding>
-            <element signature="e#1682#1716#0" />
-            <element signature="e#1749#1777#0" />
-            <element signature="e#1815#1931#0" />
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -700,290 +814,79 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/HeroesListPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/SpellsDatasV2.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../SetupFlutter/flutter/packages/flutter/lib/src/services/asset_bundle.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-284">
-          <caret line="65" column="17" selection-start-line="65" selection-start-column="17" selection-end-line="65" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/HeroDetailPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="202" column="69" selection-start-line="202" selection-start-column="68" selection-end-line="202" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/HeroSpellsHelper.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="49" column="48" selection-start-line="49" selection-start-column="48" selection-end-line="49" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/EnsureVisibleWhenFocused.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="138" column="79" selection-start-line="138" selection-start-column="79" selection-end-line="138" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/YoutubePage.dart" />
-    <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/webfeed-0.3.0/lib/domain/rss_feed.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="20" selection-start-line="52" selection-start-column="20" selection-end-line="52" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/NewsFirstCardItem.dart" />
-    <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_staggered_grid_view-0.2.2/lib/src/widgets/staggered_grid_view.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2890">
-          <caret line="253" column="19" selection-start-line="253" selection-start-column="2" selection-end-line="253" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/DateFormatter.dart" />
-    <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/webfeed-0.3.0/lib/domain/rss_item.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="82" column="23" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/HeroesHelper.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../SetupFlutter/flutter/bin/cache/pkg/sky_engine/lib/ui/painting.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="2336" column="39" selection-start-line="2336" selection-start-column="35" selection-end-line="2336" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/NewsCardItem.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/ArticleWebViewPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/TheGamePage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/SpellCostCard.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="87" column="34" selection-start-line="87" selection-start-column="34" selection-end-line="87" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/SpellBuilderWidgets/SpellNameCard.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/cards/PickAClassCard.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="49" selection-start-line="4" selection-start-column="49" selection-end-line="4" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/NewsHelper.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/CustomSpellPreSetupPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="36" column="31" selection-start-line="36" selection-start-column="31" selection-end-line="36" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/SpellMakerModel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="10" column="60" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/widget_utils.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="33" column="11" selection-start-line="33" selection-start-column="11" selection-end-line="33" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/VisibilityTool.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/local.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/gradlew.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/gradle.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/android/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/SplashscreenPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../SetupFlutter/flutter/packages/flutter/lib/src/widgets/bottom_navigation_bar_item.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/HomeDrawerPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-34">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/CustomTeamBuilderPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="138" column="19" selection-start-line="135" selection-start-column="28" selection-end-line="135" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="809">
-          <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/SpellMakerPage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="295" column="28" selection-start-line="295" selection-start-column="28" selection-end-line="295" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-            <element signature="e#11313#12101#0" />
-          </folding>
+        <state relative-caret-position="310">
+          <caret line="518" column="19" lean-forward="true" selection-start-line="518" selection-start-column="19" selection-end-line="518" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/NavigationIconView.dart">
+    <entry file="file://$PROJECT_DIR$/lib/widgets/PlaceholderWidget.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
-          <folding>
-            <element signature="e#1813#2105#0" />
-            <element signature="e#2156#2543#0" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart">
+    <entry file="file://$PROJECT_DIR$/lib/util/WidgetPositionData.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="79" column="5" lean-forward="true" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="57" />
+        <state relative-caret-position="136">
+          <caret line="8" column="38" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/AnimatedTabBarPage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="27" column="18" selection-start-line="27" selection-start-column="18" selection-end-line="27" selection-end-column="18" />
+        <state relative-caret-position="696">
+          <caret line="126" column="34" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="34" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1780#1893#0" />
-            <element signature="e#1913#1988#0" />
-            <element signature="e#2025#2629#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/NewsPage.dart">
+    <entry file="file://$PROJECT_DIR$/lib/widgets/FlexibleAppBar.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-943">
-          <caret line="13" column="2" selection-start-line="13" selection-start-column="2" selection-end-line="13" selection-end-column="2" />
+        <state relative-caret-position="136">
+          <caret line="8" column="28" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/spell_cadre/Reserve_Iop_Mini.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="40" column="13" selection-start-line="40" selection-start-column="13" selection-end-line="40" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/DecksHomePage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-620">
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/SpellEffectBackground.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="621" column="24" lean-forward="true" selection-start-line="621" selection-start-column="24" selection-end-line="621" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
