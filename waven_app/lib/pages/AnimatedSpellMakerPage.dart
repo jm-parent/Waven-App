@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:waven_app/SpellBuilderWidgets/AnimatedRadialFab.dart';
 
 import 'package:waven_app/SpellBuilderWidgets/SpellPlaceholder.dart';
@@ -19,6 +20,8 @@ import 'package:waven_app/widgets/SpellEffectBackground.dart';
 import 'package:waven_app/widgets/UpDownImageWidget.dart';
 
 class AnimatedSpellMakerPage extends StatefulWidget {
+  AnimatedSpellMakerPage({Key key}) : super(key: key);
+
   @override
   _AnimatedSpellMakerPageState createState() =>
       new _AnimatedSpellMakerPageState();
@@ -26,6 +29,9 @@ class AnimatedSpellMakerPage extends StatefulWidget {
 
 class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
     with TickerProviderStateMixin {
+//Sauvegarde en cache du customModel
+  SharedPreferences prefs;
+
   AnimationController _controllerPaAnim;
   Animation _animationPa;
   AnimationController _controllerBorderShiver;
@@ -59,11 +65,20 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
   Future<File> _imageFile; // Image chargée
   bool stepImageLoaded = false;
 
+  void initCachedSpell() async{
+    prefs = await SharedPreferences.getInstance();
+    if(customSpellModel == null)
+      customSpellModel = new SpellMakerModel();
+    customSpellModel.getPrefs(prefs);
+  }
+  void dataModified() async{
+  }
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback(_afterLayout);
-
     super.initState();
+    initCachedSpell();
     _controllerPaAnim = new AnimationController(
         duration: new Duration(milliseconds: 400), vsync: this)
       ..addListener(() {
@@ -312,8 +327,10 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
           FlatButton(
             child: Icon(FontAwesomeIcons.plus),
             onPressed: () => setState(() {
-                  if (customSpellModel.pa < 20)
+                  if (customSpellModel.pa < 20) {
                     customSpellModel.pa = customSpellModel.pa + 1;
+                    customSpellModel.setPrefs(prefs);
+                  }
                 }),
           ),
           Stack(
@@ -331,8 +348,10 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
           FlatButton(
             child: Icon(FontAwesomeIcons.minus),
             onPressed: () => setState(() {
-                  if (customSpellModel.pa > 0)
+                  if (customSpellModel.pa > 0) {
                     customSpellModel.pa = customSpellModel.pa - 1;
+                    customSpellModel.setPrefs(prefs);
+                  }
                 }),
           ),
         ],
@@ -491,6 +510,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
           onTap: () {
             setState(() {
               customSpellModel.elementalType = WavenElementalType.air;
+              customSpellModel.setPrefs(prefs);
             });
           },
           child: new Container(
@@ -509,6 +529,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
           onTap: () {
             setState(() {
               customSpellModel.elementalType = WavenElementalType.fire;
+              customSpellModel.setPrefs(prefs);
             });
           },
           child: new Container(
@@ -527,6 +548,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
           onTap: () {
             setState(() {
               customSpellModel.elementalType = WavenElementalType.earth;
+              customSpellModel.setPrefs(prefs);
             });
           },
           child: new Container(
@@ -545,6 +567,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
             onTap: () {
               setState(() {
                 customSpellModel.elementalType = WavenElementalType.water;
+                customSpellModel.setPrefs(prefs);
               });
             },
             child: new Container(
@@ -556,6 +579,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
     print(value.index);
     setState(() {
       customSpellModel.effectType = value;
+      customSpellModel.setPrefs(prefs);
     });
   }
 
@@ -598,6 +622,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
   callbackEffect(newEffect) {
     setState(() {
       customSpellModel.effectType = newEffect;
+      customSpellModel.setPrefs(prefs);
     });
   }
 
@@ -606,19 +631,24 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
       switch ( responseGen.elementalType){
         case WavenElementalType.fire:
             customSpellModel.fireGen = responseGen.newValue;
+            customSpellModel.setPrefs(prefs);
           break;
 
         case WavenElementalType.air:
             customSpellModel.airGen = responseGen.newValue;
+            customSpellModel.setPrefs(prefs);
           break;
         case WavenElementalType.earth:
             customSpellModel.earthGen = responseGen.newValue;
+            customSpellModel.setPrefs(prefs);
           break;
         case WavenElementalType.water:
             customSpellModel.waterGen = responseGen.newValue;
+            customSpellModel.setPrefs(prefs);
           break;
         default:
             customSpellModel.shushuGen = responseGen.newValue;
+            customSpellModel.setPrefs(prefs);
           break;
 
     }});
@@ -694,6 +724,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
               onPressed: () {
                 setState(() {
                   customSpellModel.name =controllerTextName.text;
+                  customSpellModel.setPrefs(prefs);
                 });
                     Navigator.pop(context);
               })
@@ -719,6 +750,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
               onPressed: () {
                 setState(() {
                   customSpellModel.desc =controllerTextDesc.text;
+                  customSpellModel.setPrefs(prefs);
                 });
                 Navigator.pop(context);
               })

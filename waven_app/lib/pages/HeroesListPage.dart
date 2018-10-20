@@ -11,8 +11,12 @@ import 'dart:ui' as ui;
 import 'package:waven_app/widgets/FixedAppBar.dart';
 
 class HeroesListPage extends StatefulWidget {
+
+  HeroesListPage({Key key}) : super(key: key);
+
+
   @override
-  HeroesListPageState createState() => new HeroesListPageState();
+  HeroesListPageState createState({Key key}) => new HeroesListPageState();
 }
 
 class HeroesListPageState extends State<HeroesListPage> {
