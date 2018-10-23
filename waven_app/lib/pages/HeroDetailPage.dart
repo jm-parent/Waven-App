@@ -1,19 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:transparent_image/transparent_image.dart';
-import 'package:waven_app/animations/FrostTransition.dart';
-import 'dart:ui' as ui;
-import 'package:waven_app/models/HeroModel.dart';
-import 'dart:math' as math;
-import 'package:percent_indicator/percent_indicator.dart';
 import 'package:waven_app/models/HeroModelV2.dart';
-import 'package:waven_app/models/HeroSpellModel.dart';
 import 'package:waven_app/models/HeroSpellModelV2.dart';
 import 'package:waven_app/pages/HeroDetailStatDescBlock.dart';
 import 'package:waven_app/util/HeroSpellsHelper.dart';
-import 'package:waven_app/widgets/GridHeroRoleStatsItem.dart';
 import 'package:waven_app/widgets/GridLoreItem.dart';
 import 'package:waven_app/widgets/HeroDetailStatRoleTile.dart';
 import 'package:waven_app/widgets/HeroDetailStatStatsBlock.dart';

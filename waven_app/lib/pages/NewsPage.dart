@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:waven_app/util/ThemeHelper.dart';
 import 'package:webfeed/webfeed.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/models/NewsArticleModel.dart';
@@ -94,17 +95,25 @@ class NewsPageState extends State<NewsPage> {
   @override
   Widget build(BuildContext context) {
     if (newsDatas == null) return _loadingView;
+    return Container(
+      decoration: GradientBackground(),
+      child: AnimatedCrossFade(
+        firstChild: _loadingView,
+        secondChild: Padding(
+            padding: const EdgeInsets.only(top: 12.0),
+            child: StaggeredGridView.count(
+              crossAxisCount: 4,
+              staggeredTiles: _staggeredTiles,
+              children: _tiles,
+              mainAxisSpacing: 4.0,
+              crossAxisSpacing: 4.0,
+              padding: const EdgeInsets.all(4.0),
+            )),
+        crossFadeState: newsDatas == null ? CrossFadeState.showFirst:CrossFadeState.showSecond,
+        duration: Duration(seconds: 1),
+      ),
+    );
 
-    return new Padding(
-        padding: const EdgeInsets.only(top: 12.0),
-        child: new StaggeredGridView.count(
-          crossAxisCount: 4,
-          staggeredTiles: _staggeredTiles,
-          children: _tiles,
-          mainAxisSpacing: 4.0,
-          crossAxisSpacing: 4.0,
-          padding: const EdgeInsets.all(4.0),
-        ));
   }
 
   Widget get _loadingView {

@@ -53,39 +53,28 @@ class NewsCardItemState extends State<NewsCardItem> {
               child: new Stack(
                 children: <Widget>[
                   new Positioned.fill(
-                    child: new CachedNetworkImage(
-                      imageUrl: imgUrl,
-                      fit: BoxFit.cover,
-                      placeholder: new Center(
-                        child: new CircularProgressIndicator(),
-                      ),
-                      errorWidget: new Icon(Icons.error),
+                    child:
+                  new CachedNetworkImage(
+                    imageUrl: imgUrl,
+                    fit: BoxFit.cover,
+                    placeholder: new Center(
+                      child: new CircularProgressIndicator(),
                     ),
+                    errorWidget: new Icon(Icons.error),
+                  ),
                   ),
                   Container(
                     alignment: Alignment.centerLeft,
-                    child: new BackdropFilter(
-                      filter: new ui.ImageFilter.blur(
-                        sigmaX: blurDouble,
-                        sigmaY: blurDouble,
-                      ),
-                      child:  Padding(
-                        padding: const EdgeInsets.only(left:15.0,right: 20.0),
-                        child: Container(
-                          color: Colors.black54,
-                          child: BackdropFilter(
-                            filter: new ui.ImageFilter.blur(
-                              sigmaX: blurDouble,
-                              sigmaY: blurDouble,
-                            ),
-                            child: new AutoSizeText.rich(
-                              new TextSpan(
-                                  text: widget.news.title,
-                              style: TextStyle(fontSize: 15.0)),
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 2,
-                            ),
-                          ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left:15.0,right: 20.0),
+                      child: Container(
+                        color: Colors.black54,
+                        child: new AutoSizeText.rich(
+                          new TextSpan(
+                              text: widget.news.title,
+                          style: TextStyle(fontSize: 15.0)),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
                       ),
                     ),

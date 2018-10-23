@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{
-        '/Mainhome': (BuildContext context) => new Scaffold(body: new AnimatedTabBarPage()),
+        '/Mainhome': (BuildContext context) => new Scaffold(body: new HomeDrawerPage()),
         '/IntroSlide': (BuildContext context) => new IntroSliderPage(),
       },
     );

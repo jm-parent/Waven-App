@@ -11,6 +11,7 @@ import 'package:waven_app/SpellBuilderWidgets/SpellPlaceholder.dart';
 import 'package:waven_app/models/SpellMakerModel.dart';
 import 'package:waven_app/util/BlurredImageBackground.dart';
 import 'package:waven_app/util/EnumHelper.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
 import 'package:waven_app/util/VisibilityTool.dart';
 import 'package:waven_app/util/WidgetPositionData.dart';
 import 'package:waven_app/util/widget_utils.dart';
@@ -136,19 +137,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
       floatingActionButton: buildSpeedDial(),
       //  appBar: AppBar(key: _appBarKey, title: GetTitle()),
       body: Container(
-        decoration: new BoxDecoration(
-          gradient: new LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            stops: [0.1, 0.5, 0.7, 0.9],
-            colors: [
-              Colors.blueGrey[800],
-              Colors.blueGrey[700],
-              Colors.blueGrey[600],
-              Colors.blueGrey[500],
-            ],
-          ),
-        ),
+        decoration: GradientBackground(),
         child: Column(
           children: <Widget>[
             Expanded(
@@ -225,7 +214,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
                   Positioned(
                     child: buildSkillDesc(),
                     top: ScreenAwareHelper.screenAwareSizePercentHeight(
-                        15 - 5 * _animationPa.value ~/ 100.0, context),
+                        10 - 5 * _animationPa.value ~/ 100.0, context),
                     bottom:ScreenAwareHelper.screenAwareSizePercentHeight(
                         45 - 5 * _animationPa.value ~/ 100.0, context),
                     left: ScreenAwareHelper.screenAwareSizePercentWidth(

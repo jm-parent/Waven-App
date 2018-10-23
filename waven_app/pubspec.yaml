@@ -32,7 +32,6 @@ flutter:
   uses-material-design: true
 
   assets:
-
     - assets/HeroesDatas.json
     - assets/HeroesDatav2.json
     - assets/SpellsDatas.json
