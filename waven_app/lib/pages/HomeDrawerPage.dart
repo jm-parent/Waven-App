@@ -6,10 +6,13 @@ import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
 import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/CustomShushuPage.dart';
 import 'package:waven_app/pages/CustomSpellPreSetupPage.dart';
+import 'package:waven_app/pages/DeckListPage.dart';
+import 'package:waven_app/pages/DemoLoginPage.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
 import 'package:waven_app/pages/NewsPage.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:waven_app/pages/PickClassPage.dart';
+import 'package:waven_app/pages/TestPage.dart';
 import 'package:waven_app/pages/TheGamePage.dart';
 import 'package:waven_app/pages/CustomTeamPreBuilderPage.dart';
 import 'package:waven_app/widgets/GradientAppBar.dart';
@@ -46,6 +49,8 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
         return new CustomShushuPage();
       case 6:
         return new CustomTeamPreBuilderPage();
+      case 7 :
+        return DeckListPage();
       default:
         return new Text("Error");
     }

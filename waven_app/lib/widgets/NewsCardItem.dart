@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:html/parser.dart' as htmlParser;
 import 'package:waven_app/pages/ArticleWebViewPage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
 import 'package:webfeed/domain/rss_item.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 
@@ -43,6 +44,7 @@ class NewsCardItemState extends State<NewsCardItem> {
         );
       },
       child: new Card(
+        color: Colors.blueAccent.withOpacity(0.0),
         shape: widget.shape,
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,7 +74,7 @@ class NewsCardItemState extends State<NewsCardItem> {
                         child: new AutoSizeText.rich(
                           new TextSpan(
                               text: widget.news.title,
-                          style: TextStyle(fontSize: 15.0)),
+                          style: TitleNewsStyle(context)),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
                         ),

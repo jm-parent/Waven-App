@@ -137,7 +137,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
       floatingActionButton: buildSpeedDial(),
       //  appBar: AppBar(key: _appBarKey, title: GetTitle()),
       body: Container(
-        decoration: GradientBackground(),
+        decoration: GradientBackground(0),
         child: Column(
           children: <Widget>[
             Expanded(
