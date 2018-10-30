@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class WidgetPositionData {
-  GlobalKey globalKey;
+  final GlobalKey globalKey;
 
   double widgetHeight;
   double get height => widgetHeight??0.0;
@@ -12,7 +12,7 @@ class WidgetPositionData {
   double get centerOffsetWidth => width == null ? 0.0 : width/2;
 
 
-  WidgetPositionData(this.globalKey);
+  WidgetPositionData( this.globalKey);
 
   //A appeler dans un AfterLayout
   void UpdateDatas() {

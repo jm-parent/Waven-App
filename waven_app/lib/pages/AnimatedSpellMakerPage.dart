@@ -35,16 +35,12 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
 
   AnimationController _controllerPaAnim;
   Animation _animationPa;
-  AnimationController _controllerBorderShiver;
-  Animation _animationBorderShiver;
 
   //radialEffect
   WidgetPositionData _radialEffectEdit;
   WidgetPositionData _radialEffectDesign;
   WidgetPositionData _skillDescDesign;
   WidgetPositionData _borderElement;
-
-  WidgetPositionData _logoPAElementEdit;
 
   bool isDesignMode = true;
   final _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -122,16 +118,13 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
     var radialEffectTopOffset = isDesignMode == true
         ? _radialEffectDesign.height / 2
         : _radialEffectEdit.height / 2;
-    var radialEffectLeftOffset =
-        isDesignMode == true ? _radialEffectDesign.width / 2 : 0;
+
     var borderElementLeftOffset =
-        (_borderElement.width == null ? 0 : _borderElement.width / 2);
-    var radialEffectTopLeftOffsetBorderOnImage = isDesignMode == true
-        ? ScreenAwareHelper.screenAwareSize(12.0, context)
-        : 0;
+    ScreenAwareHelper.screenAwareSize(50.0,context);
 
     if (_radialEffectEdit != null && _radialEffectEdit.height != null)
       print("Height Radial Menu = " + _radialEffectEdit.height.toString());
+
     return new Scaffold(
       key: _scaffoldKey,
       floatingActionButton: buildSpeedDial(),
@@ -368,6 +361,13 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
           child: Icon(FontAwesomeIcons.eraser, color: Colors.black87),
           backgroundColor: Colors.grey,
           onTap: () => setState(() {
+            //Permet le vidage du cache
+            customSpellModel.resetSpell();
+            customSpellModel.setPrefs(prefs);
+            //
+            _imageFile = null;
+            stepImageLoaded = false;
+            print(customSpellModel.toString());
                 showInSnackBar('Clear Done');
               }),
           label: 'Clear Data ',
@@ -424,18 +424,21 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
           if (snapshot.connectionState == ConnectionState.done &&
               snapshot.data != null) {
             stepImageLoaded = true;
-            return new Container(
-              width: 100.0,
-              decoration: new BoxDecoration(
-                  image: new DecorationImage(
-                colorFilter: new ColorFilter.mode(
-                    colorFilter.withOpacity(0.6), BlendMode.color),
-                fit: BoxFit.fitWidth,
-                alignment: FractionalOffset.topCenter,
-                image: Image.file(
-                  snapshot.data,
-                ).image,
-              )),
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: new Container(
+                width: 100.0,
+                decoration: new BoxDecoration(
+                    image: new DecorationImage(
+                  colorFilter: new ColorFilter.mode(
+                      colorFilter.withOpacity(0.6), BlendMode.color),
+                  fit: BoxFit.fill,
+                  alignment: FractionalOffset.topCenter,
+                  image: Image.file(
+                    snapshot.data,
+                  ).image,
+                )),
+              ),
             );
           } else if (snapshot.error != null) {
             return const Text(
@@ -662,7 +665,7 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
                 duration: Duration(milliseconds: 400))
             ),
             Expanded(
-              flex: isDesignMode ? 10: 20,
+              flex: isDesignMode ? 10: 24,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
@@ -781,18 +784,3 @@ Map<WavenEffectType, Color> EffectToColor = new Map.from({
   WavenEffectType.fire: Colors.orange,
   WavenEffectType.water: Colors.lightBlueAccent,
 });
-
-class _SystemPadding extends StatelessWidget {
-  final Widget child;
-
-  _SystemPadding({Key key, this.child}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context);
-    return new AnimatedContainer(
-        padding: mediaQuery.viewInsets,
-        duration: const Duration(milliseconds: 300),
-        child: child);
-  }
-}

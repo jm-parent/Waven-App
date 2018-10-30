@@ -90,4 +90,6 @@ class SpellMakerModel {
     prefs.setInt('cachedSpellairGen',airGen);
     prefs.setString('cachedSpelldesc',desc);
   }
+
+
 }

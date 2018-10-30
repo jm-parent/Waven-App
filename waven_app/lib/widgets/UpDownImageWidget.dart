@@ -5,6 +5,7 @@ import 'package:html/parser.dart' as htmlParser;
 import 'package:waven_app/pages/ArticleWebViewPage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:waven_app/util/EnumHelper.dart';
+import 'package:waven_app/util/widget_utils.dart';
 import 'package:waven_app/widgets/ShadowText.dart';
 import 'package:webfeed/domain/rss_item.dart';
 import 'package:auto_size_text/auto_size_text.dart';
@@ -36,7 +37,7 @@ class UpDownImageWidgetState extends State<UpDownImageWidget> {
       firstChild: Stack(
         alignment: Alignment.center,
         children: <Widget>[
-          Image.asset(widget.imageUrl,),
+          Image.asset(widget.imageUrl,height:ScreenAwareHelper.screenAwareSize(45.0, context)),
           ShadowText(
             widget.enterValue == null ? '0' : widget.enterValue.toString(),
             style: TextStyle(fontSize: 22.0),
@@ -47,9 +48,9 @@ class UpDownImageWidgetState extends State<UpDownImageWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
-            width: 40,
+            width: ScreenAwareHelper.screenAwareSize(40.0, context),
             child: IconButton(
-              icon: Icon(FontAwesomeIcons.plus,color: widget.colorIcon,),
+              icon: Icon(FontAwesomeIcons.plus,color: widget.colorIcon,size: ScreenAwareHelper.screenAwareSize(20.0, context),),
               onPressed: () => setState(() {
                 if (widget.enterValue < 20) {
                   widget.enterValue = widget.enterValue + 1;
@@ -63,7 +64,7 @@ class UpDownImageWidgetState extends State<UpDownImageWidget> {
           Stack(
             alignment: Alignment.center,
             children: <Widget>[
-              Image.asset(widget.imageUrl),
+              Image.asset(widget.imageUrl,height:ScreenAwareHelper.screenAwareSize(45.0, context),),
               ShadowText(
                 widget.enterValue == null
                     ? '0'
@@ -73,10 +74,10 @@ class UpDownImageWidgetState extends State<UpDownImageWidget> {
             ],
           ),
           Container(
-            width: 40,
+            width: ScreenAwareHelper.screenAwareSize(40.0, context),
             alignment: Alignment.center,
             child: IconButton(
-              icon: Icon(FontAwesomeIcons.minus,color: widget.colorIcon,),
+              icon: Icon(FontAwesomeIcons.minus,color: widget.colorIcon,size:ScreenAwareHelper.screenAwareSize(20.0, context)),
               onPressed: () => setState(() {
                 if (widget.enterValue > 0) {
                   widget.enterValue = widget.enterValue - 1;
