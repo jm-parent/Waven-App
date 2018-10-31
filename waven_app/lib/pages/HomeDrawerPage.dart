@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
 import 'package:waven_app/pages/AnimatedTabBarPage.dart';
+import 'package:waven_app/pages/ArmoryBuilder.dart';
 import 'package:waven_app/pages/CustomShushuPage.dart';
 import 'package:waven_app/pages/CustomSpellPreSetupPage.dart';
 import 'package:waven_app/pages/DeckListPage.dart';
@@ -42,7 +43,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
       case 2:
         return new HeroesListPage();
       case 3:
-        return new PickClassPage();
+        return new ArmoryBuilderPage();
       case 4:
         return new AnimatedSpellMakerPage();
       case 5:

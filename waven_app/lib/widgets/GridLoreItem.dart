@@ -36,7 +36,7 @@ class GridLoreItem extends StatelessWidget {
             decoration: new BoxDecoration(
               border: new Border.all(color: Colors.orange),
               image: new DecorationImage(
-                image: new Image.network(imgUrl).image,
+                image: new Image.asset(imgUrl).image,
                 fit: BoxFit.cover,
               ),
             ),
