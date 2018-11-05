@@ -11,6 +11,8 @@ enum WavenShushuClass { Ecaflip, Eniripsa , Iop , Cra , Feca , Sacrieur , Sadida
 enum WavenElementalType { fire , earth, air, water }
 enum WavenEffectType { noeffect, fire , earth, air, water }
 
+enum DeckLevel { Beginner, Intermediate, Advanced}
+
 enum RadialMenuChaState {
   closed,
   closing,

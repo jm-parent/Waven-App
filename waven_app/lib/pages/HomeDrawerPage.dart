@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:waven_app/Demos/SlidableListDemoPage.dart';
 import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
 import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/ArmoryBuilder.dart';
@@ -51,7 +52,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
       case 6:
         return new CustomTeamPreBuilderPage();
       case 7 :
-        return DeckListPage();
+        return new DeckListPage();
       default:
         return new Text("Error");
     }

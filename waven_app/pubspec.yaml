@@ -23,6 +23,7 @@ dependencies:
   intl: ^0.15.7
   intro_slider: ^1.0.7
   flutter_swiper: ^1.1.4
+  flutter_slidable: "^0.4.9"
 
 dev_dependencies:
   flutter_test:
@@ -46,3 +47,4 @@ flutter:
     - images/Backgrounds/
     - images/background_logo/
     - images/HeroImageArmory/
+    - images/HeroImages/FullAndLogo/

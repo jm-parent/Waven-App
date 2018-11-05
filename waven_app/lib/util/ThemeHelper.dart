@@ -47,6 +47,22 @@ Decoration GradientBackground(int offset)
         ],
       ));
 }
+Decoration GradientBackgroundWithBorder(int offset,Color borderColor)
+{
+  return new BoxDecoration(
+      border: new Border.all(color: borderColor),
+      gradient: new LinearGradient(
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        stops: [0.2, 0.4, 0.6, 0.8],
+        colors: [
+          Color.fromRGBO(60+offset,71+offset,106+offset, 1.0),
+          Color.fromRGBO(60+offset,71+offset,106+offset, 0.7),
+          Color.fromRGBO(60+offset,71+offset,106+offset, 0.4),
+          Color.fromRGBO(60+offset,71+offset,106+offset, 0.1),
+        ],
+      ));
+}
 Decoration NegGradientBackground(int offset)
 {
   return new BoxDecoration(
