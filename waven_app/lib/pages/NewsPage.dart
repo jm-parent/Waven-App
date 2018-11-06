@@ -202,7 +202,7 @@ class NewsPageState extends State<NewsPage> {
   Widget build(BuildContext context) {
     if (newsDatas == null) return _loadingView;
     return Container(
-      decoration: ImageDecoration("images/Backgrounds/fond-characters.jpg",BoxFit.fitHeight),
+      decoration: DrawerMenuGradientBg(),
       child: AnimatedCrossFade(
         firstChild: _loadingView,
         secondChild: buildStaggeredGridView(),

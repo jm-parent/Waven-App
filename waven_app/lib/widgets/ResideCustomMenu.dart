@@ -423,21 +423,19 @@ class MenuScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return new Container(
-      padding: new EdgeInsets.only(top: this.topMargin),
-      child: new Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          header,
-          new ListView(
-            physics: const NeverScrollableScrollPhysics(),
-            itemExtent: this.itemExtent,
-            shrinkWrap: true,
-            children: children,
-          ),
-          footer
-        ],
-      ),
+    return new Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        header,
+        new ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          itemExtent: this.itemExtent,
+          shrinkWrap: true,
+          children: children,
+        ),
+        footer
+      ],
     );
   }
 }

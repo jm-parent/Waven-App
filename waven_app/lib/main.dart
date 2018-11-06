@@ -5,6 +5,7 @@ import 'package:waven_app/pages/BottomAppBarPage.dart';
 import 'package:waven_app/pages/HomeDrawerPage.dart';
 import 'package:waven_app/pages/IntroSlidePage.dart';
 import 'package:waven_app/pages/SplashscreenPage.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
 void main() {
   runApp(MyApp());
 }
@@ -16,8 +17,8 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       theme: new ThemeData(
         brightness: Brightness.dark,
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
+        primaryColor: DarkColor(),
+        accentColor: LightColor(),
       ),
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{

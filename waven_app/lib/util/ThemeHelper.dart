@@ -127,12 +127,16 @@ Decoration DrawerMenuGradientBg()
           Color.fromRGBO(0,0,0, 1.0),
 
           Color.fromRGBO(2,16,25, 1.0),
-//
-//          Color.fromRGBO(5,24,38, 1.0),
-//
-//          Color.fromRGBO(5,36,56,1.0),
 
-          Color.fromRGBO(5,36,56,1.0),
+          Color.fromRGBO(20,61,88,1.0),
         ],
       ));
+}
+Color DarkColor()
+{
+  return Color.fromRGBO(11,32,46,1.0);
+}
+Color LightColor()
+{
+  return Color.fromRGBO(29,90,130,1.0);
 }

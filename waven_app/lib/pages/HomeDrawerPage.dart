@@ -105,13 +105,14 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
 //                fit: BoxFit.cover)),
         controller: _menuController,
         leftScaffold: new MenuScaffold(
-          header: new ConstrainedBox(
-            constraints: new BoxConstraints(maxHeight: 80.0, maxWidth: 80.0),
-            child: new CircleAvatar(
-              backgroundImage: new AssetImage('images/logowaven.png'),
-              radius: 40.0,
-            ),
-          ),
+
+//          header: new ConstrainedBox(
+//            constraints: new BoxConstraints(maxHeight: 80.0, maxWidth: 80.0),
+//            child: new CircleAvatar(
+//              backgroundImage: new AssetImage('images/logowaven.png'),
+//              radius: 40.0,
+//            ),
+//          ),
           children: <Widget>[
             buildResideItem("A la une", Icons.rss_feed,context,0),
             buildResideItem("Le Jeu", Icons.ac_unit,context,1),
@@ -128,9 +129,9 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
 
           appBar: GradientAppBar(
 
-            backgroundColorStart: Color.fromRGBO(60,71,106, 0.1),
-            backgroundColorEnd:Color.fromRGBO(60,71,106, 1.0) ,
-            elevation: 0.0,
+            backgroundColorStart: Color.fromRGBO(20,61,88,1.0),
+            backgroundColorEnd: Color.fromRGBO(20,61,88,1.0) ,
+            elevation: 5.0,
             leading: new GestureDetector(
               child: const Icon(Icons.menu),
               onTap: () {
@@ -157,19 +158,16 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
   }
 
   Widget buildResideItem(var menuName, var icon, var context,var index) {
-    return new Material(
-      color: Colors.transparent,
-      child: new InkWell(
-        child: ResideMenuItem(
-          title: menuName,
-          icon: Icon(icon, color: Color(0xffdddddd)),
-        ),
-        onTap: () {
-          setState(() => _selectedDrawerIndex = index);
-          _menuController.closeMenu();
-         // Navigator.of(context).pop();
-        },
+    return new InkWell(
+      child: ResideMenuItem(
+        title: menuName,
+        icon: Icon(icon, color: Color(0xffdddddd)),
       ),
+      onTap: () {
+        setState(() => _selectedDrawerIndex = index);
+        _menuController.closeMenu();
+       // Navigator.of(context).pop();
+      },
     );
   }
 

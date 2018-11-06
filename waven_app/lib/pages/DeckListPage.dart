@@ -9,6 +9,7 @@ import 'package:waven_app/util/ThemeHelper.dart';
 import 'package:waven_app/util/widget_utils.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:waven_app/widgets/HighlightedIcon.dart';
+import 'package:waven_app/widgets/RoundableAlertDialog.dart';
 
 class DeckListPage extends StatefulWidget {
   DeckListPage();
@@ -37,29 +38,32 @@ class DeckListPageState extends State<DeckListPage>
         itemCount: MockDataHelper.deckModelList.length,
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
-            highlightColor: Colors.blue.withOpacity(0.6),
-            splashColor: Colors.blue,
+            highlightColor: LightColor(),
+            splashColor: LightColor(),
             onLongPress: () => showDialog<Null>(
                   context: context,
                   builder: (BuildContext context) {
                     return buildAlertDialogDeckLongPress(index);
                   },
                 ),
-            onTap: () => Navigator.push(context, new MaterialPageRoute(builder: (context) {
-              return new DeckDetailPage(MockDataHelper.deckModelList[index]);
-            })),
+            onTap: () => Navigator.push(context,
+                    new MaterialPageRoute(builder: (context) {
+                  return new DeckDetailPage(
+                      MockDataHelper.deckModelList[index]);
+                })),
             child: new Slidable(
               delegate: new SlidableDrawerDelegate(),
               actionExtentRatio: 0.25,
               child: Card(
                 child: Container(
                   decoration: new BoxDecoration(
-                    border: new Border.all(color: Colors.white70),
+                    color: DarkColor(),
+                    border: new Border.all(color: LightColor()),
                   ),
                   child: new Row(
                     children: <Widget>[
                       buildLeftSection(index),
-                      buildMiddleSection(context,index),
+                      buildMiddleSection(context, index),
                       Padding(
                         padding: const EdgeInsets.only(left: 8.0),
                         child: buildRightSection(index),
@@ -79,7 +83,7 @@ class DeckListPageState extends State<DeckListPage>
                   caption: 'Share',
                   color: Colors.indigo,
                   icon: Icons.share,
-                  onTap: () =>debugPrint('Share'),
+                  onTap: () => debugPrint('Share'),
                 ),
 //              new IconSlideAction(
 //                caption: 'Edit',
@@ -103,15 +107,18 @@ class DeckListPageState extends State<DeckListPage>
     );
   }
 
-
-  Widget buildLeftSection(int index)
-  {
+  Widget buildLeftSection(int index) {
     return Hero(
       tag: MockDataHelper.deckModelList[index].tagHero,
-      child: Image.asset(
-        MockDataHelper.deckModelList[index].assetUrl,
-        fit: BoxFit.contain,
-        height: 80.0,
+      child: Padding(
+        padding: EdgeInsets.only(
+            top: ScreenAwareHelper.screenAwareSize(6.0, context),
+            left: ScreenAwareHelper.screenAwareSize(4.0, context)),
+        child: Image.asset(
+          MockDataHelper.deckModelList[index].assetUrl,
+          fit: BoxFit.contain,
+          height: ScreenAwareHelper.screenAwareSize(65.0, context),
+        ),
       ),
     );
   }
@@ -161,7 +168,7 @@ class DeckListPageState extends State<DeckListPage>
     );
   }
 
-  Widget buildMiddleSection(BuildContext context,int index) {
+  Widget buildMiddleSection(BuildContext context, int index) {
     return new Expanded(
       child: Padding(
         padding: EdgeInsets.only(
@@ -206,86 +213,160 @@ class DeckListPageState extends State<DeckListPage>
   }
 
   Widget buildAlertDialogDeckLongPress(int index) {
-    return new AlertDialog(
-      title: new Text(MockDataHelper.deckModelList[index].name),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
-              onPressed: () => debugPrint('Edit Deck clicked'),
-              child: ListTile(
-                leading: Icon(Icons.edit),
-                title: Text('Edit Deck'),
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
-              onPressed: () => debugPrint('Share Deck clicked'),
-              child: ListTile(
-                leading: Icon(Icons.share),
-                title: Text('Share Deck'),
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: RaisedButton(
-              onPressed: () =>
-                  debugPrint('Delete Deck clicked'),
-              child: ListTile(
-                leading: Icon(Icons.delete_forever),
-                title: Text('Delete Deck'),
-              ),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12.0),
+    return RoundableAlertDialog(
+      content: new Container(
+        width: ScreenAwareHelper.screenAwareSize(260.0, context),
+        decoration: new BoxDecoration(
+          shape: BoxShape.rectangle,
+          borderRadius: new BorderRadius.all(new Radius.circular(32.0)),
+        ),
+        child: new Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            // dialog top
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: new Row(
+                children: <Widget>[
+                  new Container(
+                    child: new Text(
+                      MockDataHelper.deckModelList[index].name,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontFamily: 'helvetica_neue_light',
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
               ),
             ),
-          )
-        ],
+
+            // dialog centre
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    onPressed: () => debugPrint('Edit Deck clicked'),
+                    child: ListTile(
+                      leading: Icon(Icons.edit),
+                      title: Text('Edit Deck'),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    onPressed: () => debugPrint('Share Deck clicked'),
+                    child: ListTile(
+                      leading: Icon(Icons.share),
+                      title: Text('Share Deck'),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: RaisedButton(
+                    onPressed: () => debugPrint('Delete Deck clicked'),
+                    child: ListTile(
+                      leading: Icon(Icons.delete_forever),
+                      title: Text('Delete Deck'),
+                    ),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
       ),
-      actions: <Widget>[
-        new FlatButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text('Cancel'))
-      ],
     );
+//      title: new Text(MockDataHelper.deckModelList[index].name),
+//      content: Column(
+//        mainAxisSize: MainAxisSize.min,
+//        children: <Widget>[
+//          Padding(
+//            padding: const EdgeInsets.all(8.0),
+//            child: RaisedButton(
+//              onPressed: () => debugPrint('Edit Deck clicked'),
+//              child: ListTile(
+//                leading: Icon(Icons.edit),
+//                title: Text('Edit Deck'),
+//              ),
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(12.0),
+//              ),
+//            ),
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.all(8.0),
+//            child: RaisedButton(
+//              onPressed: () => debugPrint('Share Deck clicked'),
+//              child: ListTile(
+//                leading: Icon(Icons.share),
+//                title: Text('Share Deck'),
+//              ),
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(12.0),
+//              ),
+//            ),
+//          ),
+//          Padding(
+//            padding: const EdgeInsets.all(8.0),
+//            child: RaisedButton(
+//              onPressed: () =>
+//                  debugPrint('Delete Deck clicked'),
+//              child: ListTile(
+//                leading: Icon(Icons.delete_forever),
+//                title: Text('Delete Deck'),
+//              ),
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(12.0),
+//              ),
+//            ),
+//          )
+//        ],
+//      ),
+//      actions: <Widget>[
+//        new FlatButton(
+//            onPressed: () => Navigator.pop(context),
+//            child: Text('Cancel'))
+//      ],
+//    );
   }
 
   Widget buildDeckLevelIndicator(int index) {
-    if(MockDataHelper.deckModelList[index].deckLevel == DeckLevel.Beginner)
+    if (MockDataHelper.deckModelList[index].deckLevel == DeckLevel.Beginner)
       return Row(
         children: <Widget>[
           Icon(Icons.linear_scale, color: Colors.green),
-          Text(" Beginner",
-              style: TextStyle(color: Colors.white))
+          Text(" Beginner", style: TextStyle(color: Colors.white))
         ],
       );
-    if(MockDataHelper.deckModelList[index].deckLevel == DeckLevel.Intermediate)
+    if (MockDataHelper.deckModelList[index].deckLevel == DeckLevel.Intermediate)
       return Row(
         children: <Widget>[
           Icon(Icons.linear_scale, color: Colors.yellowAccent),
-          Text(" Intermediate",
-              style: TextStyle(color: Colors.white))
+          Text(" Intermediate", style: TextStyle(color: Colors.white))
         ],
       );
-    if(MockDataHelper.deckModelList[index].deckLevel == DeckLevel.Advanced)
+    if (MockDataHelper.deckModelList[index].deckLevel == DeckLevel.Advanced)
       return Row(
         children: <Widget>[
           Icon(Icons.linear_scale, color: Colors.red),
-          Text(" Advanced",
-              style: TextStyle(color: Colors.white))
+          Text(" Advanced", style: TextStyle(color: Colors.white))
         ],
       );
-
   }
 }
