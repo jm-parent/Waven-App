@@ -17,6 +17,7 @@ import 'package:waven_app/pages/PickClassPage.dart';
 import 'package:waven_app/pages/TestPage.dart';
 import 'package:waven_app/pages/TheGamePage.dart';
 import 'package:waven_app/pages/CustomTeamPreBuilderPage.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
 import 'package:waven_app/widgets/GradientAppBar.dart';
 import 'package:waven_app/widgets/ResideCustomMenu.dart';
 
@@ -96,11 +97,12 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
   Widget buildScaffoldBody() {
     return ResideCustomMenu.scafford(
         direction: ScrollDirection.LEFT,
-        decoration: new BoxDecoration(
-            image: new DecorationImage(
-                image: new CachedNetworkImageProvider(
-                    'https://i1.wp.com/waven-game.com/wp-content/uploads/2018/06/Waven_Carte.png?resize=800%2C445&ssl=1'),
-                fit: BoxFit.cover)),
+        decoration: DrawerMenuGradientBg(),
+//        new BoxDecoration(
+//            image: new DecorationImage(
+//                image: new CachedNetworkImageProvider(
+//                    'https://i1.wp.com/waven-game.com/wp-content/uploads/2018/06/Waven_Carte.png?resize=800%2C445&ssl=1'),
+//                fit: BoxFit.cover)),
         controller: _menuController,
         leftScaffold: new MenuScaffold(
           header: new ConstrainedBox(
