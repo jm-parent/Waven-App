@@ -62,43 +62,49 @@ class HeroesListPageState extends State<HeroesListPage> {
   }
 
   Widget _buildHeroList(numberOfHeroes) {
-    return ListView.builder(
-        shrinkWrap: true,
-        itemCount: numberOfHeroes,
-        itemBuilder: (BuildContext context, int index) {
-          return  Padding(
-            padding: const EdgeInsets.all(3.0),
-            child: new ClipRRect(
-              borderRadius: new BorderRadius.circular(20.0),
-              child: Container(
-//                color: Colors.black87,
-               decoration: BoxDecoration(
-                 image: DecorationImage(image: Image.asset("images/Backgrounds/fond-news.jpg").image,fit: BoxFit.fill)
-               ),
-                child: ListTile(
-                  contentPadding: EdgeInsets.all(12.0),
-                  leading:  new Hero(
-                    tag: data.heroes[index].tag,
-                    child: new CachedNetworkImage(
-                      width: ScreenAwareHelper.screenAwareSize(90.0, context),
-                      height: ScreenAwareHelper.screenAwareSize(70.0, context),
-                      imageUrl: data.heroes[index].img,
+    return Stack(
+      children: <Widget>[
+    Container(
+    decoration: new BoxDecoration(
+    image: new DecorationImage(
+    image: Image.asset('images/fondwaven.png').image,
+    fit: BoxFit.cover)),),
+        ListView.builder(
+            shrinkWrap: true,
+            itemCount: numberOfHeroes,
+            itemBuilder: (BuildContext context, int index) {
+              return  Padding(
+                padding: const EdgeInsets.only(top:4.0,left: 4.0,right: 4.0),
+                child: new ClipRRect(
+                  borderRadius: new BorderRadius.circular(20.0),
+                  child: Card(
+                    color: DarkColor(),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.all(12.0),
+                      leading:  new Hero(
+                        tag: data.heroes[index].tag,
+                        child: new CachedNetworkImage(
+                          width: ScreenAwareHelper.screenAwareSize(90.0, context),
+                          height: ScreenAwareHelper.screenAwareSize(70.0, context),
+                          imageUrl: data.heroes[index].img,
 
-                      placeholder: new Center(
-                        child: new CircularProgressIndicator(),
+                          placeholder: new Center(
+                            child: new CircularProgressIndicator(),
+                          ),
+                          errorWidget: new Icon(Icons.error),
+                        ),
                       ),
-                      errorWidget: new Icon(Icons.error),
+                      onTap: () => _onTileClicked(index),
+                      title: new Text(data.heroes[index].heroName),
+                      subtitle: new Text(data.heroes[index].lore,maxLines: 3,overflow: TextOverflow.ellipsis,),
+
                     ),
                   ),
-                  onTap: () => _onTileClicked(index),
-                  title: new Text(data.heroes[index].heroName),
-                  subtitle: new Text(data.heroes[index].lore,maxLines: 3,overflow: TextOverflow.ellipsis,),
-
                 ),
-              ),
-            ),
-          );
-        });
+              );
+            }),
+      ],
+    );
   }
 }
 

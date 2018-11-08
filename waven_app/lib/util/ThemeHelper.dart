@@ -134,9 +134,9 @@ Decoration DrawerMenuGradientBg()
 }
 Color DarkColor()
 {
-  return Color.fromRGBO(11,32,46,1.0);
+  return Color.fromRGBO(30,55,85,1.0);
 }
 Color LightColor()
 {
-  return Color.fromRGBO(29,90,130,1.0);
+  return Color.fromRGBO(40,100,145,1.0);
 }

@@ -130,7 +130,10 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
       floatingActionButton: buildSpeedDial(),
       //  appBar: AppBar(key: _appBarKey, title: GetTitle()),
       body: Container(
-        decoration: GradientBackground(0),
+        decoration:new BoxDecoration(
+            image: new DecorationImage(
+                image: Image.asset('images/fondwaven.png').image,
+                fit: BoxFit.cover)),
         child: Column(
           children: <Widget>[
             Expanded(

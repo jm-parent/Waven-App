@@ -26,105 +26,55 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="NewsCardItem.dart" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/lib/widgets/NewsCardItem.dart">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="34">
-                    <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="NewsPage.dart" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/lib/pages/NewsPage.dart">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="311">
-                    <caret line="197" column="22" lean-forward="true" selection-start-line="197" selection-start-column="22" selection-end-line="197" selection-end-column="22" />
-                    <folding>
-                      <element signature="e#2769#6169#0" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="RoundableAlertDialog.dart" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/lib/widgets/RoundableAlertDialog.dart">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="432">
-                    <caret line="294" column="53" lean-forward="true" selection-start-line="294" selection-start-column="53" selection-end-line="294" selection-end-column="53" />
-                    <folding>
-                      <element signature="e#166#186#0" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="waven_app" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AboutPage.dart" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/pages/AboutPage.dart">
+      <file leaf-file-name="DeckListPage.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/DeckListPage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="192">
+              <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThemeHelper.dart" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/util/ThemeHelper.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="230">
+              <caret line="126" column="37" lean-forward="true" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HeroesListPage.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/HeroesListPage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="66" column="14" lean-forward="true" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsPage.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/NewsPage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="211" column="41" lean-forward="true" selection-start-line="211" selection-start-column="41" selection-end-line="211" selection-end-column="41" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#3788#4164#0" />
+                <element signature="e#2769#6169#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpellMakerPage.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/pages/SpellMakerPage.dart">
+      <file leaf-file-name="HomeDrawerPage.dart" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/pages/HomeDrawerPage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
-              <caret line="85" column="42" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Constants.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/util/Constants.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/main.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FadeRouteTransition.dart" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/Transitions/FadeRouteTransition.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="23" column="30" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="187">
+              <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -140,19 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>border</find>
-      <find>showdial</find>
-      <find>callba</find>
-      <find>shape</find>
-      <find>highli</find>
-      <find>dialo</find>
-      <find>HighLightedIcon</find>
-      <find>setstate</find>
-      <find>HeroDe</find>
-      <find>heroDe</find>
-      <find>inkwel</find>
-      <find>_s</find>
-      <find>here</find>
       <find>asset</find>
       <find>loadin</find>
       <find>idHeroidHero</find>
@@ -163,13 +100,26 @@
       <find>appba</find>
       <find>navig</find>
       <find>navi</find>
-      <find>grad</find>
       <find>scree</find>
       <find>expanded</find>
       <find>intrins</find>
-      <find>radius</find>
       <find>borderra</find>
       <find>link</find>
+      <find>grad</find>
+      <find>build</find>
+      <find>classna</find>
+      <find>backgrou</find>
+      <find>deb</find>
+      <find>hero</find>
+      <find>radius</find>
+      <find>gradient</find>
+      <find>overri</find>
+      <find>coming soo</find>
+      <find>image</find>
+      <find>darkc</find>
+      <find>border</find>
+      <find>fondwaven</find>
+      <find>darkco</find>
     </findStrings>
     <replaceStrings>
       <replace>NewsCard</replace>
@@ -199,9 +149,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/RadialMenuChallenge/RadialMenu.dart" />
-        <option value="$PROJECT_DIR$/lib/util/BlurredImageBackground.dart" />
-        <option value="$PROJECT_DIR$/lib/SpellBuilderWidgets/AnimatedRadialFab.dart" />
         <option value="$PROJECT_DIR$/lib/pages/IntroSlidePage.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/PlaceholderWidget.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/HighlightedIcon.dart" />
@@ -228,12 +175,8 @@
         <option value="$PROJECT_DIR$/lib/widgets/SpellEffectBackground.dart" />
         <option value="$PROJECT_DIR$/lib/models/SpellMakerModel.dart" />
         <option value="$PROJECT_DIR$/lib/pages/SpellMakerPage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/HeroesListPage.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/GridLoreItem.dart" />
         <option value="$PROJECT_DIR$/lib/util/ValidatorHelper.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/ArmoryBuilder.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/ArmoryBuilderCreateNew.dart" />
         <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/Demos/SlidableListDemoPage.dart" />
         <option value="$PROJECT_DIR$/lib/util/EnumHelper.dart" />
@@ -241,15 +184,22 @@
         <option value="$PROJECT_DIR$/lib/util/MockDataHelper.dart" />
         <option value="$PROJECT_DIR$/lib/pages/DeckDetailPage.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/ResideCustomMenu.dart" />
-        <option value="$PROJECT_DIR$/lib/util/ThemeHelper.dart" />
         <option value="$PROJECT_DIR$/lib/widgets/RoundableAlertDialog.dart" />
         <option value="$PROJECT_DIR$/lib/main.dart" />
         <option value="$PROJECT_DIR$/lib/Transitions/FadeRouteTransition.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/DeckListPage.dart" />
         <option value="$PROJECT_DIR$/lib/util/Constants.dart" />
-        <option value="$PROJECT_DIR$/lib/pages/HomeDrawerPage.dart" />
         <option value="$PROJECT_DIR$/lib/pages/NewsPage.dart" />
         <option value="$PROJECT_DIR$/lib/pages/AboutPage.dart" />
+        <option value="$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/android/app/build.gradle" />
+        <option value="$PROJECT_DIR$/lib/pages/ArmoryBuilderCreateNew.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/ArmoryBuilder.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/CustomTeamPreBuilderPage.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/HeroesListPage.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/HomeDrawerPage.dart" />
+        <option value="$PROJECT_DIR$/lib/pages/DeckListPage.dart" />
+        <option value="$PROJECT_DIR$/lib/util/ThemeHelper.dart" />
       </list>
     </option>
   </component>
@@ -473,6 +423,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
       <window_info id="Build Variants" order="2" sideWeight="0.50567263" side_tool="true" weight="0.12153518" />
@@ -490,11 +441,11 @@
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info id="Image Layers" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49520257" weight="0.3148148" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49520257" visible="true" weight="0.3148148" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.3267974" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3267974" />
       <window_info id="Captures" order="5" weight="0.32995737" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59586054" visible="true" weight="0.17004265" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59586054" visible="true" weight="0.17004265" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32897604" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info id="Favorites" order="6" sideWeight="0.24797407" side_tool="true" weight="0.16471216" />
@@ -635,11 +586,6 @@
           <option name="timeStamp" value="219" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/pages/SpellMakerPage.dart</url>
-          <line>221</line>
-          <option name="timeStamp" value="220" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="Dart">
           <url>file://$PROJECT_DIR$/lib/pages/HeroDetailPage.dart</url>
           <line>58</line>
           <option name="timeStamp" value="250" />
@@ -650,7 +596,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="252" />
+      <option name="time" value="253" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -663,43 +609,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/HeroImages/iop_bouvaliere.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/HeroImages/xelor_regulatrice.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/DeckModel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="118" selection-start-line="11" selection-start-column="118" selection-end-line="11" selection-end-column="118" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/HeroImages/xelor_trotteuse.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/HeroPortraits/Xelor-Cosmique-Female-CC.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/HeroImages/iop03.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/HeroImages/iop_base.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/util/MockDataHelper.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
@@ -794,58 +703,10 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/Transitions/FadeRouteTransition.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/main.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/widgets/FixedAppBar.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/Constants.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/DeckListPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="187" column="32" lean-forward="true" selection-start-line="187" selection-start-column="32" selection-end-line="187" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/HeroModel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="519">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/HeroesListPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="60" column="8" lean-forward="true" selection-start-line="58" selection-start-column="2" selection-end-line="60" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -891,23 +752,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/HomeDrawerPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="107" column="36" selection-start-line="104" selection-start-column="20" selection-end-line="107" selection-end-column="36" />
-          <folding>
-            <element signature="e#1626#2127#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/ThemeHelper.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="134" column="17" selection-start-line="134" selection-start-column="17" selection-end-line="134" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/widgets/ResideCustomMenu.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-216">
@@ -929,33 +773,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/NewsPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="197" column="22" lean-forward="true" selection-start-line="197" selection-start-column="22" selection-end-line="197" selection-end-column="22" />
-          <folding>
-            <element signature="e#2769#6169#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/RoundableAlertDialog.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="294" column="53" lean-forward="true" selection-start-line="294" selection-start-column="53" selection-end-line="294" selection-end-column="53" />
-          <folding>
-            <element signature="e#166#186#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/pages/SpellMakerPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="85" column="42" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/util/VisibilityTool.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -963,14 +780,169 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/RoundableAlertDialog.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="294" column="53" selection-start-line="294" selection-start-column="53" selection-end-line="294" selection-end-column="53" />
+          <folding>
+            <element signature="e#166#186#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/Constants.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/main.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Transitions/FadeRouteTransition.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="25" column="41" lean-forward="true" selection-start-line="25" selection-start-column="41" selection-end-line="25" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/android/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="19" column="40" lean-forward="true" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/HeroModel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/ArmoryBuilderCreateNew.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="160" selection-start-line="160" selection-end-line="160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/SpellMakerPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="70" column="23" lean-forward="true" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+          <folding>
+            <element signature="e#3589#5722#0" />
+            <element signature="e#5743#6461#0" />
+            <element signature="e#6506#6650#0" />
+            <element signature="e#6673#7931#0" />
+            <element signature="e#7961#9447#0" />
+            <element signature="e#9595#11103#0" />
+            <element signature="e#11203#11292#0" />
+            <element signature="e#11313#12101#0" />
+            <element signature="e#12124#13044#0" />
+            <element signature="e#13070#13596#0" />
+            <element signature="e#13667#14182#0" />
+            <element signature="e#14205#14709#0" />
+            <element signature="e#14733#15240#0" />
+            <element signature="e#15264#15791#0" />
+            <element signature="e#15819#17202#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/AnimatedSpellMakerPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="136" selection-start-line="136" selection-end-line="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/CustomTeamBuilderPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1471">
+          <caret line="128" column="39" lean-forward="true" selection-start-line="128" selection-start-column="39" selection-end-line="128" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/CustomTeamPreBuilderPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/ArmoryBuilder.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="64" column="42" lean-forward="true" selection-start-line="64" selection-start-column="42" selection-end-line="64" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/pages/AboutPage.dart">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="31" column="28" lean-forward="true" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+        <state relative-caret-position="226">
+          <caret line="77" column="10" selection-start-line="77" selection-start-column="10" selection-end-line="77" selection-end-column="10" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
             <element signature="e#3788#4164#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/HeroesListPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="66" column="14" lean-forward="true" selection-start-line="66" selection-start-column="14" selection-end-line="66" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/NewsPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="211" column="41" lean-forward="true" selection-start-line="211" selection-start-column="41" selection-end-line="211" selection-end-column="41" />
+          <folding>
+            <element signature="e#2769#6169#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/HomeDrawerPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="55" column="25" lean-forward="true" selection-start-line="55" selection-start-column="25" selection-end-line="55" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/pages/DeckListPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="56" column="32" lean-forward="true" selection-start-line="56" selection-start-column="27" selection-end-line="56" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/util/ThemeHelper.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="126" column="37" lean-forward="true" selection-start-line="126" selection-start-column="37" selection-end-line="126" selection-end-column="37" />
         </state>
       </provider>
     </entry>

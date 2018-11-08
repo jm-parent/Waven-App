@@ -41,22 +41,20 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return  new NewsPage();
+        return new NewsPage();
       case 1:
-        return new TheGamePage();
-      case 2:
         return new HeroesListPage();
-      case 3:
+      case 2:
         return new ArmoryBuilderPage();
-      case 4:
+      case 3:
         return new AnimatedSpellMakerPage();
-      case 5:
+      case 4:
         return new CustomShushuPage();
-      case 6:
+      case 5:
         return new CustomTeamPreBuilderPage();
-      case 7 :
+      case 6:
         return new DeckListPage();
-      case 8 :
+      case 7 :
         return new AboutPage();
       default:
         return new Text("Error");
@@ -100,6 +98,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
 
 
   Widget buildScaffoldBody() {
+    var index = 0;
     return ResideCustomMenu.scafford(
         direction: ScrollDirection.LEFT,
         decoration: new BoxDecoration(
@@ -116,16 +115,16 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
 //              radius: 40.0,
 //            ),
 //          ),
+
           children: <Widget>[
-            buildResideItem("A la une", Icons.rss_feed,context,0),
-            buildResideItem("Le Jeu", Icons.ac_unit,context,1),
-            buildResideItem("Les Héros",Icons.wifi_tethering,context,2),
-            buildResideItem("Deck Builder", FontAwesomeIcons.calendar,context,3),
-            buildResideItem("Spell Maker", FontAwesomeIcons.bookOpen,context,4),
-            buildResideItem("Shushus Maker", FontAwesomeIcons.spaceShuttle,context,5),
-            buildResideItem("Team Builder", FontAwesomeIcons.wrench,context,6),
-            buildResideItem("Test", FontAwesomeIcons.oldRepublic,context,7),
-            buildResideItem("About", FontAwesomeIcons.infoCircle,context,8),
+            buildResideItem("A la une", Icons.rss_feed,context,index),
+            buildResideItem("Les Héros",Icons.wifi_tethering,context,++index),
+            buildResideItem("Deck Builder", FontAwesomeIcons.calendar,context,++index),
+            buildResideItem("Spell Maker", FontAwesomeIcons.bookOpen,context,++index),
+            buildResideItem("Shushus Maker", FontAwesomeIcons.spaceShuttle,context,++index),
+            buildResideItem("Team Builder", FontAwesomeIcons.wrench,context,++index),
+            buildResideItem("Armory List", FontAwesomeIcons.oldRepublic,context,++index),
+            buildResideItem("About", FontAwesomeIcons.infoCircle,context,++index),
           ],
         ),
         child: new Scaffold(
