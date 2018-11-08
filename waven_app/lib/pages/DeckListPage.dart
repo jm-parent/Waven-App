@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:waven_app/CustomContainers/ParallelogramContainer.dart';
+import 'package:waven_app/Transitions/FadeRouteTransition.dart';
 import 'package:waven_app/pages/DeckDetailPage.dart';
 import 'package:waven_app/util/EnumHelper.dart';
 import 'package:waven_app/util/MockDataHelper.dart';
@@ -46,11 +47,7 @@ class DeckListPageState extends State<DeckListPage>
                     return buildAlertDialogDeckLongPress(index);
                   },
                 ),
-            onTap: () => Navigator.push(context,
-                    new MaterialPageRoute(builder: (context) {
-                  return new DeckDetailPage(
-                      MockDataHelper.deckModelList[index]);
-                })),
+            onTap: () => Navigator.of(context).push(new DeckDetailPageTransition(deck: MockDataHelper.deckModelList[index])),
             child: new Slidable(
               delegate: new SlidableDrawerDelegate(),
               actionExtentRatio: 0.25,

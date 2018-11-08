@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:waven_app/Demos/SlidableListDemoPage.dart';
+import 'package:waven_app/pages/AboutPage.dart';
 import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
 import 'package:waven_app/pages/AnimatedTabBarPage.dart';
 import 'package:waven_app/pages/ArmoryBuilder.dart';
@@ -17,6 +18,7 @@ import 'package:waven_app/pages/PickClassPage.dart';
 import 'package:waven_app/pages/TestPage.dart';
 import 'package:waven_app/pages/TheGamePage.dart';
 import 'package:waven_app/pages/CustomTeamPreBuilderPage.dart';
+import 'package:waven_app/util/Constants.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 import 'package:waven_app/widgets/GradientAppBar.dart';
 import 'package:waven_app/widgets/ResideCustomMenu.dart';
@@ -54,6 +56,8 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
         return new CustomTeamPreBuilderPage();
       case 7 :
         return new DeckListPage();
+      case 8 :
+        return new AboutPage();
       default:
         return new Text("Error");
     }
@@ -89,6 +93,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
       onWillPop: _onWillPop,
       child: new Scaffold(
         body: buildScaffoldBody(),
+
       ),
     );
   }
@@ -97,12 +102,10 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
   Widget buildScaffoldBody() {
     return ResideCustomMenu.scafford(
         direction: ScrollDirection.LEFT,
-        decoration: DrawerMenuGradientBg(),
-//        new BoxDecoration(
-//            image: new DecorationImage(
-//                image: new CachedNetworkImageProvider(
-//                    'https://i1.wp.com/waven-game.com/wp-content/uploads/2018/06/Waven_Carte.png?resize=800%2C445&ssl=1'),
-//                fit: BoxFit.cover)),
+        decoration: new BoxDecoration(
+            image: new DecorationImage(
+                image: Image.asset('images/fondwaven.png').image,
+                fit: BoxFit.cover)),
         controller: _menuController,
         leftScaffold: new MenuScaffold(
 
@@ -122,13 +125,26 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
             buildResideItem("Shushus Maker", FontAwesomeIcons.spaceShuttle,context,5),
             buildResideItem("Team Builder", FontAwesomeIcons.wrench,context,6),
             buildResideItem("Test", FontAwesomeIcons.oldRepublic,context,7),
+            buildResideItem("About", FontAwesomeIcons.infoCircle,context,8),
           ],
         ),
         child: new Scaffold(
           body: _getDrawerItemWidget(_selectedDrawerIndex),
 
           appBar: GradientAppBar(
-
+            actions: <Widget>[
+              PopupMenuButton<String>(
+                onSelected: choiceAction,
+                itemBuilder: (BuildContext context){
+                  return ConstantsPopupMenu.choices.map((String choice){
+                    return PopupMenuItem<String>(
+                      value: choice,
+                      child: Text(choice),
+                    );
+                  }).toList();
+                },
+              )
+            ],
             backgroundColorStart: Color.fromRGBO(20,61,88,1.0),
             backgroundColorEnd: Color.fromRGBO(20,61,88,1.0) ,
             elevation: 5.0,
@@ -155,6 +171,13 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
       },
     );
 
+  }
+  void choiceAction(String choice) {
+    if (choice == ConstantsPopupMenu.About) {
+      Navigator.push(context, new MaterialPageRoute(builder: (context) {
+        return new AboutPage();
+      }));
+    }
   }
 
   Widget buildResideItem(var menuName, var icon, var context,var index) {
