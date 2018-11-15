@@ -41,7 +41,7 @@ class HomeDrawerPageState extends State<HomeDrawerPage>
   _getDrawerItemWidget(int pos) {
     switch (pos) {
       case 0:
-        return new NewsPage();
+        return new Text("Error");
       case 1:
         return new HeroesListPage();
       case 2:

@@ -90,31 +90,35 @@ class NewsPageState extends State<NewsPage> {
 //            ),
 //          )));
       _tiles.add(new CarouselSlider(
-        height: 400.0,
+        height: 350.0,
         items: imgList.map((url) {
           return Stack(
             children:<Widget>[
+
               Container(
               margin: new EdgeInsets.all(5.0),
               decoration: ImageDecoration(url, BoxFit.contain),
               child: null
             ),
+//              Container(
+//                decoration: BoxDecoration(
+//                  gradient:  LinearGradient(
+//                    stops: [0.0, 0.3, 0.7, 1.0],
+//                    begin: Alignment.topCenter,
+//                    end: Alignment.bottomCenter,
+//                    colors: [
+//                      const Color(0x00000000),
+//                      const Color(0xAA000000),
+//                      const Color(0xAA000000),
+//                      const Color(0x00000000),
+//                    ],
+//                  ),
+//                ),
+//              ),
               Container(
                 decoration: BoxDecoration(
-                  gradient:  LinearGradient(
-                    stops: [0.0, 0.3, 0.7, 1.0],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      const Color(0x00000000),
-                      const Color(0xAA000000),
-                      const Color(0xAA000000),
-                      const Color(0x00000000),
-                    ],
-                  ),
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
-              ),
-              Container(
                 child: Column(
                   children: <Widget>[
                     Expanded(
@@ -202,10 +206,6 @@ class NewsPageState extends State<NewsPage> {
   Widget build(BuildContext context) {
     if (newsDatas == null) return _loadingView;
     return Container(
-      decoration: new BoxDecoration(
-          image: new DecorationImage(
-              image: Image.asset('images/fondwaven.png').image,
-              fit: BoxFit.cover)),
       child: AnimatedCrossFade(
         firstChild: _loadingView,
         secondChild: buildStaggeredGridView(),

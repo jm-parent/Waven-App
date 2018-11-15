@@ -44,7 +44,7 @@ class NewsCardItemState extends State<NewsCardItem> {
         );
       },
       child: new Card(
-        color: Colors.blueAccent.withOpacity(0.0),
+        color: Colors.cyan.withOpacity(0.4),
         shape: widget.shape,
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,

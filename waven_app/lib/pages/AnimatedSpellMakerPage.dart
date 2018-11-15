@@ -21,7 +21,6 @@ import 'package:waven_app/widgets/SpellEffectBackground.dart';
 import 'package:waven_app/widgets/UpDownImageWidget.dart';
 
 class AnimatedSpellMakerPage extends StatefulWidget {
-  AnimatedSpellMakerPage({Key key}) : super(key: key);
 
   @override
   _AnimatedSpellMakerPageState createState() =>
@@ -29,7 +28,7 @@ class AnimatedSpellMakerPage extends StatefulWidget {
 }
 
 class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
 //Sauvegarde en cache du customModel
   SharedPreferences prefs;
 
@@ -125,10 +124,12 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
     if (_radialEffectEdit != null && _radialEffectEdit.height != null)
       print("Height Radial Menu = " + _radialEffectEdit.height.toString());
 
-    return new Scaffold(
+    return Scaffold(
       key: _scaffoldKey,
       floatingActionButton: buildSpeedDial(),
-      //  appBar: AppBar(key: _appBarKey, title: GetTitle()),
+      appBar: AppBar(
+        title: Text("Spell Maker"),
+      ),
       body: Container(
         decoration:new BoxDecoration(
             image: new DecorationImage(
@@ -245,28 +246,28 @@ class _AnimatedSpellMakerPageState extends State<AnimatedSpellMakerPage>
 
     setState(() {
       borderElementHeight = sizeBorderElement.height;
-      print(" borderElementHeight: $borderElementHeight ");
+     // print(" borderElementHeight: $borderElementHeight ");
       borderElementWidth = sizeBorderElement.width;
-      print(" borderElementWidth: $borderElementWidth ");
+      //print(" borderElementWidth: $borderElementWidth ");
 
       positionBorderElementHeight =
           (positionBorderElement.dy - 80 - borderElementHeight).round();
-      print(" borderElementHeight:" + borderElementHeight.toString());
-      print(" positionBorderElement.dy:" + positionBorderElement.dy.toString());
-      print(" positionBorderElementHeight: $positionBorderElementHeight ");
+     // print(" borderElementHeight:" + borderElementHeight.toString());
+     // print(" positionBorderElement.dy:" + positionBorderElement.dy.toString());
+     // print(" positionBorderElementHeight: $positionBorderElementHeight ");
       positionBorderElementWidth = positionBorderElement.dx.round();
-      print(" positionBorderElementWidth: $positionBorderElementWidth ");
+     // print(" positionBorderElementWidth: $positionBorderElementWidth ");
       percentTopBorderElementHeight =
           (positionBorderElementHeight / screenHeightMax * 100);
-      print(" percentBorderElementHeight: $percentTopBorderElementHeight %");
+     // print(" percentBorderElementHeight: $percentTopBorderElementHeight %");
       percentBorderElementWidth =
           (positionBorderElementWidth / screenWidthMax * 100).round();
-      print(" percentBorderElementWidth: $percentBorderElementWidth %");
+     // print(" percentBorderElementWidth: $percentBorderElementWidth %");
       var top = (positionBorderElementWidth / screenWidthMax * 100).round();
-      print(" top: $top ");
+    //  print(" top: $top ");
       borderElementPosition = positionBorderElement;
     });
-    print("POSITION of BorderElement: $positionBorderElement ");
+  //  print("POSITION of BorderElement: $positionBorderElement ");
     return positionBorderElement;
   }
 

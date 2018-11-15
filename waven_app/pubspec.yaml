@@ -14,7 +14,7 @@ dependencies:
   html: ^0.13.3
   zoomable_image: ^1.2.0
   flutter_webview_plugin: 0.2.0
-  cached_network_image: ^0.5.0
+  cached_network_image: ^0.5.0+1
   residemenu: ^1.2.5
   image_picker: ^0.4.10
   image: ^2.0.4
@@ -24,27 +24,31 @@ dependencies:
   intro_slider: ^1.0.7
   flutter_swiper: ^1.1.4
   flutter_slidable: "^0.4.9"
+  flip_card: ^0.2.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter:
-  uses-material-design: true
-
-  assets:
-    - assets/HeroesDatas.json
-    - assets/HeroesDatav2.json
-    - assets/SpellsDatas.json
-    - assets/SpellsDatasV2.json
-    - images/
-    - images/spell_cadre/
-    - images/menu_icons/
-    - images/spellmaker_res/
-    - images/HeroImages/
-    - images/HeroPortraits/
-    - images/GodsImages/
-    - images/Backgrounds/
-    - images/background_logo/
-    - images/HeroImageArmory/
-    - images/HeroImages/FullAndLogo/
+ uses-material-design: true
+ assets:
+     - assets/HeroesDatas.json
+     - assets/HeroesDatav2.json
+     - assets/SpellsDatas.json
+     - assets/SpellsDatasV2.json
+     - images/
+     - images/spell_cadre/
+     - images/menu_icons/
+     - images/spellmaker_res/
+     - images/HeroImages/
+     - images/HeroPortraits/
+     - images/GodsImages/
+     - images/Backgrounds/
+     - images/background_logo/
+     - images/HeroImageArmory/
+     - images/HeroImages/FullAndLogo/
+ fonts:
+    - family: BebasNeue
+      fonts:
+          - asset: assets/fonts/BebasNeue_Regular.otf

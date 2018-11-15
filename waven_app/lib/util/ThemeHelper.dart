@@ -140,3 +140,8 @@ Color LightColor()
 {
   return Color.fromRGBO(40,100,145,1.0);
 }
+
+Color WaventBlue()
+{
+  return Color.fromRGBO(42,209,224,1.0);
+}

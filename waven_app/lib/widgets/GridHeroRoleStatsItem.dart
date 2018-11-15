@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:waven_app/models/HeroModel.dart';
@@ -26,7 +27,11 @@ class HeroRoleStatsItem extends StatelessWidget {
         bottom: false,
         child: new Row(
           children: <Widget>[
-            imgUrl == null ? new Image.asset(imgAsset,height: 25.0,) : new Image.network(imgUrl),
+            imgUrl == null ? new Image.asset(imgAsset,height: 25.0,) :CachedNetworkImage(
+      imageUrl: imgUrl,
+      placeholder: new CircularProgressIndicator(),
+      errorWidget: new Icon(Icons.error),
+    ),
             Expanded(child: new Text(statName)),
             Expanded(
               flex: 3,

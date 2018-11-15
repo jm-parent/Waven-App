@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:waven_app/DashboardPages/DashboardBuilders.dart';
+import 'package:waven_app/Demos/DemoBottomAppBar.dart';
+import 'package:waven_app/NotchedBottomNavBar/AnchorOverlay.dart';
+import 'package:waven_app/NotchedBottomNavBar/FabWithIcons.dart';
+import 'package:waven_app/NotchedBottomNavBar/NotchedBottomNavBarItem.dart';
+import 'package:waven_app/pages/AboutPage.dart';
 import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
 import 'package:waven_app/pages/HeroesListPage.dart';
 import 'package:waven_app/pages/NewsPage.dart';
 import 'package:waven_app/util/NavigationView.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
+import 'package:waven_app/widgets/NavigationBottomAppBar.dart';
 
 class AnimatedTabBarPage extends StatefulWidget {
   const AnimatedTabBarPage({Key key}) : super(key: key);
@@ -14,134 +22,76 @@ class AnimatedTabBarPage extends StatefulWidget {
 
 class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>
     with TickerProviderStateMixin {
-  int _currentIndex = 0;
-  BottomNavigationBarType _type = BottomNavigationBarType.shifting;
-  List<NavigationView> _navigationViews;
+  String _lastSelected = 'TAB: 0';
+  Widget _selectedBody;
+  Widget _OldselectedBody;
+  void _selectedTab(int index) {
+    setState(() {
+      _lastSelected = 'TAB: $index';
+      if(index == 0)
+        _selectedBody = NewsPage(key: keyNews,);
+      if(index == 1)
+        _selectedBody = HeroesListPage(key: keyListHero,);
+      if(index == 2)
+        _selectedBody = Placeholder(color: Colors.lime,);
+      if(index == 3)
+        _selectedBody = AboutPage();
+      //FABButton
+      if(index == 10) {
+        _selectedBody = DashboardBuilders();
+
+      }
+    });
+  }
+
+  void _selectedFab(int index) {
+    setState(() {
+      _lastSelected = 'FAB: $index';
+    });
+  }
 
   final Key keyNews = PageStorageKey('pageOne');
   final Key keyListHero = PageStorageKey('pageTwo');
   final Key keySpellMaker = PageStorageKey('pageOne');
   final Key keyAutre = PageStorageKey('pageTwo');
 
+  static final GlobalKey<ScaffoldState> _scaffoldKey =
+      GlobalKey<ScaffoldState>();
+
   @override
   void initState() {
+    _selectedTab(0);
     super.initState();
-    _navigationViews = <NavigationView>[
-      new NavigationView(
-        page: NewsPage(key:keyNews ,),
-        //NewsPage(),
-        icon: Image.asset(
-          "images/menu_icons/News.png",
-          width: 32.0,
-        ),
-        title: 'News',
-        color: Colors.transparent,
-        vsync: this,
-      ),
-      new NavigationView(
-        page: HeroesListPage(key: keyListHero,),
-        icon: Image.asset(
-          "images/menu_icons/Heros.png",
-          width: 32.0,
-        ),
-        title: 'Compagnons',
-        color: Colors.transparent,
-        vsync: this,
-      ),
-      new NavigationView(
-        page: AnimatedSpellMakerPage(key: keySpellMaker,),
-        icon: Image.asset(
-          "images/menu_icons/Spellmaker1.png",
-          width: 32.0,
-        ),
-        title: 'Arsenal',
-        color: Colors.transparent,
-        vsync: this,
-      ),
-      new NavigationView(
-        page: Container(),
-        icon: Image.asset(
-          "images/menu_icons/Spellmaker1.png",
-          width: 32.0,
-        ),
-        title: 'Spell Maker',
-        color: Colors.transparent,
-        vsync: this,
-      ),
-    ];
-
-    for (NavigationView view in _navigationViews)
-      view.controller.addListener(_rebuild);
-
-    _navigationViews[_currentIndex].controller.value = 1.0;
-  }
-
-  @override
-  void dispose() {
-    for (NavigationView view in _navigationViews) view.controller.dispose();
-    super.dispose();
-  }
-
-  void _rebuild() {
-    setState(() {
-      // Rebuild in order to animate views.
-    });
-  }
-
-  Widget _buildTransitionsStack() {
-    final List<FadeTransition> transitions = <FadeTransition>[];
-
-    for (NavigationView view in _navigationViews)
-      transitions.add(view.transition(_type, context));
-
-    // We want to have the newly animating (fading in) views on top.
-    transitions.sort((FadeTransition a, FadeTransition b) {
-      final Animation<double> aAnimation = a.opacity;
-      final Animation<double> bAnimation = b.opacity;
-      final double aValue = aAnimation.value;
-      final double bValue = bAnimation.value;
-      return aValue.compareTo(bValue);
-    });
-
-    return new Stack(children: transitions);
   }
 
   @override
   Widget build(BuildContext context) {
-    final BottomNavigationBar botNavBar = new BottomNavigationBar(
-      items: _navigationViews
-          .map((NavigationView navigationView) => navigationView.item)
-          .toList(),
-      currentIndex: _currentIndex,
-      type: _type,
-      onTap: (int index) {
-        setState(() {
-          _navigationViews[_currentIndex].controller.reverse();
-          _currentIndex = index;
-          _navigationViews[_currentIndex].controller.forward();
-        });
-      },
-    );
+    return Scaffold(
 
-    return new Scaffold(
-      backgroundColor: Colors.transparent,
-      body: new Center(child: _buildTransitionsStack()),
-      bottomNavigationBar: Container(
-        child: botNavBar,
-        decoration: new BoxDecoration(
-          gradient: new LinearGradient(
-            begin: Alignment.bottomCenter,
-            end: Alignment.topCenter,
-            stops: [0.1, 0.5, 0.7, 0.9],
-            colors: [
-              Colors.blueGrey[800],
-              Colors.blueGrey[700],
-              Colors.blueGrey[600],
-              Colors.blueGrey[400],
-            ],
-          ),
-        ),
+      body: _selectedBody,
+      bottomNavigationBar: FABBottomAppBar(
+
+        backgroundColor: Colors.grey[700],
+        centerItemText: 'Dashboard',
+        color: Colors.white54,
+        selectedColor: WaventBlue(),
+        notchedShape: CircularNotchedRectangle(),
+        onTabSelected: _selectedTab,
+        items: [
+          FABBottomAppBarItem(iconData: Icons.fiber_new, text: 'News'),
+          FABBottomAppBarItem(iconData: Icons.layers, text: 'Database'),
+          FABBottomAppBarItem(iconData: Icons.dashboard, text: 'Armory'),
+          FABBottomAppBarItem(iconData: Icons.settings, text: 'Settings'),
+        ],
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.cyan.withOpacity(0.5),
+        onPressed: () => _selectedTab(10),
+    tooltip: 'Increment',
+    child: Image.asset("images/logowaven.png"),
+    elevation: 2.0,
+    ),
     );
   }
 }

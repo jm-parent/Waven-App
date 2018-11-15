@@ -46,6 +46,7 @@ class SpellMakerModel {
   void resetSpell() {
     this.name = '';
     this.pa = 0;
+    this.shushuGen = 0;
     this.backgroundFile = null;
     this.urlImage = '';
     this.shushuId = 0;
@@ -62,6 +63,7 @@ class SpellMakerModel {
   void getPrefs(SharedPreferences prefs) async {
     name = prefs.getString('cachedSpellname')??'';
     pa = prefs.getInt('cachedSpellpa')??0;
+    shushuGen = prefs.getInt('cachedshushuGen')??0;
     //backgroundFile = prefs.get('cachedSpellbackgroundFile');
     urlImage = prefs.getString('cachedSpellurlImage')??'';
     shushuId = prefs.getInt('cachedSpellshushuId')??0;
@@ -79,6 +81,7 @@ class SpellMakerModel {
     prefs.setString('cachedSpellname',name);
     prefs.setInt('cachedSpellpa',pa);
     //prefs.set('cachedSpellbackgroundFile',backgroundFile);
+    prefs.setInt('cachedshushuGen',shushuGen);
     prefs.setString('cachedSpellurlImage',urlImage);
     prefs.setInt('cachedSpellshushuId',shushuId);
     prefs.setInt('cachedSpellelementalType',elementalType.index);

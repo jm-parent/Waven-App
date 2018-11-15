@@ -149,13 +149,14 @@ class HeroDetailPageState extends State<HeroDetailPage>
     if (hero == null) return _loadingView;
     return Stack(children: <Widget>[
       Container(
-          decoration: new BoxDecoration(
-        image: new DecorationImage(
-          image:
-              new Image.asset("images/background_logo/logo_$godId.png").image,
-          fit: BoxFit.contain,
-        ),
-      )),
+//          decoration: new BoxDecoration(
+//        image: new DecorationImage(
+//          image:
+//              new Image.asset("images/background_logo/logo_$godId.png").image,
+//          fit: BoxFit.contain,
+//        ),
+//      )
+      ),
       new ListView(
         children: <Widget>[
           Divider(),
