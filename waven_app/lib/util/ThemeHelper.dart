@@ -98,7 +98,7 @@ TextStyle TitleNewsStyle(BuildContext context)
 {
   final ThemeData theme = Theme.of(context);
   final TextStyle titleStyle =
-  theme.textTheme.headline.copyWith(color: Colors.white,fontSize: 15.0,fontFamily:"VT323" );
+  theme.textTheme.headline.copyWith(color: Color.fromRGBO(0,226,255,1.0),fontSize: 15.0,fontFamily:"VT323" );
 
   return titleStyle;
 }

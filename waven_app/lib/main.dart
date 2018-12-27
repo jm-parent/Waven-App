@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
-import 'package:waven_app/pages/AnimatedTabBarPage.dart';
-import 'package:waven_app/pages/BottomAppBarPage.dart';
-import 'package:waven_app/pages/HomeDrawerPage.dart';
-import 'package:waven_app/pages/IntroSlidePage.dart';
+import 'package:flutter/services.dart';
+import 'package:waven_app/AppUi/BottomNavNotchedBar/AnimatedTabBarPage.dart';
+import 'package:waven_app/pages/ComingSoonPage.dart';
 import 'package:waven_app/pages/SplashscreenPage.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   runApp(MyApp());
 }
 
@@ -20,10 +19,11 @@ class MyApp extends StatelessWidget {
         primaryColor: DarkColor(),
         accentColor: LightColor(),
       ),
+
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{
         '/Mainhome': (BuildContext context) => new Scaffold(body: new AnimatedTabBarPage()),
-        '/IntroSlide': (BuildContext context) => new IntroSliderPage(),
+        '/ComingSoon': (context) => ComingSoonPage(),
       },
     );
   }

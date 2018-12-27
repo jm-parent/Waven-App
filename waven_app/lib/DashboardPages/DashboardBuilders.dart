@@ -1,40 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:path/path.dart';
-import 'package:waven_app/Builders/BuilderDetailPage.dart';
-import 'package:waven_app/DashboardPages/DashboardItem.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
 import 'package:waven_app/DashboardPages/HorizontalFanArtList.dart';
-import 'package:waven_app/DashboardPages/PageTampon.dart';
-import 'package:waven_app/pages/AnimatedSpellMakerPage.dart';
-import 'package:waven_app/util/MockDataHelper.dart';
+import 'package:waven_app/GenWidgets/WavenPageWithBackground.dart';
+import 'package:waven_app/util/EnumHelper.dart';
 
 class DashboardBuilders extends StatelessWidget {
+  Function(int) callbackNavigateTo;
+
+  DashboardBuilders(this.callbackNavigateTo);
+
   @override
   Widget build(BuildContext context) {
     return new Center(
-        child: new Container(
+        child: new WavenPageWithBackground(
       child: ListView(
         scrollDirection: Axis.vertical,
         children: <Widget>[
           Placeholder(
             fallbackHeight: 80.0,
           ),
-          DashboardTitleCat("Actualités"),
+          DashboardTitleCat(titleCat:"Les News" ,callbackNavigateTo: callbackNavigateToPage,indexToNavigate:NavigationIndexName.news.index ,isMoreShowed: true,),
           buildMockedHoritzontalList(),
-          DashboardTitleCat("Les Shushu"),
+          DashboardTitleCat(titleCat:"Les Decks du moment",callbackNavigateTo:callbackNavigateToPage,indexToNavigate:NavigationIndexName.armory.index,isMoreShowed: true),
           buildMockedHoritzontalList(),
-          DashboardTitleCat("Les Decks du moment"),
+          DashboardTitleCat(titleCat:"Les vidéos du moment",callbackNavigateTo:callbackNavigateToPage,indexToNavigate:NavigationIndexName.community.index,isMoreShowed: true),
           buildMockedHoritzontalList(),
-          DashboardTitleCat("Les vidéos du moment"),
-          buildMockedHoritzontalList(),
-          DashboardTitleCat("La communauté"),
+          DashboardTitleCat(titleCat:"La communauté",callbackNavigateTo:callbackNavigateToPage,indexToNavigate:NavigationIndexName.community.index,isMoreShowed: true),
           HorizontalFanArtList(),
+          DashboardTitleCat(titleCat:"Les Outils",callbackNavigateTo:callbackNavigateToPage,indexToNavigate:NavigationIndexName.tools.index,isMoreShowed: true),
+          buildMockedHoritzontalList(),
           SizedBox(
             height: 30.0,
           )
         ],
       ),
     ));
+  }
+
+  callbackNavigateToPage(int enumpage) {
+    callbackNavigateTo(enumpage);
   }
 
   buildMockedHoritzontalList() {
@@ -64,30 +68,4 @@ class DashboardBuilders extends StatelessWidget {
         ));
   }
 
-//  buildCoreDashboard(BuildContext context) {
-//    final Orientation orientation = MediaQuery
-//        .of(context)
-//        .orientation;
-//    return GridView.builder(
-//        itemCount: MockDataHelper.dashboardBuildersItemList.length,
-//        gridDelegate: new SliverGridDelegateWithFixedCrossAxisCount(
-//            crossAxisCount: (orientation == Orientation.portrait) ? 2 : 4),
-//        itemBuilder: (context, index) {
-//            return Card(
-//                shape: const RoundedRectangleBorder(
-//                borderRadius: BorderRadius.all(Radius.circular(10.0))),
-//              child: DashboardItem(
-//                dashboardItemModel: MockDataHelper.dashboardBuildersItemList[index],
-//                onTap: () {
-//                  Navigator.push(
-//                    context,
-//                    MaterialPageRoute(
-//                      builder: (context) => BuilderDetailPage(MockDataHelper.dashboardBuildersItemList[index]),
-//                    ),
-//                  );
-//                },
-//              ),
-//            );
-//        });
-//  }
 }

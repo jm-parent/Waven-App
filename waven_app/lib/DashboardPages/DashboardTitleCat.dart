@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:waven_app/util/EnumHelper.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 
-class DashboardTitleCat extends StatelessWidget {
+class DashboardTitleCat extends StatefulWidget {
+
   String titleCat;
 
-  DashboardTitleCat(this.titleCat);
+  bool isMoreShowed ;
 
+  int indexToNavigate;
+  Function(int) callbackNavigateTo;
+
+  DashboardTitleCat({Key key, this.titleCat,this.callbackNavigateTo,this.isMoreShowed : false,this.indexToNavigate}): super(key: key);
+  @override
+  DashboardTitleCatState createState() {
+    return new DashboardTitleCatState();
+  }
+}
+
+class DashboardTitleCatState extends State<DashboardTitleCat> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,7 +29,7 @@ class DashboardTitleCat extends StatelessWidget {
           children: <Widget>[
             Row(
               children: <Widget>[
-                Text(titleCat , style: TextStyle(
+                Text(widget.titleCat , style: TextStyle(
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.bold,
                   fontSize: 30.0,
@@ -24,10 +37,8 @@ class DashboardTitleCat extends StatelessWidget {
                 ),
                 ),
                 Spacer(),
-                Text("more",style:TextStyle(
-                    fontSize: 18.0,
-                    fontFamily: "BebasNeue",)),
-                Icon(Icons.chevron_right)
+                Visibility(child:buildMore(),
+                  visible: widget.isMoreShowed,),
               ],
             ),
             SizedBox(height: 3.0,
@@ -37,4 +48,25 @@ class DashboardTitleCat extends StatelessWidget {
       ),
     );
   }
+
+  buildMore() {
+    return InkWell(
+      onTap:(){
+        widget.callbackNavigateTo(widget.indexToNavigate);
+      },
+      child: Row(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left:10.0),
+            child: Text("more",style:TextStyle(
+              fontSize: 18.0,
+              fontFamily: "BebasNeue",)),
+          ),
+          Icon(Icons.chevron_right)
+
+        ],
+      ),
+    );
+  }
 }
+

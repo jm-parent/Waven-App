@@ -12,3 +12,6 @@ class DeckModel {
   DeckModel(this.idHero, this.name, this.desc, this.assetUrl,this.deckLevel,this.tagHero,this.assetUrlBackgroundDetail);
 }
 
+
+
+

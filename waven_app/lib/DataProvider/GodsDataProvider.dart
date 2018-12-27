@@ -1,0 +1,6 @@
+class GodsDataProvider
+{
+   GodsDataProvider();
+
+
+}

@@ -1,9 +1,10 @@
-class GodModel {
+class GodOfflineModel {
 
   final String godName;
-  final String imgUrl;
-
-  GodModel(this.godName, this.imgUrl);
+  final String imgBackgroundUrl;
+  final String imgBackgroundDofusUrl;
+  final int idFamily;
+  GodOfflineModel(this.godName, this.imgBackgroundUrl,this.imgBackgroundDofusUrl, this.idFamily);
 
 }
 

@@ -1,4 +1,5 @@
 import 'dart:ui' as ui;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart' as htmlParser;
 import 'package:waven_app/pages/ArticleWebViewPage.dart';
@@ -29,8 +30,6 @@ class NewsCardItemState extends State<NewsCardItem> {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-    final TextStyle titleStyle =
-        theme.textTheme.headline.copyWith(color: Colors.white70);
     final TextStyle descriptionStyle = theme.textTheme.subhead;
     String imgUrl = widget.news.content.images.first;
     print(imgUrl);
@@ -39,12 +38,12 @@ class NewsCardItemState extends State<NewsCardItem> {
       onTap: () {
         Navigator.push(
           context,
-          MaterialPageRoute(
+          CupertinoPageRoute(
               builder: (context) => new ArticleWebViewPage(item: widget.news)),
         );
       },
       child: new Card(
-        color: Colors.cyan.withOpacity(0.4),
+        color: Color.fromRGBO(72, 61, 139, 0.4),
         shape: widget.shape,
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,22 +64,7 @@ class NewsCardItemState extends State<NewsCardItem> {
                     errorWidget: new Icon(Icons.error),
                   ),
                   ),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left:15.0,right: 20.0),
-                      child: Container(
-                        color: Colors.black54,
-                        child: new AutoSizeText.rich(
-                          new TextSpan(
-                              text: widget.news.title,
-                          style: TitleNewsStyle(context)),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                        ),
-                      ),
-                    ),
-                  ),
+
                 ],
               ),
             ),
@@ -88,29 +72,29 @@ class NewsCardItemState extends State<NewsCardItem> {
            new Expanded(
              flex: 2,
               child: new Padding(
-                padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 0.0),
+                padding: const EdgeInsets.fromLTRB(8.0, 0.0, 8.0, 0.0),
                 child: new DefaultTextStyle(
                   softWrap: false,
                   overflow: TextOverflow.ellipsis,
                   style: descriptionStyle,
                   child: new Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                   mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      // three line description
-                      new Padding(
-                        padding: const EdgeInsets.only(bottom: 0.0),
-                        child: new Text(
-                          widget.news.pubDate,
-                          style: descriptionStyle.copyWith(
-                              color: Colors.white70, fontSize: 10.0),
-                        ),
+                      new AutoSizeText.rich(
+                        new TextSpan(
+                            text: widget.news.title,
+                            style: TitleNewsStyle(context)),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        minFontSize: 16.0,
                       ),
                       new AutoSizeText.rich(
                         new TextSpan(
                             text: _parseHtmlString(widget.news.description)),
                         style: TextStyle(fontSize: 18.0),
                         overflow: TextOverflow.ellipsis,
-                        maxLines: 3,
+                        maxLines: 2,
                       ),
                     ],
                   ),
