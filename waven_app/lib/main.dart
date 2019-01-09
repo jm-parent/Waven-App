@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:waven_app/AppUi/BottomNavNotchedBar/AnimatedTabBarPage.dart';
+import 'package:waven_app/AppUi/FluidNavBar/FluidNavBarPage.dart';
 import 'package:waven_app/pages/ComingSoonPage.dart';
 import 'package:waven_app/pages/SplashscreenPage.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
 
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{
-        '/Mainhome': (BuildContext context) => new Scaffold(body: new AnimatedTabBarPage()),
+        '/Mainhome': (BuildContext context) => new FluidNavBarPage(),
         '/ComingSoon': (context) => ComingSoonPage(),
       },
     );

@@ -39,39 +39,43 @@ class GameDataCardState extends State<GameDataCard> {
       onTap: () => widget.callbackOnTapNavigation(widget.menu.index),
       child: SizedBox(
         height: 120.0,
-        child: Card(
-          semanticContainer: true,
-          clipBehavior: Clip.antiAliasWithSaveLayer,
-          child: Stack(
-            fit: StackFit.expand,
-            children: <Widget>[
-              widget.isEnableBackground == true
-                  ? widget.urlImage != null
-                      ? new FadeInImage.memoryNetwork(
-                          placeholder: kTransparentImage,
-                          image: widget.urlImage,
-                          fit: BoxFit.cover,
-                        )
-                      : Image.asset(
-                          widget.assetUrlImage,
-                          fit: BoxFit.cover,
-                        )
-                  : Container(),
-              //Container(decoration: GetBackgroundGradient(),),
-              Container(color:  Colors.black.withOpacity(0.6),),
-              Center(
-                child: Text(widget.titleText,
-                style: TextStyle(
-                  fontSize: 26.0
-                ),),
-              ),
-            ],
+        child: Padding(
+          padding: const EdgeInsets.all(1.0),
+          child: Card(
+            semanticContainer: true,
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            child: Stack(
+              fit: StackFit.expand,
+              children: <Widget>[
+                widget.isEnableBackground == true
+                    ? widget.urlImage != null
+                        ? new FadeInImage.memoryNetwork(
+                            placeholder: kTransparentImage,
+                            image: widget.urlImage,
+                            fit: BoxFit.cover,
+                          )
+                        : Image.asset(
+                            widget.assetUrlImage,
+                            fit: BoxFit.cover,
+                          )
+                    : Container(),
+                //Container(decoration: GetBackgroundGradient(),),
+                Container(color:  Colors.black.withOpacity(0.6),),
+                Center(
+                  child: Text(widget.titleText,
+                  style: TextStyle(
+                    fontSize: 26.0
+                  ),),
+                ),
+              ],
+            ),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            elevation: 12,
+
+            margin: EdgeInsets.all(5),
           ),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          elevation: 5,
-          margin: EdgeInsets.all(5),
         ),
       ),
     );

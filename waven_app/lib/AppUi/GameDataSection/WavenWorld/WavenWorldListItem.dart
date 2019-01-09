@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:transparent_image/transparent_image.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenWorld/WavenWorldItemModel.dart';
 import 'package:waven_app/Core/PageTransformer.dart';
 
@@ -78,14 +79,13 @@ class WavenWorldListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var image = Image.asset(
-      item.imageUrl,
+      item.imageAsset,
       fit: BoxFit.cover,
       alignment: FractionalOffset(
         0.5 + (pageVisibility.pagePosition / 3),
         0.5,
-      ),
+    ),
     );
-
     var imageOverlayGradient = DecoratedBox(
       decoration: BoxDecoration(
         gradient: LinearGradient(
@@ -105,7 +105,7 @@ class WavenWorldListItem extends StatelessWidget {
         horizontal: 8.0,
       ),
       child: Material(
-        elevation: 4.0,
+        elevation: 10.0,
         borderRadius: BorderRadius.circular(8.0),
         child: Stack(
           fit: StackFit.expand,

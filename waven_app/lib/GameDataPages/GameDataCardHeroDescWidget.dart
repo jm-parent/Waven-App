@@ -22,18 +22,16 @@ class GameDataCardHeroDescWidgetState extends State<GameDataCardHeroDescWidget>
     debugPrint('widget.heroData.background : ${widget.heroData.background}');
     return GestureDetector(
       onTap: () {
-        debugPrint('IsVisible : ${isVisible}');
         setState(() {
           isVisible = !isVisible;
         });
       },
       child: AnimatedSize(
         vsync: this,
-
         duration: durationAnimationContainer,
         child: Stack(
           children: <Widget>[
-            Positioned.fill(child: Image.asset(widget.heroData.background,fit: BoxFit.cover,)),
+            Positioned.fill(child: Image.asset(widget.heroData.background,fit: BoxFit.cover,alignment: new Alignment(0, -0.5),)),
             Column(
               children: <Widget>[
                 SizedBox(

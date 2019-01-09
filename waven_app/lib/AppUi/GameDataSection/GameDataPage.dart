@@ -2,10 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataCard.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
+import 'package:waven_app/AppUi/GameDataSection/WavenGods/GodsListPage.dart';
+import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenWorld/WavenWorldPage.dart';
 import 'package:waven_app/GenWidgets/WavenPageWithBackground.dart';
 import 'package:waven_app/SpellList/SpellListTabbarPage.dart';
 import 'package:waven_app/pages/ComingSoonPage.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
 
 class GameDataPage extends StatefulWidget {
   @override
@@ -13,12 +16,12 @@ class GameDataPage extends StatefulWidget {
 }
 
 class _GameDataPageState extends State<GameDataPage> {
-  var fontsize = 16.0;
 
   @override
   Widget build(BuildContext context) {
     return new Center(
-        child: WavenPageWithBackground(
+        child: Container(
+          color: LightColor(),
       child: ListView(
         scrollDirection: Axis.vertical,
         children: <Widget>[
@@ -103,20 +106,20 @@ class _GameDataPageState extends State<GameDataPage> {
   }
 
   callbackNavigateTo(enumPage) {
-    if (enumPage == GameDataMenu.Lore.index);
+    if (enumPage == GameDataMenu.Lore.index)
         Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new WavenWorldPage()));
-      if (enumPage == GameDataMenu.Gods.index);
-        //  Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new GodsListPage()));
-        if (enumPage == GameDataMenu.Shushus.index);
-          //  Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ShushusListPage()));
+      if (enumPage == GameDataMenu.Gods.index)
+          Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new GodsListPage()));
+        if (enumPage == GameDataMenu.Shushus.index)
+            Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ShushusListPage()));
           if (enumPage == GameDataMenu.Spells.index);
             // Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new SpellsListPage()));
             if (enumPage == GameDataMenu.Companions.index);
               // Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new CompanionListPage()));
               if (enumPage == GameDataMenu.Skins.index);
                 // Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new SkinsListPage()));
-                if (enumPage == GameDataMenu.Consommables.index)
-                  Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ComingSoonPage()));
+                if (enumPage == GameDataMenu.Consommables.index);
+                //  Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ComingSoonPage()));
     if (enumPage == GameDataMenu.GameModes.index);
       //   Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new GameModesListPage()));
       if (enumPage == GameDataMenu.Market.index)

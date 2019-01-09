@@ -41,20 +41,6 @@ class MockDataHelper {
   ];
 
   static var HeroLightList = [
-    new ShushuOfflineModel("Iop",1,"Le chevalier Iop","images/HeroImages/HeroBackground/pc01.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Chavelier"),
-    new ShushuOfflineModel("Iop",2,"Le Champion Flamboyant","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_02.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Flamboyant"),
-    new ShushuOfflineModel("Iop",3,"Le Ténébreux Spectral","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_03.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Spectral"),
-    new ShushuOfflineModel("Iop",4,"La Bouvalière","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_04.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Bouvalière"),
-    new ShushuOfflineModel("Iop",5,"Le Iop Coeur Froid","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_05.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Coeur froid"),
-    new ShushuOfflineModel("Xelor",6,"L\"aiguille du Xelor","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_01.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Aiguille"),
-    new ShushuOfflineModel("Xelor",7,"Le Synchronisateur","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_02.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Synchronisateur"),
-    new ShushuOfflineModel("Xelor",8,"La Troteuse Agitée","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_03.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Troteuse"),
-    new ShushuOfflineModel("Xelor",9,"La Régulatrice","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_04.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Régulatrice"),
-    new ShushuOfflineModel("Xelor",10,"Le Xélor Catalyseur","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_05.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Catalyseur"),
-    new ShushuOfflineModel("Sram",11,"L'E****eur S****n","images/HeroImages/HeroBackground/Fond_Waven_PC_Sram_01.png","images/HeroPortraits/Iop-Base-Male-CC.png","le lore sram jaune"),
-    new ShushuOfflineModel("Sram",12,"Le T****eur S******n","images/HeroImages/HeroBackground/Fond_Waven_PC_Sram_02.png","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Sram biolet"),
-    new ShushuOfflineModel("Osamodas",13,"Le Berger Bouftou","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_01.jpg","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_01.jpg","le lore bouftou"),
-    new ShushuOfflineModel("Osamodas",14,"La Bergère Tofu","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_02.jpg","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_02.jpg","le lore tofu"),
 
   ];
 

@@ -29,26 +29,8 @@ class ConstDatas{
   static GodOfflineModel GetGodModelByGodName(String name) => GameDataGodList.firstWhere((x) => x.godName == name);
 
 
-  static var HeroLightList = [
-    new ShushuOfflineModel("Iop",919,"Le chevalier Iop","images/HeroImages/HeroBackground/pc01.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Chavelier"),
-    new ShushuOfflineModel("Iop",534,"Le Champion Flamboyant","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_02.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Flamboyant"),
-    new ShushuOfflineModel("Iop",143,"Le Ténébreux Spectral","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_03.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Spectral"),
-    new ShushuOfflineModel("Iop",497,"La Bouvalière","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_04.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Bouvalière"),
-    new ShushuOfflineModel("Iop",911,"Le Iop Coeur Froid","images/HeroImages/HeroBackground/Fond_Waven_PC_Iop_05.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Coeur froid"),
-    new ShushuOfflineModel("Xelor",193,"L\"aiguille du Xelor","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_01.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Aiguille"),
-    new ShushuOfflineModel("Xelor",490,"Le Synchronisateur","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_02.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Synchronisateur"),
-    new ShushuOfflineModel("Xelor",945,"La Troteuse Agitée","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_03.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Troteuse"),
-    new ShushuOfflineModel("Xelor",161,"La Régulatrice","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_04.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Régulatrice"),
-    new ShushuOfflineModel("Xelor",614,"Le Xélor Catalyseur","images/HeroImages/HeroBackground/Fond_Waven_PC_Xélor_05.jpg","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Catalyseur"),
-    new ShushuOfflineModel("Sram",620,"L'Egorgeur Shugen","images/HeroImages/HeroBackground/Fond_Waven_PC_Sram_01.png","images/HeroPortraits/Iop-Base-Male-CC.png","le lore sram jaune"),
-    new ShushuOfflineModel("Sram",937,"Le Traqueur Sourokan","images/HeroImages/HeroBackground/Fond_Waven_PC_Sram_02.png","images/HeroPortraits/Iop-Base-Male-CC.png","le lore Sram biolet"),
-    new ShushuOfflineModel("Osamodas",196,"Pâtre Laineux","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_01.jpg","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_01.jpg","le lore bouftou"),
-    new ShushuOfflineModel("Osamodas",995,"L'Eleveur Zélé","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_02.jpg","images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_02.jpg","le lore tofu"),
 
-  ];
-
-
-  static ShushuOfflineModel GetShushuModelByShushuId(int id) => HeroLightList.firstWhere((x) => x.heroid == id);
-  static List<ShushuOfflineModel> GetShushusModelByGodName(String name) => HeroLightList.where((x) => x.godName == name);
+ // static ShushuOfflineModel GetShushuModelByShushuId(int id) => HeroLightList.firstWhere((x) => x.heroid == id);
+ // static List<ShushuOfflineModel> GetShushusModelByGodName(String name) => HeroLightList.where((x) => x.godName == name);
 }
 
