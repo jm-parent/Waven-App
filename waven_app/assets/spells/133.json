@@ -1,0 +1,55 @@
+{
+  "type": "SpellDefinition",
+  "id": 133,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 2,
+  "spellFamily": 0,
+  "god": 7,
+  "element": 3,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 3
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "CasterHeroSelector"
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Contre Temps",
+    "description": "Confère 2 Blindage à vos SINISTROS.\n-1 Niveau à chaque Jauge adverse si vous avez au moins 3 Terre."
+  }
+}

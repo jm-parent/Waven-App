@@ -1,0 +1,65 @@
+{
+  "type": "SpellDefinition",
+  "id": 803,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 2,
+  "element": 1,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 4
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredEntitySelector",
+      "filters": [
+        {
+          "type": "TeamFilter",
+          "isIdentical": false,
+          "reference": {
+            "type": "CasterSelector"
+          }
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Tir Croisé",
+    "description": "Inflige {@damages@}.\nSi un allié est adjacent à la cible, piochez un sort."
+  }
+}

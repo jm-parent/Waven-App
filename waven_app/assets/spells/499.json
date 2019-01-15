@@ -1,0 +1,93 @@
+{
+  "type": "SpellDefinition",
+  "id": 499,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "ar",
+        "values": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      "SHIELD"
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 1,
+  "element": 5,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    },
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 4
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "CasterHeroSelector"
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "a2c557ee03dd3194abd0804b79254b9e",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Bouclier",
+    "description": "Donne {#SHIELD} à votre héros.\n<if deck>{armor:ar} blablah dans votre deck</if>"
+  }
+}

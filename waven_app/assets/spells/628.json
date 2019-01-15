@@ -1,0 +1,90 @@
+{
+  "type": "SpellDefinition",
+  "id": 628,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "dmg",
+        "values": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 11,
+  "element": 5,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    },
+    {
+      "type": "GaugeValue",
+      "element": 14,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    },
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 5
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "CasterHeroSelector"
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Âmes de Corbaks",
+    "description": "Votre héros gagne 3 ÂMES DE CORBAKS qui gravitent autour de lui.\nChaque fois que votre adversaire joue un sort, un corbak inflige {damage:dmg} au héros adverse avant de disparaître."
+  }
+}

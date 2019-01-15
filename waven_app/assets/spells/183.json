@@ -1,0 +1,104 @@
+{
+  "type": "SpellDefinition",
+  "id": 183,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    9,
+    10,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "dmg",
+        "values": [
+          2,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 5,
+  "spellFamily": 0,
+  "god": 7,
+  "element": 2,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 12,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 3
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredEntitySelector",
+      "filters": [
+        {
+          "type": "EntityTypeFilter",
+          "condition": 1,
+          "entityTypes": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "type": "PropertiesFilter",
+          "comparison": 4,
+          "properties": [
+            12,
+            14,
+            6
+          ]
+        }
+      ]
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "30a0330685ebdab4abbb946476c6bc6c",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Maitrise Temporelle",
+    "description": "Inflige {damage:dmg}.\nRéduit de 1\\_{%pa} le coût du prochain sort <b>Eau</b><sprite name=\"water\"> que vous jouez dans ce tour."
+  }
+}

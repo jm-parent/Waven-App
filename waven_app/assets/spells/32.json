@@ -1,0 +1,111 @@
+{
+  "type": "SpellDefinition",
+  "id": 32,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    9,
+    10,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "dmg",
+        "values": [
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16,
+          18,
+          20
+        ]
+      },
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "n",
+        "value": 3
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      "HERD"
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 11,
+  "element": 3,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 6
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredEntitySelector",
+      "filters": [
+        {
+          "type": "EntityTypeFilter",
+          "condition": 1,
+          "entityTypes": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "type": "PropertiesFilter",
+          "comparison": 4,
+          "properties": [
+            12,
+            14,
+            6
+          ]
+        }
+      ]
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "e90c880d054a11b4aae1b41db8d1c4ec",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Mêlée Bestiale",
+    "description": "Inflige {damage:dmg}.\n{herd:n}\\_: Les Bêtes adjacentes<sprite name=\"cell_cross\"> à la cible déclenchent une attaque."
+  }
+}

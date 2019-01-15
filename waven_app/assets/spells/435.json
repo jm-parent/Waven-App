@@ -1,0 +1,58 @@
+{
+  "type": "SpellDefinition",
+  "id": 435,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "dmg",
+        "value": 2
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 2,
+  "element": 1,
+  "gaugeToModifyOnSpellPlay": [],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 0
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredEntitySelector",
+      "filters": []
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "df4d94cda8a9e6b4bbab71de0f6fefe9",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ]
+}

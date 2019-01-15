@@ -1,0 +1,55 @@
+{
+  "type": "SpellDefinition",
+  "id": 15,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 4,
+  "element": 3,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "AllEntitiesSelector"
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Arbre à Chat",
+    "description": "Sur 3 ou moins : Inflige autant de dégâts à un personnage +{@damages@}.\nSur 4 ou plus : Soigne d'autant de PV un personnage +0...2...4."
+  }
+}

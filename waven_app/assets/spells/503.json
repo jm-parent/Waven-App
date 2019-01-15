@@ -1,0 +1,103 @@
+{
+  "type": "SpellDefinition",
+  "id": 503,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": true,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      {
+        "type": 3,
+        "id": 382
+      }
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 11,
+  "element": 5,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 12,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    },
+    {
+      "type": "GaugeValue",
+      "element": 14,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 5
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredEntitySelector",
+      "filters": [
+        {
+          "type": "EntityTypeFilter",
+          "condition": 1,
+          "entityTypes": [
+            3
+          ]
+        },
+        {
+          "type": "FamilyFilter",
+          "condition": 1,
+          "families": [
+            11
+          ]
+        },
+        {
+          "type": "OwnerFilter",
+          "isIdentical": true,
+          "reference": {
+            "type": "CasterSelector"
+          }
+        }
+      ]
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "41c4e36485a08bb42a4d0ed256c52ad5",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Sale Bête Infâme",
+    "description": "Sacrifie une Bête alliée\\v\npour invoquer la {summoning:382}."
+  }
+}

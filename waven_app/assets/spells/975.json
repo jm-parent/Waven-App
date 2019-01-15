@@ -1,0 +1,87 @@
+{
+  "type": "SpellDefinition",
+  "id": 975,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "cell",
+        "value": 2
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": true,
+    "keywordReferences": [
+      {
+        "type": 5,
+        "id": 559
+      }
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 7,
+  "element": 2,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 12,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 4
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "CasterHeroSelector"
+          },
+          "distance": {
+            "type": "LowerEqualThan",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "cell",
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "CellValidForMechanismFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Sinistro Eau",
+    "description": "Construisez un {objectMechanism:559}\\v\njusqu'à {value:cell} cases de votre héros."
+  }
+}

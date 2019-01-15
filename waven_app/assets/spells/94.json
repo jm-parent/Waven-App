@@ -1,0 +1,93 @@
+{
+  "type": "SpellDefinition",
+  "id": 94,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 3,
+  "element": 2,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 12,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 6
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "TwoCastTargetDefinition",
+    "selector1": {
+      "type": "FilteredEntitySelector",
+      "filters": [
+        {
+          "type": "TeamFilter",
+          "isIdentical": true,
+          "reference": {
+            "type": "CasterSelector"
+          }
+        },
+        {
+          "type": "EntityTypeFilter",
+          "condition": 1,
+          "entityTypes": [
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    "selector2": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "FirstCastTargetSelector"
+          },
+          "distance": {
+            "type": "EqualsTo",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "",
+              "value": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Soin d'Urgence",
+    "description": "Déplace votre Héros à côté d'un personnage allié et le soigne de 2 PV."
+  }
+}

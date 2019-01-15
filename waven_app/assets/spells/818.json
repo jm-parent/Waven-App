@@ -1,0 +1,139 @@
+{
+  "type": "SpellDefinition",
+  "id": 818,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "c",
+        "value": 3
+      },
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "d1",
+        "values": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      },
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "d0",
+        "values": [
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      "OILED"
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 7,
+  "element": 1,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 0
+      }
+    },
+    {
+      "type": "GaugeValue",
+      "element": 19,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 3
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "InLineTargetFilter",
+          "targetsToCompare": {
+            "type": "CasterHeroSelector"
+          },
+          "distance": {
+            "type": "Between",
+            "minIncluded": {
+              "type": "ConstIntegerValue",
+              "referenceId": "",
+              "value": 1
+            },
+            "maxIncluded": {
+              "type": "ConstIntegerValue",
+              "referenceId": "c",
+              "value": 3
+            }
+          }
+        }
+      ]
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "2a8d2d5e34a65334289519faee8b29a9",
+      "originTarget": {
+        "type": "CasterHeroSelector"
+      },
+      "orientation": {
+        "type": "FirstCastTargetSelector"
+      },
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Petite Aiguille",
+    "description": "Inflige {damage:d0} aux personnages\\v\nsur les {cell:c} devant votre héros\\v\n<b>OU</b> {damage:d1} s'ils sont {#OILED[Huilées]}."
+  }
+}

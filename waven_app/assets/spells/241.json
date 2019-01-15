@@ -1,0 +1,111 @@
+{
+  "type": "SpellDefinition",
+  "id": 241,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    9,
+    10,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "r",
+        "value": 2
+      },
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "dmg",
+        "values": [
+          7,
+          8,
+          9,
+          10,
+          12,
+          14,
+          16,
+          18,
+          21,
+          24
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      "WET"
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 11,
+  "element": 2,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 12,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 8
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredEntitySelector",
+      "filters": [
+        {
+          "type": "EntityTypeFilter",
+          "condition": 1,
+          "entityTypes": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "type": "PropertiesFilter",
+          "comparison": 4,
+          "properties": [
+            12,
+            14,
+            6
+          ]
+        }
+      ]
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "9012cf1e214599e4a96f2c0de36d5aeb",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Rossée",
+    "description": "Inflige {damage:dmg}.\nAjoute {addReserve:r}\\v\nsi la cible est {#WET[Mouillée]}."
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "type": "SpellDefinition",
+  "id": 547,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 2,
+  "spellFamily": 0,
+  "god": 1,
+  "element": 3,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "TwoCastTargetDefinition",
+    "selector1": {
+      "type": "FilteredEntitySelector",
+      "filters": []
+    },
+    "selector2": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "FirstCastTargetSelector"
+          },
+          "distance": {
+            "type": "LowerEqualThan",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "",
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "CellValidForCharacterFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "",
+    "description": ""
+  }
+}

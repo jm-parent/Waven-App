@@ -8,6 +8,7 @@ import 'package:waven_app/GameDataPages/GameDataCardHeroDescWidget.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:waven_app/models/ShushuOfflineModel.dart';
 import 'package:rubber/rubber.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
 
 class ShushusListPage extends StatefulWidget {
   List<ShushuOfflineModel> filteredShushusList;
@@ -40,6 +41,7 @@ class ShushusListPageState extends State<ShushusListPage> {
 
     return Scaffold(
         appBar: AppBar(title: Text("Shushu list"),
+elevation: 0.0,
 //        actions: <Widget>[
 //          IconButton(icon:_searchIcon,
 //              onPressed: (){
@@ -48,53 +50,56 @@ class ShushusListPageState extends State<ShushusListPage> {
 //          )
 //        ],
         ),
-        body:ListView.builder(
-           itemCount: widget.filteredShushusList?.length??0,
-            itemBuilder: (context,int index){
-          return AnimatedContainer(
-            duration: Duration(milliseconds: 500),
-            child: Stack(
-              children: <Widget>[
-                GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        PageTransition(type: PageTransitionType.leftToRight, child: ShushusDetailPage(shushuModel: widget.filteredShushusList[index],)));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(4.0),
-                    child: ClipRRect(
-                      borderRadius: new BorderRadius.circular(8.0),
-                      child: Stack(
-                        children: <Widget>[
-                          Positioned.fill(child: Hero(
-                              tag: 'ShushusDetailHero_${widget.filteredShushusList[index].heroid}',
-                              child: Image.asset(widget.filteredShushusList[index].background,fit: BoxFit.cover,alignment: new Alignment(0, -0.5),))),
-                          Column(
-                            children: <Widget>[
-                              SizedBox(
-                                  height: 90.0,
-                                  width: MediaQuery.of(context).size.width,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: <Widget>[
-                                        Text(widget.filteredShushusList[index].heroName,style: TextStyle(fontSize: 18.0),),
-                                        Text(widget.filteredShushusList[index].lore,style: TextStyle(fontSize: 14.0),),
-                                      ],
-                                    ),
-                                  )),
-                            ],
-                          ),
-                        ],
+        body:Container(
+          color: DarkColor(),
+          child: ListView.builder(
+             itemCount: widget.filteredShushusList?.length??0,
+              itemBuilder: (context,int index){
+            return AnimatedContainer(
+              duration: Duration(milliseconds: 500),
+              child: Stack(
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(context,
+                          PageTransition(type: PageTransitionType.leftToRight, child: ShushusDetailPage(shushuModel: widget.filteredShushusList[index],)));
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ClipRRect(
+                        borderRadius: new BorderRadius.circular(8.0),
+                        child: Stack(
+                          children: <Widget>[
+                            Positioned.fill(child: Hero(
+                                tag: 'ShushusDetailHero_${widget.filteredShushusList[index].heroid}',
+                                child: Image.asset(widget.filteredShushusList[index].background,fit: BoxFit.cover,alignment: new Alignment(0, -0.5),))),
+                            Column(
+                              children: <Widget>[
+                                SizedBox(
+                                    height: 90.0,
+                                    width: MediaQuery.of(context).size.width,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(widget.filteredShushusList[index].heroName,style: TextStyle(fontSize: 18.0),),
+                                          Text(widget.filteredShushusList[index].lore,style: TextStyle(fontSize: 14.0),),
+                                        ],
+                                      ),
+                                    )),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
-        })
+                ],
+              ),
+            );
+          }),
+        )
     );
   }
 

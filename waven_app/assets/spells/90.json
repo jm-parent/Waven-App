@@ -1,0 +1,88 @@
+{
+  "type": "SpellDefinition",
+  "id": 90,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "c",
+        "value": 3
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": true,
+    "keywordReferences": [
+      {
+        "type": 4,
+        "id": 88
+      },
+      "ASSEMBLY"
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 2,
+  "god": 6,
+  "element": 4,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 14,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 5
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "CasterHeroSelector"
+          },
+          "distance": {
+            "type": "LowerEqualThan",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "c",
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "CellValidForMechanismFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Piège Zoda",
+    "description": "Construisez un {floorMechanism:88}\\v\njusqu'à {value:c} cases de votre héros.\n{#ASSEMBLY}\\_: Piochez 1 sort."
+  }
+}

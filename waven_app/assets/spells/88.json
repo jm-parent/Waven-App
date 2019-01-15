@@ -1,0 +1,103 @@
+{
+  "type": "SpellDefinition",
+  "id": 88,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "ar",
+        "values": [
+          6,
+          7,
+          8,
+          9,
+          11,
+          13,
+          15,
+          17,
+          19,
+          22
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      "GROWING"
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 11,
+  "element": 3,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 5
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "UnionOfEntitiesSelector",
+      "first": {
+        "type": "CasterHeroSelector"
+      },
+      "second": {
+        "type": "FilteredEntitySelector",
+        "filters": [
+          {
+            "type": "CanGrowEntityFilter"
+          },
+          {
+            "type": "OwnerFilter",
+            "isIdentical": true,
+            "reference": {
+              "type": "CasterSelector"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "5707d6f60b17e42408af3d5f5878d5d4",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Carapace",
+    "description": "Vos Bêtes gagnent {armor:ar}\\v\n<b>OU</b>\\v\n{#GROWING}."
+  }
+}

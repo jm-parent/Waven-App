@@ -1,0 +1,111 @@
+{
+  "type": "SpellDefinition",
+  "id": 938,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    9,
+    10,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "w",
+        "value": 2
+      },
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "dmg",
+        "values": [
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12,
+          14,
+          16
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      "WET"
+    ]
+  },
+  "spellType": 5,
+  "spellFamily": 0,
+  "god": 7,
+  "element": 2,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 12,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 5
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredEntitySelector",
+      "filters": [
+        {
+          "type": "EntityTypeFilter",
+          "condition": 1,
+          "entityTypes": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "type": "PropertiesFilter",
+          "comparison": 4,
+          "properties": [
+            12,
+            14,
+            6
+          ]
+        }
+      ]
+    }
+  },
+  "spellEffectData": [
+    {
+      "type": "SpellEffectInstantiationData",
+      "spellEffect": "ae84cf1623c8b5f49becae642b6b7dc8",
+      "originTarget": {
+        "type": "FirstCastTargetSelector"
+      },
+      "orientation": null,
+      "delayOverDistance": null
+    }
+  ],
+  "text_FR": {
+    "name": "Permutation",
+    "description": "Inflige {damage:dmg}.\nAjoute +{value:w} à votre <b>jauge élémentaire</b> <b>Eau</b>\\v\nsi la cible est {#WET[Mouillée]}."
+  }
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:waven_app/SpellList/SpellListByGodPage.dart';
+import 'package:waven_app/AppUi/SpellList/SpellListByGodPage.dart';
 import 'package:waven_app/util/MockDataHelper.dart';
 
 class SpellListTabbarPage extends StatefulWidget {
@@ -38,9 +38,6 @@ class SpellListTabbarPageState extends State<SpellListTabbarPage>
 
   @override
   Widget build(BuildContext context) {
-    print("map nb : ${MapFamily.GodFamilyBiMap.length}");
-    print("map cra : ${MapFamily.GodFamilyBiMap["Cra"]}");
-    print("map inverse 2 : ${MapFamily.GodFamilyBiMap.inverse[2]}");
     return DefaultTabController(
       length: 18,
       child: Builder(

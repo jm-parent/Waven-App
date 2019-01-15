@@ -1,0 +1,87 @@
+{
+  "type": "SpellDefinition",
+  "id": 743,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "cell",
+        "value": 2
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": true,
+    "keywordReferences": [
+      {
+        "type": 5,
+        "id": 955
+      }
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 0,
+  "god": 7,
+  "element": 1,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 4
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "CasterHeroSelector"
+          },
+          "distance": {
+            "type": "LowerEqualThan",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "cell",
+              "value": 2
+            }
+          }
+        },
+        {
+          "type": "CellValidForMechanismFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Sinistro Feu",
+    "description": "Construisez un {objectMechanism:955}\\v\njusqu'à {value:cell} cases de votre héros."
+  }
+}

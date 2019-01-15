@@ -1,0 +1,89 @@
+{
+  "type": "SpellDefinition",
+  "id": 999,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntegerValue",
+        "referenceId": "c",
+        "value": 3
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": true,
+    "keywordReferences": [
+      {
+        "type": 4,
+        "id": 908
+      },
+      "ASSEMBLY",
+      "SHIELD"
+    ]
+  },
+  "spellType": 1,
+  "spellFamily": 2,
+  "god": 6,
+  "element": 3,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 5
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "CasterHeroSelector"
+          },
+          "distance": {
+            "type": "LowerEqualThan",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "c",
+              "value": 3
+            }
+          }
+        },
+        {
+          "type": "CellValidForMechanismFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Piège Térif",
+    "description": "Construisez un {floorMechanism:908}\\v\njusqu'à {value:c} cases de votre héros.\n{#ASSEMBLY}\\_: Votre héros gagne {#SHIELD}."
+  }
+}

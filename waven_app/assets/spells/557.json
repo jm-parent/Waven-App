@@ -1,0 +1,90 @@
+{
+  "type": "SpellDefinition",
+  "id": 557,
+  "eventsInvalidatingCost": [
+    3,
+    5,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    3,
+    5,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": true,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": []
+  },
+  "spellType": 2,
+  "spellFamily": 0,
+  "god": 1,
+  "element": 5,
+  "gaugeToModifyOnSpellPlay": [],
+  "costs": [
+    {
+      "type": "ElementPointsCost",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    },
+    {
+      "type": "ElementPointsCost",
+      "element": 13,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    },
+    {
+      "type": "ElementPointsCost",
+      "element": 12,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    },
+    {
+      "type": "DrainReservePointsCost"
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "CasterHeroSelector"
+          },
+          "distance": {
+            "type": "EqualsTo",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "",
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "CellValidForCharacterFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Légende",
+    "description": "Consomme votre Réserve pour invoquer un <b>IOP LÉGENDAIRE</b> qui disparait au début de votre prochain tour.\nLe <b>IOP LÉGENDAIRE</b> gagne autant d'<b>AT</b> et de <b>PM</b> que de niveaux de <b>Réserve</b> ainsi consommés."
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "type": "SpellDefinition",
+  "id": 409,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": true,
+    "keywordReferences": [
+      {
+        "type": 5,
+        "id": 1486
+      }
+    ]
+  },
+  "spellType": 3,
+  "spellFamily": 0,
+  "god": 13,
+  "element": 1,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 3
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "FilteredEntitySelector",
+            "filters": [
+              {
+                "type": "EntityTypeFilter",
+                "condition": 1,
+                "entityTypes": [
+                  1,
+                  2,
+                  3
+                ]
+              },
+              {
+                "type": "OwnerFilter",
+                "isIdentical": true,
+                "reference": {
+                  "type": "CasterSelector"
+                }
+              }
+            ]
+          },
+          "distance": {
+            "type": "EqualsTo",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "",
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "CellValidForMechanismFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Bombe",
+    "description": "Construisez une {objectMechanism:1486}\\v\nsur une case adjacente à un allié."
+  }
+}

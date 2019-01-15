@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/GameDataSection/Companions/CompanionListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataCard.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGods/GodsListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenWorld/WavenWorldPage.dart';
-import 'package:waven_app/GenWidgets/WavenPageWithBackground.dart';
-import 'package:waven_app/SpellList/SpellListTabbarPage.dart';
-import 'package:waven_app/pages/ComingSoonPage.dart';
+import 'package:waven_app/AppUi/SpellList/SpellListTabbarPage.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 
 class GameDataPage extends StatefulWidget {
@@ -98,7 +97,7 @@ class _GameDataPageState extends State<GameDataPage> {
             menu: GameDataMenu.Market,
           ),
           SizedBox(
-            height: 30.0,
+            height: 70.0,
           )
         ],
       ),
@@ -112,10 +111,10 @@ class _GameDataPageState extends State<GameDataPage> {
           Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new GodsListPage()));
         if (enumPage == GameDataMenu.Shushus.index)
             Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ShushusListPage()));
-          if (enumPage == GameDataMenu.Spells.index);
-            // Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new SpellsListPage()));
-            if (enumPage == GameDataMenu.Companions.index);
-              // Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new CompanionListPage()));
+          if (enumPage == GameDataMenu.Spells.index)
+             Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new SpellListTabbarPage()));
+            if (enumPage == GameDataMenu.Companions.index)
+               Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new CompanionListPage()));
               if (enumPage == GameDataMenu.Skins.index);
                 // Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new SkinsListPage()));
                 if (enumPage == GameDataMenu.Consommables.index);

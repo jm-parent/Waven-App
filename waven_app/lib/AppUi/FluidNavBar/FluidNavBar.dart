@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 import 'package:waven_app/AppUi/FluidNavBar/FluidTabItem.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
@@ -27,7 +28,7 @@ class _FluidNavBarState extends State<FluidNavBar>
   IconData nextIcon = Icons.search;
   IconData activeIcon = Icons.search;
 
-  int currentSelected = 1;
+  int currentSelected = 0;
 
   @override
   void initState() {
@@ -69,6 +70,7 @@ class _FluidNavBarState extends State<FluidNavBar>
           fabIconAlpha = _fadeFabInAnimation.value;
         });
       });
+    _initAnimationAndStart(0,0);
   }
 
   @override
@@ -89,11 +91,11 @@ class _FluidNavBarState extends State<FluidNavBar>
             children: <Widget>[
               FluidTabItem(
                   selected: currentSelected == 0,
-                  iconData: Icons.home,
-                  title: "HOME",
+                  iconData: FontAwesomeIcons.newspaper,
+                  title: "News",
                   callbackFunction: () {
                     setState(() {
-                      nextIcon = Icons.home;
+                      nextIcon =FontAwesomeIcons.newspaper;
                       currentSelected = 0;
                       widget.callbackSelectedIndex(currentSelected);
                     });
@@ -102,11 +104,11 @@ class _FluidNavBarState extends State<FluidNavBar>
 
               FluidTabItem(
                   selected: currentSelected == 1,
-                  iconData: Icons.search,
-                  title: "SEARCH",
+                  iconData: Icons.videogame_asset,
+                  title: "Game Data",
                   callbackFunction: () {
                     setState(() {
-                      nextIcon = Icons.search;
+                      nextIcon = Icons.videogame_asset;
                       currentSelected = 1;
                       widget.callbackSelectedIndex(currentSelected);
                     });
@@ -114,11 +116,11 @@ class _FluidNavBarState extends State<FluidNavBar>
                   }),
               FluidTabItem(
                   selected: currentSelected == 2,
-                  iconData: Icons.person,
+                  iconData: FontAwesomeIcons.dice,
                   title: "USER",
                   callbackFunction: () {
                     setState(() {
-                      nextIcon = Icons.person;
+                      nextIcon = FontAwesomeIcons.dice;
                       currentSelected = 2;
                       widget.callbackSelectedIndex(currentSelected);
                     });
@@ -126,11 +128,11 @@ class _FluidNavBarState extends State<FluidNavBar>
                   }),
               FluidTabItem(
                   selected: currentSelected == 3,
-                  iconData: Icons.label,
+                  iconData: FontAwesomeIcons.cogs,
                   title: "Label",
                   callbackFunction: () {
                     setState(() {
-                      nextIcon = Icons.label;
+                      nextIcon = FontAwesomeIcons.cogs;
                       currentSelected = 3;
                       widget.callbackSelectedIndex(currentSelected);
                     });

@@ -1,0 +1,138 @@
+{
+  "type": "SpellDefinition",
+  "id": 48,
+  "eventsInvalidatingCost": [
+    2,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "dmg",
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          10,
+          12
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": false,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      "OILED"
+    ]
+  },
+  "spellType": 5,
+  "spellFamily": 0,
+  "god": 1,
+  "element": 1,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 2
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 6
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "TwoCastTargetDefinition",
+    "selector1": {
+      "type": "UnionOfEntitiesSelector",
+      "first": {
+        "type": "FilteredEntitySelector",
+        "filters": [
+          {
+            "type": "ElementaryStateFilter",
+            "elementaryState": 3
+          },
+          {
+            "type": "OwnerFilter",
+            "isIdentical": false,
+            "reference": {
+              "type": "CasterSelector"
+            }
+          }
+        ]
+      },
+      "second": {
+        "type": "FilteredEntitySelector",
+        "filters": [
+          {
+            "type": "ElementaryStateFilter",
+            "elementaryState": 3
+          },
+          {
+            "type": "OwnerFilter",
+            "isIdentical": true,
+            "reference": {
+              "type": "CasterSelector"
+            }
+          },
+          {
+            "type": "EntityTypeFilter",
+            "condition": 1,
+            "entityTypes": [
+              2,
+              3
+            ]
+          }
+        ]
+      }
+    },
+    "selector2": {
+      "type": "FilteredCoordSelector",
+      "filters": [
+        {
+          "type": "AroundTargetFilter",
+          "targetsToCompare": {
+            "type": "FirstCastTargetSelector"
+          },
+          "distance": {
+            "type": "EqualsTo",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "",
+              "value": 1
+            }
+          }
+        },
+        {
+          "type": "CellValidForCharacterFilter"
+        }
+      ]
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Tournoiement",
+    "description": "Téléporte votre héros sur une case adjacente<sprite name=\"cell_cross\"> à un autre personnage {#OILED}\\v\net lui inflige {damage:dmg}."
+  }
+}

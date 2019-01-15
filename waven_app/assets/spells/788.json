@@ -1,0 +1,190 @@
+{
+  "type": "SpellDefinition",
+  "id": 788,
+  "eventsInvalidatingCost": [
+    2,
+    9,
+    15
+  ],
+  "eventsInvalidatingCasting": [
+    2,
+    8,
+    9,
+    15
+  ],
+  "precomputedData": {
+    "type": "PrecomputedData",
+    "dynamicValueReferences": [
+      {
+        "type": "ConstIntLevelBasedDynamicValue",
+        "referenceId": "h",
+        "values": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10
+        ]
+      }
+    ],
+    "checkNumberOfSummonings": true,
+    "checkNumberOfMechanisms": false,
+    "keywordReferences": [
+      {
+        "type": 3,
+        "id": 661
+      },
+      "SHADOW"
+    ]
+  },
+  "spellType": 5,
+  "spellFamily": 0,
+  "god": 6,
+  "element": 1,
+  "gaugeToModifyOnSpellPlay": [
+    {
+      "type": "GaugeValue",
+      "element": 11,
+      "value": {
+        "type": "ConstIntegerValue",
+        "referenceId": "",
+        "value": 1
+      }
+    }
+  ],
+  "costs": [
+    {
+      "type": "ActionPointsCost",
+      "value": {
+        "type": "ConditionalValue",
+        "condition": {
+          "type": "NumberOfEntityCondition",
+          "selector": {
+            "type": "FilteredEntitySelector",
+            "filters": [
+              {
+                "type": "SpecificSummoningFilter",
+                "condition": 1,
+                "summonings": [
+                  661
+                ]
+              },
+              {
+                "type": "OwnerFilter",
+                "isIdentical": true,
+                "reference": {
+                  "type": "CasterSelector"
+                }
+              }
+            ]
+          },
+          "value": {
+            "type": "EqualsTo",
+            "dynamicValue": {
+              "type": "ConstIntegerValue",
+              "referenceId": "",
+              "value": 0
+            }
+          }
+        },
+        "ifTrue": {
+          "type": "ConstIntegerValue",
+          "referenceId": "",
+          "value": 6
+        },
+        "ifFalse": {
+          "type": "ConstIntegerValue",
+          "referenceId": "",
+          "value": 3
+        }
+      }
+    }
+  ],
+  "castTarget": {
+    "type": "OneCastTargetDefinition",
+    "selector": {
+      "type": "ConditionalSelectorForCast",
+      "condition": {
+        "type": "NumberOfEntityCondition",
+        "selector": {
+          "type": "FilteredEntitySelector",
+          "filters": [
+            {
+              "type": "SpecificSummoningFilter",
+              "condition": 1,
+              "summonings": [
+                661
+              ]
+            },
+            {
+              "type": "OwnerFilter",
+              "isIdentical": true,
+              "reference": {
+                "type": "CasterSelector"
+              }
+            }
+          ]
+        },
+        "value": {
+          "type": "EqualsTo",
+          "dynamicValue": {
+            "type": "ConstIntegerValue",
+            "referenceId": "",
+            "value": 0
+          }
+        }
+      },
+      "selectorIfTrue": {
+        "type": "FilteredCoordSelector",
+        "filters": [
+          {
+            "type": "AroundTargetFilter",
+            "targetsToCompare": {
+              "type": "CasterHeroSelector"
+            },
+            "distance": {
+              "type": "LowerEqualThan",
+              "dynamicValue": {
+                "type": "ConstIntegerValue",
+                "referenceId": "",
+                "value": 5
+              }
+            }
+          },
+          {
+            "type": "CellValidForCharacterFilter"
+          }
+        ]
+      },
+      "selectorIfFalse": {
+        "type": "FilteredEntitySelector",
+        "filters": [
+          {
+            "type": "SpecificSummoningFilter",
+            "condition": 1,
+            "summonings": [
+              661
+            ]
+          },
+          {
+            "type": "OwnerFilter",
+            "isIdentical": true,
+            "reference": {
+              "type": "CasterSelector"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "spellEffectData": [],
+  "text_FR": {
+    "name": "Dernier Éclat",
+    "description": "Invoque une {summoning:661}\\v\n<b>OU</b>\\v\nDétruit votre {#SHADOW} pour soigner votre héros de {heal:h}."
+  }
+}
