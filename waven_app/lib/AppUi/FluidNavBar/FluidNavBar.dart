@@ -117,7 +117,7 @@ class _FluidNavBarState extends State<FluidNavBar>
               FluidTabItem(
                   selected: currentSelected == 2,
                   iconData: FontAwesomeIcons.dice,
-                  title: "USER",
+                  title: "DeckBuilder",
                   callbackFunction: () {
                     setState(() {
                       nextIcon = FontAwesomeIcons.dice;
@@ -129,7 +129,7 @@ class _FluidNavBarState extends State<FluidNavBar>
               FluidTabItem(
                   selected: currentSelected == 3,
                   iconData: FontAwesomeIcons.cogs,
-                  title: "Label",
+                  title: "Settings",
                   callbackFunction: () {
                     setState(() {
                       nextIcon = FontAwesomeIcons.cogs;

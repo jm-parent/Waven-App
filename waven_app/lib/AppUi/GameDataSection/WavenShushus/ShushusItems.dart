@@ -19,6 +19,10 @@ final ShushusItems = <ShushuOfflineModel>[
   new ShushuOfflineModel('Sram',937,'Le Traqueur Sourokan','images/HeroPortraits/Iop-Base-Male-CC.png','le lore Sram biolet',Color.fromRGBO(85,16,112, 0.9)),
   new ShushuOfflineModel('Osamodas',196,'Pâtre Laineux','images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_01.jpg','le lore bouftou',Color.fromRGBO(50, 110, 70, 0.9)),
   new ShushuOfflineModel('Osamodas',995,'L\'Eleveur Zélé','images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_02.jpg','le lore tofu',Color.fromRGBO(107, 33, 122, 0.9)),
+  new ShushuOfflineModel('Eniripsa',311,'????','images/ShushusPortraitImages/Full_Vertical_311.png','le lore Eni',Color.fromRGBO(107, 33, 122, 0.9)),
+
+
+
 ];
 
 final SkinsItems = <SkinOfflineModel>[

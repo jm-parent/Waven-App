@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/GameDataSection/Companions/CompanionListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataCard.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
+import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGods/GodsListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenWorld/WavenWorldPage.dart';
@@ -64,14 +65,14 @@ class _GameDataPageState extends State<GameDataPage> {
             callbackOnTapNavigation:callbackNavigateTo,
             menu: GameDataMenu.Companions,
           ),
-          GameDataCard(
-            titleText: "Les Skins",
-            isEnableBackground: true,
-            urlImage:
-                "https://i1.wp.com/tot-prod.blog/wp-content/uploads/2017/10/Capture-d%E2%80%99e%CC%81cran-2017-10-25-a%CC%80-16.17.29.png?w=1551&ssl=1",
-            callbackOnTapNavigation:callbackNavigateTo,
-            menu: GameDataMenu.Skins,
-          ),
+//          GameDataCard(
+//            titleText: "Les Skins",
+//            isEnableBackground: true,
+//            urlImage:
+//                "https://i1.wp.com/tot-prod.blog/wp-content/uploads/2017/10/Capture-d%E2%80%99e%CC%81cran-2017-10-25-a%CC%80-16.17.29.png?w=1551&ssl=1",
+//            callbackOnTapNavigation:callbackNavigateTo,
+//            menu: GameDataMenu.Skins,
+//          ),
           GameDataCard(
             titleText: "Les Consommables",
             isEnableBackground: true,
@@ -95,6 +96,14 @@ class _GameDataPageState extends State<GameDataPage> {
                 "https://www.breakflip.com/uploads/Dofus/Aluqat/t-shirts.jpg",
             callbackOnTapNavigation:callbackNavigateTo,
             menu: GameDataMenu.Market,
+          ),
+          GameDataCard(
+            titleText: "La Galerie",
+            isEnableBackground: true,
+            urlImage:
+            "https://imgur.com/nFDYrBV.png",
+            callbackOnTapNavigation:callbackNavigateTo,
+            menu: GameDataMenu.Gallery,
           ),
           SizedBox(
             height: 70.0,
@@ -123,5 +132,8 @@ class _GameDataPageState extends State<GameDataPage> {
       //   Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new GameModesListPage()));
       if (enumPage == GameDataMenu.Market.index)
         ; //  Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new MarketListPage()));
+    if (enumPage == GameDataMenu.Gallery.index)
+      Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new GalleryPage()));
+
   }
 }

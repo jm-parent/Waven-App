@@ -13,7 +13,6 @@ class ShushuOfflineModel {
   ShushuOfflineModel(this.godName, this.heroid, this.heroName, this.portrait, this.lore, this.color);
 
   String get background => 'images/ShushusImages/GodWavenBg_${heroid??0}.jpg';
-
   @override
   String toString() {
     return 'HeroModelLight{racedesc: $godName, heroid: $heroid, heroName: $heroName, portrait: $portrait, lore: $lore}';

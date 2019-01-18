@@ -8,5 +8,6 @@ enum GameDataMenu{
   Skins,
   Consommables,
   GameModes,
-  Market
+  Market,
+  Gallery
 }
