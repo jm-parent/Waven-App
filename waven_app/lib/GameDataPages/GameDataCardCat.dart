@@ -39,6 +39,7 @@ class GameDataCardCatState extends State<GameDataCardCat> {
                 children: <Widget>[
                   DashboardTitleCat(titleCat: widget.titleText,isMoreShowed: false,),
                   widget.descWidget,
+
                 ],
               ),
             ],

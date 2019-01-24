@@ -25,10 +25,10 @@ class _FluidNavBarState extends State<FluidNavBar>
   Animation<double> _fadeFabInAnimation;
 
   double fabIconAlpha = 1;
-  IconData nextIcon = Icons.search;
-  IconData activeIcon = Icons.search;
+  IconData nextIcon =  FontAwesomeIcons.home;
+  IconData activeIcon =  FontAwesomeIcons.home;
 
-  int currentSelected = 0;
+  int currentSelected = 2;
 
   @override
   void initState() {
@@ -75,11 +75,14 @@ class _FluidNavBarState extends State<FluidNavBar>
 
   @override
   Widget build(BuildContext context) {
+
+    var ignorePosition = 90.0;
+
     return Stack(
       alignment: Alignment.topCenter,
       children: <Widget>[
         Container(
-          height: 65,
+          height: 50,
           margin: EdgeInsets.only(top: 45),
           decoration: BoxDecoration(color: DarkColor(), boxShadow: [
             BoxShadow(
@@ -112,28 +115,41 @@ class _FluidNavBarState extends State<FluidNavBar>
                       currentSelected = 1;
                       widget.callbackSelectedIndex(currentSelected);
                     });
-                    _initAnimationAndStart(_positionAnimation.value, -0.33);
+                    _initAnimationAndStart(_positionAnimation.value, -0.5);
                   }),
               FluidTabItem(
                   selected: currentSelected == 2,
+                  iconData: FontAwesomeIcons.home,
+                  title: "Home",
+                  callbackFunction: () {
+                    setState(() {
+                      nextIcon = FontAwesomeIcons.home;
+                      currentSelected = 2;
+                      widget.callbackSelectedIndex(currentSelected);
+                    });
+                    debugPrint('_positionAnimation.value :'+_positionAnimation.value.toString());
+                    _initAnimationAndStart(_positionAnimation.value, 0);
+                  }),
+              FluidTabItem(
+                  selected: currentSelected == 3,
                   iconData: FontAwesomeIcons.dice,
                   title: "DeckBuilder",
                   callbackFunction: () {
                     setState(() {
                       nextIcon = FontAwesomeIcons.dice;
-                      currentSelected = 2;
+                      currentSelected = 3;
                       widget.callbackSelectedIndex(currentSelected);
                     });
-                    _initAnimationAndStart(_positionAnimation.value, 0.33);
+                    _initAnimationAndStart(_positionAnimation.value, 0.5);
                   }),
               FluidTabItem(
-                  selected: currentSelected == 3,
+                  selected: currentSelected == 4,
                   iconData: FontAwesomeIcons.cogs,
                   title: "Settings",
                   callbackFunction: () {
                     setState(() {
                       nextIcon = FontAwesomeIcons.cogs;
-                      currentSelected = 3;
+                      currentSelected = 4;
                       widget.callbackSelectedIndex(currentSelected);
                     });
                     debugPrint('_positionAnimation.value :'+_positionAnimation.value.toString());
@@ -149,13 +165,13 @@ class _FluidNavBarState extends State<FluidNavBar>
               heightFactor: 1,
               alignment: Alignment(_positionAnimation.value, 0),
               child: FractionallySizedBox(
-                widthFactor: 1 / 4,
+                widthFactor: 1 / 5,
                 child: Stack(
                   alignment: Alignment.center,
                   children: <Widget>[
                     SizedBox(
-                      height: 90,
-                      width: 90,
+                      height: ignorePosition,
+                      width: ignorePosition,
                       child: ClipRect(
                           clipper: HalfClipper(),
                           child: Container(
@@ -166,27 +182,27 @@ class _FluidNavBarState extends State<FluidNavBar>
                                   decoration: BoxDecoration(
                                       color: Colors.transparent,
                                       shape: BoxShape.circle,
-                                      boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 8)])
+                                      boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 4)])
                               ),
                             ),
                           )),
                     ),
                     SizedBox(
-                        height: 70,
-                        width: 90,
+                        height: 60,
+                        width: ignorePosition,
                         child: CustomPaint(
                           painter: HalfPainter(),
                         )),
                     SizedBox(
-                      height: 60,
-                      width: 60,
+                      height: 50,
+                      width: 50,
                       child: Container(
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             color: PURPLE,
                             border: Border.all(
                                 color: DarkColor(),
-                                width: 5,
+                                width: 3,
                                 style: BorderStyle.none)),
                         child: Padding(
                           padding: const EdgeInsets.all(0.0),

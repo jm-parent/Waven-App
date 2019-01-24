@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/GameDataSection/Companions/CompanionListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataCard.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
+import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryPage.dart';
-import 'package:waven_app/AppUi/GameDataSection/WavenGods/GodsListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenWorld/WavenWorldPage.dart';
 import 'package:waven_app/AppUi/SpellList/SpellListTabbarPage.dart';
@@ -34,7 +34,7 @@ class _GameDataPageState extends State<GameDataPage> {
             menu: GameDataMenu.Lore,
           ),
           GameDataCard(
-            titleText: "Les Dieux",
+            titleText: "Les Classes",
             isEnableBackground: true,
             urlImage:
                 "https://s.ankama.com/www/static.ankama.com/upload/backoffice/direct/2017-12-26/042bf8d4283d7dcbcf208578bc957b96.jpg",
@@ -117,7 +117,7 @@ class _GameDataPageState extends State<GameDataPage> {
     if (enumPage == GameDataMenu.Lore.index)
         Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new WavenWorldPage()));
       if (enumPage == GameDataMenu.Gods.index)
-          Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new GodsListPage()));
+          Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ClassesListPage()));
         if (enumPage == GameDataMenu.Shushus.index)
             Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ShushusListPage()));
           if (enumPage == GameDataMenu.Spells.index)

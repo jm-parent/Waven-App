@@ -23,15 +23,12 @@ final GalleryItems = <GalleryOfflineModel>[
   new GalleryOfflineModel('Aon','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/510142233937313794/IMG_20181108_182058.jpg','Ténébreux Spectral'),
   new GalleryOfflineModel('Aon','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/510006891406163988/IMG_20181107_164316.jpg','Ténébreux Spectral'),
   new GalleryOfflineModel('Aon','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/510005713158930433/IMG_20181108_091948.jpg','Ténébreux Spectral'),
-  new GalleryOfflineModel('Kouett','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/483238979961880596/unknown.png','Ténébreux Spectral'),
   new GalleryOfflineModel('Kouett','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/474299466435002388/unknown.png','Ténébreux Spectral'),
   new GalleryOfflineModel('Kouett','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/471247903231574027/unknown.png','Ténébreux Spectral'),
   new GalleryOfflineModel('Kouett','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/471247921505894421/unknown.png','Ténébreux Spectral'),
   new GalleryOfflineModel('Kouett','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/471247937687650305/unknown.png','Ténébreux Spectral'),
   new GalleryOfflineModel('Dida','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/471700730844151818/WIP01_test.jpg','Ténébreux Spectral'),
   new GalleryOfflineModel('Feco','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/478495860808876034/IMG_20180813_113105.jpg','Ténébreux Spectral'),
-  new GalleryOfflineModel('Feco','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/483238979961880596/unknown.png','Ténébreux Spectral'),
-  new GalleryOfflineModel('Feco','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/483238979961880596/unknown.png','Ténébreux Spectral'),
 
 
   new GalleryOfflineModel('Dida','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/478150145285029898/Map02bis.png','Ténébreux Spectral'),
@@ -67,4 +64,30 @@ List shuffle(List items) {
   }
 
   return items;
+}
+
+final ArtistList = <ArtistOfflineModel>[
+  new ArtistOfflineModel('Mystic-Wave','null','https://cdn.discordapp.com/attachments/471247713808285706/529755694417707060/JPEG_20190101_202008.jpg','Description',false),
+  new ArtistOfflineModel('Aon','null','https://cdn.discordapp.com/attachments/471247713808285706/526453340528443452/IMG_20181223_181934.jpg','Description',false),
+  new ArtistOfflineModel('Joris','UrlTwitter','https://cdn.discordapp.com/attachments/471247713808285706/530817970247827457/unknown.png','Description',false),
+
+  new ArtistOfflineModel('Feco','https://www.instagram.com/mrfeconic/','https://cdn.discordapp.com/attachments/471247713808285706/483238979961880596/unknown.png','Description',false),
+  new ArtistOfflineModel('Harazel','https://twitter.com/Harazelon','https://cdn.discordapp.com/attachments/471247713808285706/535598739512098817/IOPSPECTRAL.jpg','Description',false),
+  new ArtistOfflineModel('Kindry','https://twitter.com/Kindryad','https://media.discordapp.net/attachments/372126992859922433/530793778152210444/20190104_180439.jpg?width=242&height=326','Description',true),
+  new ArtistOfflineModel('Dida','https://www.artstation.com/didasild','https://cdn.discordapp.com/attachments/471247713808285706/530866671729246218/Logo_FanMade.png','Description',false),
+  new ArtistOfflineModel('Kouett','https://twitter.com/Kou3tt','https://cdn.discordapp.com/attachments/471247713808285706/522197263146156033/unknown.png','Description',false),
+  new ArtistOfflineModel('Mikkoku','https://www.instagram.com/mikkoku_flonne/','https://cdn.discordapp.com/attachments/471247713808285706/521068093016113166/Ecarlequin.png','Description',false),
+  new ArtistOfflineModel('RunningDove7373','https://twitter.com/RunningPigeon73','https://pbs.twimg.com/media/Dtid18tUwAApxqc.png:large','Description',false),
+
+];
+class ArtistOfflineModel {
+
+  final String artistName;
+  final String refSiteUrl;
+  final String imagePortraitUrl;
+  final String artistDesc;
+  final bool fromAnkama;
+
+  ArtistOfflineModel(this.artistName, this.refSiteUrl, this.imagePortraitUrl, this.artistDesc, this.fromAnkama);
+
 }

@@ -35,7 +35,7 @@ class _AnimatedTabBarPageState extends State<AnimatedTabBarPage>
       if(index == NavigationIndexName.tools.index)
         _selectedBody = ComingSoonPage();
       if(index == NavigationIndexName.dashboard.index) {
-        _selectedBody = DashboardBuilders(callbackNavigateTo);
+        _selectedBody = Container();//DashboardBuilders(callbackNavigateTo);
       }
     });
   }

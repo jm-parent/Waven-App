@@ -6,11 +6,19 @@ class ShushuOfflineModel {
   final int heroid;
   final String heroName;
 
+
   final String portrait;
   final String lore;
+
   final Color color;
 
-  ShushuOfflineModel(this.godName, this.heroid, this.heroName, this.portrait, this.lore, this.color);
+  final String uniquePassiveIcon;
+  final String uniquePassiveDesc;
+  final String uniqueSpellIcon;
+  final String uniqueSpellDesc;
+
+
+  ShushuOfflineModel(this.godName, this.heroid, this.heroName, this.portrait, this.lore, this.color, this.uniquePassiveIcon, this.uniquePassiveDesc, this.uniqueSpellIcon, this.uniqueSpellDesc);
 
   String get background => 'images/ShushusImages/GodWavenBg_${heroid??0}.jpg';
   @override

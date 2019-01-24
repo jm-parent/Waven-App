@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 
@@ -67,9 +68,10 @@ class _FluidTabItemState extends State<FluidTabItem> {
                 alignment: Alignment(0, textYAlign),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Text(
+                  child: AutoSizeText(
                     widget.title,
-                    style: TextStyle(fontWeight: FontWeight.w600,color: PURPLE),
+                    maxLines: 1,
+                    style: TextStyle(fontWeight: FontWeight.w600,color: PURPLE,fontSize: 11),
                   ),
                 )),
           ),

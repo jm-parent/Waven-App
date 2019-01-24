@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:waven_app/util/EnumHelper.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 
@@ -8,10 +9,9 @@ class DashboardTitleCat extends StatefulWidget {
 
   bool isMoreShowed ;
 
-  int indexToNavigate;
-  Function(int) callbackNavigateTo;
+  var pageToNavigate;
 
-  DashboardTitleCat({Key key, this.titleCat,this.callbackNavigateTo,this.isMoreShowed : false,this.indexToNavigate}): super(key: key);
+  DashboardTitleCat({Key key, this.titleCat,this.isMoreShowed : false,this.pageToNavigate}): super(key: key);
   @override
   DashboardTitleCatState createState() {
     return new DashboardTitleCatState();
@@ -52,7 +52,8 @@ class DashboardTitleCatState extends State<DashboardTitleCat> {
   buildMore() {
     return InkWell(
       onTap:(){
-        widget.callbackNavigateTo(widget.indexToNavigate);
+        Navigator.push(context,
+            PageTransition(type: PageTransitionType.leftToRight, child: widget.pageToNavigate ));
       },
       child: Row(
         children: <Widget>[
