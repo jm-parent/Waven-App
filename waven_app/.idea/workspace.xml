@@ -81,36 +81,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderPage.dart">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="234" column="5" lean-forward="true" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-                <element signature="e#7147#7442#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="41" column="2" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/AppUi/DashboardSection/DashboardPage.dart">
+        <entry file="file://$PROJECT_DIR$/lib/AppUi/NewsSection/NewsPage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-357">
-              <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-                <element signature="e#1399#3312#0" />
-              </folding>
+            <state relative-caret-position="51">
+              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -267,64 +250,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
-              <item name="CommonWidget" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
-              <item name="CommonWidget" type="462c0819:PsiDirectoryNode" />
-              <item name="Buttons" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
-              <item name="DashboardSection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
-              <item name="DeckBuilderPages" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <option name="show-excluded-files" value="false" />
-      </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -365,6 +290,37 @@
           <select />
         </subPane>
       </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
+              <item name="NewsSection" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-excluded-files" value="false" />
+      </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -501,7 +457,7 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49840087" weight="0.32861805" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4728145" visible="true" weight="0.31995663" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4728145" weight="0.31995663" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4946695" weight="0.37960956" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -513,7 +469,7 @@
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49626866" weight="0.32535365" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5271855" side_tool="true" weight="0.3242655" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.48400852" weight="0.324295" />
+      <window_info active="true" anchor="bottom" id="Messages" order="14" sideWeight="0.48400852" visible="true" weight="0.324295" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -667,13 +623,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/lib/widgets/DeckBuilderWidget.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="3" lean-forward="true" selection-start-line="14" selection-start-column="3" selection-end-line="14" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/giffy_dialog-1.0.1/lib/src/network.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -830,9 +779,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="53" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#1724#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -895,10 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-357">
           <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#1399#3312#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -937,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="41" column="2" selection-start-line="41" selection-start-column="2" selection-end-line="41" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderPage.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -952,6 +887,20 @@
             <element signature="e#0#22#0" expanded="true" />
             <element signature="e#7147#7442#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/NewsSection/NewsPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
