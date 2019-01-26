@@ -54,7 +54,7 @@ class ClassesListPageState extends State<ClassesListPage> {
         children: <Widget>[
           Positioned.fill(
               child: Image.asset(
-            ClassesItems[index].background,
+            ClassesItems[index].portrait,
             fit: BoxFit.cover,
           )),
           Container(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
-import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderPage.dart';
+import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderListPage.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
 import 'package:waven_app/util/EnumHelper.dart';
@@ -51,7 +51,7 @@ class _DashboardPageState extends State<DashboardPage> {
                     context,
                     PageTransition(
                         type: PageTransitionType.rightToLeft,
-                        child: DeckBuilderPage())),
+                        child: DeckBuilderSkillBarPage())),
                 child: ClipRRect(
                     borderRadius: new BorderRadius.circular(8.0),
                     child: new Container(

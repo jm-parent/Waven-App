@@ -9,6 +9,11 @@ final ClassesItems = <ClasseOfflineModel>[
       'images/ClassesBg/bg_Iop.png',
       'Leur tempérament impétueux et leur amour pour le combat font des Iops des paladins de l’extrême. Leur devise ? On cogne d’abord, on discute ensuite. Puis on cogne à nouveau !',
       Color.fromRGBO(55, 0, 30, 0.9),'CŒUR DE IOP',GradientIop()),
+  new ClasseOfflineModel(
+      'Xelor',
+      'images/ClassesBg/bg_Xelor.png',
+      'En tant que mages du temps, les Xélors jouent avec ses rouages pour ralentir un ennemi, s’accélérer eux-mêmes ou se téléporter où bon leur semble à l’aide de leurs Sinistros.',
+      Color.fromRGBO(55, 0, 30, 0.9),'SABLIER DE XÉLOR',GradientXelor()),
 //  new ClasseOfflineModel('Cra', 'images/HeroPortraits/Iop-Base-Male-CC.png',
 //      'le lore Chavelier', Color.fromRGBO(55, 0, 30, 0.9),'Default Title',DefaultGradient()),
 //  new ClasseOfflineModel('Ecaflip', 'images/HeroPortraits/Iop-Base-Male-CC.png',
@@ -77,7 +82,20 @@ Decoration GradientIop()
         ],
       ));
 }
-
+Decoration GradientXelor()
+{
+  return new BoxDecoration(
+      gradient: new LinearGradient(
+        begin: Alignment.centerLeft,
+        end: Alignment.centerRight,
+        stops: [0.0,0.5,1.0],
+        colors: [
+          Color(0xFF081041),
+          Color(0xFF253BCC),
+          Color(0xFF081041),
+        ],
+      ));
+}
 Decoration GradientIopBg()
 {
   return new BoxDecoration(

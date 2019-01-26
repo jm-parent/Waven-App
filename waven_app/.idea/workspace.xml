@@ -29,8 +29,10 @@
     <session id="-1928118594">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="8" />
+          <entry key="project.closed" value="11" />
+          <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.18" value="1" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.25" value="4" />
@@ -39,38 +41,40 @@
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.42" value="1" />
-          <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="13" />
+          <entry key="project.open.time.6" value="2" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="dart" value="138" />
+          <entry key="dart" value="177" />
           <entry key="gif" value="2" />
           <entry key="jpg" value="10" />
-          <entry key="png" value="22" />
-          <entry key="yaml" value="17" />
+          <entry key="lock" value="1" />
+          <entry key="png" value="34" />
+          <entry key="yaml" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Dart" value="138" />
-          <entry key="Image" value="34" />
-          <entry key="YAML" value="17" />
+          <entry key="Dart" value="177" />
+          <entry key="Image" value="46" />
+          <entry key="PLAIN_TEXT" value="1" />
+          <entry key="YAML" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dart" value="12446" />
+          <entry key="dart" value="15106" />
           <entry key="dummy" value="9" />
-          <entry key="yaml" value="29" />
+          <entry key="yaml" value="47" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Dart" value="12446" />
+          <entry key="Dart" value="15106" />
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="YAML" value="29" />
+          <entry key="YAML" value="47" />
         </counts>
       </usages-collector>
     </session>
@@ -80,20 +84,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pubspec.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state>
+              <caret line="42" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lib/AppUi/NewsSection/NewsPage.dart">
+        <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderListPage.dart">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
+            <state relative-caret-position="223">
+              <caret line="39" column="8" selection-start-line="36" selection-start-column="4" selection-end-line="39" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderShushuSelectPage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="444">
+              <caret line="221" column="76" selection-start-line="221" selection-start-column="76" selection-end-line="221" selection-end-column="76" />
+              <folding>
+                <element signature="e#0#52#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -109,27 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>flipc</find>
-      <find>flipca</find>
-      <find>dashboard</find>
-      <find>class</find>
-      <find>classnam</find>
-      <find>loret</find>
-      <find>),</find>
-      <find>GradientIop()</find>
-      <find>loretitle</find>
-      <find>flipcard</find>
-      <find>front</find>
-      <find>'),</find>
-      <find>)),</find>
-      <find>wave</find>
-      <find>navigator</find>
-      <find>transition</find>
-      <find>infini</find>
-      <find>deck build</find>
-      <find>AsyncSnapshot</find>
-      <find>CachedNetworkImage</find>
-      <find>gradient</find>
       <find>GradientIopBg</find>
       <find>gradientiop</find>
       <find>deck builder</find>
@@ -139,6 +149,27 @@
       <find>adds</find>
       <find>getdeta</find>
       <find>listview</find>
+      <find>addsp</find>
+      <find>bg_iop</find>
+      <find>images/ClassesBg/</find>
+      <find>subs</find>
+      <find>shadowte</find>
+      <find>listtil</find>
+      <find>stac</find>
+      <find>cachednet</find>
+      <find>portrait</find>
+      <find>.portrait</find>
+      <find>].portrait</find>
+      <find>cached</find>
+      <find>pagetransi</find>
+      <find>position</find>
+      <find>ontap:</find>
+      <find>ShushusItemModel</find>
+      <find>autosize</find>
+      <find>buildinner</find>
+      <find>grad</find>
+      <find>imageOverlayGradient</find>
+      <find>_scrol</find>
     </findStrings>
     <replaceStrings>
       <replace>RssFeed</replace>
@@ -186,11 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushuSkinsPage.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushusDetailPage.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushuSkins/ShushuSkinCard.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/CommonWidget/RoundConnerBottomSheet.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushuBottomSheetFilter/ShushuFilterModel.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushuBottomSheetFilter/ShushuBottomSheetFilterContainer.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/SpellList/SpellListTabbarPage.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/Companions/CompanionListPage.dart" />
@@ -213,7 +239,6 @@
         <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/Test.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/Test2.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenGallery/GalleryPage.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderListPage.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/TestWidgets/GiffyDialog.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/FluidNavBar/FluidTabItem.dart" />
         <option value="$PROJECT_DIR$/lib/DashboardPages/DashboardTitleCat.dart" />
@@ -229,14 +254,20 @@
         <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClasseOfflineModel.dart" />
         <option value="$PROJECT_DIR$/lib/util/ThemeHelper.dart" />
         <option value="$PROJECT_DIR$/lib/models/ShushuOfflineModel.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushusItems.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesItems.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/Models/SpellsWavenApiModel.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart" />
-        <option value="$PROJECT_DIR$/lib/AppUi/DashboardSection/DashboardPage.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushusItems.dart" />
+        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart" />
+        <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesItems.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderPage.dart" />
+        <option value="$PROJECT_DIR$/lib/AppUi/DashboardSection/DashboardPage.dart" />
+        <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/SpellIconWidget.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
+        <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderModel.dart" />
+        <option value="$PROJECT_DIR$/lib/DashboardPages/DashboardDescCat.dart" />
+        <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderListPage.dart" />
+        <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderShushuSelectPage.dart" />
+        <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart" />
       </list>
     </option>
   </component>
@@ -250,6 +281,84 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
+              <item name="DeckBuilderPages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
+              <item name="DeckBuilderSection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
+              <item name="GameDataSection" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
+              <item name="GameDataSection" type="462c0819:PsiDirectoryNode" />
+              <item name="WavenShushus" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-excluded-files" value="false" />
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
+            </path>
+            <path>
+              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
+              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
+              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -290,62 +399,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="b2602c69:ProjectViewProjectNode" />
-              <item name="waven_app" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="AppUi" type="462c0819:PsiDirectoryNode" />
-              <item name="NewsSection" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-        <option name="show-excluded-files" value="false" />
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="waven_app" type="1abcf292:AndroidViewProjectNode" />
-              <item name="waven_app_android" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -360,19 +413,19 @@
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\Devs\Waven-App\waven_app\images\ShushusImages\ShushusSkill" />
-      <recent name="E:\Devs\Waven-App\waven_app\images\ShushusImages\ShushusPortraits" />
-      <recent name="E:\Devs\Waven-App\waven_app\images\ShushusImages\ShushusPortrait" />
-      <recent name="E:\Devs\Waven-App\waven_app\images\ClassesBg" />
-      <recent name="E:\Devs\Waven-App\waven_app\images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Devs\Waven-App\waven_app\images" />
       <recent name="E:\Devs\Waven-App\waven_app\images\ShushusImages" />
       <recent name="E:\Devs\Waven-App\waven_app\images\ShushusPortraitImages" />
       <recent name="E:\Devs\Waven-App\waven_app\lib\AppUi\FluidNavBar" />
       <recent name="E:\Devs\Waven-App\waven_app\images\GodsImages\GodsImageWavenBackground" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Devs\Waven-App\waven_app\images\SpellsImages" />
+      <recent name="E:\Devs\Waven-App\waven_app\images\ClassesBg" />
+      <recent name="E:\Devs\Waven-App\waven_app\images\ShushusImages\ShushusSkill" />
+      <recent name="E:\Devs\Waven-App\waven_app\images\ShushusImages\ShushusPortraits" />
+      <recent name="E:\Devs\Waven-App\waven_app\images\ShushusImages\ShushusPortrait" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -457,19 +510,19 @@
       <window_info id="Capture Tool" order="7" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49840087" weight="0.32861805" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4728145" weight="0.31995663" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.4728145" visible="true" weight="0.3253796" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4946695" weight="0.37960956" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4946695" weight="0.32861805" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.4946695" weight="0.3275488" />
       <window_info anchor="bottom" id="Android Profiler" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Dart Analysis" order="8" sideWeight="0.4968017" weight="0.32752994" />
+      <window_info anchor="bottom" id="Dart Analysis" order="8" sideWeight="0.4968017" weight="0.3264642" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.49733475" weight="0.32861805" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49626866" weight="0.32535365" />
+      <window_info anchor="bottom" id="Logcat" order="10" sideWeight="0.49733475" weight="0.3275488" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49626866" weight="0.324295" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5271855" side_tool="true" weight="0.3242655" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="14" sideWeight="0.48400852" visible="true" weight="0.324295" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.48400852" weight="0.324295" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -596,14 +649,24 @@
           <option name="timeStamp" value="275" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderPage.dart</url>
-          <line>187</line>
+          <url>file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart</url>
+          <line>225</line>
           <option name="timeStamp" value="280" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="Dart">
-          <url>file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderPage.dart</url>
-          <line>188</line>
+          <url>file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart</url>
+          <line>216</line>
           <option name="timeStamp" value="284" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart</url>
+          <line>56</line>
+          <option name="timeStamp" value="285" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderListPage.dart</url>
+          <line>112</line>
+          <option name="timeStamp" value="286" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -623,171 +686,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/giffy_dialog-1.0.1/lib/src/network.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="14" lean-forward="true" selection-end-line="107" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/FluidNavBar/FluidTabItem.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="59" column="19" lean-forward="true" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/TestWidgets/GiffyDialog.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenGallery/GalleryPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/coming-soon.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/BottomNavNotchedBar/AnimatedTabBarPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="37" column="36" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderListPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/DashboardPages/DashboardBuilders.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="37" selection-start-column="5" selection-end-line="37" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/FluidNavBar/FluidNavBarPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/FluidNavBar/FluidNavBar.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/widgets/NewsCardItem.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/GameDataPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1231">
-          <caret line="119" column="97" lean-forward="true" selection-start-line="119" selection-start-column="97" selection-end-line="119" selection-end-column="97" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/ClassesBg/bg_Iop.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/ShushusPortraitImages/Full_Vertical_311.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/ShushusImages/GodWavenBg_143.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/DashboardPages/DashboardTitleCat.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="44" column="51" selection-start-line="43" selection-start-column="10" selection-end-line="44" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/GameDataPages/GameDataCardCat.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/util/ThemeHelper.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1010">
-          <caret line="148" selection-start-line="148" selection-end-line="148" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/DashboardPages/HorizontalFanArtList.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="28" column="14" selection-start-line="19" selection-start-column="19" selection-end-line="28" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClasseOfflineModel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="128" column="6" selection-start-line="128" selection-start-column="6" selection-end-line="128" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesItems.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="80" column="24" selection-start-line="80" selection-start-column="11" selection-end-line="80" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushusItems.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/models/ShushuOfflineModel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="15" selection-start-line="15" selection-start-column="15" selection-end-line="15" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/Models/SpellsWavenApiModel.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="53" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/LoreImages/acte1_bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/LoreImages/acte2_bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/LoreImages/acte3_bg.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -837,13 +735,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/DashboardSection/DashboardPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../SetupFlutter/flutter/bin/cache/pkg/sky_engine/lib/core/iterable.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -879,17 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderPage.dart">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="234" column="5" lean-forward="true" selection-start-line="234" selection-start-column="5" selection-end-line="234" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-            <element signature="e#7147#7442#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lib/AppUi/NewsSection/NewsPage.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -897,10 +777,210 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/images/ShushusImages/ShushusSkill/HEROS_Xelor_accelerateur_permutation2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/ShushusImages/ShushusPortraits/xelor_2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/ShushusImages/ShushusSkill/Heros_XELOR_GUARPAPA_regulation2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pubspec.lock">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/widgets/ShadowText.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushusItems.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-253">
+          <caret line="61" column="6" selection-start-line="61" selection-start-column="6" selection-end-line="61" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushuSkins/ShushuSkinItem.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/ShushuOfflineModel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cached_network_image-0.5.1/lib/cached_network_image.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="47" column="33" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/DataProvider/Datas/ConstDatas.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="28" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/models/GodModel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/SpellIconWidget.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="31" column="10" selection-start-line="22" selection-start-column="15" selection-end-line="31" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/ClassesBg/bg_Iop.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/ClassesBg/bg_Xelor.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClasseOfflineModel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderModel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+          <folding>
+            <element signature="e#1#87#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesItems.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state>
+          <caret line="42" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/DashboardPages/DashboardTitleCat.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="36" column="18" lean-forward="true" selection-start-line="31" selection-start-column="15" selection-end-line="36" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/DashboardSection/DashboardPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="31" column="35" selection-start-line="28" selection-start-column="9" selection-end-line="31" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/DashboardPages/DashboardDescCat.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-406">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenWorld/LoreItemModel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="6" selection-start-column="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenWorld/WavenWorldItems.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenWorld/WavenWorldListItem.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="99" column="6" lean-forward="true" selection-start-line="88" selection-start-column="3" selection-end-line="99" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenWorld/WavenWorldPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="70" column="40" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="156" column="28" selection-start-line="156" selection-start-column="28" selection-end-line="156" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushusItemModel.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderListPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="39" column="8" selection-start-line="36" selection-start-column="4" selection-end-line="39" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderShushuSelectPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="221" column="76" selection-start-line="221" selection-start-column="76" selection-end-line="221" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#52#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
