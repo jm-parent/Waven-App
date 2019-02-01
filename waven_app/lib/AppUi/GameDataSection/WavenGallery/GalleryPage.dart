@@ -5,7 +5,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/ArtistCard.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryItems.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 
 class GalleryPage extends StatefulWidget {

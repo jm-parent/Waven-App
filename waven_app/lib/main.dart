@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: new ThemeData(
         brightness: Brightness.dark,
       ),
-
+      debugShowCheckedModeBanner: false,
       home: new SplashScreenPage(),
       routes: <String, WidgetBuilder>{
         '/Mainhome': (BuildContext context) => new FluidNavBarPage(),

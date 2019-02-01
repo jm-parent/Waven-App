@@ -4,6 +4,8 @@ import 'package:waven_app/models/ShushuOfflineModel.dart';
 import 'package:waven_app/models/SkinOfflineModel.dart';
 
 final ShushusItems = <ShushuOfflineModel>[
+ //Iops
+
   new ShushuOfflineModel(
       'Iop',
       919,
@@ -59,6 +61,10 @@ final ShushusItems = <ShushuOfflineModel>[
       'Sous 32 PDV, se transforme et devient Inciblable.',
       'images/ShushusImages/ShushusSkill/Heros_Chevalieraucoeurfroid_stalagmite.png',
       'Inflige 2 dégâts. +1 PA à votre réserve si la cible est sous l’état MOUILLÉ.'),
+
+  //endIops
+  //Xelor
+
   new ShushuOfflineModel(
       'Xelor',
       193,
@@ -114,11 +120,146 @@ final ShushusItems = <ShushuOfflineModel>[
       '+1 Réserve à chaque fois qu’une EXPLOSION alliée se produit.',
       'images/ShushusImages/ShushusSkill/Heros_XELOR_catalyseur_BOOM2.png',
       '+1 AR à votre héros.​ Vos mécanismes appliquent EXPLOSION. ​'),
-//  new ShushuOfflineModel('Sram',620,'L\'Egorgeur Shugen','images/HeroPortraits/Iop-Base-Male-CC.png','le lore sram jaune',Color.fromRGBO(227,182, 40, 0.9),'','','',''),
-//  new ShushuOfflineModel('Sram',937,'Le Traqueur Sourokan','images/HeroPortraits/Iop-Base-Male-CC.png','le lore Sram biolet',Color.fromRGBO(85,16,112, 0.9),'','','',''),
-//  new ShushuOfflineModel('Osamodas',196,'Pâtre Laineux','images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_01.jpg','le lore bouftou',Color.fromRGBO(50, 110, 70, 0.9),'','','',''),
-//  new ShushuOfflineModel('Osamodas',995,'L\'Eleveur Zélé','images/HeroImages/HeroBackground/Fond_Waven_PC_Osamodas_02.jpg','le lore tofu',Color.fromRGBO(107, 33, 122, 0.9),'','','',''),
-//  new ShushuOfflineModel('Eniripsa',311,'????','images/ShushusPortraitImages/Full_Vertical_311.png','le lore Eni',Color.fromRGBO(107, 33, 122, 0.9),'','','',''),
+
+  //endXelor
+  //Cra
+  new ShushuOfflineModel(
+      'Cra',
+      712,
+      'Le Cra Shuriken',
+      'images/ShushusImages/ShushusPortraits/cra_1.png',
+      'le lore Shuriken',
+      Color(0xFF2D1A52),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+
+  //endCra
+  //Eni
+  new ShushuOfflineModel(
+      'Eni',
+      301,
+      'le Champion d\'Ambre',
+      'images/ShushusImages/ShushusPortraits/eni_1.png',
+      'le lore Ambre',
+      Color(0xFFAF5906),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+  new ShushuOfflineModel(
+      'Eni',
+      302,
+      'NA',
+      'images/ShushusImages/ShushusPortraits/eni_2.png',
+      'le lore Vampire',
+      Color(0xFF953A57),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+  new ShushuOfflineModel(
+      'Eni',
+      303,
+      'Eni Classique',
+      'images/ShushusImages/ShushusPortraits/eni_3.png',
+      'le lore classique',
+      Color(0xFFFFE8BD),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+
+  //endEni
+  //Osa
+
+  new ShushuOfflineModel(
+      'Osa',
+      401,
+      'Eleveuse Tofu',
+      'images/ShushusImages/ShushusPortraits/osa_1.png',
+      'le lore tofu',
+      Color(0xFFB11ABE),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+  new ShushuOfflineModel(
+      'Osa',
+      402,
+      'Pâtre Laineaux',
+      'images/ShushusImages/ShushusPortraits/osa_2.png',
+      'le lore laineau',
+      Color(0xFF088736),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+  new ShushuOfflineModel(
+      'Osa',
+      403,
+      'Osa Craq',
+      'images/ShushusImages/ShushusPortraits/osa_3.png',
+      'le lore craq',
+      Color(0xFFAEDBBD),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+
+  //endOsa
+  //Sram
+ new ShushuOfflineModel('Sram',
+     620,
+     'L\'Egorgeur Shugen',
+     'images/ShushusImages/ShushusPortraits/sram_4.png',
+     'le lore sram jaune',
+     Color(0xFFE8C128),
+     '',
+     'NA',
+     'images/ShushusImages/ShushusSkill/default.png',
+     'NA​'),
+ new ShushuOfflineModel('Sram',
+     937,
+     'Le Traqueur Sourokan',
+     'images/ShushusImages/ShushusPortraits/sram_5.png',
+     'le lore Sram biolet',
+     Color(0xFF570A76),
+     '',
+     'NA',
+     'images/ShushusImages/ShushusSkill/default.png',
+     'NA​'),
+  new ShushuOfflineModel('Sram',
+      621,
+      'Frappeur Kartana',
+      'images/ShushusImages/ShushusPortraits/sram_1.png',
+      'le lore sram jaune',
+      Color(0xFF86AF6B),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+  new ShushuOfflineModel('Sram',
+      622,
+      'Sram Classique',
+      'images/ShushusImages/ShushusPortraits/sram_2.png',
+      'le lore Sram biolet',
+      Color(0xFF3A3935),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
+  new ShushuOfflineModel('Sram',
+      623,
+      'Sram Espadon',
+      'images/ShushusImages/ShushusPortraits/sram_3.png',
+      'le lore Sram biolet',
+      Color(0xFF174F5C),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​'),
 ];
 
 final SkinsItems = <SkinOfflineModel>[

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:transparent_image/transparent_image.dart';
 import 'package:waven_app/widgets/FixedAppBar.dart';
 import 'package:waven_app/widgets/FlexibleAppBar.dart';
-import 'package:zoomable_image/zoomable_image.dart';
 
 class TheGamePage extends StatefulWidget {
   @override

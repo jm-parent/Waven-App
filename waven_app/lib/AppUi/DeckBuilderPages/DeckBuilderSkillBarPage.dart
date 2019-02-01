@@ -3,12 +3,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:share/share.dart';
+import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
+import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
 import 'package:waven_app/AppUi/Models/SpellsWavenApiModel.dart';
+import 'package:flutter_range_slider/flutter_range_slider.dart';
 
 class DeckBuilderSkillBarPage extends StatefulWidget {
   final DeckBuilderModel deckData;
@@ -49,59 +52,146 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   }
   String filter;
   TextEditingController controller = new TextEditingController();
+  var _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  double _lowerValue = 0.0;
+  double _upperValue = 10.0;
+
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        resizeToAvoidBottomPadding: false,
-        appBar: _buildBar(context),
-        body: Padding(
-          padding: const EdgeInsets.only(bottom: 8.0),
-          child: Column(
-            children: <Widget>[
-
-              Expanded(
-                flex: 4,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width - 8,
-                    child: _buildVerticalSpellList(),
+    return SafeArea(
+      child: Scaffold(
+          key: _scaffoldKey,
+          resizeToAvoidBottomPadding: false,
+          appBar: _buildBar(context),
+          endDrawer:Drawer(
+                      child: new ListView(
+              children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Center(child: new Text("Advanced Search")),
                   ),
+                ExpansionTile(
+                  title: Text('Elements'),
+                  children: <Widget>[
+                    Wrap(
+                      runSpacing: 3.0,
+                      spacing: 6,
+                      children: <Widget>[
+                        Chip(
+                          label: Text('Feu'),
+                          backgroundColor: Colors.deepOrange,
+                        ),
+                        Chip(
+                          label: Text('Air'),
+                          backgroundColor: Colors.purpleAccent,
+                        ),
+                        Chip(
+                          label: Text('Terre'),
+                          backgroundColor: Colors.green,
+                        ),
+                        Chip(
+                          label: Text('Eau'),
+                          backgroundColor: Colors.blue,
+                        ),
+                      ],
+                    )
+                  ],
+
+                ),
+                    ExpansionTile(
+                    title: Text('Cout PA'),
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.max,
+            children: <Widget>[
+              SimpleRoundText(value:_lowerValue.toInt().toString()),
+              Expanded(
+                child: new RangeSlider(
+                  min: 0.0,
+                  max: 10.0,
+                  lowerValue: _lowerValue,
+                  upperValue: _upperValue,
+                  divisions: 10,
+                  valueIndicatorMaxDecimals: 1,
+                  touchRadiusExpansionRatio: 2,
+                  onChanged: (double newLowerValue, double newUpperValue) {
+                    setState(() {
+                      _lowerValue = newLowerValue;
+                      _upperValue = newUpperValue;
+                    });
+                  },
+                  onChangeStart:
+                      (double startLowerValue, double startUpperValue) {
+                    print(
+                        'Started with values: $startLowerValue and $startUpperValue');
+                  },
+                  onChangeEnd: (double newLowerValue, double newUpperValue) {
+                    print(
+                        'Ended with values: $newLowerValue and $newUpperValue');
+                  },
                 ),
               ),
-              Expanded(
-                flex: 2,
-                child: SizedBox(
-                  width: MediaQuery.of(context).size.width - 50,
-                  child: Container(
-                      color: Colors.black54,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment:CrossAxisAlignment.center,children: <Widget>[
-                        Wrap(
-                          alignment: WrapAlignment.center,
-                          runAlignment: WrapAlignment.center,
-                          spacing: 4,
-                          runSpacing: 4,
-                          //75x75
-                          children: <Widget>[
-                            _buildDragTarget(0),
-                            _buildDragTarget(1),
-                            _buildDragTarget(2),
-                            _buildDragTarget(3),
-                            _buildDragTarget(4),
-                            _buildDragTarget(5),
-                            _buildDragTarget(6),
-                            _buildDragTarget(7),
-                          ],
-                        ),
-                      ])),
-                ),
-              )
+              SimpleRoundText(value:_upperValue == 10?'10+':_upperValue.toString()),
             ],
           ),
-        ));
+
+        ],
+
+      )
+              ],
+            ),
+          ),
+          body: Padding(
+            padding: const EdgeInsets.only(bottom: 8.0),
+            child: Column(
+              children: <Widget>[
+                Expanded(
+                  flex: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width - 8,
+                      child: _buildVerticalSpellList(),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  flex: 2,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width - 50,
+                    child: Container(
+                        color: Colors.black54,
+                        child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment:CrossAxisAlignment.center,children: <Widget>[
+                          Wrap(
+                            alignment: WrapAlignment.center,
+                            runAlignment: WrapAlignment.center,
+                            spacing: 4,
+                            runSpacing: 4,
+                            //75x75
+                            children: <Widget>[
+                              _buildDragTarget(0),
+                              _buildDragTarget(1),
+                              _buildDragTarget(2),
+                              _buildDragTarget(3),
+                              _buildDragTarget(4),
+                              _buildDragTarget(5),
+                              _buildDragTarget(6),
+                              _buildDragTarget(7),
+                            ],
+                          ),
+                        ])),
+                  ),
+                )
+              ],
+            ),
+          )),
+    );
   }
 
   var spellIconSize = 65.0;
@@ -131,8 +221,16 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
       leading: new IconButton(
         icon: _searchIcon,
         onPressed: _searchPressed,
-
       ),
+      actions: [
+        Builder(
+          builder: (context) => IconButton(
+            icon: Icon(FontAwesomeIcons.slidersH),
+            onPressed: () => Scaffold.of(context).openEndDrawer(),
+            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          ),
+        ),
+      ],
     );
   }
   _buildVerticalSpellList() {
@@ -153,6 +251,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
             itemBuilder: (BuildContext context, int index) {
 
               return filter == null ||filter ==""?
+              snapshot.data[index].cost>=_lowerValue&&snapshot.data[index].cost<=_upperValue?
               LongPressDraggable(
                 data: snapshot.data[index],
                 child: getDetailledSpellSlotWithGesture(
@@ -160,9 +259,10 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                 feedback:
                 getSpellSlotWithGesture(snapshot.data[index], 1.3, index),
                 childWhenDragging: Container(),
-              )
+              ):Container()
                   :
               snapshot.data[index].name.toLowerCase().contains(filter)?
+              snapshot.data[index].cost>=_lowerValue&&snapshot.data[index].cost<=_upperValue?
               LongPressDraggable(
                 data: snapshot.data[index],
                 child: getDetailledSpellSlotWithGesture(
@@ -170,38 +270,10 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                 feedback:
                 getSpellSlotWithGesture(snapshot.data[index], 1.3, index),
                 childWhenDragging: Container(),
-              ):Container();
+              ):Container():Container();
 
 
 
-            });
-      },
-    );
-  }
-
-  _buildHorizontalSpellList() {
-    return FutureBuilder(
-      future: getSpells(),
-      builder: (BuildContext context,
-          AsyncSnapshot<List<SpellsWavenApiModel>> snapshot) {
-        if (snapshot.data == null) {
-          return Container(
-            child: Center(
-              child: Text('Loading...'),
-            ),
-          );
-        }
-        return ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: snapshot.data.length,
-            itemBuilder: (BuildContext context, int index) {
-              return LongPressDraggable(
-                data: snapshot.data[index],
-                child: getSpellSlotWithGesture(snapshot.data[index], 1, index),
-                feedback:
-                    getSpellSlotWithGesture(snapshot.data[index], 1.3, index),
-                childWhenDragging: Container(),
-              );
             });
       },
     );
@@ -375,4 +447,6 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     code += ']';
     Share.share("Regarde mon deck : ${code}");
   }
+
+
 }
