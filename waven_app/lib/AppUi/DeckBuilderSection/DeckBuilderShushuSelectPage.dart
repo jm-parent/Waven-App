@@ -80,7 +80,7 @@ class _DeckBuilderShushuSelectPageState
           transformer: new PageTransformerBuilder(
               builder: (Widget child, TransformInfo info) {
             return GestureDetector(
-                onTap: () => _tapOnClass(info.index),
+                onTap: () => _tapOnClass(filteredShushuByGod[info.index]),
                 child: new Padding(
                   padding: new EdgeInsets.only(
                       bottom: 60.0, top: 30, left: 30, right: 30),
@@ -216,8 +216,8 @@ class _DeckBuilderShushuSelectPageState
     );
   }
 
-  void _tapOnClass(index) {
-    widget.deckData.shushuData = ShushusItems[index];
+  void _tapOnClass(shushu) {
+    widget.deckData.shushuData = shushu;
     Navigator.push(context,
         PageTransition(type: PageTransitionType.fade, child: DeckBuilderSkillBarPage(deckData: widget.deckData,)));
   }

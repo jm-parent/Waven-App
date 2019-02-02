@@ -1,17 +1,24 @@
 import 'dart:convert';
+import 'dart:io';
+import 'dart:typed_data';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
+import 'package:path_provider/path_provider.dart';
 import 'package:share/share.dart';
 import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
 import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
-import 'package:waven_app/AppUi/Models/SpellsWavenApiModel.dart';
+import 'package:waven_app/AppUi/Models/ResponseWavenApiClasses.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart';
+import 'package:waven_app/AppUi/Models/SpellsWavenApiModel.dart';
+import 'dart:ui' as ui;
+import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 class DeckBuilderSkillBarPage extends StatefulWidget {
   final DeckBuilderModel deckData;
@@ -26,18 +33,38 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     with TickerProviderStateMixin {
   List<SpellsWavenApiModel> spellListShow;
   String urlEmptyDragTarget = 'https://imgur.com/IXhxlw4.png';
-  String url = 'https://waven-api.synedh.fr/spells';
+  String urlSpells = 'https://waven-api.synedh.fr/spells';
+  String urlClasses = 'https://waven-api.synedh.fr/classes';
   String basicAuth = 'Basic ' + base64Encode(utf8.encode('Xeno:superpassword'));
   Widget _appBarTitle = new Text( 'Liste des Sorts' );
   Icon _searchIcon = new Icon(Icons.search);
 
   Future<List<SpellsWavenApiModel>> getSpells() async {
-    List<SpellsWavenApiModel> data;
+    List<SpellsWavenApiModel> data = new List<SpellsWavenApiModel>();
 
-    var response = await http.get(Uri.encodeFull(url),
+    //Récupération des classes pour récupérer la liste des sortsID
+    var responseClasses = await http.get(Uri.encodeFull(urlClasses),
         headers: {"Accept": "application/json", 'authorization': basicAuth});
-    return spellsWavenApiModelFromJson(response.body);
+
+    var responseClassesObject = responseWavenApiClassesFromJson(responseClasses.body);
+
+    var classPicked = responseClassesObject.firstWhere((classeItem) => classeItem.name.toLowerCase() == widget.deckData.classData.className.toLowerCase());
+
+    var responseSpell = await http.get(Uri.encodeFull(urlSpells),
+        headers: {"Accept": "application/json", 'authorization': basicAuth});
+
+    var responseAllSpellList = spellsWavenApiModelFromJson(responseSpell.body);
+
+    //Remove les sorts qui ne sont pas dans les sorts de la classe picked
+    responseAllSpellList.removeWhere((spellItem) =>
+    classPicked.spells.contains(spellItem.id)==false);
+
+
+    return responseAllSpellList;
   }
+
+
+
 
   @override
   void initState() {
@@ -49,6 +76,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
         filter = controller.text;
       });
     });
+    super.initState();
   }
   String filter;
   TextEditingController controller = new TextEditingController();
@@ -56,7 +84,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
 
   double _lowerValue = 0.0;
   double _upperValue = 10.0;
-
+  static GlobalKey previewSkillBar = new GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -161,36 +189,54 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                 ),
                 Expanded(
                   flex: 2,
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width - 50,
-                    child: Container(
-                        color: Colors.black54,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment:CrossAxisAlignment.center,children: <Widget>[
-                          Wrap(
-                            alignment: WrapAlignment.center,
-                            runAlignment: WrapAlignment.center,
-                            spacing: 4,
-                            runSpacing: 4,
-                            //75x75
-                            children: <Widget>[
-                              _buildDragTarget(0),
-                              _buildDragTarget(1),
-                              _buildDragTarget(2),
-                              _buildDragTarget(3),
-                              _buildDragTarget(4),
-                              _buildDragTarget(5),
-                              _buildDragTarget(6),
-                              _buildDragTarget(7),
-                            ],
-                          ),
-                        ])),
+                  child: RepaintBoundary(
+                    key: previewSkillBar,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width - 50,
+                      child: Stack(
+                        fit: StackFit.expand,
+                        children: <Widget>[
+                          Positioned.fill(
+                              child: Image.asset(
+                                widget.deckData.shushuData.background,
+                                fit: BoxFit.cover,
+                              )),
+                          Container(
+                              color: Colors.black54,
+                              child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment:CrossAxisAlignment.center,children: <Widget>[
+                                Wrap(
+                                  alignment: WrapAlignment.center,
+                                  runAlignment: WrapAlignment.center,
+                                  spacing: 4,
+                                  runSpacing: 4,
+                                  //75x75
+                                  children: <Widget>[
+                                    _buildDragTarget(0),
+                                    _buildDragTarget(1),
+                                    _buildDragTarget(2),
+                                    _buildDragTarget(3),
+                                    _buildDragTarget(4),
+                                    _buildDragTarget(5),
+                                    _buildDragTarget(6),
+                                    _buildDragTarget(7),
+                                  ],
+                                ),
+                              ])),
+                        ],
+                      ),
+                    ),
                   ),
                 )
               ],
             ),
-          )),
+          ),
+        floatingActionButton: new FloatingActionButton(
+          onPressed: takeScreenShot,
+          child: new Icon(Icons.share),
+        ), // T
+      ),
     );
   }
 
@@ -448,5 +494,12 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     Share.share("Regarde mon deck : ${code}");
   }
 
+
+  takeScreenShot() async{
+    RenderRepaintBoundary boundary = previewSkillBar.currentContext.findRenderObject();
+    ui.Image image = await boundary.toImage();
+    ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
+    await EsysFlutterShare.shareImage('MyDeck${widget.deckData.shushuData.heroName}.png', byteData, 'MyDeck${widget.deckData.shushuData.heroName}');
+  }
 
 }

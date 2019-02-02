@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
+import 'package:waven_app/AppUi/DashboardSection/HorizontalLastNewsList.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderListPage.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
@@ -30,7 +31,8 @@ class _DashboardPageState extends State<DashboardPage> {
               titleCat: "Les Dernières News",
               pageToNavigate: null,
               isMoreShowed: false),
-          //_buildMockedHorizontalList(),
+          SizedBox(
+              height:120,child: HorizontalLastNewsList()),
           DashboardTitleCat(
               titleCat: "Les Decks du moment",
               pageToNavigate: new DeckBuilderListPage(),
@@ -136,25 +138,5 @@ class _DashboardPageState extends State<DashboardPage> {
         Color(0xFF025173),
       ],
     ));
-  }
-
-  _buildMockedHorizontalList() {
-    return ListView(
-      scrollDirection: Axis.horizontal,
-      children: <Widget>[
-        ClipRRect(
-          borderRadius: new BorderRadius.circular(8.0),
-          child: Container(
-            height: 60.0,
-            width: 60.0,
-            decoration: GetThirdBackgroundGradient(),
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Center(child: Text('Une News')),
-            ),
-          ),
-        )
-      ],
-    );
   }
 }
