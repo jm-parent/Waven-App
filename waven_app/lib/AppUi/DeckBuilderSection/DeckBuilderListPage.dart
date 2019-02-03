@@ -48,7 +48,7 @@ class _DeckBuilderListPageState extends State<DeckBuilderListPage> {
      child: new TransformerPageView(
           loop: false,
           pageSnapping: true,
-          viewportFraction: 0.8,
+          viewportFraction: 0.7,
           transformer: new PageTransformerBuilder(
               builder: (Widget child, TransformInfo info) {
                 return GestureDetector(

@@ -14,7 +14,7 @@ class ClasseOfflineModel {
   final Decoration gradient;
   ClasseOfflineModel(this.className, this.portrait, this.lore, this.color, this.loreTitle, this.gradient);
 
-  String get background => 'images/ClassesBg/bg_${className??0}.png';
+  String get background => 'images/ClassesBg/bg_${className.toLowerCase()??0}.png';
 
   @override
   String toString() {

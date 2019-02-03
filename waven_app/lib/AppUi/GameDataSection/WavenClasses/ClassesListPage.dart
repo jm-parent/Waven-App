@@ -2,11 +2,9 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:folding_cell/folding_cell.dart';
-import 'package:waven_app/AppUi/CommonDatas/Gradients.dart';
 import 'package:waven_app/AppUi/CommonWidget/Clippers/BottomWaveClipper.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClassesItems.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusItems.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
 
 class ClassesListPage extends StatefulWidget {
   @override
@@ -39,11 +37,14 @@ class ClassesListPageState extends State<ClassesListPage> {
   }
 
   Widget _buildCell(BuildContext context, int index) {
-    return SimpleFoldingCell(
-      frontWidget: _buildFrontWidget(index),
-      innerTopWidget: _buildInnerTopWidget(index),
-      innerBottomWidget: _buildInnerBottomWidget(index),
-      cellSize: Size(MediaQuery.of(context).size.width, 150),
+    return Padding(
+      padding: const EdgeInsets.only(bottom:8.0),
+      child: SimpleFoldingCell(
+        frontWidget: _buildFrontWidget(index),
+        innerTopWidget: _buildInnerTopWidget(index),
+        innerBottomWidget: _buildInnerBottomWidget(index),
+        cellSize: Size(MediaQuery.of(context).size.width, 150),
+      ),
     );
   }
 
@@ -190,10 +191,11 @@ class ClassesListPageState extends State<ClassesListPage> {
                     ],
                   ),
                 ),
-              ));
-
+              )
+          );
         },
-      ));
+      )
+      );
 
   }
 }

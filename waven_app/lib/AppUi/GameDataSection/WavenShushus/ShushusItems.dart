@@ -16,7 +16,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       '+1 PA à votre réserve lorsque vous jouez un compagnon.',
       'images/ShushusImages/ShushusSkill/Heros_chevalierIOP_trancher.png',
-      'Inflige 4 dégâts. Coup de Grâce : +2 PA à votre réserve.'),
+      'Inflige 4 dégâts. Coup de Grâce : +2 PA à votre réserve.',
+    'images/ShushusImages/ShushusPortraits/iop_1.png',),
   new ShushuOfflineModel(
       'Iop',
       534,
@@ -27,7 +28,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'Gagne 1 PM pour le tour quand vous jouez un sort Feu.',
       'images/ShushusImages/ShushusSkill/Heros_iop_tournoyeur_tournoiement.png',
-      'Vous téléporte sur une case adjacente à un personnage HUILÉ et lui inflige 1 dégât.'),
+      'Vous téléporte sur une case adjacente à un personnage HUILÉ et lui inflige 1 dégât.',
+    'images/ShushusImages/ShushusPortraits/iop_3.png',),
   new ShushuOfflineModel(
       'Iop',
       143,
@@ -38,7 +40,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'Coup de Grâce : Une Âme Spectrale alliée est invoquée.',
       'images/ShushusImages/ShushusSkill/Heros_iopspectral_AIR_attaquespectrale.png',
-      'Inflige 2 dégâts. Coup de Grâce : Invoque une Âme Spectrale.'),
+      'Inflige 2 dégâts. Coup de Grâce : Invoque une Âme Spectrale.',
+    'images/ShushusImages/ShushusPortraits/iop_4.png',),
   new ShushuOfflineModel(
       'Iop',
       497,
@@ -49,7 +52,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       '+1 PA à votre réserve lorsque vous effectuez une charge.',
       'images/ShushusImages/ShushusSkill/Heros_Bouvaliere_charge.png',
-      'Charge en ligne et inflige 1 dégât + 2 dégâts par case parcourue.'),
+      'Charge en ligne et inflige 1 dégât + 2 dégâts par case parcourue.',
+  'images/ShushusImages/ShushusPortraitsWithLogo/iop_5.png'),
   new ShushuOfflineModel(
       'Iop',
       911,
@@ -60,7 +64,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'Sous 32 PDV, se transforme et devient Inciblable.',
       'images/ShushusImages/ShushusSkill/Heros_Chevalieraucoeurfroid_stalagmite.png',
-      'Inflige 2 dégâts. +1 PA à votre réserve si la cible est sous l’état MOUILLÉ.'),
+      'Inflige 2 dégâts. +1 PA à votre réserve si la cible est sous l’état MOUILLÉ.',
+  'images/ShushusImages/ShushusPortraitsWithLogo/iop_2.png'),
 
   //endIops
   //Xelor
@@ -75,7 +80,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       '+1 PA à votre réserve lorsque vous lancez un SINISTRO.',
       'images/ShushusImages/ShushusSkill/HEROS_Xelor_accelerateur_permutation2.png',
-      'Inflige 3 dégâts.​ +2 à votre jauge EAU si la cible est sous l’état MOUILLÉ.​'),
+      'Inflige 3 dégâts.​ +2 à votre jauge EAU si la cible est sous l’état MOUILLÉ.​',
+    'images/ShushusImages/ShushusPortraits/xelor_1.png',),
   new ShushuOfflineModel(
       'Xelor',
       490,
@@ -86,7 +92,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       '+1 PA​ (Vous jouez avec 7 PA)',
       'images/ShushusImages/ShushusSkill/Heros_Xelor_Synchronisateur_maitrisetemporelle.png',
-      'Inflige 2 dégâts. Le prochain sort EAU que vous jouez coûte 1 PA de moins.'),
+      'Inflige 2 dégâts. Le prochain sort EAU que vous jouez coûte 1 PA de moins.',
+    'images/ShushusImages/ShushusPortraits/xelor_2.png',),
   new ShushuOfflineModel(
       'Xelor',
       945,
@@ -97,7 +104,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'A chaque téléportation, inflige les dégâts d’arme à l’ennemi ayant le plus de vie.',
       'images/ShushusImages/ShushusSkill/Heros_Xelor_TROTTEUSEagitee_teleportationacceleree.png',
-      'Déplace votre héros de 1 case ou à côté d’un SINISTRO allié. Il gagne 1 AR.'),
+      'Déplace votre héros de 1 case ou à côté d’un SINISTRO allié. Il gagne 1 AR.',
+    'images/ShushusImages/ShushusPortraits/xelor_3.png',),
   new ShushuOfflineModel(
       'Xelor',
       161,
@@ -108,7 +116,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       '+1 PA à votre réserve chaque fois que vous gagnez de l’AR​.',
       'images/ShushusImages/ShushusSkill/Heros_XELOR_GUARPAPA_regulation2.png',
-      'Inflige 1 dégât​. Votre héros gagne autant d’AR​.'),
+      'Inflige 1 dégât​. Votre héros gagne autant d’AR​.',
+  'images/ShushusImages/ShushusPortraitsWithLogo/xelor_5.png'),
   new ShushuOfflineModel(
       'Xelor',
       614,
@@ -119,7 +128,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       '+1 Réserve à chaque fois qu’une EXPLOSION alliée se produit.',
       'images/ShushusImages/ShushusSkill/Heros_XELOR_catalyseur_BOOM2.png',
-      '+1 AR à votre héros.​ Vos mécanismes appliquent EXPLOSION. ​'),
+      '+1 AR à votre héros.​ Vos mécanismes appliquent EXPLOSION. ​',
+      'images/ShushusImages/ShushusPortraitsWithLogo/xelor_4.png'),
 
   //endXelor
   //Cra
@@ -133,7 +143,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+      'images/ShushusImages/ShushusPortraitsWithLogo/cra_1.png'),
 
   //endCra
   //Eni
@@ -147,7 +158,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/eni_1.png'),
   new ShushuOfflineModel(
       'Eni',
       302,
@@ -158,7 +170,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/eni_2.png',),
   new ShushuOfflineModel(
       'Eni',
       303,
@@ -169,7 +182,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+      'images/ShushusImages/ShushusPortraitsWithLogo/eni_3.png'),
 
   //endEni
   //Osa
@@ -184,7 +198,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/osa_1.png'),
   new ShushuOfflineModel(
       'Osa',
       402,
@@ -195,7 +210,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/osa_2.png'),
   new ShushuOfflineModel(
       'Osa',
       403,
@@ -206,7 +222,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/osa_3.png'),
 
   //endOsa
   //Sram
@@ -219,7 +236,8 @@ final ShushusItems = <ShushuOfflineModel>[
      '',
      'NA',
      'images/ShushusImages/ShushusSkill/default.png',
-     'NA​'),
+     'NA​,',
+         'images/ShushusImages/ShushusPortraitsWithLogo/sram_4.png'),
  new ShushuOfflineModel('Sram',
      937,
      'Le Traqueur Sourokan',
@@ -229,7 +247,8 @@ final ShushusItems = <ShushuOfflineModel>[
      '',
      'NA',
      'images/ShushusImages/ShushusSkill/default.png',
-     'NA​'),
+     'NA​',
+ 'images/ShushusImages/ShushusPortraitsWithLogo/sram_5.png'),
   new ShushuOfflineModel('Sram',
       621,
       'Frappeur Kartana',
@@ -239,7 +258,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/sram_1.png'),
   new ShushuOfflineModel('Sram',
       622,
       'Sram Classique',
@@ -249,7 +269,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/sram_2.png'),
   new ShushuOfflineModel('Sram',
       623,
       'Sram Espadon',
@@ -259,7 +280,8 @@ final ShushusItems = <ShushuOfflineModel>[
       '',
       'NA',
       'images/ShushusImages/ShushusSkill/default.png',
-      'NA​'),
+      'NA​',
+  'images/ShushusImages/ShushusPortraitsWithLogo/sram_3.png'),
 ];
 
 final SkinsItems = <SkinOfflineModel>[

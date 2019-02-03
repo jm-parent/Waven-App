@@ -59,7 +59,7 @@ class _DeckBuilderShushuSelectPageState
               tag: widget.deckData.classData.className + 'tag',
               child: Image.asset(
                 widget.deckData.classData.background,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitHeight,
               ),
             ),
           ),
@@ -93,8 +93,8 @@ class _DeckBuilderShushuSelectPageState
                       children: <Widget>[
 
                         new ParallaxImage.asset(
-                          filteredShushuByGod[info.index].portrait,
-                          imageFactor: 2,
+                          filteredShushuByGod[info.index].portraitWithLogo,
+                          imageFactor: 1.5,
                           position: info.position,
                         ),
                         Container(

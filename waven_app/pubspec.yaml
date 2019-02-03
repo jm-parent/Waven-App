@@ -49,9 +49,7 @@ dev_dependencies:
 flutter:
  uses-material-design: true
  assets:
-     - assets/HeroesDatav2.json
-     - assets/SpellsDatasV2.json
-     - assets/spells/
+     - images/ClassesBg/
      - images/
      - images/LoreImages/
      - images/ShushusImages/
@@ -60,13 +58,10 @@ flutter:
      - images/GodsImages/
      - images/ShushusImages/ShushusPortraits/
      - images/ShushusImages/ShushusSkill/
-     - images/ClassesBg/
-     - images/ClassesBg/bg_cra.png
-     - images/ClassesBg/bg_eni.png
-     - images/ClassesBg/bg_Xelor.png
-     - images/ClassesBg/bg_osa.png
-     - images/ClassesBg/bg_sram.png
      - images/SpellsImages/
+     - images/ShushusImages/ShushusPortraitsWithLogo/
+
+
  fonts:
     - family: BebasNeue
       fonts:

@@ -6,7 +6,7 @@ import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClasseOfflineModel.
 final ClassesItems = <ClasseOfflineModel>[
   new ClasseOfflineModel(
       'Iop',
-      'images/ClassesBg/bg_Iop.png',
+      'images/ClassesBg/bg_iop.png',
       'Leur tempérament impétueux et leur amour pour le combat font des Iops des paladins de l’extrême. Leur devise ? On cogne d’abord, on discute ensuite. Puis on cogne à nouveau !',
       Color.fromRGBO(55, 0, 30, 0.9),'CŒUR DE IOP',GradientIop()),
   new ClasseOfflineModel('Sram',
@@ -17,7 +17,7 @@ final ClassesItems = <ClasseOfflineModel>[
       GradientSram()),
   new ClasseOfflineModel(
       'Xelor',
-      'images/ClassesBg/bg_Xelor.png',
+      'images/ClassesBg/bg_xelor.png',
       'En tant que mages du temps, les Xélors jouent avec ses rouages pour ralentir un ennemi, s’accélérer eux-mêmes ou se téléporter où bon leur semble à l’aide de leurs Sinistros.',
       Color.fromRGBO(55, 0, 30, 0.9),'SABLIER DE XÉLOR',GradientXelor()),
   new ClasseOfflineModel('Cra',

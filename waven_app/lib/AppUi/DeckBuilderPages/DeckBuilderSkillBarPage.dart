@@ -10,6 +10,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:http/http.dart' as http;
 import 'package:path_provider/path_provider.dart';
 import 'package:share/share.dart';
+import 'package:waven_app/AppUi/CommonWidget/BorderContainer.dart';
 import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
 import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
@@ -64,8 +65,6 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   }
 
 
-
-
   @override
   void initState() {
     this.getSpells();
@@ -104,8 +103,8 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                   title: Text('Elements'),
                   children: <Widget>[
                     Wrap(
-                      runSpacing: 3.0,
-                      spacing: 6,
+                      runSpacing: 2.0,
+                      spacing: 5,
                       children: <Widget>[
                         Chip(
                           label: Text('Feu'),
@@ -203,27 +202,42 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                               )),
                           Container(
                               color: Colors.black54,
-                              child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment:CrossAxisAlignment.center,children: <Widget>[
-                                Wrap(
-                                  alignment: WrapAlignment.center,
-                                  runAlignment: WrapAlignment.center,
-                                  spacing: 4,
-                                  runSpacing: 4,
-                                  //75x75
-                                  children: <Widget>[
-                                    _buildDragTarget(0),
-                                    _buildDragTarget(1),
-                                    _buildDragTarget(2),
-                                    _buildDragTarget(3),
-                                    _buildDragTarget(4),
-                                    _buildDragTarget(5),
-                                    _buildDragTarget(6),
-                                    _buildDragTarget(7),
-                                  ],
-                                ),
-                              ])),
+                              child: Row(
+                                children: <Widget>[
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children:<Widget>[
+                                      Padding(
+                                        padding: const EdgeInsets.only(left:8.0),
+                                        child: Image.asset(widget.deckData.shushuData.uniqueSpellIcon,width: 70,height:70),
+                                      )
+                                    ]
+                                  ),
+                                  Expanded(
+                                    child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment:CrossAxisAlignment.center,children: <Widget>[
+                                      Wrap(
+                                        alignment: WrapAlignment.center,
+                                        runAlignment: WrapAlignment.center,
+                                        spacing: 4,
+                                        runSpacing: 4,
+                                        //75x75
+                                        children: <Widget>[
+                                          _buildDragTarget(0),
+                                          _buildDragTarget(1),
+                                          _buildDragTarget(2),
+                                          _buildDragTarget(3),
+                                          _buildDragTarget(4),
+                                          _buildDragTarget(5),
+                                          _buildDragTarget(6),
+                                          _buildDragTarget(7),
+                                        ],
+                                      ),
+                                    ]),
+                                  ),
+                                ],
+                              )),
                         ],
                       ),
                     ),
@@ -317,9 +331,6 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                 getSpellSlotWithGesture(snapshot.data[index], 1.3, index),
                 childWhenDragging: Container(),
               ):Container():Container();
-
-
-
             });
       },
     );
@@ -331,7 +342,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
       onDoubleTap: () => resetSpellListTile(indexSpell),
       child: DragTarget<SpellsWavenApiModel>(
         builder: (context, List<dynamic> candidateData, rejectedData) {
-          return SpellIconWidget(dataSpell:  spellListShow[indexSpell],width: spellIconSize,height:spellIconSize);
+          return SpellIconWidget(dataSpell:  spellListShow[indexSpell],width: 50,height:50);
         },
         onWillAccept: (data) {
           var r = data.iconUrl != null;
@@ -412,10 +423,22 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
 
   getDetailledSpellSlotWithGesture(
       SpellsWavenApiModel data, double factor, int index) {
-    return GestureDetector(
-      onTap: () => addSpellToBar(data, index),
-      child: getDetailledSpellSlot(data, index),
+    debugPrint('Dans Création de l\'image du skill : ' + data.name);
+
+    if(isSpellInBar(data))
+    return BorderContainer(
+      borderColor: Colors.green,
+      borderRadius: 0,
+      child: GestureDetector(
+        onTap: () => addSpellToBar(data, index),
+        child: getDetailledSpellSlot(data, index),
+      ),
     );
+    else
+      return GestureDetector(
+        onTap: () => addSpellToBar(data, index),
+        child: getDetailledSpellSlot(data, index),
+      );
   }
 
   Widget getDetailledSpellSlot(SpellsWavenApiModel data, int index) {
@@ -500,6 +523,11 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     ui.Image image = await boundary.toImage();
     ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
     await EsysFlutterShare.shareImage('MyDeck${widget.deckData.shushuData.heroName}.png', byteData, 'MyDeck${widget.deckData.shushuData.heroName}');
+  }
+
+  bool isSpellInBar(SpellsWavenApiModel data) {
+    var result = spellListShow.where((spell)=> spell.name == data.name);
+    return result.length > 0;
   }
 
 }
