@@ -29,7 +29,8 @@
     <session id="-1928118594">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="22" />
+          <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.18" value="1" />
           <entry key="project.open.time.19" value="1" />
@@ -39,6 +40,7 @@
           <entry key="project.open.time.24" value="1" />
           <entry key="project.open.time.25" value="6" />
           <entry key="project.open.time.27" value="1" />
+          <entry key="project.open.time.28" value="1" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.33" value="1" />
@@ -48,7 +50,7 @@
           <entry key="project.open.time.47" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="27" />
+          <entry key="project.opened" value="29" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -60,7 +62,7 @@
           <entry key="lock" value="1" />
           <entry key="png" value="83" />
           <entry key="xml" value="1" />
-          <entry key="yaml" value="27" />
+          <entry key="yaml" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -70,7 +72,7 @@
           <entry key="Image" value="103" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="XML" value="1" />
-          <entry key="YAML" value="27" />
+          <entry key="YAML" value="28" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -78,7 +80,7 @@
           <entry key="dart" value="19905" />
           <entry key="dummy" value="9" />
           <entry key="gradle" value="8" />
-          <entry key="yaml" value="91" />
+          <entry key="yaml" value="93" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -86,7 +88,7 @@
           <entry key="Dart" value="19905" />
           <entry key="Groovy" value="8" />
           <entry key="PLAIN_TEXT" value="9" />
-          <entry key="YAML" value="91" />
+          <entry key="YAML" value="93" />
         </counts>
       </usages-collector>
     </session>
@@ -96,14 +98,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="223">
-              <caret line="221" column="75" lean-forward="true" selection-start-line="221" selection-start-column="75" selection-end-line="221" selection-end-column="75" />
+              <caret line="221" column="75" selection-start-line="221" selection-start-column="75" selection-end-line="221" selection-end-column="75" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pubspec.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="952">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -253,9 +264,9 @@
         <option value="$PROJECT_DIR$/android/app/build.gradle" />
         <option value="$PROJECT_DIR$/lib/models/ShushuOfflineModel.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderSection/DeckBuilderShushuSelectPage.dart" />
-        <option value="$PROJECT_DIR$/pubspec.yaml" />
         <option value="$PROJECT_DIR$/lib/AppUi/GameDataSection/WavenShushus/ShushusItems.dart" />
         <option value="$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart" />
+        <option value="$PROJECT_DIR$/pubspec.yaml" />
       </list>
     </option>
   </component>
@@ -286,6 +297,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -326,7 +338,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -482,7 +493,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.59586054" visible="true" weight="0.14285715" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.59586054" visible="true" weight="0.14285715" />
       <window_info id="Structure" order="1" sideWeight="0.40413943" side_tool="true" weight="0.17004265" />
       <window_info id="Build Variants" order="2" sideWeight="0.50567263" side_tool="true" weight="0.12153518" />
       <window_info id="Designer" order="3" />
@@ -504,7 +515,7 @@
       <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49626866" weight="0.324295" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5271855" side_tool="true" weight="0.3242655" />
       <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Messages" order="14" sideWeight="0.48400852" visible="true" weight="0.324295" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.48400852" visible="true" weight="0.324295" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -734,9 +745,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/HeroImages/CatBackground/herosiop.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/HeroImages/CatBackground/herosiop.png" />
     <entry file="file://$PROJECT_DIR$/images/ClassesBg/bg_cra.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -746,12 +755,8 @@
     <entry file="file://$PROJECT_DIR$/images/GodIcon/IconCra.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/GodsImages/LevelUpCra.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/GodsImages/GodsImageWavenBackground/GodWavenBg_143.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/GodsImages/LevelUpCra.png" />
+    <entry file="file://$PROJECT_DIR$/images/GodsImages/GodsImageWavenBackground/GodWavenBg_143.jpg" />
     <entry file="file://$PROJECT_DIR$/images/ShushusImages/GodWavenBg_143.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -813,13 +818,6 @@
     <entry file="file://$PROJECT_DIR$/images/ShushusImages/ShushusPortraitsWithLogo/eni_3.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/header.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -839,15 +837,9 @@
     <entry file="file://$PROJECT_DIR$/images/Logo_Ankama.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/LoreImages/acte1_bg.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/ShushusPortraitImages/Full_Vertical_311.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/images/role_1.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/images/LoreImages/acte1_bg.png" />
+    <entry file="file://$PROJECT_DIR$/images/ShushusPortraitImages/Full_Vertical_311.png" />
+    <entry file="file://$PROJECT_DIR$/images/role_1.png" />
     <entry file="file://$PROJECT_DIR$/images/normalbg.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -871,6 +863,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="221" column="75" selection-start-line="221" selection-start-column="75" selection-end-line="221" selection-end-column="75" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/SpellIconWidget.dart">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -878,13 +880,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart">
+    <entry file="file://$PROJECT_DIR$/pubspec.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="221" column="75" lean-forward="true" selection-start-line="221" selection-start-column="75" selection-end-line="221" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="952">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
         </state>
       </provider>
     </entry>

@@ -51,11 +51,9 @@ flutter:
  assets:
      - images/ClassesBg/
      - images/
-     - images/LoreImages/
      - images/ShushusImages/
      - images/background_logo/
      - images/GodIcon/
-     - images/GodsImages/
      - images/ShushusImages/ShushusPortraits/
      - images/ShushusImages/ShushusSkill/
      - images/SpellsImages/
