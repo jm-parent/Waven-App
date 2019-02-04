@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 import 'package:webfeed/domain/rss_item.dart';
 
 const kAndroidUserAgent =
@@ -22,12 +21,6 @@ class _ArticleWebViewPageState extends State<ArticleWebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new WebviewScaffold(
-      url: item.link,
-      appBar: new AppBar(
-        title: Text(item.title),
-      ),
-      withLocalStorage: true,
-    );
+    return Container();
   }
 }

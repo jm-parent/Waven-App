@@ -17,7 +17,7 @@ final ShushusItems = <ShushuOfflineModel>[
       '+1 PA à votre réserve lorsque vous jouez un compagnon.',
       'images/ShushusImages/ShushusSkill/Heros_chevalierIOP_trancher.png',
       'Inflige 4 dégâts. Coup de Grâce : +2 PA à votre réserve.',
-    'images/ShushusImages/ShushusPortraits/iop_1.png',),
+    'images/ShushusImages/ShushusPortraitsWithLogo/iop_1.png',),
   new ShushuOfflineModel(
       'Iop',
       534,
@@ -29,7 +29,7 @@ final ShushusItems = <ShushuOfflineModel>[
       'Gagne 1 PM pour le tour quand vous jouez un sort Feu.',
       'images/ShushusImages/ShushusSkill/Heros_iop_tournoyeur_tournoiement.png',
       'Vous téléporte sur une case adjacente à un personnage HUILÉ et lui inflige 1 dégât.',
-    'images/ShushusImages/ShushusPortraits/iop_3.png',),
+    'images/ShushusImages/ShushusPortraitsWithLogo/iop_3.png',),
   new ShushuOfflineModel(
       'Iop',
       143,
@@ -41,7 +41,7 @@ final ShushusItems = <ShushuOfflineModel>[
       'Coup de Grâce : Une Âme Spectrale alliée est invoquée.',
       'images/ShushusImages/ShushusSkill/Heros_iopspectral_AIR_attaquespectrale.png',
       'Inflige 2 dégâts. Coup de Grâce : Invoque une Âme Spectrale.',
-    'images/ShushusImages/ShushusPortraits/iop_4.png',),
+    'images/ShushusImages/ShushusPortraitsWithLogo/iop_4.png',),
   new ShushuOfflineModel(
       'Iop',
       497,
@@ -81,7 +81,7 @@ final ShushusItems = <ShushuOfflineModel>[
       '+1 PA à votre réserve lorsque vous lancez un SINISTRO.',
       'images/ShushusImages/ShushusSkill/HEROS_Xelor_accelerateur_permutation2.png',
       'Inflige 3 dégâts.​ +2 à votre jauge EAU si la cible est sous l’état MOUILLÉ.​',
-    'images/ShushusImages/ShushusPortraits/xelor_1.png',),
+    'images/ShushusImages/ShushusPortraitsWithLogo/xelor_1.png',),
   new ShushuOfflineModel(
       'Xelor',
       490,
@@ -93,7 +93,7 @@ final ShushusItems = <ShushuOfflineModel>[
       '+1 PA​ (Vous jouez avec 7 PA)',
       'images/ShushusImages/ShushusSkill/Heros_Xelor_Synchronisateur_maitrisetemporelle.png',
       'Inflige 2 dégâts. Le prochain sort EAU que vous jouez coûte 1 PA de moins.',
-    'images/ShushusImages/ShushusPortraits/xelor_2.png',),
+    'images/ShushusImages/ShushusPortraitsWithLogo/xelor_2.png',),
   new ShushuOfflineModel(
       'Xelor',
       945,
@@ -105,7 +105,7 @@ final ShushusItems = <ShushuOfflineModel>[
       'A chaque téléportation, inflige les dégâts d’arme à l’ennemi ayant le plus de vie.',
       'images/ShushusImages/ShushusSkill/Heros_Xelor_TROTTEUSEagitee_teleportationacceleree.png',
       'Déplace votre héros de 1 case ou à côté d’un SINISTRO allié. Il gagne 1 AR.',
-    'images/ShushusImages/ShushusPortraits/xelor_3.png',),
+    'images/ShushusImages/ShushusPortraitsWithLogo/xelor_3.png',),
   new ShushuOfflineModel(
       'Xelor',
       161,
@@ -136,7 +136,7 @@ final ShushusItems = <ShushuOfflineModel>[
   new ShushuOfflineModel(
       'Cra',
       712,
-      'Le Cra Shuriken',
+      'Le Disciple Shaden',
       'images/ShushusImages/ShushusPortraits/cra_1.png',
       'le lore Shuriken',
       Color(0xFF2D1A52),
@@ -184,6 +184,18 @@ final ShushusItems = <ShushuOfflineModel>[
       'images/ShushusImages/ShushusSkill/default.png',
       'NA​',
       'images/ShushusImages/ShushusPortraitsWithLogo/eni_3.png'),
+  new ShushuOfflineModel(
+      'Eni',
+      303,
+      'Héroine Déphasée',
+      'images/ShushusImages/ShushusPortraits/eni_4.png',
+      'le lore classique',
+      Color(0xFFFFE8BD),
+      '',
+      'NA',
+      'images/ShushusImages/ShushusSkill/default.png',
+      'NA​',
+      'images/ShushusImages/ShushusPortraitsWithLogo/eni_4.png'),
 
   //endEni
   //Osa
@@ -262,7 +274,7 @@ final ShushusItems = <ShushuOfflineModel>[
   'images/ShushusImages/ShushusPortraitsWithLogo/sram_1.png'),
   new ShushuOfflineModel('Sram',
       622,
-      'Sram Classique',
+      'Sram Boken',
       'images/ShushusImages/ShushusPortraits/sram_2.png',
       'le lore Sram biolet',
       Color(0xFF3A3935),
@@ -273,7 +285,7 @@ final ShushusItems = <ShushuOfflineModel>[
   'images/ShushusImages/ShushusPortraitsWithLogo/sram_2.png'),
   new ShushuOfflineModel('Sram',
       623,
-      'Sram Espadon',
+      'Ecorcheur Shugen',
       'images/ShushusImages/ShushusPortraits/sram_3.png',
       'le lore Sram biolet',
       Color(0xFF174F5C),

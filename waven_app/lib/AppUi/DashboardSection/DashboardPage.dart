@@ -48,23 +48,17 @@ class _DashboardPageState extends State<DashboardPage> {
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(4.0),
-            child: new GestureDetector(
-                onTap: () => Navigator.push(
-                    context,
-                    PageTransition(
-                        type: PageTransitionType.rightToLeft,
-                        child: DeckBuilderSkillBarPage())),
-                child: ClipRRect(
-                    borderRadius: new BorderRadius.circular(8.0),
-                    child: new Container(
-                      decoration: GetFirstBackgroundGradient(),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: new Center(
-                          child: new Text('Deck Builder'),
-                        ),
-                      ),
-                    ))),
+            child: ClipRRect(
+                borderRadius: new BorderRadius.circular(8.0),
+                child: new Container(
+                  decoration: GetFirstBackgroundGradient(),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: new Center(
+                      child: new Text('Soon ...'),
+                    ),
+                  ),
+                )),
           ),
         ),
         Expanded(
@@ -76,7 +70,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 decoration: GetSecondBackgroundGradient(),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Center(child: Text('Les Sorts')),
+                  child: Center(child: Text('Soon ...')),
                 ),
               ),
             ),
@@ -91,7 +85,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 decoration: GetThirdBackgroundGradient(),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Center(child: Text('Les Shushus')),
+                  child: Center(child: Text('Soon ...')),
                 ),
               ),
             ),

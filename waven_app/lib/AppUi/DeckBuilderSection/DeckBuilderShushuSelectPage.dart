@@ -76,7 +76,7 @@ class _DeckBuilderShushuSelectPageState
       child: new TransformerPageView(
           loop: false,
           pageSnapping: true,
-          viewportFraction: 0.8,
+          viewportFraction: 0.5,
           transformer: new PageTransformerBuilder(
               builder: (Widget child, TransformInfo info) {
             return GestureDetector(
