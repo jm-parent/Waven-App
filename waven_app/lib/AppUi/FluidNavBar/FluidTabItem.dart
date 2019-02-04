@@ -25,9 +25,7 @@ const double TEXT_ON = 1;
 const double ALPHA_OFF = 0;
 const double ALPHA_ON = 1;
 const int ANIM_DURATION = 500;
-Color PURPLE = LightColor(); //Color(0xFF8c77ec);
-
-
+Color ICONCOLOR =  LightColor(); //Color(0xFF8c77ec);
 class _FluidTabItemState extends State<FluidTabItem> {
 
   double iconYAlign = ICON_ON;
@@ -71,7 +69,7 @@ class _FluidTabItemState extends State<FluidTabItem> {
                   child: AutoSizeText(
                     widget.title,
                     maxLines: 1,
-                    style: TextStyle(fontWeight: FontWeight.w600,color: PURPLE,fontSize: 11),
+                    style: TextStyle(fontWeight: FontWeight.w600,color: ICONCOLOR,fontSize: 11),
                   ),
                 )),
           ),
@@ -92,7 +90,7 @@ class _FluidTabItemState extends State<FluidTabItem> {
                   alignment: Alignment(0, 0),
                   icon: Icon(
                     widget.iconData,
-                    color: PURPLE,
+                    color: ICONCOLOR,
                   ),
                   onPressed: () {
                     widget.callbackFunction();

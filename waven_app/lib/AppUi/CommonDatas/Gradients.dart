@@ -34,3 +34,16 @@ final GradientBlue =new LinearGradient(
     Color(0xFF080A2F),
   ],
 );
+
+
+final GradientAppBar =new LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  stops: [0.0,0.33,0.66,1],
+  colors: [
+    Color(0xFF610305),
+    Color(0xFF230648),
+    Color(0xFF1F185A),
+    Color(0xFF025173),
+  ],
+);

@@ -30,6 +30,7 @@ class _FluidNavBarState extends State<FluidNavBar>
 
   int currentSelected = 2;
 
+
   @override
   void initState() {
     super.initState();
@@ -84,7 +85,7 @@ class _FluidNavBarState extends State<FluidNavBar>
         Container(
           height: 50,
           margin: EdgeInsets.only(top: 45),
-          decoration: BoxDecoration(color: DarkColor(), boxShadow: [
+          decoration: BoxDecoration(color: barColor, boxShadow: [
             BoxShadow(
                 color: Colors.black12, offset: Offset(0, -1), blurRadius: 8)
           ]),
@@ -199,9 +200,9 @@ class _FluidNavBarState extends State<FluidNavBar>
                       child: Container(
                         decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: PURPLE,
+                            color: ICONCOLOR,
                             border: Border.all(
-                                color: DarkColor(),
+                                color: barColor,
                                 width: 3,
                                 style: BorderStyle.none)),
                         child: Padding(
@@ -210,7 +211,7 @@ class _FluidNavBarState extends State<FluidNavBar>
                             opacity: fabIconAlpha,
                             child: Icon(
                               activeIcon,
-                              color: DarkColor(),
+                              color: barColor,
                             ),
                           ),
                         ),
@@ -250,6 +251,8 @@ class HalfClipper extends CustomClipper<Rect> {
   }
 }
 
+var barColor = DarkColor();
+
 class HalfPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
@@ -267,7 +270,7 @@ class HalfPainter extends CustomPainter {
     path.arcTo(afterRect, vector.radians(180), vector.radians(-90), false);
     path.close();
 
-    canvas.drawPath(path, Paint()..color = DarkColor());
+    canvas.drawPath(path, Paint()..color = barColor);
   }
 
   @override
