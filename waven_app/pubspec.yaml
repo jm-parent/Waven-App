@@ -40,6 +40,12 @@ dependencies:
   date_format: ^1.0.6
   esys_flutter_share: ^0.0.7
   gradient_app_bar: ^0.0.1
+  flutter_launcher_icons: ^0.7.0
+
+flutter_icons:
+  image_path: "images/icon.png"
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:

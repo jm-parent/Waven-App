@@ -7,7 +7,10 @@ import 'package:waven_app/pages/SplashscreenPage.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-  runApp(MyApp());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(new MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {

@@ -4,17 +4,17 @@
 
 import 'dart:convert';
 
-List<SpellsWavenApiModel> spellsWavenApiModelFromJson(String str) {
+List<ResponseWavenApiSpell> responseWavenApiSpellFromJson(String str) {
   final jsonData = json.decode(str);
-  return new List<SpellsWavenApiModel>.from(jsonData.map((x) => SpellsWavenApiModel.fromJson(x)));
+  return new List<ResponseWavenApiSpell>.from(jsonData.map((x) => ResponseWavenApiSpell.fromJson(x)));
 }
 
-String spellsWavenApiModelToJson(List<SpellsWavenApiModel> data) {
+String responseWavenApiSpellToJson(List<ResponseWavenApiSpell> data) {
   final dyn = new List<dynamic>.from(data.map((x) => x.toJson()));
   return json.encode(dyn);
 }
 
-class SpellsWavenApiModel {
+class ResponseWavenApiSpell {
   int stockpile;
   List<String> resources;
   String id;
@@ -24,9 +24,9 @@ class SpellsWavenApiModel {
   String description;
   int v;
   String href;
-  String spellsWavenApiModelId;
+  String responseWavenApiSpellId;
 
-  SpellsWavenApiModel({
+  ResponseWavenApiSpell({
     this.stockpile,
     this.resources,
     this.id,
@@ -36,10 +36,10 @@ class SpellsWavenApiModel {
     this.description,
     this.v,
     this.href,
-    this.spellsWavenApiModelId,
+    this.responseWavenApiSpellId,
   });
 
-  factory SpellsWavenApiModel.fromJson(Map<String, dynamic> json) => new SpellsWavenApiModel(
+  factory ResponseWavenApiSpell.fromJson(Map<String, dynamic> json) => new ResponseWavenApiSpell(
     stockpile: json["stockpile"] == null ? null : json["stockpile"],
     resources: new List<String>.from(json["resources"].map((x) => x)),
     id: json["_id"],
@@ -49,7 +49,7 @@ class SpellsWavenApiModel {
     description: json["description"],
     v: json["__v"],
     href: json["href"],
-    spellsWavenApiModelId: json["id"],
+    responseWavenApiSpellId: json["id"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -62,6 +62,6 @@ class SpellsWavenApiModel {
     "description": description,
     "__v": v,
     "href": href,
-    "id": spellsWavenApiModelId,
+    "id": responseWavenApiSpellId,
   };
 }

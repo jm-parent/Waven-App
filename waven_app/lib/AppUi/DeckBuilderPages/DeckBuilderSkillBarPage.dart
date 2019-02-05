@@ -1,19 +1,17 @@
-import 'dart:convert';
-import 'dart:io';
 import 'dart:typed_data';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:http/http.dart' as http;
 import 'package:share/share.dart';
+import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/BorderContainer.dart';
 import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
-import 'package:waven_app/AppUi/Models/ResponseWavenApiClasses.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart';
 import 'package:waven_app/AppUi/Models/SpellsWavenApiModel.dart';
 import 'dart:ui' as ui;
@@ -25,48 +23,22 @@ class DeckBuilderSkillBarPage extends StatefulWidget {
   const DeckBuilderSkillBarPage({Key key, this.deckData}) : super(key: key);
 
   @override
-  _DeckBuilderSkillBarPageState createState() => _DeckBuilderSkillBarPageState();
+  _DeckBuilderSkillBarPageState createState() =>
+      _DeckBuilderSkillBarPageState();
 }
 
 class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     with TickerProviderStateMixin {
-  List<SpellsWavenApiModel> spellListShow;
+  List<ResponseWavenApiSpell> spellListShow;
   String urlEmptyDragTarget = 'https://imgur.com/IXhxlw4.png';
-  String urlSpells = 'https://waven-api.synedh.fr/spells';
-  String urlClasses = 'https://waven-api.synedh.fr/classes';
-  String basicAuth = 'Basic ' + base64Encode(utf8.encode('Xeno:superpassword'));
-  Widget _appBarTitle = new Text( 'Liste des Sorts' );
+  Widget _appBarTitle = new Text('Liste des Sorts');
   Icon _searchIcon = new Icon(Icons.search);
-
-  Future<List<SpellsWavenApiModel>> getSpells() async {
-    List<SpellsWavenApiModel> data = new List<SpellsWavenApiModel>();
-
-    //Récupération des classes pour récupérer la liste des sortsID
-    var responseClasses = await http.get(Uri.encodeFull(urlClasses),
-        headers: {"Accept": "application/json", 'authorization': basicAuth});
-
-    var responseClassesObject = responseWavenApiClassesFromJson(responseClasses.body);
-
-    var classPicked = responseClassesObject.firstWhere((classeItem) => classeItem.name.toLowerCase() == widget.deckData.classData.className.toLowerCase());
-
-    var responseSpell = await http.get(Uri.encodeFull(urlSpells),
-        headers: {"Accept": "application/json", 'authorization': basicAuth});
-
-    var responseAllSpellList = spellsWavenApiModelFromJson(responseSpell.body);
-
-    //Remove les sorts qui ne sont pas dans les sorts de la classe picked
-    responseAllSpellList.removeWhere((spellItem) =>
-    classPicked.spells.contains(spellItem.id)==false);
-
-
-    return responseAllSpellList;
-  }
-
 
   @override
   void initState() {
-    this.getSpells();
-    spellListShow = List<SpellsWavenApiModel>();
+    WavenApiProvider.GetSpellsFromClassName(
+        widget.deckData.classData.className);
+    spellListShow = List<ResponseWavenApiSpell>();
     resetSpellListTarget();
     controller.addListener(() {
       setState(() {
@@ -75,6 +47,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     });
     super.initState();
   }
+
   String filter;
   TextEditingController controller = new TextEditingController();
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -87,163 +60,222 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-          key: _scaffoldKey,
-          resizeToAvoidBottomPadding: false,
-          appBar: _buildBar(context),
-          endDrawer:Drawer(
-                      child: new ListView(
-              children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Center(child: new Text("Advanced Search")),
-                  ),
-                ExpansionTile(
-                  title: Text('Elements'),
-                  children: <Widget>[
-                    Wrap(
-                      runSpacing: 2.0,
-                      spacing: 5,
-                      children: <Widget>[
-                        Chip(
-                          label: Text('Feu'),
-                          backgroundColor: Colors.deepOrange,
-                        ),
-                        Chip(
-                          label: Text('Air'),
-                          backgroundColor: Colors.purpleAccent,
-                        ),
-                        Chip(
-                          label: Text('Terre'),
-                          backgroundColor: Colors.green,
-                        ),
-                        Chip(
-                          label: Text('Eau'),
-                          backgroundColor: Colors.blue,
-                        ),
-                      ],
-                    )
-                  ],
-
-                ),
-                    ExpansionTile(
-                    title: Text('Cout PA'),
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisSize: MainAxisSize.max,
+        key: _scaffoldKey,
+        resizeToAvoidBottomPadding: false,
+        appBar: _buildBar(context),
+        endDrawer: Drawer(
+          child: new ListView(
             children: <Widget>[
-              SimpleRoundText(value:_lowerValue.toInt().toString()),
-              Expanded(
-                child: new RangeSlider(
-                  min: 0.0,
-                  max: 10.0,
-                  lowerValue: _lowerValue,
-                  upperValue: _upperValue,
-                  divisions: 10,
-                  valueIndicatorMaxDecimals: 1,
-                  touchRadiusExpansionRatio: 2,
-                  onChanged: (double newLowerValue, double newUpperValue) {
-                    setState(() {
-                      _lowerValue = newLowerValue;
-                      _upperValue = newUpperValue;
-                    });
-                  },
-                  onChangeStart:
-                      (double startLowerValue, double startUpperValue) {
-                    print(
-                        'Started with values: $startLowerValue and $startUpperValue');
-                  },
-                  onChangeEnd: (double newLowerValue, double newUpperValue) {
-                    print(
-                        'Ended with values: $newLowerValue and $newUpperValue');
-                  },
-                ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Center(child: new Text("Advanced Search")),
               ),
-              SimpleRoundText(value:_upperValue == 10?'10+':_upperValue.toString()),
+              ExpansionTile(
+                title: Text('Elements'),
+                children: <Widget>[
+                  Wrap(
+                    runSpacing: 2.0,
+                    spacing: 5,
+                    children: <Widget>[
+                      Chip(
+                        label: Text('Feu'),
+                        backgroundColor: Colors.deepOrange,
+                      ),
+                      Chip(
+                        label: Text('Air'),
+                        backgroundColor: Colors.purpleAccent,
+                      ),
+                      Chip(
+                        label: Text('Terre'),
+                        backgroundColor: Colors.green,
+                      ),
+                      Chip(
+                        label: Text('Eau'),
+                        backgroundColor: Colors.blue,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              ExpansionTile(
+                title: Text('Cout PA'),
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.max,
+                    children: <Widget>[
+                      SimpleRoundText(value: _lowerValue.toInt().toString()),
+                      Expanded(
+                        child: new RangeSlider(
+                          min: 0.0,
+                          max: 10.0,
+                          lowerValue: _lowerValue,
+                          upperValue: _upperValue,
+                          divisions: 10,
+                          valueIndicatorMaxDecimals: 1,
+                          touchRadiusExpansionRatio: 2,
+                          onChanged:
+                              (double newLowerValue, double newUpperValue) {
+                            setState(() {
+                              _lowerValue = newLowerValue;
+                              _upperValue = newUpperValue;
+                            });
+                          },
+                          onChangeStart:
+                              (double startLowerValue, double startUpperValue) {
+                            print(
+                                'Started with values: $startLowerValue and $startUpperValue');
+                          },
+                          onChangeEnd:
+                              (double newLowerValue, double newUpperValue) {
+                            print(
+                                'Ended with values: $newLowerValue and $newUpperValue');
+                          },
+                        ),
+                      ),
+                      SimpleRoundText(
+                          value: _upperValue == 10
+                              ? '10+'
+                              : _upperValue.toString()),
+                    ],
+                  ),
+                ],
+              )
             ],
           ),
-
-        ],
-
-      )
-              ],
-            ),
-          ),
-          body: Padding(
-            padding: const EdgeInsets.only(bottom: 8.0),
-            child: Column(
-              children: <Widget>[
-                Expanded(
-                  flex: 4,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width - 8,
-                      child: _buildVerticalSpellList(),
-                    ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.only(bottom: 8.0),
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                flex: 4,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width - 8,
+                    child: _buildVerticalSpellList(),
                   ),
                 ),
-                Expanded(
-                  flex: 2,
-                  child: RepaintBoundary(
-                    key: previewSkillBar,
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width - 50,
-                      child: Stack(
+              ),
+              Expanded(
+                flex: 2,
+                child: RepaintBoundary(
+                  key: previewSkillBar,
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width - 50,
+                    child: FlipCard(
+                      back: Stack(
                         fit: StackFit.expand,
                         children: <Widget>[
                           Positioned.fill(
                               child: Image.asset(
-                                widget.deckData.shushuData.background,
-                                fit: BoxFit.cover,
-                              )),
+                            widget.deckData.shushuData.background,
+                            fit: BoxFit.cover,
+                          )),
+                          Positioned(
+                            top: 4,
+                            left: 4,
+                            child: SizedBox(
+                              height: 32,
+                              width: 32,
+                              child: Stack(
+                                children: <Widget>[
+                                      Icon(Icons.arrow_forward,size: 20,color: Colors.white,),
+                            Positioned(
+                              top: 12,
+                              left: 12, child: Icon(Icons.arrow_back,size: 14,color: Colors.grey[800],),),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      front: Stack(
+                        fit: StackFit.expand,
+                        children: <Widget>[
+                          Positioned.fill(
+                              child: Image.asset(
+                            widget.deckData.shushuData.background,
+                            fit: BoxFit.cover,
+                          )),
+
                           Container(
                               color: Colors.black54,
                               child: Row(
                                 children: <Widget>[
                                   Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children:<Widget>[
-                                      Padding(
-                                        padding: const EdgeInsets.only(left:8.0),
-                                        child: Image.asset(widget.deckData.shushuData.uniqueSpellIcon,width: 70,height:70),
-                                      )
-                                    ]
-                                  ),
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 8.0),
+                                          child: Image.asset(
+                                              widget.deckData.shushuData
+                                                  .uniqueSpellIcon,
+                                              width: 70,
+                                              height: 70),
+                                        )
+                                      ]),
                                   Expanded(
-                                    child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        crossAxisAlignment:CrossAxisAlignment.center,children: <Widget>[
-                                      Wrap(
-                                        alignment: WrapAlignment.center,
-                                        runAlignment: WrapAlignment.center,
-                                        spacing: 4,
-                                        runSpacing: 4,
-                                        //75x75
-                                        children: <Widget>[
-                                          _buildDragTarget(0),
-                                          _buildDragTarget(1),
-                                          _buildDragTarget(2),
-                                          _buildDragTarget(3),
-                                          _buildDragTarget(4),
-                                          _buildDragTarget(5),
-                                          _buildDragTarget(6),
-                                          _buildDragTarget(7),
-                                        ],
-                                      ),
-                                    ]),
+                                    child: Container(
+                                      child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            Wrap(
+                                              alignment: WrapAlignment.center,
+                                              runAlignment:
+                                                  WrapAlignment.center,
+                                              spacing: 4,
+                                              runSpacing: 4,
+                                              //75x75
+                                              children: <Widget>[
+                                                _buildDragTarget(0),
+                                                _buildDragTarget(1),
+                                                _buildDragTarget(2),
+                                                _buildDragTarget(3),
+                                                _buildDragTarget(4),
+                                                _buildDragTarget(5),
+                                                _buildDragTarget(6),
+                                                _buildDragTarget(7),
+                                              ],
+                                            ),
+                                          ]),
+                                    ),
                                   ),
                                 ],
                               )),
+                          Positioned(
+                            top: 4,
+                            left: 4,
+                            child: SizedBox(
+                              height: 32,
+                              width: 32,
+                              child: Stack(
+                                children: <Widget>[
+                                  Positioned(
+                                      top: 6,
+                                      left: 6,
+                                      child: Icon(Icons.arrow_back,size: 20,color: Colors.white,)),
+                                  Icon(Icons.arrow_forward,size: 14,color: Colors.grey[800],),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),
                   ),
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
+        ),
         floatingActionButton: new FloatingActionButton(
           onPressed: takeScreenShot,
           child: new Icon(Icons.share),
@@ -261,17 +293,17 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
         this._appBarTitle = new TextField(
           controller: controller,
           decoration: new InputDecoration(
-              prefixIcon: new Icon(Icons.search),
-              hintText: 'Search...'
-          ),
+              prefixIcon: new Icon(Icons.search), hintText: 'Search...'),
         );
       } else {
         this._searchIcon = new Icon(Icons.search);
-        this._appBarTitle = new Text( '${widget.deckData.classData.className} -> ${widget.deckData.shushuData.heroName}' );
+        this._appBarTitle = new Text(
+            '${widget.deckData.classData.className} -> ${widget.deckData.shushuData.heroName}');
         controller.clear();
       }
     });
   }
+
   Widget _buildBar(BuildContext context) {
     return new AppBar(
       centerTitle: true,
@@ -283,19 +315,21 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
       actions: [
         Builder(
           builder: (context) => IconButton(
-            icon: Icon(FontAwesomeIcons.slidersH),
-            onPressed: () => Scaffold.of(context).openEndDrawer(),
-            tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          ),
+                icon: Icon(FontAwesomeIcons.slidersH),
+                onPressed: () => Scaffold.of(context).openEndDrawer(),
+                tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+              ),
         ),
       ],
     );
   }
+
   _buildVerticalSpellList() {
     return FutureBuilder(
-      future: getSpells(),
+      future: WavenApiProvider.GetSpellsFromClassName(
+          widget.deckData.classData.className),
       builder: (BuildContext context,
-          AsyncSnapshot<List<SpellsWavenApiModel>> snapshot) {
+          AsyncSnapshot<List<ResponseWavenApiSpell>> snapshot) {
         if (snapshot.data == null) {
           return Container(
             child: Center(
@@ -307,28 +341,31 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
             scrollDirection: Axis.vertical,
             itemCount: snapshot.data.length,
             itemBuilder: (BuildContext context, int index) {
-
-              return filter == null ||filter ==""?
-              snapshot.data[index].cost>=_lowerValue&&snapshot.data[index].cost<=_upperValue?
-              LongPressDraggable(
-                data: snapshot.data[index],
-                child: getDetailledSpellSlotWithGesture(
-                    snapshot.data[index], 1, index),
-                feedback:
-                getSpellSlotWithGesture(snapshot.data[index], 1.3, index),
-                childWhenDragging: Container(),
-              ):Container()
-                  :
-              snapshot.data[index].name.toLowerCase().contains(filter)?
-              snapshot.data[index].cost>=_lowerValue&&snapshot.data[index].cost<=_upperValue?
-              LongPressDraggable(
-                data: snapshot.data[index],
-                child: getDetailledSpellSlotWithGesture(
-                    snapshot.data[index], 1, index),
-                feedback:
-                getSpellSlotWithGesture(snapshot.data[index], 1.3, index),
-                childWhenDragging: Container(),
-              ):Container():Container();
+              return filter == null || filter == ""
+                  ? snapshot.data[index].cost >= _lowerValue &&
+                          snapshot.data[index].cost <= _upperValue
+                      ? LongPressDraggable(
+                          data: snapshot.data[index],
+                          child: getDetailledSpellSlotWithGesture(
+                              snapshot.data[index], 1, index),
+                          feedback: getSpellSlotWithGesture(
+                              snapshot.data[index], 1.3, index),
+                          childWhenDragging: Container(),
+                        )
+                      : Container()
+                  : snapshot.data[index].name.toLowerCase().contains(filter)
+                      ? snapshot.data[index].cost >= _lowerValue &&
+                              snapshot.data[index].cost <= _upperValue
+                          ? LongPressDraggable(
+                              data: snapshot.data[index],
+                              child: getDetailledSpellSlotWithGesture(
+                                  snapshot.data[index], 1, index),
+                              feedback: getSpellSlotWithGesture(
+                                  snapshot.data[index], 1.3, index),
+                              childWhenDragging: Container(),
+                            )
+                          : Container()
+                      : Container();
             });
       },
     );
@@ -338,9 +375,10 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     return GestureDetector(
       onTap: () => swapSpell(indexSpell),
       onDoubleTap: () => resetSpellListTile(indexSpell),
-      child: DragTarget<SpellsWavenApiModel>(
+      child: DragTarget<ResponseWavenApiSpell>(
         builder: (context, List<dynamic> candidateData, rejectedData) {
-          return SpellIconWidget(dataSpell:  spellListShow[indexSpell],width: 50,height:50);
+          return SpellIconWidget(
+              dataSpell: spellListShow[indexSpell], width: 50, height: 50);
         },
         onWillAccept: (data) {
           var r = data.iconUrl != null;
@@ -375,10 +413,10 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   }
 
   getEmptySpellModel() {
-    return new SpellsWavenApiModel(iconUrl: urlEmptyDragTarget);
+    return new ResponseWavenApiSpell(iconUrl: urlEmptyDragTarget);
   }
 
-  addSpellToBar(SpellsWavenApiModel data, int index) {
+  addSpellToBar(ResponseWavenApiSpell data, int index) {
     var isNotInSkillBar =
         spellListShow.indexWhere((spell) => spell.iconUrl == data.iconUrl) ==
             -1;
@@ -399,7 +437,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
     }
   }
 
-  void replaceSpellByIndex(int index, SpellsWavenApiModel widget) {
+  void replaceSpellByIndex(int index, ResponseWavenApiSpell widget) {
     setState(() {
       spellListShow.removeAt(index);
       spellListShow.insert(index, widget);
@@ -420,18 +458,18 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   }
 
   getDetailledSpellSlotWithGesture(
-      SpellsWavenApiModel data, double factor, int index) {
+      ResponseWavenApiSpell data, double factor, int index) {
     debugPrint('Dans Création de l\'image du skill : ' + data.name);
 
-    if(isSpellInBar(data))
-    return BorderContainer(
-      borderColor: Colors.green,
-      borderRadius: 0,
-      child: GestureDetector(
-        onTap: () => addSpellToBar(data, index),
-        child: getDetailledSpellSlot(data, index),
-      ),
-    );
+    if (isSpellInBar(data))
+      return BorderContainer(
+        borderColor: Colors.green,
+        borderRadius: 0,
+        child: GestureDetector(
+          onTap: () => addSpellToBar(data, index),
+          child: getDetailledSpellSlot(data, index),
+        ),
+      );
     else
       return GestureDetector(
         onTap: () => addSpellToBar(data, index),
@@ -439,36 +477,40 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
       );
   }
 
-  Widget getDetailledSpellSlot(SpellsWavenApiModel data, int index) {
+  Widget getDetailledSpellSlot(ResponseWavenApiSpell data, int index) {
     return Padding(
       padding: const EdgeInsets.all(3.0),
       child: Container(
         color: Colors.black54,
         child: ListTile(
-          title: Row(
-            children: <Widget>[
-              AutoSizeText(
-                data.name,
-                style: Theme.of(context).textTheme.title,
-                maxLines: 1,
-                maxFontSize: 15,
-              ),
-            ],
-          ),
-          subtitle: AutoSizeText(
-            data.description,
-            style: Theme.of(context).textTheme.subtitle,
-            maxLines: 4,
-            maxFontSize: 12,
-            minFontSize: 7,
-          ),
-          leading: SpellIconWidget(dataSpell:data ,width: 40,height: 50,)
-        ),
+            title: Row(
+              children: <Widget>[
+                AutoSizeText(
+                  data.name,
+                  style: Theme.of(context).textTheme.title,
+                  maxLines: 1,
+                  maxFontSize: 15,
+                ),
+              ],
+            ),
+            subtitle: AutoSizeText(
+              data.description,
+              style: Theme.of(context).textTheme.subtitle,
+              maxLines: 4,
+              maxFontSize: 12,
+              minFontSize: 7,
+            ),
+            leading: SpellIconWidget(
+              dataSpell: data,
+              width: 40,
+              height: 50,
+            )),
       ),
     );
   }
 
-  getSpellSlotWithGesture(SpellsWavenApiModel data, double factor, int index) {
+  getSpellSlotWithGesture(
+      ResponseWavenApiSpell data, double factor, int index) {
     return GestureDetector(
       onTap: () => addSpellToBar(data, index),
       child: getSpellSlot(data, factor, index),
@@ -476,7 +518,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   }
 
   CachedNetworkImage getSpellSlot(
-      SpellsWavenApiModel data, double factor, int index) {
+      ResponseWavenApiSpell data, double factor, int index) {
     return new CachedNetworkImage(
       width: spellIconSize * factor,
       height: spellIconSize * factor,
@@ -510,22 +552,24 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   _ShareBuildCode() {
     var code = "[";
     spellListShow.forEach((spell) => code += '${spell.name},');
-    code = code.substring(0,code.length - 1);
+    code = code.substring(0, code.length - 1);
     code += ']';
     Share.share("Regarde mon deck : ${code}");
   }
 
-
-  takeScreenShot() async{
-    RenderRepaintBoundary boundary = previewSkillBar.currentContext.findRenderObject();
+  takeScreenShot() async {
+    RenderRepaintBoundary boundary =
+        previewSkillBar.currentContext.findRenderObject();
     ui.Image image = await boundary.toImage();
     ByteData byteData = await image.toByteData(format: ui.ImageByteFormat.png);
-    await EsysFlutterShare.shareImage('MyDeck${widget.deckData.shushuData.heroName}.png', byteData, 'MyDeck${widget.deckData.shushuData.heroName}');
+    await EsysFlutterShare.shareImage(
+        'MyDeck${widget.deckData.shushuData.heroName}.png',
+        byteData,
+        'MyDeck${widget.deckData.shushuData.heroName}');
   }
 
-  bool isSpellInBar(SpellsWavenApiModel data) {
-    var result = spellListShow.where((spell)=> spell.name == data.name);
+  bool isSpellInBar(ResponseWavenApiSpell data) {
+    var result = spellListShow.where((spell) => spell.name == data.name);
     return result.length > 0;
   }
-
 }

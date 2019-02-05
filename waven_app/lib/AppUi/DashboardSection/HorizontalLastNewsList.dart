@@ -49,7 +49,7 @@ class _HorizontalLastNewsListState extends State<HorizontalLastNewsList> {
   Future<List<RssItem>> _getNewsData() async
   {
     debugPrint('dansnewsdata');
-    var response = await client.get("https://waven-game.com/fr/feed/");
+    var response = await client.get("https://blog.waven-game.com/fr/feed/");
     if (response.statusCode == 200) {
       debugPrint('http ok');
       this.setState(() {

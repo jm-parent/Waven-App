@@ -54,7 +54,7 @@ class NewsPageState extends State<NewsPage> {
   }
 
   Future<RssFeed> _getNewsData() async {
-    var response = await client.get("https://waven-game.com/fr/feed/");
+    var response = await client.get("https://blog.waven-game.com/fr/feed/");
 
     if (response.statusCode == 200) {
       this.setState(() {
