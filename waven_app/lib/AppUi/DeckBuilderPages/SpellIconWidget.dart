@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:waven_app/AppUi/Models/SpellsWavenApiModel.dart';
+import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
 import 'package:waven_app/widgets/ShadowText.dart';
 
 class SpellIconWidget extends StatelessWidget {

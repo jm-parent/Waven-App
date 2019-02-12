@@ -56,13 +56,13 @@ flutter:
  assets:
      - images/ClassesBg/
      - images/
-     - images/ShushusImages/
      - images/background_logo/
      - images/GodIcon/
      - images/ShushusImages/ShushusPortraits/
      - images/ShushusImages/ShushusSkill/
      - images/SpellsImages/
      - images/ShushusImages/ShushusPortraitsWithLogo/
+     - images/ShushusImages/
 
 
  fonts:

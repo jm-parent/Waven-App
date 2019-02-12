@@ -9,11 +9,12 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:share/share.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/BorderContainer.dart';
+import 'package:waven_app/AppUi/CommonWidget/ElementalWavenWidget.dart';
 import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart';
-import 'package:waven_app/AppUi/Models/SpellsWavenApiModel.dart';
+import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
 import 'dart:ui' as ui;
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 
@@ -33,6 +34,11 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   String urlEmptyDragTarget = 'https://imgur.com/IXhxlw4.png';
   Widget _appBarTitle = new Text('Liste des Sorts');
   Icon _searchIcon = new Icon(Icons.search);
+
+  var _WaterTotalGen = 0;
+  var _AirTotalGen = 0;
+  var _EarthTotalGen = 0;
+  var _FireTotalGen = 0;
 
   @override
   void initState() {
@@ -165,8 +171,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                   key: previewSkillBar,
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width - 50,
-                    child: FlipCard(
-                      back: Stack(
+                    child: Stack(
                         fit: StackFit.expand,
                         children: <Widget>[
                           Positioned.fill(
@@ -174,33 +179,6 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                             widget.deckData.shushuData.background,
                             fit: BoxFit.cover,
                           )),
-                          Positioned(
-                            top: 4,
-                            left: 4,
-                            child: SizedBox(
-                              height: 32,
-                              width: 32,
-                              child: Stack(
-                                children: <Widget>[
-                                      Icon(Icons.arrow_forward,size: 20,color: Colors.white,),
-                            Positioned(
-                              top: 12,
-                              left: 12, child: Icon(Icons.arrow_back,size: 14,color: Colors.grey[800],),),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      front: Stack(
-                        fit: StackFit.expand,
-                        children: <Widget>[
-                          Positioned.fill(
-                              child: Image.asset(
-                            widget.deckData.shushuData.background,
-                            fit: BoxFit.cover,
-                          )),
-
                           Container(
                               color: Colors.black54,
                               child: Row(
@@ -220,33 +198,43 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                                         )
                                       ]),
                                   Expanded(
-                                    child: Container(
-                                      child: Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: <Widget>[
-                                            Wrap(
-                                              alignment: WrapAlignment.center,
-                                              runAlignment:
-                                                  WrapAlignment.center,
-                                              spacing: 4,
-                                              runSpacing: 4,
-                                              //75x75
-                                              children: <Widget>[
-                                                _buildDragTarget(0),
-                                                _buildDragTarget(1),
-                                                _buildDragTarget(2),
-                                                _buildDragTarget(3),
-                                                _buildDragTarget(4),
-                                                _buildDragTarget(5),
-                                                _buildDragTarget(6),
-                                                _buildDragTarget(7),
-                                              ],
-                                            ),
-                                          ]),
-                                    ),
+                                    child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                        children: <Widget>[
+                                          Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                            children: <Widget>[
+                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_water.png'),textChild: _WaterTotalGen.toString(),),
+                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_wind.png'),textChild: _AirTotalGen.toString(),),
+                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_earth.png'),textChild: _EarthTotalGen.toString(),),
+                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_fire.png'),textChild: _FireTotalGen.toString(),),
+                                            ],
+                                          ),
+                                          Wrap(
+                                            alignment: WrapAlignment.center,
+                                            runAlignment:
+                                                WrapAlignment.center,
+                                            spacing: 4,
+                                            runSpacing: 4,
+                                            //75x75
+                                            children: <Widget>[
+                                              _buildDragTarget(0),
+                                              _buildDragTarget(1),
+                                              _buildDragTarget(2),
+                                              _buildDragTarget(3),
+                                              _buildDragTarget(4),
+                                              _buildDragTarget(5),
+                                              _buildDragTarget(6),
+                                              _buildDragTarget(7),
+                                            ],
+                                          ),
+                                        ]),
                                   ),
                                 ],
                               )),
@@ -269,7 +257,6 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                           ),
                         ],
                       ),
-                    ),
                   ),
                 ),
               )
@@ -391,12 +378,14 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
           // var imageWidget = getSpellSlot(data, 1, indexSpell);
           spellListShow.removeAt(indexSpell);
           spellListShow.insert(indexSpell, data);
+          UpdateTotalValue(spellListShow[indexSpell], true);
         },
       ),
     );
   }
 
   void resetSpellListTile(int index) {
+    UpdateTotalValue(spellListShow[index],false);
     replaceSpellByIndex(index, getEmptySpellModel());
   }
 
@@ -422,6 +411,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
             -1;
     if (isNotInSkillBar) {
       debugPrint("Dans addspelltobar : ${data.name} & ${index.toString()}");
+      UpdateTotalValue(data,true);
       var indexFirst = spellListShow
           .indexWhere((spell) => spell.iconUrl == urlEmptyDragTarget);
 
@@ -483,6 +473,8 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
       child: Container(
         color: Colors.black54,
         child: ListTile(
+          contentPadding: EdgeInsets.symmetric(horizontal: 10),
+          trailing: _buildGridElementalSpellGen(data),
             title: Row(
               children: <Widget>[
                 AutoSizeText(
@@ -571,5 +563,62 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   bool isSpellInBar(ResponseWavenApiSpell data) {
     var result = spellListShow.where((spell) => spell.name == data.name);
     return result.length > 0;
+  }
+
+  _buildGridElementalSpellGen(ResponseWavenApiSpell spell) {
+
+    var fireGen = spell.resources.firstWhere((spellRes)=> spellRes.element ==ElementEnum.Feu, orElse: () => Resource(quantity: 0)).quantity;
+    var airGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Air, orElse: () => Resource(quantity: 0)).quantity;
+    var earthGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Terre, orElse: () => Resource(quantity: 0)).quantity;
+    var waterGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Eau, orElse: () => Resource(quantity: 0)).quantity;
+
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            waterGen != 0? ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_water.png',height: 30,),textChild:waterGen.toString(),fontsizeChild: 15,):_buildEmptyManaGen(),
+            airGen != 0?ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_wind.png',height: 30,),textChild: airGen.toString(),fontsizeChild: 15):_buildEmptyManaGen(),
+
+          ],
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            earthGen != 0?ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_earth.png',height: 30,),textChild: earthGen.toString(),fontsizeChild: 15):_buildEmptyManaGen(),
+            fireGen != 0?ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_fire.png',height: 30,),textChild: fireGen.toString(),fontsizeChild: 15):_buildEmptyManaGen()
+          ],
+        ),
+      ],
+    );
+
+  }
+
+  _buildEmptyManaGen() {
+    return ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_water.png',height: 30,color: Colors.transparent,),textChild:"",fontsizeChild: 15,);
+  }
+
+  void UpdateTotalValue(ResponseWavenApiSpell spell, bool isAdd) {
+    var fireGen = spell.resources.firstWhere((spellRes)=> spellRes.element ==ElementEnum.Feu, orElse: () => Resource(quantity: 0)).quantity;
+    var airGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Air, orElse: () => Resource(quantity: 0)).quantity;
+    var earthGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Terre, orElse: () => Resource(quantity: 0)).quantity;
+    var waterGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Eau, orElse: () => Resource(quantity: 0)).quantity;
+    if(isAdd)
+    setState(() {
+      _FireTotalGen +=fireGen;
+      _AirTotalGen +=airGen;
+      _WaterTotalGen +=waterGen;
+      _EarthTotalGen+=earthGen;
+    });
+    else
+      {
+        _FireTotalGen  -=fireGen;
+        _AirTotalGen   -=airGen;
+        _WaterTotalGen -=waterGen;
+        _EarthTotalGen -=earthGen;
+      }
   }
 }

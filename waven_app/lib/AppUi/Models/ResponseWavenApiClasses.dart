@@ -4,18 +4,18 @@
 
 import 'dart:convert';
 
-List<ResponseWavenApiClasses> responseWavenApiClassesFromJson(String str) {
+List<ResponseWavenApiClass> responseWavenApiClassesFromJson(String str) {
   final jsonData = json.decode(str);
-  return new List<ResponseWavenApiClasses>.from(jsonData.map((x) => ResponseWavenApiClasses.fromJson(x)));
+  return new List<ResponseWavenApiClass>.from(jsonData.map((x) => ResponseWavenApiClass.fromJson(x)));
 }
 
-String responseWavenApiClassesToJson(List<ResponseWavenApiClasses> data) {
+String responseWavenApiClassesToJson(List<ResponseWavenApiClass> data) {
   final dyn = new List<dynamic>.from(data.map((x) => x.toJson()));
   return json.encode(dyn);
 }
 
-class ResponseWavenApiClasses {
-  List<String> tags;
+class ResponseWavenApiClass {
+  List<dynamic> tags;
   List<String> weaponTypes;
   List<String> spells;
   String id;
@@ -24,10 +24,8 @@ class ResponseWavenApiClasses {
   String description;
   int v;
   String imageUrl;
-  String href;
-  String responseWavenApiClassId;
 
-  ResponseWavenApiClasses({
+  ResponseWavenApiClass({
     this.tags,
     this.weaponTypes,
     this.spells,
@@ -37,22 +35,18 @@ class ResponseWavenApiClasses {
     this.description,
     this.v,
     this.imageUrl,
-    this.href,
-    this.responseWavenApiClassId,
   });
 
-  factory ResponseWavenApiClasses.fromJson(Map<String, dynamic> json) => new ResponseWavenApiClasses(
-    tags: new List<String>.from(json["tags"].map((x) => x)),
+  factory ResponseWavenApiClass.fromJson(Map<String, dynamic> json) => new ResponseWavenApiClass(
+    tags: new List<dynamic>.from(json["tags"].map((x) => x)),
     weaponTypes: new List<String>.from(json["weaponTypes"].map((x) => x)),
     spells: new List<String>.from(json["spells"].map((x) => x)),
     id: json["_id"],
-    weapons: new List<dynamic>.from(json["weapons"].map((x) => x)),
+    weapons: json["weapons"] == null ? null : new List<dynamic>.from(json["weapons"].map((x) => x)),
     name: json["name"],
     description: json["description"],
     v: json["__v"],
     imageUrl: json["imageUrl"],
-    href: json["href"],
-    responseWavenApiClassId: json["id"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -60,12 +54,10 @@ class ResponseWavenApiClasses {
     "weaponTypes": new List<dynamic>.from(weaponTypes.map((x) => x)),
     "spells": new List<dynamic>.from(spells.map((x) => x)),
     "_id": id,
-    "weapons": new List<dynamic>.from(weapons.map((x) => x)),
+    "weapons": weapons == null ? null : new List<dynamic>.from(weapons.map((x) => x)),
     "name": name,
     "description": description,
     "__v": v,
     "imageUrl": imageUrl,
-    "href": href,
-    "id": responseWavenApiClassId,
   };
 }
