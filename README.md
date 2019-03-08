@@ -5,7 +5,7 @@ Une Companion App avec comme base de renseignement le nouveau né de chez Ankama
 
 ## Authors
 
-* **Jean-Marie PARENT** - *Initial work* - [PurpleBooth](https://github.com/jm-parent)
+* **Jean-Marie PARENT** - *Initial work* - [Github](https://github.com/jm-parent)
 
 ## License
 
