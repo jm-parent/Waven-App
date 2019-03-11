@@ -9,6 +9,7 @@ import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusListPage.dart';
+import 'package:waven_app/AppUi/GameDataSection/WavenSpells/SpellsListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenWorld/WavenWorldPage.dart';
 import 'package:waven_app/AppUi/SpellList/SpellListTabbarPage.dart';
 import 'package:waven_app/pages/ComingSoonPage.dart';
@@ -82,7 +83,7 @@ class _GameDataPageState extends State<GameDataPage> {
         if (enumPage == GameDataMenu.Shushus.index)
             Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ShushusListPage()));
           if (enumPage == GameDataMenu.Spells.index)
-            Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ComingSoonPage()));//   Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new SpellListTabbarPage()));
+              Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new SpellsListPage()));
             if (enumPage == GameDataMenu.Companions.index)
               Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new ComingSoonPage()));//  Navigator.push(context,          new CupertinoPageRoute(builder: (context) => new CompanionListPage()));
               if (enumPage == GameDataMenu.Skins.index)

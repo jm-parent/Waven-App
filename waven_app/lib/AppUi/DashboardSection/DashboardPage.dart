@@ -149,6 +149,9 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
   @override
   void initState() {
     this._getNewsData();
+setState(() {
+  _selectedCatDeck = DeckCategory.Standard;
+});
     super.initState();
   }
 

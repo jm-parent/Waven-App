@@ -196,35 +196,34 @@ class WeaponDetailActifCardState extends State<WeaponDetailActifCard> {
   }
 
   _buildActiveSpell() {
-    debugPrint(widget.weaponData.weaponType.spells[0]);
-    return FutureBuilder<ResponseWavenApiDetailledSpell>(
-        future: WavenApiProvider.GetSpellDetailFromSpellId(widget.weaponData.weaponType.spells[0]),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) print(snapshot.error);
-          if (!snapshot.hasData) {
-            return Center(child: CircularProgressIndicator());
-          } else {
-            return new Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-               Text(snapshot.data.name),
-               
-               Expanded(
-                 child: CachedNetworkImage(
-
-                   imageUrl: snapshot.data.iconUrl,
-                   fit: BoxFit.cover,
-                   placeholder: new Center(
-                     child: new CircularProgressIndicator(),
-                   ),
-                   errorWidget: new Icon(Icons.error),
-                 ),
-               ),
-                AutoSizeText(snapshot.data.description,maxLines: 3,)
-              ],
-            );
-          }
-        });
+//    return FutureBuilder<ResponseWavenApiDetailledSpell>(
+//        future: WavenApiProvider.GetSpellDetailFromSpellId(widget.weaponData.spells[0]),
+//        builder: (context, snapshot) {
+//          if (snapshot.hasError) print(snapshot.error);
+//          if (!snapshot.hasData) {
+//            return Center(child: CircularProgressIndicator());
+//          } else {
+//            return new Column(
+//              crossAxisAlignment: CrossAxisAlignment.center,
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              children: <Widget>[
+//               Text(snapshot.data.name),
+//
+//               Expanded(
+//                 child: CachedNetworkImage(
+//
+//                   imageUrl: snapshot.data.iconUrl,
+//                   fit: BoxFit.cover,
+//                   placeholder: new Center(
+//                     child: new CircularProgressIndicator(),
+//                   ),
+//                   errorWidget: new Icon(Icons.error),
+//                 ),
+//               ),
+//                AutoSizeText(snapshot.data.description,maxLines: 3,)
+//              ],
+//            );
+//          }
+//        });
   }
 }

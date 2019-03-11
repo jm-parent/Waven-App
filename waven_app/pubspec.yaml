@@ -47,10 +47,11 @@ dependencies:
   path_provider: any
   flutter_multi_carousel: ^1.0.1
   swipedetector: ^1.2.0
+  dropdown_menu: ^1.1.0
 
 
 flutter_icons:
-  image_path: "images/icon.png"
+  image_path: "images/Waven_App_png.png"
   android: true
   ios: true
 
@@ -61,7 +62,6 @@ dev_dependencies:
 flutter:
  uses-material-design: true
  assets:
-     - images/ClassesBg/
      - images/
      - images/background_logo/
      - images/GodIcon/

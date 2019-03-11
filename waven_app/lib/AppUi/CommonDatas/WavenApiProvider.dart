@@ -20,7 +20,7 @@ class WavenApiProvider
     var classPicked = responseClass.firstWhere((classeItem) => classeItem.name.toLowerCase() == className.toLowerCase());
     var responseSpell = await http.get(Uri.encodeFull(urlSpells),
         headers: {"Accept": "application/json", 'authorization': basicAuth});
-    var responseAllSpellList = responseWavenApiSpellsFromJson(responseSpell.body);
+    var responseAllSpellList = responseWavenApiSpellFromJson(responseSpell.body);
     //Remove les sorts qui ne sont pas dans les sorts de la classe picked
     responseAllSpellList.removeWhere((spellItem) =>
     classPicked.spells.contains(spellItem.id)==false);
@@ -41,7 +41,7 @@ class WavenApiProvider
     String basicAuth = 'Basic ' + base64Encode(utf8.encode('Xeno:superpassword'));
     var responseSpell = await http.get(Uri.encodeFull(urlSpell),
         headers: {"Accept": "application/json", 'authorization': basicAuth});
-    var responseAllSpellList = responseWavenApiSpellsFromJson(responseSpell.body);
+    var responseAllSpellList = responseWavenApiSpellFromJson(responseSpell.body);
 
     return responseAllSpellList == null || responseAllSpellList.length!= 1 ? new ResponseWavenApiClass(): responseAllSpellList[0];
   }
@@ -57,10 +57,8 @@ class WavenApiProvider
     var responseClassesObject = responseWavenApiClassFromJson(responseClasses.body);
     return responseClassesObject;
   }
-  static Future<ResponseWavenApiDetailledClass> GetDetailledClassFromClassName(String className) async {
-    var classes = await GetClassFromClassName(className);
-    var classPicked = classes.firstWhere((classeItem) => classeItem.name.toLowerCase() == className.toLowerCase());
-    String urlClasses = 'https://waven-api.synedh.fr/classes/${classPicked.id}';
+  static Future<ResponseWavenApiDetailledClass> GetDetailledClassById(String id) async {
+    String urlClasses = 'https://waven-api.synedh.fr/classes/${id}';
     String basicAuth = 'Basic ' + base64Encode(utf8.encode('Xeno:superpassword'));
     //Récupération des classes pour récupérer la liste des sortsID
     var responseClasses = await http.get(Uri.encodeFull(urlClasses),
@@ -78,6 +76,16 @@ class WavenApiProvider
     var responseClassesObject = responseWavenApiClassFromJson(responseClasses.body);
     return responseClassesObject;
   }
+  static Future<List<ResponseWavenApiSpell>> GetAllSpell() async {
+    String urlSpells = 'https://waven-api.synedh.fr/spells';
+    String basicAuth = 'Basic ' + base64Encode(utf8.encode('Xeno:superpassword'));
+    //Récupération des classes pour récupérer la liste des sortsID
+    var responseSpells = await http.get(Uri.encodeFull(urlSpells),
+        headers: {"Accept": "application/json", 'authorization': basicAuth});
+    var responseClassesObject = responseWavenApiSpellFromJson(responseSpells.body);
+    return responseClassesObject;
+  }
+
   static Future<List<ResponseWavenApiFellow>> GetAllFellow() async {
     String urlClasses = 'https://waven-api.synedh.fr/fellows';
     String basicAuth = 'Basic ' + base64Encode(utf8.encode('Xeno:superpassword'));

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:quiver/collection.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
 
 Decoration GradientBg() => new BoxDecoration(
@@ -8,9 +7,9 @@ Decoration GradientBg() => new BoxDecoration(
       end: Alignment.centerRight,
       stops: [0.0,0.5,1.0],
       colors: [
-        mainDarkBlue(),
-        mainDarkBlueL2(),
-        mainDarkBlue(),
+        mainDarkBlueD2(),
+        Colors.transparent,
+        mainDarkBlueD2(),
       ],
     ));
   Decoration GradientIop() => new BoxDecoration(
@@ -85,19 +84,3 @@ Decoration GradientBg() => new BoxDecoration(
             Color(0xFF0B1828),
           ],
         ));
-
-class MapClassGradient
-{
-  BiMap<String, Decoration> classToGradient = new HashBiMap();
-  MapClassGradient() {
-    classToGradient.addAll(new Map.from(
-        {
-         'iop':GradientIop(),
-          'xelor':GradientXelor(),
-          'sram':GradientSram(),
-          'osamodas':GradientOsa(),
-          'eniripsa':GradientEni(),
-          'Crâ':GradientCra(),
-        }));
-  }
-}

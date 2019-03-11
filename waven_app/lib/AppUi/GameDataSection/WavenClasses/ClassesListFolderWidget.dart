@@ -3,13 +3,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:folding_cell/folding_cell/widget.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/Clippers/BottomWaveClipper.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
-import 'package:waven_app/AppUi/GameDataSection/WavenShushus/Widgets/WeaponDetailAnimator.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiClasses.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiDetailledClass.dart';
+import 'package:waven_app/util/ClassToAnythingHelper.dart';
 import 'package:waven_app/util/GradientHelper.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 
@@ -25,11 +25,12 @@ class ClassesListFolderWidget extends StatefulWidget {
 class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
   ResponseWavenApiDetailledClass detailledClass;
   MapClassGradient mapClassGradient ;
-
+  MapClassLogo mapClassLogo;
   @override
   void initState() {
     setState(() {
       mapClassGradient = new MapClassGradient();
+      mapClassLogo = new MapClassLogo();
     });
     super.initState();
   }
@@ -38,7 +39,7 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
     return SimpleFoldingCell(
       frontWidget:_buildFrontWidget(),
       innerTopWidget: _buildInnerTopWidget(),
-      innerBottomWidget:SnapshotLoadingIndicator(), // _buildInnerBottomWidget(),
+      innerBottomWidget: _buildInnerBottomWidget(),
       cellSize: Size(MediaQuery.of(context).size.width, 150),
     );
   }
@@ -101,6 +102,10 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
       child: Stack(
         children: <Widget>[
           //le Lore
+          Center(child: Image.asset(mapClassLogo.classToLogoAsset[widget.data.name],fit: BoxFit.cover,)),
+          Container(
+            color: Colors.black.withOpacity(0.70),
+          ),
           Container(
             decoration: GradientBg(),
             alignment: Alignment.centerLeft,
@@ -110,7 +115,7 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
               child: AutoSizeText(
                 widget.data.description,
                 minFontSize: 12,
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 5,
               ),
@@ -141,7 +146,7 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
     return ClipRRect(
         borderRadius: new BorderRadius.circular(8.0),
         child: FutureBuilder(
-            future: WavenApiProvider.GetDetailledClassFromClassName(widget.data.name),
+            future: WavenApiProvider.GetDetailledClassById(widget.data.id),
             builder: (BuildContext context,
                 AsyncSnapshot<ResponseWavenApiDetailledClass> snapshot) {
               return snapshot.data == null
@@ -160,8 +165,8 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
   _buildWeaponItem(Weapon weapon) {
     return GestureDetector(
       onTap: (){
-        Navigator.push(context,
-            PageTransition(type: PageTransitionType.leftToRight, child: WeaponDetailAnimator(weaponData: weapon,) ));
+//        Navigator.push(context,
+//            PageTransition(type: PageTransitionType.leftToRight, child: WeaponDetailAnimator(weaponData: weapon,) ));
       },
       child: ConstrainedBox(
           constraints:
@@ -187,13 +192,13 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
                 bottom: 3,
                 left: 3,
                 child:
-                weapon.iconUrl == null || weapon.iconUrl == ""?
+                weapon.spells[0].iconUrl == null || weapon.spells[0].iconUrl == ""?
                 Image.asset('images/ShushusImages/ShushusSkill/default.png',  height: 40, fit: BoxFit.cover,
                   width: 40,):
                 CachedNetworkImage(
                   height: 40,
                   width: 40,
-                  imageUrl: weapon.iconUrl,
+                  imageUrl: weapon.spells[0].iconUrl,
                   fit: BoxFit.cover,
                   placeholder: new Center(
                     child: new SnapshotLoadingIndicator(),

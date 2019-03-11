@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 
+import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/util/widget_utils.dart';
+
 class SplashScreenPage extends StatefulWidget {
   @override
   _SplashScreenState createState() => new _SplashScreenState();
@@ -25,8 +28,12 @@ class _SplashScreenState extends State<SplashScreenPage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      body: new Center(
-        child: new Image.asset('images/splashscreen.png'),
+      backgroundColor: mainDarkBlue(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 80),
+        child: new Center(
+          child: new Image.asset('images/Waven_Companion.png'),
+        ),
       ),
     );
   }
