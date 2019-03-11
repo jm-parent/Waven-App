@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
 import 'package:waven_app/AppUi/NewsSection/NewsEnterAnimation.dart';
 import 'package:waven_app/GenWidgets/WavenPageWithBackground.dart';
 import 'package:webfeed/webfeed.dart';
@@ -91,31 +93,26 @@ class NewsPageState extends State<NewsPage> {
 
   @override
   Widget build(BuildContext context) {
-    if (newsDatas == null) return _loadingView;
-    return WavenPageWithBackground(
-      child: buildStaggeredGridView(),
+    return Scaffold(
+      appBar: WavenCompanionAppbar(),
+      body: newsDatas == null ? _loadingView : buildStaggeredGridView(),
     );
   }
 
   Widget buildStaggeredGridView() {
-    return Padding(
-      padding: const EdgeInsets.only(top: 30.0),
-      child: StaggeredGridView.count(
-        crossAxisCount: 4,
-        staggeredTiles: _staggeredTiles,
-        children: _tiles,
-        mainAxisSpacing: 4.0,
-        crossAxisSpacing: 4.0,
-        padding: const EdgeInsets.all(4.0),
-      ),
+    return StaggeredGridView.count(
+      crossAxisCount: 4,
+      staggeredTiles: _staggeredTiles,
+      children: _tiles,
+      mainAxisSpacing: 4.0,
+      crossAxisSpacing: 4.0,
+      padding: const EdgeInsets.all(4.0),
     );
   }
 
   Widget get _loadingView {
-    return WavenPageWithBackground(
-      child: new Center(
-        child: new CircularProgressIndicator(),
-      ),
+    return new Center(
+      child: new CircularProgressIndicator(),
     );
   }
 }

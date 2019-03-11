@@ -6,17 +6,25 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:share/share.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/BorderContainer.dart';
+import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
 import 'package:waven_app/AppUi/CommonWidget/ElementalWavenWidget.dart';
 import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
+import 'package:waven_app/AppUi/CommonWidget/TitleWavenWidget.dart';
+import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderFellowBarPage.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart';
+import 'package:waven_app/AppUi/Models/CommonDataForModel.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
 import 'dart:ui' as ui;
 import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:waven_app/util/GradientHelper.dart';
+import 'package:waven_app/util/ThemeHelper.dart';
+import 'package:waven_app/util/widget_utils.dart';
 
 class DeckBuilderSkillBarPage extends StatefulWidget {
   final DeckBuilderModel deckData;
@@ -29,12 +37,13 @@ class DeckBuilderSkillBarPage extends StatefulWidget {
 }
 
 class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
-    with TickerProviderStateMixin {
+    with SingleTickerProviderStateMixin {
+
+  AnimationController animatedIconController ;
   List<ResponseWavenApiSpell> spellListShow;
   String urlEmptyDragTarget = 'https://imgur.com/IXhxlw4.png';
   Widget _appBarTitle = new Text('Liste des Sorts');
   Icon _searchIcon = new Icon(Icons.search);
-
   var _WaterTotalGen = 0;
   var _AirTotalGen = 0;
   var _EarthTotalGen = 0;
@@ -51,15 +60,21 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
         filter = controller.text;
       });
     });
+    animatedIconController = AnimationController(vsync: this,duration: Duration(seconds: 1));
     super.initState();
   }
+@override
+void dispose(){
+    animatedIconController.dispose();
+    super.dispose();
+}
 
   String filter;
   TextEditingController controller = new TextEditingController();
   var _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   double _lowerValue = 0.0;
-  double _upperValue = 10.0;
+  double _upperValue = 15.0;
   static GlobalKey previewSkillBar = new GlobalKey();
 
   @override
@@ -69,88 +84,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
         key: _scaffoldKey,
         resizeToAvoidBottomPadding: false,
         appBar: _buildBar(context),
-        endDrawer: Drawer(
-          child: new ListView(
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Center(child: new Text("Advanced Search")),
-              ),
-              ExpansionTile(
-                title: Text('Elements'),
-                children: <Widget>[
-                  Wrap(
-                    runSpacing: 2.0,
-                    spacing: 5,
-                    children: <Widget>[
-                      Chip(
-                        label: Text('Feu'),
-                        backgroundColor: Colors.deepOrange,
-                      ),
-                      Chip(
-                        label: Text('Air'),
-                        backgroundColor: Colors.purpleAccent,
-                      ),
-                      Chip(
-                        label: Text('Terre'),
-                        backgroundColor: Colors.green,
-                      ),
-                      Chip(
-                        label: Text('Eau'),
-                        backgroundColor: Colors.blue,
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              ExpansionTile(
-                title: Text('Cout PA'),
-                children: <Widget>[
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisSize: MainAxisSize.max,
-                    children: <Widget>[
-                      SimpleRoundText(value: _lowerValue.toInt().toString()),
-                      Expanded(
-                        child: new RangeSlider(
-                          min: 0.0,
-                          max: 10.0,
-                          lowerValue: _lowerValue,
-                          upperValue: _upperValue,
-                          divisions: 10,
-                          valueIndicatorMaxDecimals: 1,
-                          touchRadiusExpansionRatio: 2,
-                          onChanged:
-                              (double newLowerValue, double newUpperValue) {
-                            setState(() {
-                              _lowerValue = newLowerValue;
-                              _upperValue = newUpperValue;
-                            });
-                          },
-                          onChangeStart:
-                              (double startLowerValue, double startUpperValue) {
-                            print(
-                                'Started with values: $startLowerValue and $startUpperValue');
-                          },
-                          onChangeEnd:
-                              (double newLowerValue, double newUpperValue) {
-                            print(
-                                'Ended with values: $newLowerValue and $newUpperValue');
-                          },
-                        ),
-                      ),
-                      SimpleRoundText(
-                          value: _upperValue == 10
-                              ? '10+'
-                              : _upperValue.toString()),
-                    ],
-                  ),
-                ],
-              )
-            ],
-          ),
-        ),
+        endDrawer: _buildFilters(),
         body: Padding(
           padding: const EdgeInsets.only(bottom: 8.0),
           child: Column(
@@ -160,7 +94,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: SizedBox(
-                    width: MediaQuery.of(context).size.width - 8,
+                    width: MediaQuery.of(context).size.width,
                     child: _buildVerticalSpellList(),
                   ),
                 ),
@@ -170,103 +104,149 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                 child: RepaintBoundary(
                   key: previewSkillBar,
                   child: SizedBox(
-                    width: MediaQuery.of(context).size.width - 50,
+                    width: MediaQuery.of(context).size.width -
+                        ScreenAwareHelper.screenAwareSize(50, context),
                     child: Stack(
-                        fit: StackFit.expand,
-                        children: <Widget>[
-                          Positioned.fill(
-                              child: Image.asset(
-                            widget.deckData.shushuData.background,
-                            fit: BoxFit.cover,
-                          )),
-                          Container(
-                              color: Colors.black54,
-                              child: Row(
-                                children: <Widget>[
-                                  Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: <Widget>[
-                                        Padding(
+                      fit: StackFit.expand,
+                      children: <Widget>[
+                        Positioned.fill(
+                            child: Image.asset(
+                          widget.deckData.shushuData.background,
+                          fit: BoxFit.cover,
+                        )),
+
+                        Container(
+                            color: Colors.black54,
+                            child: Row(
+                              children: <Widget>[
+                                Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: <Widget>[
+                                      ClipRRect(
+                                        borderRadius: new BorderRadius.only(
+                                            bottomLeft: Radius.circular(8.0),
+                                            bottomRight: Radius.circular(8.0)),
+                                        child: Container(
+                                            decoration: GradientIop(),
+                                            height: ScreenAwareHelper
+                                                .screenAwareSize(50, context),
+                                            width: ScreenAwareHelper
+                                                .screenAwareSize(40, context),
+                                            child: GestureDetector(
+                                              onTap: ()=> Navigator.push(context,  PageTransition(type: PageTransitionType.rightToLeft, child: DeckBuilderFellowBarPage(deckData: widget.deckData,spellList:spellListShow))),
+                                              child: Stack(
+                                                alignment: Alignment.center,
+                                                children: <Widget>[
+                                                  Image.asset('images/FellowImages/fellow_empty.png',height: 30,),
+                                                  AnimatedIcon(icon: AnimatedIcons.play_pause,progress: animatedIconController,),
+                                                ],
+                                              ),
+                                            )),
+                                      ),
+                                      Expanded(
+                                        child: Padding(
                                           padding:
                                               const EdgeInsets.only(left: 8.0),
                                           child: Image.asset(
                                               widget.deckData.shushuData
                                                   .uniqueSpellIcon,
-                                              width: 70,
-                                              height: 70),
+                                              width: ScreenAwareHelper
+                                                  .screenAwareSize(70, context),
+                                              height: ScreenAwareHelper
+                                                  .screenAwareSize(
+                                                      70, context)),
+                                        ),
+                                      )
+                                    ]),
+                                Expanded(
+                                  child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: <Widget>[
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: <Widget>[
+                                            ElementalWavenWidget(
+                                              imageChild: Image.asset(
+                                                  'images/SpellsImages/symbol_water.png',
+                                                  height: ScreenAwareHelper
+                                                      .screenAwareSize(
+                                                          40, context)),
+                                              textChild:
+                                                  _WaterTotalGen.toString(),
+                                            ),
+                                            ElementalWavenWidget(
+                                              imageChild: Image.asset(
+                                                  'images/SpellsImages/symbol_wind.png',
+                                                  height: ScreenAwareHelper
+                                                      .screenAwareSize(
+                                                          40, context)),
+                                              textChild:
+                                                  _AirTotalGen.toString(),
+                                            ),
+                                            ElementalWavenWidget(
+                                              imageChild: Image.asset(
+                                                  'images/SpellsImages/symbol_earth.png',
+                                                  height: ScreenAwareHelper
+                                                      .screenAwareSize(
+                                                          40, context)),
+                                              textChild:
+                                                  _EarthTotalGen.toString(),
+                                            ),
+                                            ElementalWavenWidget(
+                                              imageChild: Image.asset(
+                                                  'images/SpellsImages/symbol_fire.png',
+                                                  height: ScreenAwareHelper
+                                                      .screenAwareSize(
+                                                          40, context)),
+                                              textChild:
+                                                  _FireTotalGen.toString(),
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            _buildDragTarget(0),
+                                            _buildDragTarget(1),
+                                            _buildDragTarget(2),
+                                            _buildDragTarget(3),
+                                          ],
+                                        ),
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: <Widget>[
+                                            _buildDragTarget(4),
+                                            _buildDragTarget(5),
+                                            _buildDragTarget(6),
+                                            _buildDragTarget(7),
+                                          ],
                                         )
                                       ]),
-                                  Expanded(
-                                    child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: <Widget>[
-                                          Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                            crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                            children: <Widget>[
-                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_water.png'),textChild: _WaterTotalGen.toString(),),
-                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_wind.png'),textChild: _AirTotalGen.toString(),),
-                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_earth.png'),textChild: _EarthTotalGen.toString(),),
-                                              ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_fire.png'),textChild: _FireTotalGen.toString(),),
-                                            ],
-                                          ),
-                                          Wrap(
-                                            alignment: WrapAlignment.center,
-                                            runAlignment:
-                                                WrapAlignment.center,
-                                            spacing: 4,
-                                            runSpacing: 4,
-                                            //75x75
-                                            children: <Widget>[
-                                              _buildDragTarget(0),
-                                              _buildDragTarget(1),
-                                              _buildDragTarget(2),
-                                              _buildDragTarget(3),
-                                              _buildDragTarget(4),
-                                              _buildDragTarget(5),
-                                              _buildDragTarget(6),
-                                              _buildDragTarget(7),
-                                            ],
-                                          ),
-                                        ]),
-                                  ),
-                                ],
-                              )),
-                          Positioned(
-                            top: 4,
-                            left: 4,
-                            child: SizedBox(
-                              height: 32,
-                              width: 32,
-                              child: Stack(
-                                children: <Widget>[
-                                  Positioned(
-                                      top: 6,
-                                      left: 6,
-                                      child: Icon(Icons.arrow_back,size: 20,color: Colors.white,)),
-                                  Icon(Icons.arrow_forward,size: 14,color: Colors.grey[800],),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
+                                ),
+                              ],
+                            )),
+                      ],
+                    ),
                   ),
                 ),
               )
             ],
           ),
         ),
-        floatingActionButton: new FloatingActionButton(
-          onPressed: takeScreenShot,
-          child: new Icon(Icons.share),
-        ), // T
       ),
     );
   }
@@ -284,8 +264,9 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
         );
       } else {
         this._searchIcon = new Icon(Icons.search);
-        this._appBarTitle = new Text(
-            '${widget.deckData.classData.className} -> ${widget.deckData.shushuData.heroName}');
+        this._appBarTitle =  new Text('Liste des Sorts');
+//       this._appBarTitle = new Text(
+//            '${widget.deckData.classData.className} -> ${widget.deckData.shushuData.heroName}');
         controller.clear();
       }
     });
@@ -328,10 +309,11 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
             scrollDirection: Axis.vertical,
             itemCount: snapshot.data.length,
             itemBuilder: (BuildContext context, int index) {
-              return filter == null || filter == ""
-                  ? snapshot.data[index].cost >= _lowerValue &&
-                          snapshot.data[index].cost <= _upperValue
-                      ? LongPressDraggable(
+              return isfilterNullOrEmpty(filter)
+                  ? isDataBetweenPaValues(snapshot.data[index])
+                      ? isDataIsSelectedElement(snapshot.data[index])
+                        ?
+                      LongPressDraggable(
                           data: snapshot.data[index],
                           child: getDetailledSpellSlotWithGesture(
                               snapshot.data[index], 1, index),
@@ -340,19 +322,26 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
                           childWhenDragging: Container(),
                         )
                       : Container()
+                  :Container()
                   : snapshot.data[index].name.toLowerCase().contains(filter)
                       ? snapshot.data[index].cost >= _lowerValue &&
                               snapshot.data[index].cost <= _upperValue
                           ? LongPressDraggable(
                               data: snapshot.data[index],
                               child: getDetailledSpellSlotWithGesture(
-                                  snapshot.data[index], 1, index),
+                                  snapshot.data[index],
+                                  ScreenAwareHelper.screenAwareSize(1, context),
+                                  index),
                               feedback: getSpellSlotWithGesture(
-                                  snapshot.data[index], 1.3, index),
+                                  snapshot.data[index],
+                                  ScreenAwareHelper.screenAwareSize(
+                                      1.3, context),
+                                  index),
                               childWhenDragging: Container(),
                             )
                           : Container()
                       : Container();
+
             });
       },
     );
@@ -365,7 +354,9 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
       child: DragTarget<ResponseWavenApiSpell>(
         builder: (context, List<dynamic> candidateData, rejectedData) {
           return SpellIconWidget(
-              dataSpell: spellListShow[indexSpell], width: 50, height: 50);
+              dataSpell: spellListShow[indexSpell],
+              width: ScreenAwareHelper.screenAwareSize(50, context),
+              height: ScreenAwareHelper.screenAwareSize(50, context));
         },
         onWillAccept: (data) {
           var r = data.iconUrl != null;
@@ -385,7 +376,7 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   }
 
   void resetSpellListTile(int index) {
-    UpdateTotalValue(spellListShow[index],false);
+    UpdateTotalValue(spellListShow[index], false);
     replaceSpellByIndex(index, getEmptySpellModel());
   }
 
@@ -411,15 +402,18 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
             -1;
     if (isNotInSkillBar) {
       debugPrint("Dans addspelltobar : ${data.name} & ${index.toString()}");
-      UpdateTotalValue(data,true);
+
       var indexFirst = spellListShow
           .indexWhere((spell) => spell.iconUrl == urlEmptyDragTarget);
 
       debugPrint(
           "Dans addspelltobar : ${data.name} & ${indexFirst.toString()}");
+      AnimatedIconToFellow();
       if (indexFirst != -1) //Si on a trouvé un élément
       {
+        UpdateTotalValue(data, true);
         setState(() {
+
           spellListShow.removeAt(indexFirst);
           spellListShow.insert(indexFirst, data);
         });
@@ -436,8 +430,8 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
 
   CachedNetworkImage getEmptySlot() {
     return new CachedNetworkImage(
-      width: spellIconSize,
-      height: spellIconSize,
+      width: ScreenAwareHelper.screenAwareSize(spellIconSize, context),
+      height: ScreenAwareHelper.screenAwareSize(spellIconSize, context),
       imageUrl: urlEmptyDragTarget,
       fit: BoxFit.cover,
       placeholder: new Center(
@@ -473,8 +467,8 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
       child: Container(
         color: Colors.black54,
         child: ListTile(
-          contentPadding: EdgeInsets.symmetric(horizontal: 10),
-          trailing: _buildGridElementalSpellGen(data),
+            contentPadding: EdgeInsets.symmetric(horizontal: 10),
+            trailing: _buildGridElementalSpellGen(data),
             title: Row(
               children: <Widget>[
                 AutoSizeText(
@@ -494,8 +488,8 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
             ),
             leading: SpellIconWidget(
               dataSpell: data,
-              width: 40,
-              height: 50,
+              width: ScreenAwareHelper.screenAwareSize(40, context),
+              height: ScreenAwareHelper.screenAwareSize(50, context),
             )),
       ),
     );
@@ -512,8 +506,9 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   CachedNetworkImage getSpellSlot(
       ResponseWavenApiSpell data, double factor, int index) {
     return new CachedNetworkImage(
-      width: spellIconSize * factor,
-      height: spellIconSize * factor,
+      width: ScreenAwareHelper.screenAwareSize(spellIconSize * factor, context),
+      height:
+          ScreenAwareHelper.screenAwareSize(spellIconSize * factor, context),
       imageUrl: data.iconUrl,
       fit: BoxFit.cover,
       placeholder: new Center(
@@ -566,11 +561,22 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
   }
 
   _buildGridElementalSpellGen(ResponseWavenApiSpell spell) {
-
-    var fireGen = spell.resources.firstWhere((spellRes)=> spellRes.element ==ElementEnum.Feu, orElse: () => Resource(quantity: 0)).quantity;
-    var airGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Air, orElse: () => Resource(quantity: 0)).quantity;
-    var earthGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Terre, orElse: () => Resource(quantity: 0)).quantity;
-    var waterGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Eau, orElse: () => Resource(quantity: 0)).quantity;
+    var fireGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Feu,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
+    var airGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Air,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
+    var earthGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Terre,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
+    var waterGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Eau,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
 
     return Column(
       mainAxisSize: MainAxisSize.min,
@@ -579,46 +585,356 @@ class _DeckBuilderSkillBarPageState extends State<DeckBuilderSkillBarPage>
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            waterGen != 0? ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_water.png',height: 30,),textChild:waterGen.toString(),fontsizeChild: 15,):_buildEmptyManaGen(),
-            airGen != 0?ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_wind.png',height: 30,),textChild: airGen.toString(),fontsizeChild: 15):_buildEmptyManaGen(),
-
+            waterGen != 0
+                ? ElementalWavenWidget(
+                    imageChild: Image.asset(
+                      'images/SpellsImages/symbol_water.png',
+                      height: ScreenAwareHelper.screenAwareSize(30, context),
+                    ),
+                    textChild: waterGen.toString(),
+                    fontsizeChild: 15,
+                  )
+                : _buildEmptyManaGen(),
+            airGen != 0
+                ? ElementalWavenWidget(
+                    imageChild: Image.asset(
+                      'images/SpellsImages/symbol_wind.png',
+                      height: ScreenAwareHelper.screenAwareSize(30, context),
+                    ),
+                    textChild: airGen.toString(),
+                    fontsizeChild: 15)
+                : _buildEmptyManaGen(),
           ],
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            earthGen != 0?ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_earth.png',height: 30,),textChild: earthGen.toString(),fontsizeChild: 15):_buildEmptyManaGen(),
-            fireGen != 0?ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_fire.png',height: 30,),textChild: fireGen.toString(),fontsizeChild: 15):_buildEmptyManaGen()
+            earthGen != 0
+                ? ElementalWavenWidget(
+                    imageChild: Image.asset(
+                      'images/SpellsImages/symbol_earth.png',
+                      height: ScreenAwareHelper.screenAwareSize(30, context),
+                    ),
+                    textChild: earthGen.toString(),
+                    fontsizeChild: 15)
+                : _buildEmptyManaGen(),
+            fireGen != 0
+                ? ElementalWavenWidget(
+                    imageChild: Image.asset(
+                      'images/SpellsImages/symbol_fire.png',
+                      height: ScreenAwareHelper.screenAwareSize(30, context),
+                    ),
+                    textChild: fireGen.toString(),
+                    fontsizeChild: 15)
+                : _buildEmptyManaGen()
           ],
         ),
       ],
     );
-
   }
 
   _buildEmptyManaGen() {
-    return ElementalWavenWidget(imageChild: Image.asset('images/SpellsImages/symbol_water.png',height: 30,color: Colors.transparent,),textChild:"",fontsizeChild: 15,);
+    return ElementalWavenWidget(
+      imageChild: Image.asset(
+        'images/SpellsImages/symbol_water.png',
+        height: ScreenAwareHelper.screenAwareSize(30, context),
+        color: Colors.transparent,
+      ),
+      textChild: "",
+      fontsizeChild: 15,
+    );
   }
 
   void UpdateTotalValue(ResponseWavenApiSpell spell, bool isAdd) {
-    var fireGen = spell.resources.firstWhere((spellRes)=> spellRes.element ==ElementEnum.Feu, orElse: () => Resource(quantity: 0)).quantity;
-    var airGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Air, orElse: () => Resource(quantity: 0)).quantity;
-    var earthGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Terre, orElse: () => Resource(quantity: 0)).quantity;
-    var waterGen = spell.resources.firstWhere((spellRes)=> spellRes.element == ElementEnum.Eau, orElse: () => Resource(quantity: 0)).quantity;
-    if(isAdd)
-    setState(() {
-      _FireTotalGen +=fireGen;
-      _AirTotalGen +=airGen;
-      _WaterTotalGen +=waterGen;
-      _EarthTotalGen+=earthGen;
-    });
-    else
-      {
-        _FireTotalGen  -=fireGen;
-        _AirTotalGen   -=airGen;
-        _WaterTotalGen -=waterGen;
-        _EarthTotalGen -=earthGen;
-      }
+    AnimatedIconToFellow();
+    var fireGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Feu,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
+    var airGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Air,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
+    var earthGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Terre,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
+    var waterGen = spell.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Eau,
+            orElse: () => Resource(quantity: 0))
+        .quantity;
+    if (isAdd)
+      setState(() {
+        _FireTotalGen += fireGen;
+        _AirTotalGen += airGen;
+        _WaterTotalGen += waterGen;
+        _EarthTotalGen += earthGen;
+      });
+    else {
+      _FireTotalGen -= fireGen;
+      _AirTotalGen -= airGen;
+      _WaterTotalGen -= waterGen;
+      _EarthTotalGen -= earthGen;
+    }
+  }
+
+
+  bool isFireSelected = false;
+  bool isWindSelected = false;
+  bool isEarthSelected = false;
+  bool isWaterSelected = false;
+  _buildFilters() {
+    Color bgMenuColor = Color(0xFF607D8B).withAlpha(100);
+    Color bgButtonColor = Color(0xFF37474F);
+    Color bgButtonClickedColor = Color(0xFF4c626d);
+    return Drawer(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal:8.0),
+        child: Column(
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(bottom:10.0),
+              child: TitleWavenWidget(
+                title: "Filters",
+                leadingIconColor: WaventBlue(),
+                titleColor: WaventBlue(),
+                underLineColor: WaventBlue(),
+                underLineWidth: MediaQuery.of(context).size.width,
+              ),
+            ),
+            Expanded(
+              child: new ListView(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.only(top:10.0),
+                    child: ClipRRect(
+                      borderRadius: new BorderRadius.only(topLeft: Radius.circular(ScreenAwareHelper.screenAwareSize(12, context)),topRight: Radius.circular(ScreenAwareHelper.screenAwareSize(12, context))),
+                      child: Container(
+                        color: bgMenuColor,
+                        child: ExpansionTile(
+                          backgroundColor: Color(0xFF263238),
+                          title: Text('Elements'),
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      Expanded(
+                                        child: RaisedButton(
+                                          shape: new RoundedRectangleBorder(
+                                              borderRadius: new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(4, context))),
+                                          splashColor: WaventBlue(),
+                                          color: LightColor(),
+                                          child:  Padding(
+                                            padding: const EdgeInsets.all(8.0),
+                                            child: Text('ALL'),
+                                          ),
+                                          onPressed:() {
+                                            setState(() {
+                                              isFireSelected = isEarthSelected=isWaterSelected=isWindSelected=false;
+                                            });
+                                          }
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Row(
+                                    children: <Widget>[
+                                     Expanded(
+                                       child: RaisedButton(
+                                         shape: new RoundedRectangleBorder(
+                                             borderRadius: new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(4, context))),
+                                         splashColor: bgButtonClickedColor,
+                                         color: isFireSelected ? bgButtonClickedColor : bgButtonColor ,
+                                         child:  Padding(
+                                           padding: const EdgeInsets.all(8.0),
+                                           child: Image.asset('images/SpellsImages/symbol_fire.png',height: ScreenAwareHelper.screenAwareSize(30, context),),
+                                         ),
+                                         onPressed:(){
+                                           setState(() {
+                                             isFireSelected = !isFireSelected;
+                                           });
+                                         }
+
+                                         ,
+                                       ),
+                                     ),
+                                     Expanded(
+                                       child: RaisedButton(
+                                         shape: new RoundedRectangleBorder(
+                                             borderRadius: new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(4, context))),
+                                         splashColor: bgButtonClickedColor,
+                                         color: isWindSelected ? bgButtonClickedColor : bgButtonColor ,
+                                         child:  Padding(
+                                           padding: const EdgeInsets.all(8.0),
+                                           child: Image.asset('images/SpellsImages/symbol_wind.png',height: ScreenAwareHelper.screenAwareSize(30, context),),
+                                         ),
+                                           onPressed:(){
+                                             setState(() {
+                                               isWindSelected = !isWindSelected;
+                                             });
+                                           }
+                                       ),
+                                     ),
+                                     Expanded(
+                                       child: RaisedButton(
+                                         shape: new RoundedRectangleBorder(
+                                             borderRadius: new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(4, context))),
+                                         splashColor: bgButtonClickedColor,
+                                         color: isWaterSelected ? bgButtonClickedColor : bgButtonColor ,
+                                         child:  Padding(
+                                           padding: const EdgeInsets.all(8.0),
+                                           child: Image.asset('images/SpellsImages/symbol_water.png',height: ScreenAwareHelper.screenAwareSize(30, context),),
+                                         ),
+                                           onPressed:(){
+                                             setState(() {
+                                               isWaterSelected = !isWaterSelected;
+                                             });
+                                           }
+                                       ),
+                                     ),
+                                     Expanded(
+                                       child: RaisedButton(
+                                         shape: new RoundedRectangleBorder(
+                                             borderRadius: new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(4, context))),
+                                         splashColor: bgButtonClickedColor,
+                                         color: isEarthSelected ? bgButtonClickedColor : bgButtonColor ,
+                                         child:  Padding(
+                                           padding: const EdgeInsets.all(8.0),
+                                           child: Image.asset('images/SpellsImages/symbol_earth.png',height: ScreenAwareHelper.screenAwareSize(30, context),),
+                                         ),
+                                           onPressed:(){
+                                             setState(() {
+                                               isEarthSelected = !isEarthSelected;
+                                             });
+                                           }
+                                       ),
+                                     ),
+
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+    Divider(height: 1,color: Colors.grey,),
+    Container(
+    color: bgMenuColor,
+    child: ExpansionTile(
+                    backgroundColor: Color(0xFF263238),
+                    title: Text('Cout PA'),
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.max,
+                        children: <Widget>[
+                          SimpleRoundText(value: _lowerValue.toInt().toString()),
+                          Expanded(
+                            child: SliderTheme(
+                              data: SliderTheme.of(context).copyWith(
+                                overlayColor: LightColor(),
+                                activeTickMarkColor: Colors.transparent,
+                                activeTrackColor: WaventBlue(),
+                                inactiveTrackColor: Colors.red.withOpacity(0.3),
+                                thumbColor: WaventBlue(),
+                                valueIndicatorColor: Colors.teal,
+                                showValueIndicator: ShowValueIndicator.never
+                             //   ? ShowValueIndicator.always
+                             //       : ShowValueIndicator.onlyForDiscrete,
+                                ),
+                              child: new RangeSlider(
+
+                                min: 0.0,
+                                max: 15.0,
+                                lowerValue: _lowerValue,
+                                upperValue: _upperValue,
+                                divisions: 15,
+                                valueIndicatorMaxDecimals: 1,
+                                touchRadiusExpansionRatio: 2,
+                                onChanged:
+                                    (double newLowerValue, double newUpperValue) {
+                                  setState(() {
+                                    _lowerValue = newLowerValue;
+                                    _upperValue = newUpperValue;
+                                  });
+                                },
+                                onChangeStart:
+                                    (double startLowerValue, double startUpperValue) {
+                                  print(
+                                      'Started with values: $startLowerValue and $startUpperValue');
+                                },
+                                onChangeEnd:
+                                    (double newLowerValue, double newUpperValue) {
+                                  print(
+                                      'Ended with values: $newLowerValue and $newUpperValue');
+                                },
+                              ),
+                            ),
+                          ),
+                          SimpleRoundText(
+                              value: _upperValue.toInt().toString()),
+                        ],
+                      ),
+                    ],
+                  )),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  isfilterNullOrEmpty(String filter) {
+    return filter == null || filter == "";
+  }
+
+  isDataBetweenPaValues(ResponseWavenApiSpell data) {
+    return data.cost >= _lowerValue &&
+        data.cost <= _upperValue;
+  }
+
+  isDataIsSelectedElement(ResponseWavenApiSpell data) {
+    var boolToReturn = false;
+    if(!isFireSelected && !isWindSelected && !isEarthSelected && !isWaterSelected) return true;
+    if(isFireSelected && data.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Feu,
+        orElse: () => Resource(quantity: 0))
+        .quantity > 0)
+      return true;
+    if(isWindSelected && data.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Air,
+        orElse: () => Resource(quantity: 0))
+        .quantity > 0)
+      return true;
+    if(isWaterSelected &&  data.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Eau,
+        orElse: () => Resource(quantity: 0))
+        .quantity > 0)
+      return true;
+    if(isEarthSelected && data.resources
+        .firstWhere((spellRes) => spellRes.element == ElementEnum.Terre,
+        orElse: () => Resource(quantity: 0))
+        .quantity > 0)
+      return true;
+    return boolToReturn;
+
+  }
+
+  void AnimatedIconToFellow() {
+    debugPrint('taille list ' +spellListShow.length.toString());
+    spellListShow.where((slot)=> slot == getEmptySlot()).length == 0?
+      animatedIconController.reverse()
+    :
+      animatedIconController.forward();
   }
 }

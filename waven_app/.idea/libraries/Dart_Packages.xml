@@ -58,6 +58,13 @@
             </list>
           </value>
         </entry>
+        <entry key="clippy_flutter">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/clippy_flutter-1.1.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="collection">
           <value>
             <list>
@@ -75,7 +82,7 @@
         <entry key="cookie_jar">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cookie_jar-0.0.7/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cookie_jar-0.0.8/lib" />
             </list>
           </value>
         </entry>
@@ -110,7 +117,7 @@
         <entry key="dio">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/dio-1.0.15/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/dio-1.0.17/lib" />
             </list>
           </value>
         </entry>
@@ -124,14 +131,14 @@
         <entry key="flare_dart">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_dart-1.2.1/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_dart-1.3.0/lib" />
             </list>
           </value>
         </entry>
         <entry key="flare_flutter">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_flutter-1.2.1/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_flutter-1.3.0/lib" />
             </list>
           </value>
         </entry>
@@ -163,6 +170,13 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_multi_carousel">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_multi_carousel-1.0.1/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_page_indicator">
           <value>
             <list>
@@ -170,10 +184,17 @@
             </list>
           </value>
         </entry>
+        <entry key="flutter_parallax">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_parallax-0.1.2/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="flutter_range_slider">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_range_slider-1.0.1/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_range_slider-1.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -229,14 +250,14 @@
         <entry key="folding_cell">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/folding_cell-0.1.0/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/folding_cell-0.1.1/lib" />
             </list>
           </value>
         </entry>
         <entry key="font_awesome_flutter">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/font_awesome_flutter-8.2.0/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/font_awesome_flutter-8.4.0/lib" />
             </list>
           </value>
         </entry>
@@ -257,7 +278,7 @@
         <entry key="html">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/html-0.13.3+3/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/html-0.13.4+1/lib" />
             </list>
           </value>
         </entry>
@@ -278,7 +299,7 @@
         <entry key="image">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/image-2.0.6/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/image-2.0.7/lib" />
             </list>
           </value>
         </entry>
@@ -292,7 +313,7 @@
         <entry key="intro_slider">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/intro_slider-1.1.4/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/intro_slider-1.1.5/lib" />
             </list>
           </value>
         </entry>
@@ -320,7 +341,7 @@
         <entry key="page_transition">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/page_transition-1.0.7/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/page_transition-1.0.9/lib" />
             </list>
           </value>
         </entry>
@@ -335,6 +356,13 @@
           <value>
             <list>
               <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/path_provider-0.4.1/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="pedantic">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/pedantic-1.4.0/lib" />
             </list>
           </value>
         </entry>
@@ -369,7 +397,7 @@
         <entry key="rubber">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/rubber-0.2.5/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/rubber-0.2.6/lib" />
             </list>
           </value>
         </entry>
@@ -404,7 +432,14 @@
         <entry key="source_span">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/source_span-1.4.1/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/source_span-1.5.4/lib" />
+            </list>
+          </value>
+        </entry>
+        <entry key="sqflite">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/sqflite-1.1.0/lib" />
             </list>
           </value>
         </entry>
@@ -429,6 +464,13 @@
             </list>
           </value>
         </entry>
+        <entry key="swipedetector">
+          <value>
+            <list>
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/swipedetector-1.2.0/lib" />
+            </list>
+          </value>
+        </entry>
         <entry key="synchronized">
           <value>
             <list>
@@ -439,14 +481,14 @@
         <entry key="term_glyph">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/term_glyph-1.0.1/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/term_glyph-1.1.0/lib" />
             </list>
           </value>
         </entry>
         <entry key="test_api">
           <value>
             <list>
-              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.2.1/lib" />
+              <option value="$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.2.2/lib" />
             </list>
           </value>
         </entry>
@@ -539,58 +581,64 @@
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/boolean_selector-1.0.4/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cached_network_image-0.5.1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/charcode-1.1.2/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/clippy_flutter-1.1.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/collection-1.14.11/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/convert-2.1.1/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cookie_jar-0.0.7/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/cookie_jar-0.0.8/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/crypto-2.0.6/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/csslib-0.14.6/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/date_format-1.0.6/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/dio-1.0.15/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/dio-1.0.17/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/esys_flutter_share-0.0.7/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_dart-1.2.1/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_flutter-1.2.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_dart-1.3.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flare_flutter-1.3.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flip_card-0.2.1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_cache_manager-0.2.0+1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.7.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_multi_carousel-1.0.1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_page_indicator-0.0.3/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_range_slider-1.0.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_parallax-0.1.2/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_range_slider-1.1.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_sequence_animation-3.0.1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_sidekick-0.1.3/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_slidable-0.4.9/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_spinkit-3.1.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_staggered_grid_view-0.2.7/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/flutter_swiper-1.1.4/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/folding_cell-0.1.0/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/font_awesome_flutter-8.2.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/folding_cell-0.1.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/font_awesome_flutter-8.4.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/giffy_dialog-1.2.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/gradient_app_bar-0.0.1/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/html-0.13.3+3/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/html-0.13.4+1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/http-0.12.0+1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/http_parser-3.1.3/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/image-2.0.6/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/image-2.0.7/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/intl-0.15.7/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/intro_slider-1.1.4/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/intro_slider-1.1.5/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/logging-0.11.3+2/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/matcher-0.12.3+1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/meta-1.1.6/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/page_transition-1.0.7/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/page_transition-1.0.9/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/path-1.6.2/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/path_provider-0.4.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/pedantic-1.4.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/petitparser-2.1.1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/photo_view-0.1.3/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/quiver-2.0.1/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/residemenu-1.2.5/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/rubber-0.2.5/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/rubber-0.2.6/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/share-0.5.3/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/shared_preferences-0.4.3/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/sliver_fab-1.0.0/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/source_span-1.4.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/source_span-1.5.4/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/sqflite-1.1.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/stack_trace-1.9.3/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/stream_channel-1.6.8/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/string_scanner-1.0.4/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/swipedetector-1.2.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/synchronized-1.5.3+2/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/term_glyph-1.0.1/lib" />
-      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.2.1/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/term_glyph-1.1.0/lib" />
+      <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/test_api-0.2.2/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/transformer_page_view-0.1.4/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/transparent_image-0.1.0/lib" />
       <root url="file://$USER_HOME$/AppData/Roaming/Pub/Cache/hosted/pub.dartlang.org/typed_data-1.1.6/lib" />

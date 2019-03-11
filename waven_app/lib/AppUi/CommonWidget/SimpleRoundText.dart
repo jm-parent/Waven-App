@@ -13,7 +13,7 @@ final String value;
       child: ClipRRect(
           borderRadius: new BorderRadius.circular(8.0),
           child: Container(
-            color: Colors.black,
+            color: Color(0xFF263238),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8,vertical: 4),
               child: Text(value),

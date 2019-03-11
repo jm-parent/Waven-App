@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/ColorsHelper.dart';
 
 Decoration DeckListGradientBackground(int offset)
 {
@@ -98,7 +99,7 @@ TextStyle TitleNewsStyle(BuildContext context)
 {
   final ThemeData theme = Theme.of(context);
   final TextStyle titleStyle =
-  theme.textTheme.headline.copyWith(color: Color.fromRGBO(0,226,255,1.0),fontSize: 15.0,fontFamily:"VT323" );
+  theme.textTheme.headline.copyWith(color: mainYellow(),fontSize: 15.0,fontFamily:"VT323" );
 
   return titleStyle;
 }
@@ -141,8 +142,13 @@ Color LightColor()
   return Color.fromRGBO(40,100,145,1.0);
 }
 
+
+Color LightColorConst()
+{
+  return const Color.fromRGBO(40,100,145,1.0);
+}
 Color WaventBlue()
 {
   return Color.fromRGBO(42,209,224,1.0);
 }
-
+const Color WavenBlue = Color.fromRGBO(42,209,224,1.0);

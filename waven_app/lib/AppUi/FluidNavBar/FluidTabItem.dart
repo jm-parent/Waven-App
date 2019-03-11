@@ -1,5 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 
 class FluidTabItem extends StatefulWidget {
@@ -25,7 +26,7 @@ const double TEXT_ON = 1;
 const double ALPHA_OFF = 0;
 const double ALPHA_ON = 1;
 const int ANIM_DURATION = 500;
-Color ICONCOLOR =  LightColor(); //Color(0xFF8c77ec);
+Color ICONCOLOR =  mainYellow(); //Color(0xFF8c77ec);
 class _FluidTabItemState extends State<FluidTabItem> {
 
   double iconYAlign = ICON_ON;

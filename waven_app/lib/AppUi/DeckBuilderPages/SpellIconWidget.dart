@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
-import 'package:waven_app/widgets/ShadowText.dart';
+import 'package:waven_app/widgets/OutlineText.dart';
 
 class SpellIconWidget extends StatelessWidget {
   final ResponseWavenApiSpell dataSpell;
@@ -37,9 +37,11 @@ class SpellIconWidget extends StatelessWidget {
           'images/SpellsImages/spell_pa_icon.png',
           height: height/2,
         ),
-        ShadowText(
+        OutlineText(
           dataSpell.cost.toString(),
-          style: TextStyle(fontSize: 17.0),
+          style: TextStyle(fontSize: 17.0,),
+          borderColor: Colors.black87,
+          innerColor: Colors.white,
         ),
       ])
     ]);

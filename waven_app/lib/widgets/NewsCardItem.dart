@@ -2,6 +2,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:html/parser.dart' as htmlParser;
+import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/pages/ArticleWebViewPage.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
@@ -43,7 +44,7 @@ class NewsCardItemState extends State<NewsCardItem> {
         );
       },
       child: new Card(
-        color: Color.fromRGBO(72, 61, 139, 0.4),
+        color: mainDarkBlueD2(),
         shape: widget.shape,
         child: new Column(
           crossAxisAlignment: CrossAxisAlignment.start,

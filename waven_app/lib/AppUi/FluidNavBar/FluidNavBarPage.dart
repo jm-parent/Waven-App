@@ -6,6 +6,7 @@ import 'package:waven_app/AppUi/FluidNavBar/FluidNavBar.dart';
 import 'package:waven_app/AppUi/FluidNavBar/FluidTabItem.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataPage.dart';
 import 'package:waven_app/AppUi/NewsSection/NewsAnimatedContainer.dart';
+import 'package:waven_app/AppUi/WavenToolsPage/WavenToolsPage.dart';
 import 'package:waven_app/pages/ComingSoonPage.dart';
 
 class FluidNavBarPage extends StatefulWidget {
@@ -34,7 +35,7 @@ class _FluidNavBarPageState extends State<FluidNavBarPage> {
     NewsAnimatedContainer(),
     GameDataPage(),
     DashboardPage(),
-    DeckBuilderListPage(),
+    WavenToolsPage(),
     AboutPage(),
   ];
 

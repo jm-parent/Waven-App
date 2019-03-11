@@ -6,12 +6,12 @@ import 'package:waven_app/util/ThemeHelper.dart';
 class DashboardTitleCat extends StatefulWidget {
 
   String titleCat;
-
+  bool centerTitle;
   bool isMoreShowed ;
-
+  final Color underlineColor;
   var pageToNavigate;
 
-  DashboardTitleCat({Key key, this.titleCat,this.isMoreShowed : false,this.pageToNavigate}): super(key: key);
+  DashboardTitleCat({Key key, this.titleCat,this.isMoreShowed : false,this.pageToNavigate, this.underlineColor : WavenBlue,this.centerTitle:false}): super(key: key);
   @override
   DashboardTitleCatState createState() {
     return new DashboardTitleCatState();
@@ -28,6 +28,7 @@ class DashboardTitleCatState extends State<DashboardTitleCat> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Row(
+             mainAxisAlignment: widget.centerTitle ? MainAxisAlignment.center:MainAxisAlignment.start,
               children: <Widget>[
                 Text(widget.titleCat , style: TextStyle(
                   fontStyle: FontStyle.italic,
@@ -42,7 +43,7 @@ class DashboardTitleCatState extends State<DashboardTitleCat> {
               ],
             ),
             SizedBox(height: 3.0,
-            child: Container(color: WaventBlue())),
+            child: Container(color: widget.underlineColor)),
           ],
         ),
       ),

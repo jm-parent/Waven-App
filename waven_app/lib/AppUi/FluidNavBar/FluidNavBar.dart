@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vector_math/vector_math.dart' as vector;
+import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/FluidNavBar/FluidTabItem.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 
@@ -133,11 +134,11 @@ class _FluidNavBarState extends State<FluidNavBar>
                   }),
               FluidTabItem(
                   selected: currentSelected == 3,
-                  iconData: FontAwesomeIcons.dice,
-                  title: "DeckBuilder",
+                  iconData: FontAwesomeIcons.toolbox,
+                  title: "Tools",
                   callbackFunction: () {
                     setState(() {
-                      nextIcon = FontAwesomeIcons.dice;
+                      nextIcon = FontAwesomeIcons.toolbox;
                       currentSelected = 3;
                       widget.callbackSelectedIndex(currentSelected);
                     });
@@ -251,7 +252,7 @@ class HalfClipper extends CustomClipper<Rect> {
   }
 }
 
-var barColor = DarkColor();
+var barColor = mainDarkBlue();
 
 class HalfPainter extends CustomPainter {
   @override

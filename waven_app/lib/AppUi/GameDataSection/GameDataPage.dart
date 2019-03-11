@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
 import 'package:waven_app/AppUi/GameDataSection/Companions/CompanionListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataCard.dart';
+import 'package:waven_app/AppUi/GameDataSection/GameDataCardV2.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClassesListPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryPage.dart';
@@ -20,93 +23,54 @@ class _GameDataPageState extends State<GameDataPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      scrollDirection: Axis.vertical,
-      children: <Widget>[
-        GameDataCard(
-          titleText: "Le Monde de Waven",
-          isEnableBackground: true,
-          urlImage:
-              "https://img.gaming.gentside.com/article/waven/waven-ios-android-pc-mac-date-de-sortie-trailers-news-et-gameplay-du-nouveau-jeu-de-strategie_459b1b896aa15ffb15029dfd53d7fc696f0f9666.jpg",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Lore,
-        ),
-        GameDataCard(
-          titleText: "Les Classes",
-          isEnableBackground: true,
-          urlImage:
-              "https://s.ankama.com/www/static.ankama.com/upload/backoffice/direct/2017-12-26/042bf8d4283d7dcbcf208578bc957b96.jpg",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Gods,
-        ),
-        GameDataCard(
-          titleText: "Les Shushus",
-          isEnableBackground: true,
-          urlImage:
-              "https://waven-game.com/wp-content/uploads/2018/11/Select_Perso_01.png",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Shushus,
-        ),
-        GameDataCard(
-          titleText: "Les Sorts",
-          isEnableBackground: true,
-          urlImage:
-              "https://i1.wp.com/tot-prod.blog/wp-content/uploads/2018/09/planche_comparatifs.png",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Spells,
-        ),
-        GameDataCard(
-          titleText: "Les Compagnons",
-          isEnableBackground: true,
-          urlImage:
-              "https://waven-game.com/wp-content/uploads/2018/10/fond-compagnons.jpg",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Companions,
-        ),
-//          GameDataCard(
-//            titleText: "Les Skins",
-//            isEnableBackground: true,
-//            urlImage:
-//                "https://i1.wp.com/tot-prod.blog/wp-content/uploads/2017/10/Capture-d%E2%80%99e%CC%81cran-2017-10-25-a%CC%80-16.17.29.png?w=1551&ssl=1",
-//            callbackOnTapNavigation:callbackNavigateTo,
-//            menu: GameDataMenu.Skins,
-//          ),
-        GameDataCard(
-          titleText: "Les Consommables",
-          isEnableBackground: true,
-          urlImage:
-              "https://s.ankama.com/www/static.ankama.com/shops/img/highlights/1073/mea_fr_950_310.jpg",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Consommables,
-        ),
-        GameDataCard(
-          titleText: "Les Modes de Jeu",
-          isEnableBackground: true,
-          urlImage:
-              "https://waven-game.com/wp-content/uploads/2018/11/Select_Mode_01.png",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.GameModes,
-        ),
-        GameDataCard(
-          titleText: "La Boutique",
-          isEnableBackground: true,
-          urlImage:
-              "https://www.breakflip.com/uploads/Dofus/Aluqat/t-shirts.jpg",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Market,
-        ),
-        GameDataCard(
-          titleText: "La Galerie",
-          isEnableBackground: true,
-          urlImage:
-          "https://imgur.com/nFDYrBV.png",
-          callbackOnTapNavigation:callbackNavigateTo,
-          menu: GameDataMenu.Gallery,
-        ),
-        SizedBox(
-          height: 70.0,
-        )
-      ],
+    return Scaffold(
+      backgroundColor: mainDarkBlueL1(),
+      appBar: WavenCompanionAppbar(),
+      body: ListView(
+        scrollDirection: Axis.vertical,
+        children: <Widget>[
+          GameDataCardV2(
+            titleTextP1: "Les",
+            titleTextP2: "Classes",
+            urlImage: "images/classes.png",
+            callbackOnTapNavigation:callbackNavigateTo,
+            menu: GameDataMenu.Gods,
+          ),
+          GameDataCardV2(
+            titleTextP1: "Les",
+            titleTextP2: "Armes",
+            isSwapped: true,
+            urlImage: "images/Sélection_Perso_Xélor.png",
+            callbackOnTapNavigation:callbackNavigateTo,
+            menu: GameDataMenu.Shushus,
+          ),
+          GameDataCardV2(
+            titleTextP1: "Les",
+            titleTextP2: "Sorts",
+            urlImage: "images/spells.png",
+            callbackOnTapNavigation:callbackNavigateTo,
+            menu: GameDataMenu.Spells,
+          ),
+          GameDataCardV2(
+            titleTextP1: "Les",
+            titleTextP2: "Compagnons",
+            isSwapped: true,
+            urlImage: "images/fond-compagnons.jpg",
+            callbackOnTapNavigation:callbackNavigateTo,
+            menu: GameDataMenu.Companions,
+          ),
+          GameDataCardV2(
+            titleTextP1: "Les modes",
+            titleTextP2: "de Jeu",
+            urlImage: "images/HavreIle_02.png",
+            callbackOnTapNavigation:callbackNavigateTo,
+            menu: GameDataMenu.GameModes,
+          ),
+   SizedBox(
+            height: 70.0,
+          )
+        ],
+      ),
     );
   }
 

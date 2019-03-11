@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class SimpleRoundButton extends StatelessWidget {
 
   final Color backgroundColor;
-  final Text buttonText;
+  final Widget buttonText;
   final Color textColor;
   final Function onPressed;
 

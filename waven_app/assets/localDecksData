@@ -1,0 +1,256 @@
+[
+  {
+  "_id": "5c746a5282879061819d3417",
+  "spells": [
+    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    },    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    },    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    },    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    },    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    },    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    },    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    },
+    {
+      "stockpile": 0,
+      "_id": "5c746c09f7d26861deb9f903",
+      "name": "Butoir",
+      "iconUrl": "https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_Butoir.png",
+      "description": "Inflige 4 dégâts.",
+      "cost": 5,
+      "resources": [
+        {
+          "_id": "5c746c09f7d26861deb9f904",
+          "element": "5be042c43fb2fa187ff753c1",
+          "quantity": 2
+        }
+      ],
+      "range": null,
+      "__v": 0
+    }
+  ],
+  "fellows": [
+    {
+      "spells": [
+        "5c63fbe8892af24eeb05c265"
+      ],
+      "passives": [
+        "5c63faa7892af24eeb05c255"
+      ],
+      "transfers": [],
+      "_id": "5c6c2499f2e7a36434c16a30",
+      "name": "Example Fellow",
+      "iconUrl": "",
+      "imageUrl": "",
+      "cost": [
+        {
+          "_id": "5c6c2499f2e7a36434c16a31",
+          "element": "5be042b63fb2fa187ff753c0",
+          "quantity": 0
+        }
+      ],
+      "life": 0,
+      "damage": 0,
+      "movement": 0,
+      "__v": 0,
+      "description": "Lorem Ipsum sa mère.",
+      "transfer": [
+        "5c6c26dba6dc36663f6f0711"
+      ]
+    }, {
+      "spells": [
+        "5c63fbe8892af24eeb05c265"
+      ],
+      "passives": [
+        "5c63faa7892af24eeb05c255"
+      ],
+      "transfers": [],
+      "_id": "5c6c2499f2e7a36434c16a30",
+      "name": "Example Fellow",
+      "iconUrl": "",
+      "imageUrl": "",
+      "cost": [
+        {
+          "_id": "5c6c2499f2e7a36434c16a31",
+          "element": "5be042b63fb2fa187ff753c0",
+          "quantity": 0
+        }
+      ],
+      "life": 0,
+      "damage": 0,
+      "movement": 0,
+      "__v": 0,
+      "description": "Lorem Ipsum sa mère.",
+      "transfer": [
+        "5c6c26dba6dc36663f6f0711"
+      ]
+    }, {
+      "spells": [
+        "5c63fbe8892af24eeb05c265"
+      ],
+      "passives": [
+        "5c63faa7892af24eeb05c255"
+      ],
+      "transfers": [],
+      "_id": "5c6c2499f2e7a36434c16a30",
+      "name": "Example Fellow",
+      "iconUrl": "",
+      "imageUrl": "",
+      "cost": [
+        {
+          "_id": "5c6c2499f2e7a36434c16a31",
+          "element": "5be042b63fb2fa187ff753c0",
+          "quantity": 0
+        }
+      ],
+      "life": 0,
+      "damage": 0,
+      "movement": 0,
+      "__v": 0,
+      "description": "Lorem Ipsum sa mère.",
+      "transfer": [
+        "5c6c26dba6dc36663f6f0711"
+      ]
+    }, {
+      "spells": [
+        "5c63fbe8892af24eeb05c265"
+      ],
+      "passives": [
+        "5c63faa7892af24eeb05c255"
+      ],
+      "transfers": [],
+      "_id": "5c6c2499f2e7a36434c16a30",
+      "name": "Example Fellow",
+      "iconUrl": "",
+      "imageUrl": "",
+      "cost": [
+        {
+          "_id": "5c6c2499f2e7a36434c16a31",
+          "element": "5be042b63fb2fa187ff753c0",
+          "quantity": 0
+        }
+      ],
+      "life": 0,
+      "damage": 0,
+      "movement": 0,
+      "__v": 0,
+      "description": "Lorem Ipsum sa mère.",
+      "transfer": [
+        "5c6c26dba6dc36663f6f0711"
+      ]
+    }
+  ],
+  "name": "Iop as F***",
+  "creatorName": "Iopi Iopa",
+  "creationDate": "2019-05-23T18:25:43.511Z",
+  "shortDescription": "Caeli dare potuit isti suspicioni locum",
+  "fullDescription": "Verum ad istam omnem orationem brevis est defensio. Nam quoad aetas M. Caeli dare potuit isti suspicioni locum, fuit primum ipsius pudore, deinde etiam patris diligentia disciplinaque munita.",
+  "weaponId": "5c746a5282879061819d3417",
+  "gameMode": "1v1",
+  "category":"fun"
+}
+]

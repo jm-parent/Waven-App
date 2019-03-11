@@ -5,7 +5,6 @@ import 'package:transformer_page_view/transformer_page_view.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderSkillBarPage.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClasseOfflineModel.dart';
-import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClassesItems.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusItems.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
 import 'package:waven_app/models/ShushuOfflineModel.dart';
