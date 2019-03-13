@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
 import 'package:waven_app/AppUi/DashboardSection/AnimatedClickableText.dart';
 import 'package:waven_app/AppUi/DashboardSection/HorizontalLastNewsList.dart';
@@ -223,10 +224,8 @@ setState(() {
                             child: new CachedNetworkImage(
                               imageUrl: news.content.images.first,
                               fit: BoxFit.cover,
-                              placeholder: new Center(
-                                child: Container(),
-                              ),
-                              errorWidget: new Icon(Icons.error),
+                              placeholder: (context, url) => SnapshotLoadingIndicator(),
+                              errorWidget: (context, url, error) => new Icon(Icons.error),
                             ),
                           ),
                           Positioned.fill(
@@ -424,34 +423,26 @@ setState(() {
                           CachedNetworkImage(
                             imageUrl: 'https://i1.wp.com/blog.waven-game.com/wp-content/uploads/2019/02/Compagnon_Nox.png?fit=800%2C250&ssl=1',
                             fit: BoxFit.cover,
-                            placeholder: new Center(
-                              child: new CircularProgressIndicator(),
-                            ),
-                            errorWidget: new Icon(Icons.error),
+                            placeholder: (context, url) => SnapshotLoadingIndicator(),
+                            errorWidget: (context, url, error) => new Icon(Icons.error),
                           ),
                           CachedNetworkImage(
                             imageUrl: 'https://i2.wp.com/blog.waven-game.com/wp-content/uploads/2019/02/Compagnon_Yugo.png?fit=800%2C250&ssl=1',
                             fit: BoxFit.cover,
-                            placeholder: new Center(
-                              child: new CircularProgressIndicator(),
-                            ),
-                            errorWidget: new Icon(Icons.error),
+                            placeholder: (context, url) => SnapshotLoadingIndicator(),
+                            errorWidget: (context, url, error) => new Icon(Icons.error),
                           ),
                           CachedNetworkImage(
                             imageUrl: 'https://i2.wp.com/blog.waven-game.com/wp-content/uploads/2019/02/Compagnon_SacrieurPaladir.png?fit=800%2C250&ssl=1',
                             fit: BoxFit.cover,
-                            placeholder: new Center(
-                              child: new CircularProgressIndicator(),
-                            ),
-                            errorWidget: new Icon(Icons.error),
+                            placeholder: (context, url) => SnapshotLoadingIndicator(),
+                            errorWidget: (context, url, error) => new Icon(Icons.error),
                           ),
                           CachedNetworkImage(
                             imageUrl: 'https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/02/Compagnon_PaladirEnutrof.png?fit=800%2C250&ssl=1',
                             fit: BoxFit.cover,
-                            placeholder: new Center(
-                              child: new CircularProgressIndicator(),
-                            ),
-                            errorWidget: new Icon(Icons.error),
+                            placeholder: (context, url) => SnapshotLoadingIndicator(),
+                            errorWidget: (context, url, error) => new Icon(Icons.error),
                           ),
                         ],
                       ),
@@ -469,75 +460,57 @@ children: <Widget>[
     child: CachedNetworkImage(
       imageUrl: 'https://i1.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Heros_chevalierIOP_trancher.png?w=800&ssl=1',
       fit: BoxFit.cover,
-      placeholder: new Center(
-        child: new CircularProgressIndicator(),
-      ),
-      errorWidget: new Icon(Icons.error),
+      placeholder: (context, url) => SnapshotLoadingIndicator(),
+      errorWidget: (context, url, error) => new Icon(Icons.error),
     ),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Air_Uppercut.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i2.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Air_Rafale.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Eau_Tsunami.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i2.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Terre_HeurtdeGloire.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Air_Brise.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i0.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Multi_Legendarus.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i2.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Multi_SolAccelerateur.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
   CachedNetworkImage(
     imageUrl: 'https://i1.wp.com/blog.waven-game.com/wp-content/uploads/2019/01/Spell_Iop_Feu_Fulgur.png?w=60%25&ssl=1',
     fit: BoxFit.cover,
-    placeholder: new Center(
-      child: new CircularProgressIndicator(),
-    ),
-    errorWidget: new Icon(Icons.error),
+    placeholder: (context, url) => SnapshotLoadingIndicator(),
+    errorWidget: (context, url, error) => new Icon(Icons.error),
   ),
 ],
                       ),

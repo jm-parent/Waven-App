@@ -59,10 +59,10 @@ class NewsCardItemState extends State<NewsCardItem> {
                   new CachedNetworkImage(
                     imageUrl: imgUrl,
                     fit: BoxFit.cover,
-                    placeholder: new Center(
+                    placeholder:(context, url) =>  new Center(
                       child: new CircularProgressIndicator(),
                     ),
-                    errorWidget: new Icon(Icons.error),
+                    errorWidget:(context, url,error) =>  new Icon(Icons.error),
                   ),
                   ),
 

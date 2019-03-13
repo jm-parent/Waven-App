@@ -7,12 +7,12 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:share/share.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/BorderContainer.dart';
 import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
 import 'package:waven_app/AppUi/CommonWidget/ElementalWavenWidget.dart';
 import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
+import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/CommonWidget/TitleWavenWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderFellowBarPage.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
@@ -434,10 +434,8 @@ void dispose(){
       height: ScreenAwareHelper.screenAwareSize(spellIconSize, context),
       imageUrl: urlEmptyDragTarget,
       fit: BoxFit.cover,
-      placeholder: new Center(
-        child: new CircularProgressIndicator(),
-      ),
-      errorWidget: new Icon(Icons.error),
+      placeholder: (context, url) => SnapshotLoadingIndicator(),
+      errorWidget: (context, url, error) => new Icon(Icons.error),
     );
   }
 
@@ -511,10 +509,8 @@ void dispose(){
           ScreenAwareHelper.screenAwareSize(spellIconSize * factor, context),
       imageUrl: data.iconUrl,
       fit: BoxFit.cover,
-      placeholder: new Center(
-        child: new CircularProgressIndicator(),
-      ),
-      errorWidget: new Icon(Icons.error),
+      placeholder: (context, url) => SnapshotLoadingIndicator(),
+      errorWidget: (context, url, error) => new Icon(Icons.error),
     );
   }
 
@@ -541,7 +537,7 @@ void dispose(){
     spellListShow.forEach((spell) => code += '${spell.name},');
     code = code.substring(0, code.length - 1);
     code += ']';
-    Share.share("Regarde mon deck : ${code}");
+    //Share.share("Regarde mon deck : ${code}");
   }
 
   takeScreenShot() async {

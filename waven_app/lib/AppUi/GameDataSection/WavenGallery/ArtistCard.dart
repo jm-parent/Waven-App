@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryItems.dart';
 import 'package:waven_app/util/ThemeHelper.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -57,10 +58,8 @@ class _ArtistCardState extends State<ArtistCard> {
                 child: CachedNetworkImage(
                   imageUrl: galleryFiltered[index].imageUrl,
                   fit: BoxFit.cover,
-                  placeholder: new Center(
-                    child: new CircularProgressIndicator(),
-                  ),
-                  errorWidget: new Icon(Icons.error),
+                  placeholder: (context, url) => SnapshotLoadingIndicator(),
+                  errorWidget: (context, url, error) => new Icon(Icons.error),
                 ),
               ),
           );

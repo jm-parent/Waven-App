@@ -70,10 +70,8 @@ class _SpellsListPageState extends State<SpellsListPage> {
                     child: CachedNetworkImage(
                       imageUrl: snapshot.data[index].iconUrl,
                       fit: BoxFit.cover,
-                      placeholder: new Center(
-                        child: new CircularProgressIndicator(),
-                      ),
-                      errorWidget: new Icon(Icons.error),
+                      placeholder: (context, url) => SnapshotLoadingIndicator(),
+                      errorWidget: (context, url, error) => new Icon(Icons.error),
                     ),
                   ),
                 ],

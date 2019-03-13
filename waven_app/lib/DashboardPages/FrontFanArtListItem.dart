@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/models/DashboardFanArtItemModel.dart';
 
 class FrontFanArtListItem extends StatelessWidget {
@@ -26,8 +27,8 @@ class FrontFanArtListItem extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: fanArt.imageNetUrl,
                   fit: BoxFit.cover,
-                  placeholder: new CircularProgressIndicator(),
-                  errorWidget: new Icon(Icons.error),
+                  placeholder: (context, url) => SnapshotLoadingIndicator(),
+                  errorWidget: (context, url, error) => new Icon(Icons.error),
                 ),
               ),
               Positioned(

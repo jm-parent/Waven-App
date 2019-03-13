@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
 import 'package:waven_app/widgets/OutlineText.dart';
 
@@ -25,10 +26,8 @@ class SpellIconWidget extends StatelessWidget {
           height: height,
           imageUrl: dataSpell.iconUrl,
           fit: BoxFit.cover,
-          placeholder: new Center(
-            child: new CircularProgressIndicator(),
-          ),
-          errorWidget: new Icon(Icons.error),
+          placeholder: (context, url) => SnapshotLoadingIndicator(),
+          errorWidget: (context, url, error) => new Icon(Icons.error),
         ),
       ),
       dataSpell.cost == null ? SizedBox(height: height/2,):

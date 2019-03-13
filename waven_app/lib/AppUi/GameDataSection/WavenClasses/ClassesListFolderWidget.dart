@@ -60,13 +60,8 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
                     alignment: FractionalOffset.topCenter,
                     imageUrl: widget.data.imageUrl,
                     fit: BoxFit.cover,
-                    placeholder: new Center(
-                      child: new SpinKitThreeBounce(
-                        color: LightColor(),
-                        size: 30,
-                      ),
-                    ),
-                    errorWidget: new Icon(Icons.error),
+              placeholder: (context, url) => SnapshotLoadingIndicator(),
+              errorWidget: (context, url, error) => new Icon(Icons.error),
                   ),
           ),
           Container(
@@ -182,10 +177,8 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
                 CachedNetworkImage(
                   imageUrl: weapon.imageUrl,
                   fit: BoxFit.cover,
-                  placeholder: new Center(
-                    child: new SnapshotLoadingIndicator(),
-                  ),
-                  errorWidget: Image.asset('images/ShushusImages/ShushusSkill/default.png', height: 40,width: 40,),
+                  placeholder: (context, url) => new SnapshotLoadingIndicator(),
+                  errorWidget: (context, url, error) => Image.asset('images/ShushusImages/ShushusSkill/default.png', height: 40,width: 40,),
                 ),
               ),
               Positioned(
@@ -200,10 +193,8 @@ class _ClassesListFolderWidgetState extends State<ClassesListFolderWidget> {
                   width: 40,
                   imageUrl: weapon.spells[0].iconUrl,
                   fit: BoxFit.cover,
-                  placeholder: new Center(
-                    child: new SnapshotLoadingIndicator(),
-                  ),
-                  errorWidget:Image.asset('images/ShushusImages/ShushusSkill/default.png', height: 40,width: 40,),
+                  placeholder: (context, url) => new SnapshotLoadingIndicator(),
+                  errorWidget: (context, url, error) => Image.asset('images/ShushusImages/ShushusSkill/default.png', height: 40,width: 40,),
                 ),
               ),
             ]),

@@ -189,10 +189,8 @@ class _AddNewMatchPopupState extends State<AddNewMatchPopup>
                             child: CachedNetworkImage(
                               imageUrl: allWeaponsData[i].imageUrl,
                               fit: BoxFit.cover,
-                              placeholder: new Center(
-                                child: SnapshotLoadingIndicator(),
-                              ),
-                              errorWidget: new Icon(Icons.error),
+                              placeholder: (context, url) => SnapshotLoadingIndicator(),
+                              errorWidget: (context, url, error) => new Icon(Icons.error),
                             ))));
               },
             ),
@@ -245,10 +243,8 @@ class _AddNewMatchPopupState extends State<AddNewMatchPopup>
                             child: CachedNetworkImage(
                               imageUrl: allWeaponsData[i].imageUrl,
                               fit: BoxFit.cover,
-                              placeholder: new Center(
-                                child: SnapshotLoadingIndicator(),
-                              ),
-                              errorWidget: new Icon(Icons.error),
+                              placeholder: (context, url) => SnapshotLoadingIndicator(),
+                              errorWidget: (context, url, error) => new Icon(Icons.error),
                             ))));
               },
             ),

@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/WavenToolsPage/WavenToolsMenuModel.dart';
 
 class WavenMiniToolCard extends StatefulWidget {
@@ -32,8 +33,8 @@ class _WavenMiniToolCardState extends State<WavenMiniToolCard> {
                     child: CachedNetworkImage(
                       imageUrl: widget.model.imageUrl,
                       fit: BoxFit.cover,
-                      placeholder: Container(),
-                      errorWidget: new Icon(Icons.error),
+                      placeholder: (context, url) => SnapshotLoadingIndicator(),
+                      errorWidget: (context, url, error) => new Icon(Icons.error),
                     ),
                   ),
                 ),

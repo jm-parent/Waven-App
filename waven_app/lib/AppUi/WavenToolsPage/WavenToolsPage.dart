@@ -7,6 +7,7 @@ import 'package:waven_app/AppUi/WavenToolsPage/Tracker/HistoTrackerPage.dart';
 import 'package:waven_app/AppUi/WavenToolsPage/WavenMiniToolCard.dart';
 import 'package:waven_app/AppUi/WavenToolsPage/WavenToolCard.dart';
 import 'package:waven_app/AppUi/WavenToolsPage/WavenToolsMenuModel.dart';
+import 'package:waven_app/AppUi/WavenToolsPage/WeaponMaker/WeaponMakerPage.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
 
 class WavenToolsPage extends StatefulWidget {
@@ -76,6 +77,13 @@ class _WavenToolsPageState extends State<WavenToolsPage> {
                 titleTextP2: "Meta",
                 urlImage: "images/DeckBuilder/deckbuilder.png",
                 navigateTo:DeckBuilderListPage(),
+              ),
+              WavenToolCard(
+                isSwapped: true,
+                titleTextP1: "Weapon",
+                titleTextP2: "Maker",
+                urlImage: "images/DeckBuilder/deckbuilder.png",
+                navigateTo:WeaponMakerPage(),
               ),
             ],
           ),
