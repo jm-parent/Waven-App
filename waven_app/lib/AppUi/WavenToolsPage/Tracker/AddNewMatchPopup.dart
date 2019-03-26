@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_multi_carousel/carousel.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/RadioToggleButton.dart';
@@ -7,8 +8,6 @@ import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/Database/Models/HistoDeckDbModel.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiWeapons.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
-import 'package:waven_app/widgets/CarouselSlider.dart';
-import 'package:flutter_multi_carousel/carousel.dart';
 
 class AddNewMatchPopup extends StatefulWidget {
   final String imageUrl;

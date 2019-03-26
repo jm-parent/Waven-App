@@ -1,17 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:folding_cell/folding_cell/widget.dart';
-import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/Clippers/BottomWaveClipper.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiClasses.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiDetailledClass.dart';
-import 'package:waven_app/util/ClassToAnythingHelper.dart';
-import 'package:waven_app/util/GradientHelper.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
+import 'package:waven_app/AppUi/SimpleFoldingCell.dart';
+import 'package:waven_app/AppUi/Utils/ClassToAnythingHelper.dart';
+import 'package:waven_app/AppUi/Utils/GradientHelper.dart';
 
 class ClassesListFolderWidget extends StatefulWidget {
   final ResponseWavenApiClass data;

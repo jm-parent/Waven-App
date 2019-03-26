@@ -1,7 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:waven_app/ShushusPages/ShushuDetailPage.dart';
-import 'package:waven_app/ShushusPages/ShushuStatContainer.dart';
 import 'package:waven_app/models/CardFlipperModel.dart';
 
 class CardFlipperItem extends StatelessWidget {
@@ -87,7 +85,5 @@ class CardFlipperItem extends StatelessWidget {
 }
 
 void _NavigateToDetail(CardFlipperModel viewModel, BuildContext context) {
-  Navigator.push(context, new CupertinoPageRoute(builder: (context) {
-    return new ShushuDetailPage(idWeapon: 497,);
-  }));
+
 }

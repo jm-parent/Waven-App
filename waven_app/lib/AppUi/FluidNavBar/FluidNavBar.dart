@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/FluidNavBar/FluidTabItem.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
 
 class FluidNavBar extends StatefulWidget {
 

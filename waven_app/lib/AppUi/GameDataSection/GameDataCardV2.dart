@@ -1,9 +1,10 @@
+import 'dart:math' as math;
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
-import 'package:waven_app/util/widget_utils.dart';
-import 'dart:math' as math;
+import 'package:waven_app/AppUi/Utils/widget_utils.dart';
 
 class GameDataCardV2 extends StatefulWidget {
   final String titleTextP1;

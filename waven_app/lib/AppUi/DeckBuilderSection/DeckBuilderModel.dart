@@ -1,6 +1,5 @@
 
 import 'package:waven_app/AppUi/GameDataSection/WavenClasses/ClasseOfflineModel.dart';
-import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
 import 'package:waven_app/models/ShushuOfflineModel.dart';
 
 class DeckBuilderModel {

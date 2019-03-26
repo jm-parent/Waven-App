@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:webfeed/domain/rss_feed.dart';
 import 'package:http/http.dart' as http;
+import 'package:webfeed/domain/rss_feed.dart';
 import 'package:webfeed/domain/rss_item.dart';
-import 'package:date_format/date_format.dart';
 
 class HorizontalLastNewsList extends StatefulWidget {
   @override

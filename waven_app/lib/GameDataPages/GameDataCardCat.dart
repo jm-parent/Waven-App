@@ -1,6 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:waven_app/DashboardPages/DashboardDescCat.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
 
 class GameDataCardCat extends StatefulWidget {

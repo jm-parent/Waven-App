@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushuSkins/ShushuSkinsPage.dart';
-import 'package:waven_app/AppUi/GameDataSection/WavenShushus/Widgets/ShushusDetailTileName.dart';
 import 'package:waven_app/models/ShushuOfflineModel.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
 
 class ShushusDetailPage extends StatefulWidget {
 

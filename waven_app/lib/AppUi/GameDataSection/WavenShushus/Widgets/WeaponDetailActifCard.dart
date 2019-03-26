@@ -1,15 +1,10 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/NumberSlider.dart';
 import 'package:waven_app/AppUi/CommonWidget/TitleWavenWidget.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/Widgets/WeaponDetailEnterAnim.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiDetailledClass.dart';
-import 'package:waven_app/AppUi/Models/ResponseWavenApiDetailledSpell.dart';
-import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
-import 'package:waven_app/widgets/NumberPicker.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
 
 class WeaponDetailActifCard extends StatefulWidget {
   final Weapon weaponData;

@@ -1,15 +1,17 @@
 import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flip_card/flip_card.dart';
+import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_range_slider/flutter_range_slider.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/BorderContainer.dart';
-import 'package:waven_app/AppUi/CommonWidget/Buttons/SimpleRoundButton.dart';
 import 'package:waven_app/AppUi/CommonWidget/ElementalWavenWidget.dart';
 import 'package:waven_app/AppUi/CommonWidget/SimpleRoundText.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
@@ -17,14 +19,11 @@ import 'package:waven_app/AppUi/CommonWidget/TitleWavenWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderFellowBarPage.dart';
 import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
-import 'package:flutter_range_slider/flutter_range_slider.dart';
 import 'package:waven_app/AppUi/Models/CommonDataForModel.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
-import 'dart:ui' as ui;
-import 'package:esys_flutter_share/esys_flutter_share.dart';
-import 'package:waven_app/util/GradientHelper.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
-import 'package:waven_app/util/widget_utils.dart';
+import 'package:waven_app/AppUi/Utils/GradientHelper.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
+import 'package:waven_app/AppUi/Utils/widget_utils.dart';
 
 class DeckBuilderSkillBarPage extends StatefulWidget {
   final DeckBuilderModel deckData;
@@ -741,22 +740,22 @@ void dispose(){
                                     children: <Widget>[
                                      Expanded(
                                        child: RaisedButton(
-                                         shape: new RoundedRectangleBorder(
-                                             borderRadius: new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(4, context))),
-                                         splashColor: bgButtonClickedColor,
-                                         color: isFireSelected ? bgButtonClickedColor : bgButtonColor ,
-                                         child:  Padding(
-                                           padding: const EdgeInsets.all(8.0),
-                                           child: Image.asset('images/SpellsImages/symbol_fire.png',height: ScreenAwareHelper.screenAwareSize(30, context),),
-                                         ),
-                                         onPressed:(){
-                                           setState(() {
-                                             isFireSelected = !isFireSelected;
-                                           });
-                                         }
-
-                                         ,
+                                       shape: new RoundedRectangleBorder(
+                                           borderRadius: new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(4, context))),
+                                       splashColor: bgButtonClickedColor,
+                                       color: isFireSelected ? bgButtonClickedColor : bgButtonColor ,
+                                       child:  Padding(
+                                         padding: const EdgeInsets.all(8.0),
+                                         child: Image.asset('images/SpellsImages/symbol_fire.png',height: ScreenAwareHelper.screenAwareSize(30, context),),
                                        ),
+                                       onPressed:(){
+                                         setState(() {
+                                           isFireSelected = !isFireSelected;
+                                         });
+                                       }
+
+                                       ,
+                                     ),
                                      ),
                                      Expanded(
                                        child: RaisedButton(

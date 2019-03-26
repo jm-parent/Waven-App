@@ -1,13 +1,8 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:clippy_flutter/point.dart';
 import 'package:flutter/material.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/GameDataSection/GameDataHelper.dart';
-import 'package:waven_app/DashboardPages/DashboardDescCat.dart';
-import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
-import 'package:waven_app/util/widget_utils.dart';
-import 'package:clippy_flutter/point.dart';
+import 'package:waven_app/AppUi/Utils/widget_utils.dart';
 
 class GameDataCard extends StatefulWidget {
   final String titleText;

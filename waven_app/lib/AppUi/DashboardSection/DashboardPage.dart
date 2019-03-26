@@ -1,26 +1,27 @@
+import 'package:after_layout/after_layout.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/AppUi/ComingSoonContainer.dart';
+import 'package:waven_app/AppUi/CommonWidget/CarouselSlider.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
 import 'package:waven_app/AppUi/DashboardSection/AnimatedClickableText.dart';
-import 'package:waven_app/AppUi/DashboardSection/HorizontalLastNewsList.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderListPage.dart';
 import 'package:waven_app/AppUi/FaqPage.dart';
 import 'package:waven_app/DashboardPages/DashboardTitleCat.dart';
-import 'package:waven_app/widgets/CarouselSlider.dart';
 import 'package:webfeed/domain/rss_feed.dart';
 import 'package:webfeed/domain/rss_item.dart';
-import 'package:http/http.dart' as http;
 
 class DashboardPage extends StatefulWidget {
   @override
   _DashboardPageState createState() => _DashboardPageState();
 }
 
-class _DashboardPageState extends State<DashboardPage> with SingleTickerProviderStateMixin {
+class _DashboardPageState extends State<DashboardPage> with SingleTickerProviderStateMixin , AfterLayoutMixin<DashboardPage> {
   var headerHeight = 250.0;
 
   @override
@@ -150,10 +151,13 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
   @override
   void initState() {
     this._getNewsData();
-setState(() {
-  _selectedCatDeck = DeckCategory.Standard;
-});
+
     super.initState();
+  }
+  @override
+  void afterFirstLayout(BuildContext context) {
+    // Calling the same function "after layout" to resolve the issue.
+    StandardDeckCat.currentState.forwardMe();
   }
 
   var client = new http.Client();
@@ -318,7 +322,7 @@ setState(() {
         CompetitiveDeckCat.currentState.reverseMe();
         PveDeckCat.currentState.reverseMe();
         setState(() {
-          deckListToShow = deckListStandard;
+         // deckListToShow = deckListStandard;
         });
       }
       else if(_selectedCatDeck == DeckCategory.Competitif)
@@ -326,7 +330,7 @@ setState(() {
           StandardDeckCat.currentState.reverseMe();
           PveDeckCat.currentState.reverseMe();
           setState(() {
-            deckListToShow = deckListCompetitive;
+          //  deckListToShow = deckListCompetitive;
           });
         }
     else if(_selectedCatDeck == DeckCategory.PvE)
@@ -334,7 +338,7 @@ setState(() {
       StandardDeckCat.currentState.reverseMe();
       CompetitiveDeckCat.currentState.reverseMe();
       setState(() {
-        deckListToShow = deckListPve;
+       // deckListToShow = deckListPve;
       });
     }
 
@@ -359,7 +363,7 @@ setState(() {
 
   _BuildPopularDeckList() {
     return Container(
-      height: 400,
+      height: 300,
       child: Column(
         children: <Widget>[
           Container(
@@ -375,8 +379,14 @@ setState(() {
             ),
           ),
           Expanded(
-            child: Column(
-              children: deckListToShow  ,
+            child: ComingSoonContainer(
+              child: Column(
+               // children: deckListToShow  ,
+                children: <Widget>[
+                  buildDeck(mainDarkBlueD1()),
+                  buildDeck(mainDarkBlue()),
+                ],
+              ),
             ),
           )
         ],

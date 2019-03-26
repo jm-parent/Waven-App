@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:waven_app/AppUi/CommonWidget/OutlineText.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
-import 'package:waven_app/widgets/OutlineText.dart';
 
 class SpellIconWidget extends StatelessWidget {
   final ResponseWavenApiSpell dataSpell;

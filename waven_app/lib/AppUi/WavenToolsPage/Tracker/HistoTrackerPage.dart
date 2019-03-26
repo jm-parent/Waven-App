@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/Database/Database.dart';
 import 'package:waven_app/AppUi/Database/Models/HistoDeckDbModel.dart';
-import 'package:waven_app/AppUi/WavenToolsPage/Tracker/AddNewMatchPopup.dart';
+import 'package:waven_app/AppUi/WavenToolsPage/Tracker/RecordNewMatchPage.dart';
 
 class HistoTrackerPage extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _HistoTrackerPageState extends State<HistoTrackerPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: mainDarkBlueL1(),
-      appBar: AppBar(title: Text("Mon historique")),
+      appBar: AppBar(title: Text("Mon historique"),backgroundColor:mainDarkBlue() ,),
       body: FutureBuilder<List<HistoDeckDbModel>>(
         future: DBProvider.db.getAllHistoDeckDbModels(),
         builder: (BuildContext context,
@@ -43,23 +44,11 @@ class _HistoTrackerPageState extends State<HistoTrackerPage> {
         },
       ),
       floatingActionButton: FloatingActionButton(
-          child: Icon(Icons.add_circle),
+          child: Icon(Icons.add),
+          backgroundColor: mainYellowD3(),
           onPressed: () {
-            showDialog(
-                context: context,
-                builder: (_) => AddNewMatchPopup(
-                      imageUrl:
-                          "https://raw.githubusercontent.com/Shashank02051997/FancyGifDialog-Android/master/GIF's/gif14.gif",
-                      title: Text('Granny Eating Chocolate',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 22.0, fontWeight: FontWeight.w600)),
-                      description: Text(
-                        'This is a granny eating chocolate dialog box.This library helps you easily create fancy giffy dialog',
-                        textAlign: TextAlign.center,
-                      ),
-                      onOkButtonPressed: saveGame,
-                    ));
+            Navigator.push(context,
+                PageTransition(type: PageTransitionType.rightToLeft, child: RecordNewMatchPage()));
           }
           ),
     );

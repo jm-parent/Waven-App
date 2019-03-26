@@ -4,8 +4,8 @@ import 'package:waven_app/AppUi/DeckBuilderPages/SpellIconWidget.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiFellow.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
-import 'package:waven_app/util/widget_utils.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
+import 'package:waven_app/AppUi/Utils/widget_utils.dart';
 
 class DeckBuilderFullDeckPage extends StatefulWidget {
   final DeckBuilderModel deckData;

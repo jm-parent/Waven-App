@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:waven_app/util/EnumHelper.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
 
 class DashboardTitleCat extends StatefulWidget {
 
@@ -10,8 +9,8 @@ class DashboardTitleCat extends StatefulWidget {
   bool isMoreShowed ;
   final Color underlineColor;
   var pageToNavigate;
-
-  DashboardTitleCat({Key key, this.titleCat,this.isMoreShowed : false,this.pageToNavigate, this.underlineColor : WavenBlue,this.centerTitle:false}): super(key: key);
+  final double titleFontSize;
+  DashboardTitleCat({Key key, this.titleCat,this.isMoreShowed : false,this.pageToNavigate, this.underlineColor : WavenBlue,this.centerTitle:false, this.titleFontSize : 30.0}): super(key: key);
   @override
   DashboardTitleCatState createState() {
     return new DashboardTitleCatState();
@@ -33,7 +32,7 @@ class DashboardTitleCatState extends State<DashboardTitleCat> {
                 Text(widget.titleCat , style: TextStyle(
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.bold,
-                  fontSize: 30.0,
+                  fontSize:widget.titleFontSize,
                   fontFamily: "BebasNeue",
                 ),
                 ),

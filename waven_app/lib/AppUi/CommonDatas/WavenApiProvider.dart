@@ -1,12 +1,12 @@
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
 import 'package:waven_app/AppUi/Models/ResponseWavenApiClasses.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiDetailledClass.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiDetailledSpell.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiElements.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiFellow.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
-import 'package:http/http.dart' as http;
 import 'package:waven_app/AppUi/Models/ResponseWavenApiWeapons.dart';
 import 'package:waven_app/AppUi/Models/WavenApiMockedDatas.dart';
 

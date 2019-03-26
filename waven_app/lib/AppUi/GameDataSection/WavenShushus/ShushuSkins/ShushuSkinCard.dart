@@ -1,6 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
 
 class ShushuSkinCard extends StatefulWidget {
 

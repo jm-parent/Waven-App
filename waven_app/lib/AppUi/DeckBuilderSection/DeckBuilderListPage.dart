@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:transformer_page_view/transformer_page_view.dart';
 import 'package:waven_app/AppUi/CommonDatas/WavenApiProvider.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderShushuSelectPage.dart';
-import 'package:transformer_page_view/transformer_page_view.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiClasses.dart';
 
 class DeckBuilderListPage extends StatefulWidget {

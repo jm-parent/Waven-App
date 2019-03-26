@@ -1,13 +1,12 @@
 import 'dart:async';
-import 'package:waven_app/AppUi/ColorsHelper.dart';
-import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
-import 'package:waven_app/AppUi/NewsSection/NewsEnterAnimation.dart';
-import 'package:waven_app/GenWidgets/WavenPageWithBackground.dart';
-import 'package:webfeed/webfeed.dart';
+
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:waven_app/widgets/NewsCardItem.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:http/http.dart' as http;
+import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
+import 'package:waven_app/AppUi/NewsSection/NewsCardItem.dart';
+import 'package:waven_app/AppUi/NewsSection/NewsEnterAnimation.dart';
+import 'package:webfeed/webfeed.dart';
 
 class NewsPage extends StatefulWidget {
 

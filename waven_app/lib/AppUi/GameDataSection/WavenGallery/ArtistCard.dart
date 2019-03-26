@@ -1,9 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:waven_app/AppUi/CommonWidget/SnapshotNullLoadingIndicator.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryItems.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ArtistCard extends StatefulWidget {
 

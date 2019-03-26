@@ -1,8 +1,8 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/CommonWidget/TitleWavenWidget.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
-import 'package:waven_app/util/widget_utils.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
+import 'package:waven_app/AppUi/Utils/widget_utils.dart';
 
 class FaqPage extends StatefulWidget {
   @override

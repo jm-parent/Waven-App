@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
 
 class TitleWavenWidget extends StatefulWidget {
 

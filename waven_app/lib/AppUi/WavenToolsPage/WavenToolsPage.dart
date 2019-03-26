@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/AppUi/ComingSoonContainer.dart';
 import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderListPage.dart';
 import 'package:waven_app/AppUi/WavenToolsPage/Stats/MyStatsPage.dart';
@@ -33,7 +34,7 @@ class _WavenToolsPageState extends State<WavenToolsPage> {
                     underlineColor: mainYellow(),
                     isMoreShowed: false),
                 Expanded(
-                  child:_buildHorizontalRecentList()
+                  child: ComingSoonContainer(child: _buildHorizontalRecentList()),
                 ),
               ],
             ),
@@ -52,31 +53,39 @@ class _WavenToolsPageState extends State<WavenToolsPage> {
                 urlImage: "images/DeckBuilder/deckbuilder.png",
                 navigateTo:HistoTrackerPage(),
               ),
-              WavenToolCard(
-                titleTextP1: "Mes",
-                titleTextP2: "Stats",
-                urlImage: "images/DeckBuilder/deckbuilder.png",
-                navigateTo:MyStatsPage(),
-                isSwapped: true,
+              ComingSoonContainer(
+                child: WavenToolCard(
+                  titleTextP1: "Mes",
+                  titleTextP2: "Stats",
+                  urlImage: "images/DeckBuilder/deckbuilder.png",
+                  navigateTo:MyStatsPage(),
+                  isSwapped: true,
+                ),
               ),
-              WavenToolCard(
-                titleTextP1: "Mes",
-                titleTextP2: "Decks",
-                urlImage: "images/DeckBuilder/deckbuilder.png",
-                navigateTo:DeckBuilderListPage(),
+              ComingSoonContainer(
+                child: WavenToolCard(
+                  titleTextP1: "Mes",
+                  titleTextP2: "Decks",
+                  urlImage: "images/DeckBuilder/deckbuilder.png",
+                  navigateTo:DeckBuilderListPage(),
+                ),
               ),
-              WavenToolCard(
-                titleTextP1: "Deck",
-                titleTextP2: "Builder",
-                urlImage: "images/DeckBuilder/deckbuilder.png",
-                navigateTo:DeckBuilderListPage(),
-                isSwapped: true,
+              ComingSoonContainer(
+                child: WavenToolCard(
+                  titleTextP1: "Deck",
+                  titleTextP2: "Builder",
+                  urlImage: "images/DeckBuilder/deckbuilder.png",
+                  navigateTo:DeckBuilderListPage(),
+                  isSwapped: true,
+                ),
               ),
-              WavenToolCard(
-                titleTextP1: "La",
-                titleTextP2: "Meta",
-                urlImage: "images/DeckBuilder/deckbuilder.png",
-                navigateTo:DeckBuilderListPage(),
+              ComingSoonContainer(
+                child: WavenToolCard(
+                  titleTextP1: "La",
+                  titleTextP2: "Meta",
+                  urlImage: "images/DeckBuilder/deckbuilder.png",
+                  navigateTo:DeckBuilderListPage(),
+                ),
               ),
               WavenToolCard(
                 isSwapped: true,

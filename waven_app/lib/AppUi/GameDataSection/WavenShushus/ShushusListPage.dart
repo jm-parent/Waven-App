@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:waven_app/AppUi/CommonWidget/RoundConnerBottomSheet.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushuBottomSheetFilter/ShushuBottomSheetFilterContainer.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushuBottomSheetFilter/ShushuFilterModel.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusDetailPage.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/ShushusItems.dart';
-import 'package:waven_app/GameDataPages/GameDataCardHeroDescWidget.dart';
-import 'package:page_transition/page_transition.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
 import 'package:waven_app/models/ShushuOfflineModel.dart';
-import 'package:rubber/rubber.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
 
 class ShushusListPage extends StatefulWidget {
   List<ShushuOfflineModel> filteredShushusList;

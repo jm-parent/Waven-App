@@ -6,8 +6,8 @@ import 'package:waven_app/AppUi/DeckBuilderPages/DeckBuilderFullDeckPage.dart';
 import 'package:waven_app/AppUi/DeckBuilderSection/DeckBuilderModel.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiFellow.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiSpell.dart';
-import 'package:waven_app/util/GradientHelper.dart';
-import 'package:waven_app/util/widget_utils.dart';
+import 'package:waven_app/AppUi/Utils/GradientHelper.dart';
+import 'package:waven_app/AppUi/Utils/widget_utils.dart';
 
 class DeckBuilderFellowBarPage extends StatefulWidget {
   final DeckBuilderModel deckData;

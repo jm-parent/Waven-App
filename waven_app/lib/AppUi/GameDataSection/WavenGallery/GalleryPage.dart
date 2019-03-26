@@ -1,8 +1,4 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:transparent_image/transparent_image.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/ArtistCard.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenGallery/GalleryItems.dart';
 

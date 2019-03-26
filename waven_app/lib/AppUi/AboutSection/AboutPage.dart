@@ -1,22 +1,22 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:waven_app/GenWidgets/WavenPageWithBackground.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
-import 'package:waven_app/util/widget_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:waven_app/AppUi/ColorsHelper.dart';
+import 'package:waven_app/AppUi/CommonWidget/WavenCompanionAppBar.dart';
+import 'package:waven_app/AppUi/Utils/widget_utils.dart';
 
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Stack(children: <Widget>[
-      WavenPageWithBackground(),
-      ListView(
-        children: <Widget>[
-          buildAboutCard('', buildAppVersion(context),context),
-          buildAboutCard('Waven & Ankama', buildCopyright(context),context),
-          buildAboutCard('Support', buildAboutMe(context),context),
-        ],
-      )
-    ]);
+    return Scaffold(
+        appBar: WavenCompanionAppbar(),
+    body:ListView(
+      children: <Widget>[
+        buildAboutCard('', buildAppVersion(context),context),
+        buildAboutCard('Waven & Ankama', buildCopyright(context),context),
+        buildAboutCard('Support', buildAboutMe(context),context),
+      ],
+    ));
   }
 
   buildAboutCard(String title, Widget child,BuildContext context) {
@@ -24,7 +24,7 @@ class AboutPage extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Card(
         elevation: 8.0,
-        color: LightColor(),
+        color: mainDarkBlueD2(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -32,7 +32,7 @@ class AboutPage extends StatelessWidget {
               constraints: const BoxConstraints(minWidth: double.infinity),
               child: Container(
               decoration:  BoxDecoration(
-                color: DarkColor(),
+                color: mainYellowD2(),
                 borderRadius:
                 new BorderRadius.circular(ScreenAwareHelper.screenAwareSize(3.0, context)),
               ),
@@ -87,7 +87,7 @@ class AboutPage extends StatelessWidget {
                 new TextSpan(
                   style: Theme.of(context).textTheme.subhead,
                   text:
-                  'Waven Companion v0.1',
+                  'Waven Companion v1.0',
                 ),
               ],
             ),
@@ -113,6 +113,7 @@ class AboutPage extends StatelessWidget {
       padding: const EdgeInsets.only(top:8.0,right: 8.0,left: 25.0,bottom: 8.0),
       child: Column(
         children: <Widget>[
+
           new RichText(
             text: new TextSpan(
               children: [
@@ -128,9 +129,10 @@ class AboutPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: new RaisedButton(
-              onPressed: () => print('hello'),
+              color: mainYellowD1(),
+              onPressed: () => launch('https://play.google.com/store/apps/details?id=jmparent.wavenapp'),
               shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
-              child: new Center(child: new Text('Coming Soon...', style: new TextStyle(fontSize: 18.0, color: Colors.white),),),
+              child:  new Text('Waven Companion Store Page',style:new TextStyle(fontSize: 18.0)),
             ),
           ),
         ],

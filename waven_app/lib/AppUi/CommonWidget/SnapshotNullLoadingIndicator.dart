@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
+import 'package:waven_app/AppUi/Utils/ThemeHelper.dart';
 
 class SnapshotLoadingIndicator extends StatelessWidget {
   @override

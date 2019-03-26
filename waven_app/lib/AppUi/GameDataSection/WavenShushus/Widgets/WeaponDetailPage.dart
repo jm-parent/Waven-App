@@ -1,9 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/Widgets/WeaponDetailActifCard.dart';
 import 'package:waven_app/AppUi/GameDataSection/WavenShushus/Widgets/WeaponDetailEnterAnim.dart';
 import 'package:waven_app/AppUi/Models/ResponseWavenApiDetailledClass.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
 
 class WeaponDetailPage extends StatefulWidget {
   WeaponDetailPage(

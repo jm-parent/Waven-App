@@ -1,7 +1,6 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:waven_app/AppUi/ColorsHelper.dart';
-import 'package:waven_app/util/ThemeHelper.dart';
 
 class FluidTabItem extends StatefulWidget {
   FluidTabItem(
